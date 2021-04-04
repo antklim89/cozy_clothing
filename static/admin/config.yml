@@ -1,7 +1,10 @@
+site_url: https://cozy-clothing.netlify.app
+
 backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
 media_folder: static/img
 public_folder: /img
 
