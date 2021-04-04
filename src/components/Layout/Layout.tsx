@@ -2,8 +2,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Header } from '~/components/Header';
+import styles from './Layout.module.scss';
 import { LayoutPropTypes } from './Layout.types';
+
+import { Footer } from '~/components/Footer';
+import { Header } from '~/components/Header';
 
 
 export const Layout: FC<LayoutPropTypes> = ({
@@ -22,13 +25,11 @@ export const Layout: FC<LayoutPropTypes> = ({
                 }
             }
         }
-    `,);
-    
+    `);
 
     const metaDescription = description || site?.siteMetadata?.description;
     const defaultTitle = site?.siteMetadata?.title;
 
-    console.debug('||defaultTitle: \n', defaultTitle);
     return (
         <>
             <Helmet
@@ -71,10 +72,13 @@ export const Layout: FC<LayoutPropTypes> = ({
                 title={title}
                 titleTemplate={defaultTitle && `%s | ${defaultTitle}`}
             />
-            <Header />
-            <main>
-                {children}
-            </main>
+            <div className={styles.root}>
+                <Header />
+                <main>
+                    {children}
+                </main>
+                <Footer />
+            </div>
         </>
     );
 };

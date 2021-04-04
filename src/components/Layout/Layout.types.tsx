@@ -4,5 +4,5 @@ export interface LayoutPropTypes {
         name: string;
         content: string;
     }[];
-    title?: string;
+    title: string;
 }
