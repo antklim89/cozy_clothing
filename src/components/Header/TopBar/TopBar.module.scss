@@ -1,0 +1,10 @@
+@use '~/styles/variables.scss' as v;
+
+
+.root {
+    background: v.$bg-dark;
+
+    p {
+        color: white;
+    }
+}

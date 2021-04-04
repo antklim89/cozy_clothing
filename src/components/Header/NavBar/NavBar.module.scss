@@ -1,0 +1,45 @@
+@use '~/styles/variables.scss' as v;
+
+
+.root {
+    background: v.$bg-primary;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    height: v.$app-bar-height;
+
+    @include v.media-sm {
+        width: 100%;
+        margin:0 0 0  0.5rem;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__link {
+        font-family: 'Lato', sans-serif;
+        display: flex;
+        align-items: center;
+        height: v.$app-bar-height;
+        padding: 0 1rem !important;
+        transition: 200ms;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: v.$font-primary;
+
+    
+        &:hover {
+            background: v.$bg-secondary;
+        }
+        
+        @include v.media-sm {
+            padding: 0 0.2rem !important;
+        }
+    }
+}

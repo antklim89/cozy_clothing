@@ -1,0 +1,38 @@
+$primary: #c33c33;
+$secondary: #ffffff;
+
+$bg-primary: #fdfdfd;
+$bg-secondary: #bcbcbc;
+$bg-dark: #010101;
+
+$font-primary: #010101;
+$font-secondary: #fcfcfc;
+
+$app-bar-height: 60px;
+
+
+$xs: 0px;
+$sm: 600px;
+$md: 960px;
+$lg: 1280px;
+$xl: 1920px;
+
+@mixin media-sx {
+    @media screen and (max-width: $xs) { @content; }
+}
+
+@mixin media-sm {
+    @media screen and (max-width: $sm) { @content; }
+}
+
+@mixin media-md {
+    @media screen and (max-width: $md) { @content; }
+}
+
+@mixin media-lg {
+    @media screen and (max-width: $lg) { @content; }
+}
+
+@mixin media-xl {
+    @media screen and (max-width: $xl) { @content; }
+}
