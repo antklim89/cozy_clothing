@@ -25,6 +25,7 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Price', name: 'price', widget: 'number' }
+      - { label: 'Category', name: 'category', widget: 'relation', collection: 'category', search_fields: ['name'], value_field: 'name', display_fields: ['name'] }
 
   - name: 'category'
     label: 'Category'
