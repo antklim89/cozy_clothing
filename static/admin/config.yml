@@ -1,14 +1,14 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: main
 
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'product'
+    label: 'Product'
+    folder: 'content/product'
     create: true
     slug: 'index'
     media_folder: ''
@@ -17,7 +17,21 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Name', name: 'Name', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Price', name: 'price', widget: 'number' }
+
+  - name: 'category'
+    label: 'Category'
+    folder: 'content/category'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
