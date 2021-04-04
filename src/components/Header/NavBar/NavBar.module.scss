@@ -17,12 +17,18 @@
     }
 }
 
+
+
 .nav {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 
-    &__link {
+    .link.active {
+        color: v.$primary
+    }
+
+    .link {
         font-family: 'Lato', sans-serif;
         display: flex;
         align-items: center;
@@ -33,7 +39,7 @@
         text-transform: uppercase;
         color: v.$font-primary;
 
-    
+
         &:hover {
             background: v.$bg-secondary;
         }

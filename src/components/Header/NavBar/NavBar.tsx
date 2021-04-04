@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-
 import style from './NavBar.module.scss';
 
 
@@ -11,37 +10,39 @@ export const NavBar = () => {
             <nav className="container">
                 <ul className={style.nav}>
                     <li className={style.logo}>
-                        <StaticImage
-                            alt="logo"
-                            formats={['webp']}
-                            layout="fixed"
-                            placeholder="blurred"
-                            src="./logo.png"
-                            width={100}
-                        />
+                        <Link to="/">
+                            <StaticImage
+                                alt="logo"
+                                formats={['webp']}
+                                layout="fixed"
+                                placeholder="blurred"
+                                src="./logo.png"
+                                width={100}
+                            />
+                        </Link>
                     </li>
                     <li>
-                        <Link className={style.nav__link} to="/">
+                        <Link activeClassName={style.active} className={style.link} to="/">
                             home
                         </Link>
                     </li>
                     <li>
-                        <Link className={style.nav__link} to="/men">
+                        <Link activeClassName={style.active} className={style.link} to="/men">
                             men
                         </Link>
                     </li>
                     <li>
-                        <Link className={style.nav__link} to="/women">
+                        <Link activeClassName={style.active} className={style.link} to="/women">
                             women
                         </Link>
                     </li>
                     <li>
-                        <Link className={style.nav__link} to="/children">
+                        <Link activeClassName={style.active} className={style.link} to="/children">
                             children
                         </Link>
                     </li>
                     <li>
-                        <Link className={style.nav__link} to="/about">
+                        <Link activeClassName={style.active} className={style.link} to="/about">
                             about
                         </Link>
                     </li>
