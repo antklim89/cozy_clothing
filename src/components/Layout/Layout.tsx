@@ -14,7 +14,7 @@ export const Layout: FC<LayoutPropTypes> = ({
     meta = [],
     title = 'Page',
     children,
-    container = false,
+    container = true,
 }) => {
     const { site } = useStaticQuery<GatsbyTypes.LayoutQuery>(graphql` 
         query Layout {
