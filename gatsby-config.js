@@ -1,12 +1,12 @@
 module.exports = {
     siteMetadata: {
         title: 'Cozy Clothing',
-        description: `A small online clothing store created for training web development.`,
+        description: 'A small online clothing store created for training web development.',
         author: 'Anton',
     },
     plugins: [
         'gatsby-plugin-netlify',
-        `gatsby-plugin-typegen`,
+        'gatsby-plugin-typegen',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         'gatsby-transformer-sharp',
@@ -26,6 +26,13 @@ module.exports = {
             options: {
                 name: 'assets',
                 path: `${__dirname}/src/assets`,
+            },
+        },
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'content',
+                path: `${__dirname}/content`,
             },
         },
         {
