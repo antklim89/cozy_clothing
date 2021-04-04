@@ -26,6 +26,10 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Price', name: 'price', widget: 'number' }
       - { label: 'Category', name: 'category', widget: 'relation', collection: 'category', search_fields: ['name'], value_field: 'name', display_fields: ['name'] }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options: ["men", "women", "children"]
 
   - name: 'category'
     label: 'Category'
