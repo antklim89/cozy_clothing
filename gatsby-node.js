@@ -1,10 +1,7 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const fs = require('fs');
+const path = require('path');
 
-// You can delete this file if you're not using it
+// const { createFilePath } = require('gatsby-source-filesystem');
 
 
 exports.onCreateBabelConfig = ({ actions }) => {
@@ -13,5 +10,41 @@ exports.onCreateBabelConfig = ({ actions }) => {
         options: {
             runtime: 'automatic',
         },
+    });
+};
+
+
+// exports.onCreateNode = ({ node, getNode, actions }) => {
+//     if (node.internal.type === 'Directory') {
+//         // console.debug('||node: \n', node);
+
+//         const value = createFilePath({ node, getNode });
+//         console.debug('||path: \n', node.name, value);
+//         actions.createNodeField({
+//             node,
+//             name: 'path',
+//             value,
+//         });
+//     }
+// };
+
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+    const component = path.resolve('src/pages/index.tsx');
+    // const { data } = await graphql(`
+    //     query MyQuery {
+    //         directory(name: {eq: "product"}) {
+    //             name
+    //             absolutePath
+    //         }
+    //     }
+    // `);
+
+    // console.debug('||data: \n', JSON.stringify(data, null, 4));
+    // const types = fs.readdirSync(data.directory.absolutePath);
+    // console.log(types);
+    createPage({
+        path: 'men',
+        component,
+        context: { foo: 'bar' },
     });
 };

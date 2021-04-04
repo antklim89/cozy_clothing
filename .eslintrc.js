@@ -52,7 +52,7 @@ module.exports = {
         'no-useless-constructor': 0,
         'no-multiple-empty-lines': [1, { max: 2 }],
         'arrow-body-style': 0,
-        // 'no-unused-expressions': 0,
+        'no-unused-vars': 0,
         indent: [1, 4],
         'no-debugger': 0,
         'no-console': 0,
