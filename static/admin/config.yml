@@ -16,11 +16,11 @@ collections:
     slug: 'index'
     media_folder: ''
     public_folder: ''
-    path: '{{title}}/index'
+    path: '{{name}}/index'
     editor:
       preview: true
     fields:
-      - { label: 'Name', name: 'Name', widget: 'string' }
+      - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
@@ -33,7 +33,7 @@ collections:
     slug: 'index'
     media_folder: ''
     public_folder: ''
-    path: '{{title}}/index'
+    path: '{{name}}/index'
     editor:
       preview: true
     fields:
