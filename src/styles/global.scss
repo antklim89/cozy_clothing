@@ -27,3 +27,30 @@
     max-width: v.$md;
     margin: 0 auto;
 }
+
+body {
+    font-family: 'Roboto', Geneva, Verdana, sans-serif;
+}
+h1 {
+    font-family: 'Lato', Geneva, Verdana, sans-serif;
+    font-size: 2.5em;
+}
+h2 {
+    font-size: 2.25em;
+}
+h3 {
+    font-size: 2em;
+}
+h4 {
+    font-size: 1.75em;
+}
+h5 {
+    font-size: 1.5em;
+}
+h6 {
+    font-size: 1.25em;
+}
+
+p {
+    padding: 0.2em 0;
+}

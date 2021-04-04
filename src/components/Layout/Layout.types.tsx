@@ -5,4 +5,5 @@ export interface LayoutPropTypes {
         content: string;
     }[];
     title: string;
+    container?: boolean
 }
