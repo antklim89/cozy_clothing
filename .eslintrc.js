@@ -46,9 +46,11 @@ module.exports = {
         'react/react-in-jsx-scope': 0,
 
         '@typescript-eslint/no-shadow': 2,
+        // '@typescript-eslint/no-undef': 2,
         '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '^_' }],
         '@typescript-eslint/no-empty-interface': 0,
 
+        'no-undef': 1,
         'no-useless-constructor': 0,
         'no-multiple-empty-lines': [1, { max: 2 }],
         'arrow-body-style': 0,
