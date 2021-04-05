@@ -39,7 +39,7 @@ collections:
               - label: 'Description'
                 name: 'description'
                 widget: 'string'
-                
+
 # Products collection
   - name: 'product'
     label: 'Product'
@@ -67,13 +67,6 @@ collections:
       - label: 'Price'
         name: 'price'
         widget: 'number'
-      - label: 'Category'
-        name: 'category'
-        widget: 'relation'
-        collection: 'category'
-        search_fields: ['name']
-        value_field: 'name'
-        display_fields: ['name']
       - label: "Type"
         name: "type"
         widget: "select"
@@ -87,16 +80,16 @@ collections:
 # ===========================================
 
 # Category of Products
-  - name: 'category'
-    label: 'Category'
-    folder: 'content/category'
-    create: true
-    slug: '{{name}}'
-    path: '{{name}}'
-    editor:
-      preview: true
-    fields:
-      - label: 'Name'
-        name: 'name'
-        widget: 'string'
+  # - name: 'category'
+  #   label: 'Category'
+  #   folder: 'content/category'
+  #   create: true
+  #   slug: '{{name}}'
+  #   path: '{{name}}'
+  #   editor:
+  #     preview: true
+  #   fields:
+  #     - label: 'Name'
+  #       name: 'name'
+  #       widget: 'string'
 # ===========================================
