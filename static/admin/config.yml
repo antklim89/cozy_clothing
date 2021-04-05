@@ -12,26 +12,26 @@ collections:
   - label: 'Data'
     name: 'data'
     files:
-      - file: 'content/catalog/catalog.md',
-        label: 'Catalog',
-        name: 'catalog',
+      - file: 'content/catalog/catalog.md'
+        label: 'Catalog'
+        name: 'catalog'
         allow_add: true
         fields:
-        - label: 'Group',
-          name: 'group',
-          widget: 'list',
-          allow_add: true,
+        - label: 'Group'
+          name: 'group'
+          widget: 'list'
+          allow_add: true
           fields: [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Description', name: 'description', widget: 'string' },
+              { label: 'Name', name: 'name', widget: 'string' }
+              { label: 'Description', name: 'description', widget: 'string' }
           ]
-        - label: 'Category',
-          name: 'category',
-          widget: 'list',
-          allow_add: true,
+        - label: 'Category'
+          name: 'category'
+          widget: 'list'
+          allow_add: true
           fields: [
               { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Description', name: 'description', widget: 'string' },
+              { label: 'Description', name: 'description', widget: 'string' }
           ]
 
 # Products collection
@@ -72,12 +72,12 @@ collections:
         name: "type"
         widget: "select"
         options: ["men", "women", "children"]
-      - label: 'Category',
-        name: 'category',
-        widget: 'relation',
-        collection: 'catalog',
-        search_fields: ['category.*.name'],
-        value_field: 'category.*.name',
+      - label: 'Category'
+        name: 'category'
+        widget: 'relation'
+        collection: 'catalog'
+        search_fields: ['category.*.name']
+        value_field: 'category.*.name'
 # ===========================================
 
 # Category of Products
