@@ -11,7 +11,22 @@ module.exports = {
         'gatsby-plugin-image',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
-        'gatsby-plugin-netlify-cms',
+        {
+            resolve: 'gatsby-plugin-netlify-cms',
+            options: {
+                enableIdentityWidget: true,
+            },
+        },
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                commonmark: true,
+                footnotes: true,
+                pedantic: true,
+                gfm: true,
+                plugins: [],
+            },
+        },
         {
             resolve: 'gatsby-plugin-sass',
             options: {

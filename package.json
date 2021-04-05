@@ -1,5 +1,5 @@
 {
-  "name": "cozy_lothing",
+  "name": "cozy_clothing",
   "private": true,
   "description": "A small online clothing store created for training web development.",
   "version": "0.1.0",
@@ -17,6 +17,7 @@
     "gatsby-plugin-sharp": "^3.2.0",
     "gatsby-plugin-typegen": "^2.2.4",
     "gatsby-source-filesystem": "^3.1.0",
+    "gatsby-transformer-remark": "^3.2.0",
     "gatsby-transformer-sharp": "^3.2.0",
     "netlify-cms-app": "^2.14.35",
     "react": "^17.0.1",

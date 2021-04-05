@@ -4,6 +4,8 @@ backend:
   name: git-gateway
   branch: main
 
+local_backend: true
+
 publish_mode: editorial_workflow
 media_folder: static/img
 public_folder: /img
@@ -17,8 +19,8 @@ collections:
         name: 'catalog'
         allow_add: true
         fields:
-        - label: 'Group'
-          name: 'group'
+        - label: 'Groups'
+          name: 'groups'
           widget: 'list'
           allow_add: true
           fields:
@@ -28,8 +30,8 @@ collections:
               - label: 'Description'
                 name: 'description'
                 widget: 'string'
-        - label: 'Category'
-          name: 'category'
+        - label: 'Categories'
+          name: 'categories'
           widget: 'list'
           allow_add: true
           fields:
@@ -71,12 +73,12 @@ collections:
         name: 'category'
         widget: 'relation'
         collection: 'data'
-        search_fields: ['category.*.name']
-        value_field: 'category.*.name'
+        search_fields: ['categories.*.name']
+        value_field: 'categories.*.name'
       - label: 'Group'
         name: 'group'
         widget: 'relation'
         collection: 'data'
-        search_fields: ['group.*.name']
-        value_field: 'group.*.name'
+        search_fields: ['groups.*.name']
+        value_field: 'groups.*.name'
 # ===========================================
