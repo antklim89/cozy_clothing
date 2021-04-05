@@ -21,19 +21,25 @@ collections:
           name: 'group'
           widget: 'list'
           allow_add: true
-          fields: [
-              { label: 'Name', name: 'name', widget: 'string' }
-              { label: 'Description', name: 'description', widget: 'string' }
-          ]
+          fields:
+              - label: 'Name'
+                name: 'name'
+                widget: 'string'
+              - label: 'Description'
+                name: 'description'
+                widget: 'string'
         - label: 'Category'
           name: 'category'
           widget: 'list'
           allow_add: true
-          fields: [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Description', name: 'description', widget: 'string' }
-          ]
-
+          fields:
+              - label: 'Name'
+                name: 'name'
+                widget: 'string'
+              - label: 'Description'
+                name: 'description'
+                widget: 'string'
+                
 # Products collection
   - name: 'product'
     label: 'Product'
