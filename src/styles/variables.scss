@@ -36,3 +36,7 @@ $xl: 1920px;
 @mixin media-xl {
     @media screen and (max-width: $xl) { @content; }
 }
+
+@mixin shadow {
+    box-shadow: 0px 0px 10px black;
+}

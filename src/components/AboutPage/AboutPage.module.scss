@@ -1,0 +1,14 @@
+@use '~/styles/variables.scss' as v;
+
+
+.root {
+    border-radius: 0.2rem;
+    @include v.shadow;
+    padding: 1rem;
+
+    h1 {
+        font-family: 'Lato', sans-serif;
+        margin-bottom: 2rem;
+    }
+}
+

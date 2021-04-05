@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { FC } from 'react';
 
 import style from './Button.module.scss';

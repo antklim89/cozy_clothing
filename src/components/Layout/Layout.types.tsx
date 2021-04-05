@@ -1,3 +1,6 @@
+import { HTMLAttributes } from 'react';
+
+
 export interface LayoutPropTypes {
     description?: string;
     meta?: {
@@ -6,4 +9,5 @@ export interface LayoutPropTypes {
     }[];
     title: string;
     container?: boolean
+    className?: string
 }

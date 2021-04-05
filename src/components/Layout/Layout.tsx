@@ -2,11 +2,12 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 
+import { Footer } from './Footer';
+import { Header } from './Header';
 import styles from './Layout.module.scss';
 import { LayoutPropTypes } from './Layout.types';
 
-import { Footer } from '~/components/Footer';
-import { Header } from '~/components/Header';
+import { cls } from '~/utils';
 
 
 export const Layout: FC<LayoutPropTypes> = ({
@@ -15,6 +16,7 @@ export const Layout: FC<LayoutPropTypes> = ({
     title = 'Page',
     children,
     container = true,
+    className,
 }) => {
     const { site } = useStaticQuery<GatsbyTypes.LayoutQuery>(graphql` 
         query Layout {
@@ -75,7 +77,7 @@ export const Layout: FC<LayoutPropTypes> = ({
             />
             <div className={styles.root}>
                 <Header />
-                <main className={container ? 'container' : undefined}>
+                <main className={cls(container && 'container', className)}>
                     {children}
                 </main>
                 <Footer />
