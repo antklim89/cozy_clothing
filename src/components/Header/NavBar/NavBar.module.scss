@@ -23,29 +23,29 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+}
 
-    .link.active {
+.link {
+
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    align-items: center;
+    height: v.$app-bar-height;
+    padding: 0 1rem !important;
+    transition: 200ms;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: v.$font-primary;
+
+    &.active {
         color: v.$primary
     }
-
-    .link {
-        font-family: 'Lato', sans-serif;
-        display: flex;
-        align-items: center;
-        height: v.$app-bar-height;
-        padding: 0 1rem !important;
-        transition: 200ms;
-        text-decoration: none;
-        text-transform: uppercase;
-        color: v.$font-primary;
-
-
-        &:hover {
-            background: v.$bg-secondary;
-        }
-        
-        @include v.media-sm {
-            padding: 0 0.2rem !important;
-        }
+    
+    &:hover {
+        background: v.$bg-secondary;
+    }
+    
+    @include v.media-sm {
+        padding: 0 0.2rem !important;
     }
 }
