@@ -74,9 +74,9 @@ collections:
       - label: 'Category'
         name: 'category'
         widget: 'relation'
-        collection: 'catalog'
-        search_fields: ['category.*.name']
-        value_field: 'category.*.name'
+        collection: 'data'
+        search_fields: ['list.*.name']
+        value_field: 'list.*.name'
 # ===========================================
 
 # Category of Products
