@@ -1,12 +1,16 @@
 import { AboutPage } from '~/components';
-import { Layout } from '~/components/Layout/Layout';
+import { Seo } from '~/components/Seo';
 
 
-export default () => {
+const about = () => {
     return (
-        <Layout container title="About">
+        <main>
+            <Seo
+                title="About Shop"
+            />
             <AboutPage />
-        </Layout>
+        </main>
     );
 };
 
+export default about;

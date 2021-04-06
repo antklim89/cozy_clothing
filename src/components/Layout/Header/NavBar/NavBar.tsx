@@ -17,7 +17,6 @@ export const NavBar = () => {
                                 layout="fixed"
                                 placeholder="blurred"
                                 src="./logo.png"
-                                width={100}
                             />
                         </Link>
                     </li>

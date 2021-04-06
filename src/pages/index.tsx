@@ -1,14 +1,15 @@
-// import { Link } from 'gatsby';
-
-import { Layout } from '~/components/Layout/Layout';
+import { Seo } from '~/components/Seo';
 
 
-const IndexPage = () => {
+const index = () => {
     return (
-        <Layout title="Home">
+        <main>
+            <Seo
+                title="Home"
+            />
             <div>HOME PAGE</div>
-        </Layout>
+        </main>
     );
 };
 
-export default IndexPage;
+export default index;

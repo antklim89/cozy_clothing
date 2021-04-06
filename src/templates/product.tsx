@@ -1,21 +1,20 @@
-// import { Link } from 'gatsby';
-
 import { Page } from 'gatsby';
 import { FC } from 'react';
 
-import { Layout } from '~/components/Layout/Layout';
+import { Seo } from '~/components/Seo';
 
 
-const Prodyuct: FC<Page> = ({ path }) => {
+const product: FC<Page> = ({ path }) => {
     return (
-        <Layout title="Page">
-            <div>
-                Page
-                {' '}
-                {path}
-            </div>
-        </Layout>
+        <main>
+            <Seo
+                title="Home"
+            />
+            Page
+            {' '}
+            {path}
+        </main>
     );
 };
 
-export default Prodyuct;
+export default product;
