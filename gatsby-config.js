@@ -21,6 +21,8 @@ module.exports = {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {
                 enableIdentityWidget: true,
+                manualInit: true,
+                modulePath: `${__dirname}/src/cms/cms.ts`,
             },
         },
         {
