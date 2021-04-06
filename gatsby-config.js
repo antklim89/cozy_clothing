@@ -6,11 +6,17 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-netlify',
-        'gatsby-plugin-typegen',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        'gatsby-plugin-typescript-checker',
+        {
+            resolve: 'gatsby-plugin-typegen',
+            options: {
+                outputPath: 'src/gatsby-types.d.ts',
+            },
+        },
         {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {

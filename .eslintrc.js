@@ -50,7 +50,8 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '^_' }],
         '@typescript-eslint/no-empty-interface': 0,
 
-        'no-undef': 1,
+        'no-shadow': 0,
+        'no-undef': 0,
         'no-useless-constructor': 0,
         'no-multiple-empty-lines': [1, { max: 2 }],
         'arrow-body-style': 0,

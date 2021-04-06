@@ -693,6 +693,7 @@ type SitePluginPluginOptions = {
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
   readonly defaultQuality: Maybe<Scalars['Int']>;
   readonly failOnError: Maybe<Scalars['Boolean']>;
+  readonly outputPath: Maybe<Scalars['String']>;
   readonly enableIdentityWidget: Maybe<Scalars['Boolean']>;
   readonly commonmark: Maybe<Scalars['Boolean']>;
   readonly footnotes: Maybe<Scalars['Boolean']>;
@@ -2109,6 +2110,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
   readonly failOnError: Maybe<BooleanQueryOperatorInput>;
+  readonly outputPath: Maybe<StringQueryOperatorInput>;
   readonly enableIdentityWidget: Maybe<BooleanQueryOperatorInput>;
   readonly commonmark: Maybe<BooleanQueryOperatorInput>;
   readonly footnotes: Maybe<BooleanQueryOperatorInput>;
@@ -2354,6 +2356,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.stripMetadata'
   | 'pluginCreator.pluginOptions.defaultQuality'
   | 'pluginCreator.pluginOptions.failOnError'
+  | 'pluginCreator.pluginOptions.outputPath'
   | 'pluginCreator.pluginOptions.enableIdentityWidget'
   | 'pluginCreator.pluginOptions.commonmark'
   | 'pluginCreator.pluginOptions.footnotes'
@@ -3010,6 +3013,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.stripMetadata'
   | 'pluginOptions.defaultQuality'
   | 'pluginOptions.failOnError'
+  | 'pluginOptions.outputPath'
   | 'pluginOptions.enableIdentityWidget'
   | 'pluginOptions.commonmark'
   | 'pluginOptions.footnotes'
@@ -3070,6 +3074,11 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type LayoutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type LayoutQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -3100,10 +3109,5 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
-type LayoutQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type LayoutQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 }

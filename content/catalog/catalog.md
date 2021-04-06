@@ -11,4 +11,6 @@ categories:
     description: XXX
   - name: Dress
     description: XXX
+  - name: Sweetshot
+    description: YYY
 ---

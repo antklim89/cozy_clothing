@@ -1,10 +1,11 @@
-site_url: https://cozy-clothing.netlify.app
+site_url: 'https://cozy-clothing.netlify.app'
 
 backend:
   name: git-gateway
   branch: main
 
-local_backend: true
+local_backend:
+  allowed_hosts: ['192.168.0.123']
 
 publish_mode: editorial_workflow
 media_folder: static/img
