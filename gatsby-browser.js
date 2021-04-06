@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-filename-extension */
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -8,3 +10,9 @@
 
 import '~/styles/reset.scss';
 import '~/styles/global.scss';
+// import { Layout } from '~/components';
+
+
+// export const wrapPageElement = ({ element, props }) => {
+//     return <Layout {...props}>{element}</Layout>;
+// };
