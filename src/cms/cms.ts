@@ -19,13 +19,37 @@ CMS.init({
         public_folder: '/img',
         collections: [
             {
+                label: 'Pages',
+                name: 'pages',
+                files: [
+                    {
+                        label: 'About',
+                        name: 'about',
+                        file: 'content/about.md',
+                        fields: [
+                            {
+                                label: 'Title',
+                                name: 'title',
+                                widget: 'string',
+                                default: 'About Shop',
+                            },
+                            {
+                                label: 'Body',
+                                name: 'body',
+                                widget: 'markdown',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
                 label: 'Data',
                 name: 'data',
                 files: [
                     {
                         label: 'Categories',
                         name: 'categories',
-                        file: 'content/categories.json',
+                        file: 'content/categories.md',
                         fields: [
                             {
                                 label: 'Categories',
@@ -50,7 +74,7 @@ CMS.init({
                     {
                         label: 'Subcategories',
                         name: 'subcategories',
-                        file: 'content/subcategories.json',
+                        file: 'content/subcategories.md',
                         fields: [
                             {
                                 label: 'Subcategories',

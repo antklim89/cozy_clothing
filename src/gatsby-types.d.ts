@@ -627,6 +627,7 @@ type MarkdownRemark_tableOfContentsArgs = {
 
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
+  readonly categories: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterCategories>>>;
   readonly subcategories: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterSubcategories>>>;
   readonly name: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
@@ -634,7 +635,6 @@ type MarkdownRemarkFrontmatter = {
   readonly description: Maybe<Scalars['String']>;
   readonly category: Maybe<Scalars['String']>;
   readonly subcategory: Maybe<Scalars['String']>;
-  readonly categories: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterCategories>>>;
 };
 
 
@@ -645,11 +645,11 @@ type MarkdownRemarkFrontmatter_dateArgs = {
   locale: Maybe<Scalars['String']>;
 };
 
-type MarkdownRemarkFrontmatterSubcategories = {
+type MarkdownRemarkFrontmatterCategories = {
   readonly name: Maybe<Scalars['String']>;
 };
 
-type MarkdownRemarkFrontmatterCategories = {
+type MarkdownRemarkFrontmatterSubcategories = {
   readonly name: Maybe<Scalars['String']>;
 };
 
@@ -1183,6 +1183,7 @@ type MarkdownRemarkFilterInput = {
 
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly categories: Maybe<MarkdownRemarkFrontmatterCategoriesFilterListInput>;
   readonly subcategories: Maybe<MarkdownRemarkFrontmatterSubcategoriesFilterListInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
@@ -1190,15 +1191,6 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly description: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
   readonly subcategory: Maybe<StringQueryOperatorInput>;
-  readonly categories: Maybe<MarkdownRemarkFrontmatterCategoriesFilterListInput>;
-};
-
-type MarkdownRemarkFrontmatterSubcategoriesFilterListInput = {
-  readonly elemMatch: Maybe<MarkdownRemarkFrontmatterSubcategoriesFilterInput>;
-};
-
-type MarkdownRemarkFrontmatterSubcategoriesFilterInput = {
-  readonly name: Maybe<StringQueryOperatorInput>;
 };
 
 type MarkdownRemarkFrontmatterCategoriesFilterListInput = {
@@ -1206,6 +1198,14 @@ type MarkdownRemarkFrontmatterCategoriesFilterListInput = {
 };
 
 type MarkdownRemarkFrontmatterCategoriesFilterInput = {
+  readonly name: Maybe<StringQueryOperatorInput>;
+};
+
+type MarkdownRemarkFrontmatterSubcategoriesFilterListInput = {
+  readonly elemMatch: Maybe<MarkdownRemarkFrontmatterSubcategoriesFilterInput>;
+};
+
+type MarkdownRemarkFrontmatterSubcategoriesFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
 };
 
@@ -1441,6 +1441,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
+  | 'childrenMarkdownRemark.frontmatter.categories'
+  | 'childrenMarkdownRemark.frontmatter.categories.name'
   | 'childrenMarkdownRemark.frontmatter.subcategories'
   | 'childrenMarkdownRemark.frontmatter.subcategories.name'
   | 'childrenMarkdownRemark.frontmatter.name'
@@ -1449,8 +1451,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.description'
   | 'childrenMarkdownRemark.frontmatter.category'
   | 'childrenMarkdownRemark.frontmatter.subcategory'
-  | 'childrenMarkdownRemark.frontmatter.categories'
-  | 'childrenMarkdownRemark.frontmatter.categories.name'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -1505,6 +1505,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
+  | 'childMarkdownRemark.frontmatter.categories'
+  | 'childMarkdownRemark.frontmatter.categories.name'
   | 'childMarkdownRemark.frontmatter.subcategories'
   | 'childMarkdownRemark.frontmatter.subcategories.name'
   | 'childMarkdownRemark.frontmatter.name'
@@ -1513,8 +1515,6 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.description'
   | 'childMarkdownRemark.frontmatter.category'
   | 'childMarkdownRemark.frontmatter.subcategory'
-  | 'childMarkdownRemark.frontmatter.categories'
-  | 'childMarkdownRemark.frontmatter.categories.name'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -2620,6 +2620,8 @@ type MarkdownRemarkEdge = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
+  | 'frontmatter.categories'
+  | 'frontmatter.categories.name'
   | 'frontmatter.subcategories'
   | 'frontmatter.subcategories.name'
   | 'frontmatter.name'
@@ -2628,8 +2630,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.description'
   | 'frontmatter.category'
   | 'frontmatter.subcategory'
-  | 'frontmatter.categories'
-  | 'frontmatter.categories.name'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -3066,6 +3066,14 @@ type SitePluginSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<SitePluginFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
+
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
+      Pick<MarkdownRemark, 'html'>
+      & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
+    )> }> };
 
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
