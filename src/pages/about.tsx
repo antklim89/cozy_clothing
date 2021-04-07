@@ -1,4 +1,4 @@
-import { graphql, PageProps, useStaticQuery } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import { AboutPage } from '~/components';
@@ -13,21 +13,24 @@ const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data: { file } }) =>
             />
             <AboutPage
                 body={file?.remark?.rawMarkdownBody || ''}
-                title={file?.remark?.frontmatter?.title || 'Loadin...'}
+                image={file?.remark?.frontmatter?.image || ''}
+                title={file?.remark?.frontmatter?.title || 'Loading...'}
             />
         </main>
     );
 };
 
-export default about;
 export const query = graphql`
-  query AboutPage {
-    file(name: {eq: "about"}) {
-      remark: childMarkdownRemark {
-        frontmatter {
-          title
+    query AboutPage {
+        file(name: {eq: "about"}) {
+            remark: childMarkdownRemark {
+                frontmatter {
+                title
+                image
+            }
+            rawMarkdownBody
         }
-        rawMarkdownBody
-      }
     }
-  }`;
+}`;
+
+export default about;

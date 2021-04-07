@@ -38,6 +38,12 @@ CMS.init({
                                 name: 'body',
                                 widget: 'markdown',
                             },
+                            {
+                                label: 'Image',
+                                name: 'image',
+                                widget: 'image',
+
+                            },
                         ],
                     },
                 ],

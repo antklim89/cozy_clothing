@@ -38,7 +38,7 @@ module.exports = {
         'react/jsx-sort-props': [1, { callbacksLast: true, shorthandFirst: true }],
         'react/jsx-max-props-per-line': [1, { maximum: 3 }],
         'react/prop-types': 0,
-        // 'react/jsx-props-no-spreading': 0,
+        'react/jsx-props-no-spreading': 0,
         'react/jsx-indent': [1, 4],
         'react/jsx-indent-props': [1, 4],
         'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],

@@ -1,8 +1,7 @@
 ---
 title: About Shop
+image: /img/a_6.jpg
 ---
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores debitis inventore similique incidunt! Quidem dignissimos velit eum, est vitae illo, quam eveniet minima at, laudantium debitis deserunt totam aperiam officiis id quae? Libero deserunt reprehenderit voluptas repudiandae,culpa eaque, error eveniet alias cum nemo nisi consequuntur quas, saepe quae molestiae.
-
-
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores debitis inventore similique incidunt! Quidem dignissimos velit eum, est vitae illo, quam eveniet minima at, laudantium debitis deserunt totam aperiam officiis id quae? Libero deserunt reprehenderit voluptas repudiandae,culpa eaque, error eveniet alias cum nemo nisi consequuntur quas, saepe quae molestiae.
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
