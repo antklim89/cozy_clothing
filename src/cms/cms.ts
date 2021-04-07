@@ -19,13 +19,13 @@ CMS.init({
         public_folder: '/img',
         collections: [
             {
-                label: 'DataXXX',
+                label: 'Data',
                 name: 'data',
                 files: [
                     {
                         label: 'Categories',
                         name: 'categories',
-                        file: 'content/catalog.md',
+                        file: 'content/categories.json',
                         fields: [
                             {
                                 label: 'Categories',
@@ -50,7 +50,7 @@ CMS.init({
                     {
                         label: 'Subcategories',
                         name: 'subcategories',
-                        file: 'content/subcategories.md',
+                        file: 'content/subcategories.json',
                         fields: [
                             {
                                 label: 'Subcategories',
@@ -122,8 +122,8 @@ CMS.init({
                         value_field: 'categories.*.name',
                     },
                     {
-                        label: 'Subcategories',
-                        name: 'subcategories',
+                        label: 'Subcategory',
+                        name: 'subcategory',
                         widget: 'relation',
                         collection: 'data',
                         search_fields: ['subcategories.*.name'],
