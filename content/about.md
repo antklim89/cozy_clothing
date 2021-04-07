@@ -16,7 +16,7 @@ choose_us:
     image: /img/4206.jpg
   - text: It is a long established fact that a reader will be distracted by the
       readable content of a page when looking at its layout.
-    title: BEST PRODUCT
+    title: BEST PRODUCT2
     image: /img/a_1.jpg
 ---
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.

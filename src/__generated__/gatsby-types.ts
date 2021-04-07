@@ -3456,17 +3456,6 @@ type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
-type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
-      Pick<MarkdownRemark, 'rawMarkdownBody'>
-      & { readonly frontmatter: Maybe<(
-        Pick<MarkdownRemarkFrontmatter, 'title' | 'image'>
-        & { readonly chooseUs: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterChoose_us, 'title' | 'text' | 'image'>>>> }
-      )> }
-    )> }> };
-
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -3492,6 +3481,17 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
+      Pick<MarkdownRemark, 'rawMarkdownBody'>
+      & { readonly frontmatter: Maybe<(
+        Pick<MarkdownRemarkFrontmatter, 'title' | 'image'>
+        & { readonly chooseUs: Maybe<ReadonlyArray<Maybe<Pick<MarkdownRemarkFrontmatterChoose_us, 'title' | 'text' | 'image'>>>> }
+      )> }
+    )> }> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
