@@ -6,25 +6,13 @@ import { Seo } from '~/components/Seo';
 
 
 const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data: { file } }) => {
-//     const { file } = useStaticQuery<GatsbyTypes.AboutPageQuery>(graphql`
-//     query About {
-//         file(name: {eq: "about"}) {
-//             remark: childMarkdownRemark {
-//                 frontmatter {
-//                     title
-//                 }
-//                 html
-//             }
-//         }
-//     }
-// `);
     return (
         <main>
             <Seo
                 title="About Shop"
             />
             <AboutPage
-                html={file?.remark?.html || ''}
+                body={file?.remark?.rawMarkdownBody || ''}
                 title={file?.remark?.frontmatter?.title || 'Loadin...'}
             />
         </main>
@@ -39,7 +27,7 @@ export const query = graphql`
         frontmatter {
           title
         }
-        html
+        rawMarkdownBody
       }
     }
   }`;

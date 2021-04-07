@@ -3072,7 +3072,7 @@ type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
-      Pick<MarkdownRemark, 'html'>
+      Pick<MarkdownRemark, 'rawMarkdownBody'>
       & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
     )> }> };
 
