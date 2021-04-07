@@ -690,7 +690,6 @@ type SitePluginPluginOptions = {
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
   readonly defaultQuality: Maybe<Scalars['Int']>;
   readonly failOnError: Maybe<Scalars['Boolean']>;
-  readonly outputPath: Maybe<Scalars['String']>;
   readonly enableIdentityWidget: Maybe<Scalars['Boolean']>;
   readonly manualInit: Maybe<Scalars['Boolean']>;
   readonly modulePath: Maybe<Scalars['String']>;
@@ -2100,7 +2099,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
   readonly failOnError: Maybe<BooleanQueryOperatorInput>;
-  readonly outputPath: Maybe<StringQueryOperatorInput>;
   readonly enableIdentityWidget: Maybe<BooleanQueryOperatorInput>;
   readonly manualInit: Maybe<BooleanQueryOperatorInput>;
   readonly modulePath: Maybe<StringQueryOperatorInput>;
@@ -2348,7 +2346,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.stripMetadata'
   | 'pluginCreator.pluginOptions.defaultQuality'
   | 'pluginCreator.pluginOptions.failOnError'
-  | 'pluginCreator.pluginOptions.outputPath'
   | 'pluginCreator.pluginOptions.enableIdentityWidget'
   | 'pluginCreator.pluginOptions.manualInit'
   | 'pluginCreator.pluginOptions.modulePath'
@@ -3004,7 +3001,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.stripMetadata'
   | 'pluginOptions.defaultQuality'
   | 'pluginOptions.failOnError'
-  | 'pluginOptions.outputPath'
   | 'pluginOptions.enableIdentityWidget'
   | 'pluginOptions.manualInit'
   | 'pluginOptions.modulePath'
@@ -3067,6 +3063,11 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3074,11 +3075,6 @@ type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
       Pick<MarkdownRemark, 'html'>
       & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }
     )> }> };
-
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

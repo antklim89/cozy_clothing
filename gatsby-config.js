@@ -5,18 +5,14 @@ module.exports = {
         author: 'Anton',
     },
     plugins: [
+        'gatsby-transformer-json',
         'gatsby-plugin-netlify',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-typescript-checker',
-        {
-            resolve: 'gatsby-plugin-typegen',
-            options: {
-                outputPath: 'src/gatsby-types.d.ts',
-            },
-        },
+        'gatsby-plugin-typegen',
         {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {
