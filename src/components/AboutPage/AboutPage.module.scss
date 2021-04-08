@@ -4,17 +4,57 @@
 
 .root {
     padding: 1rem;
+    margin-bottom: 5rem;
 
     p {
         word-break: break-all;
     }
 }
 
-.content {
+.aboutContainer {
     display: flex;
+    flex-wrap: wrap;
+}
 
-    & > * {
-        flex: 1;
+.aboutItem {
+    flex: 1 1;
+        
+
+    &:last-child {
+        padding-left: 1rem;
+    }
+
+    &:first-child {
+        padding-right: 1rem;
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    @include v.media-sm {
+        flex: 1 1 100%;
+
     }
 }
 
+.chooseUsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chooseUsItem {
+    padding: 1rem;
+    flex: 1 1 25%;
+    text-align: center;
+
+    @include v.media-md {
+        flex: 1 1 50%;
+    }
+    @include v.media-sm {
+        flex: 1 1 100%;
+    }
+
+    & > * {
+        margin-bottom: 1rem;
+    }
+}

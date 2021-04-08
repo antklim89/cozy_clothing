@@ -5,16 +5,21 @@ import { AboutPage } from '~/components';
 import { Seo } from '~/components/Seo';
 
 
-const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data: { file } }) => {
+const about: FC<PageProps<Required<GatsbyTypes.AboutPageQuery>>> = ({ data: { file } }) => {
+    if (!file?.remark || !file.remark.frontmatter || !file.remark.frontmatter.chooseUs) {
+        return null;
+    }
+
     return (
         <main>
             <Seo
                 title="About Shop"
             />
             <AboutPage
-                body={file?.remark?.rawMarkdownBody || ''}
-                image={file?.remark?.frontmatter?.image || ''}
-                title={file?.remark?.frontmatter?.title || 'Loading...'}
+                body={file.remark.rawMarkdownBody || ''}
+                chooseUs={file.remark.frontmatter.chooseUs as [] || []}
+                image={file.remark.frontmatter.image || ''}
+                title={file.remark.frontmatter.title || 'Loading...'}
             />
         </main>
     );
@@ -27,6 +32,11 @@ export const query = graphql`
                 frontmatter {
                 title
                 image
+                chooseUs: choose_us {
+                    title
+                    text
+                    image
+                }
             }
             rawMarkdownBody
         }

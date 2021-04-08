@@ -42,7 +42,29 @@ CMS.init({
                                 label: 'Image',
                                 name: 'image',
                                 widget: 'image',
-
+                            },
+                            {
+                                label: 'Why Choose us',
+                                name: 'choose_us',
+                                widget: 'list',
+                                summary: '{{title}}',
+                                fields: [
+                                    {
+                                        label: 'Image',
+                                        name: 'image',
+                                        widget: 'image',
+                                    },
+                                    {
+                                        label: 'Title',
+                                        name: 'title',
+                                        widget: 'string',
+                                    },
+                                    {
+                                        label: 'Text',
+                                        name: 'text',
+                                        widget: 'text',
+                                    },
+                                ],
                             },
                         ],
                     },
