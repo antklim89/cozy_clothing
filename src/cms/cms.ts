@@ -1,7 +1,7 @@
 import CMS from 'netlify-cms-app';
-import { createElement } from 'react';
+// import { createElement } from 'react';
 
-import { AboutPage } from '../components';
+// import { AboutPage } from '../components';
 
 
 CMS.init({
