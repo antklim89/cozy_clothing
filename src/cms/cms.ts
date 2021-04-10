@@ -1,4 +1,7 @@
 import CMS from 'netlify-cms-app';
+import { createElement } from 'react';
+
+import { AboutPage } from '../components';
 
 
 CMS.init({
@@ -186,3 +189,14 @@ CMS.init({
         ],
     },
 });
+
+// const AboutPagePreview = () => (
+//     createElement(AboutPage, {
+//         title: '',
+//         body: '',
+//         image: '',
+//         chooseUs: [],
+//     })
+// );
+
+// CMS.registerPreviewTemplate('about', AboutPagePreview);
