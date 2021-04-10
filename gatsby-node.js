@@ -37,8 +37,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
     data.file.remark.frontmatter.categories.forEach((category) => {
         createPage({
-            path: category.name.toLowerCase(),
-            component: path.resolve('src/templates/product.tsx'),
+            path: `/category/${category.name.toLowerCase()}`,
+            component: path.resolve('src/templates/categories.tsx'),
             context: category,
         });
     });
