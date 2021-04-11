@@ -18,8 +18,8 @@ CMS.init({
 
         },
         publish_mode: 'editorial_workflow',
-        media_folder: 'static/img',
-        public_folder: '/img',
+        media_folder: 'content/uploaded/',
+        // public_folder: '/img',
         collections: [
             {
                 label: 'Pages',
@@ -45,6 +45,7 @@ CMS.init({
                                 label: 'Image',
                                 name: 'image',
                                 widget: 'image',
+                                media_folder: 'images/about',
                             },
                             {
                                 label: 'Why Choose us',
@@ -56,6 +57,7 @@ CMS.init({
                                         label: 'Image',
                                         name: 'image',
                                         widget: 'image',
+                                        media_folder: 'images/about',
                                     },
                                     {
                                         label: 'Title',

@@ -1,10 +1,13 @@
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
+
 export interface AboutPagePropTypes {
     title: string;
     body: string;
-    image: string;
+    image: IGatsbyImageData;
     chooseUs: Readonly<{
-        title?: string
-        text?: string
-        image?: string
+        title: string
+        text: string
+        image: IGatsbyImageData
     }[]>
 }

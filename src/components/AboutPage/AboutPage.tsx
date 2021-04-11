@@ -1,4 +1,5 @@
 // import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 
@@ -18,7 +19,7 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
                 <Title>{title}</Title>
                 <article className={styles.aboutContainer}>
                     <div className={styles.aboutItem}>
-                        <img alt={title} src={image} />
+                        <GatsbyImage alt="about" image={image} />
                     </div>
                     <div className={styles.aboutItem}>
                         <ReactMarkdown source={body} />
@@ -29,9 +30,12 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
             <Container className={styles.root} component="section">
                 <Title>Why Choose Us</Title>
                 <article className={styles.chooseUsContainer}>
-                    {chooseUs.map((item) => (
+                    {chooseUs.map((item: any) => (
                         <div className={styles.chooseUsItem} key={item.title}>
-                            <img alt={item.title} src={item.image} width={200} />
+                            <GatsbyImage
+                                alt={item.title}
+                                image={item.image}
+                            />
                             <h5>{item.title}</h5>
                             <p>{item.text}</p>
                         </div>
