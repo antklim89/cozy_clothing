@@ -1,0 +1,13 @@
+{
+  "types": [
+    "men",
+    "women",
+    "children"
+  ],
+  "categories": [
+    {
+      "name": "Hudi",
+      "type": "men"
+    }
+  ]
+}

@@ -1,7 +1,4 @@
 import CMS from 'netlify-cms-app';
-// import { createElement } from 'react';
-
-// import { AboutPage } from '../components';
 
 
 CMS.init({
@@ -19,11 +16,13 @@ CMS.init({
         },
         publish_mode: 'editorial_workflow',
         media_folder: 'content/uploaded/',
-        // public_folder: '/img',
         collections: [
             {
                 label: 'Pages',
                 name: 'pages',
+                editor: {
+                    preview: false,
+                },
                 files: [
                     {
                         label: 'About',
@@ -78,12 +77,21 @@ CMS.init({
             {
                 label: 'Data',
                 name: 'data',
+                editor: {
+                    preview: false,
+                },
                 files: [
                     {
-                        label: 'Categories',
-                        name: 'categories',
-                        file: 'content/categories.md',
+                        label: 'Catalog',
+                        name: 'catalog',
+                        file: 'content/catalog.json',
                         fields: [
+                            {
+                                label: 'Types',
+                                name: 'types',
+                                widget: 'list',
+                                default: ['men', 'women', 'children'],
+                            },
                             {
                                 label: 'Categories',
                                 name: 'categories',
@@ -95,35 +103,12 @@ CMS.init({
                                         widget: 'string',
                                     },
                                     {
-                                        label: 'Description',
-                                        name: 'description',
-                                        widget: 'string',
-                                        required: false,
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        label: 'Subcategories',
-                        name: 'subcategories',
-                        file: 'content/subcategories.md',
-                        fields: [
-                            {
-                                label: 'Subcategories',
-                                name: 'subcategories',
-                                widget: 'list',
-                                fields: [
-                                    {
-                                        label: 'Name',
-                                        name: 'name',
-                                        widget: 'string',
-                                    },
-                                    {
-                                        label: 'Description',
-                                        name: 'description',
-                                        widget: 'string',
-                                        required: false,
+                                        label: 'Type',
+                                        name: 'type',
+                                        widget: 'relation',
+                                        collection: 'data',
+                                        search_fields: ['types.*'],
+                                        value_field: 'types.*',
                                     },
                                 ],
                             },
@@ -132,16 +117,15 @@ CMS.init({
                 ],
             },
             {
-                name: 'product',
-                label: 'Product',
-                folder: 'content/product',
+                name: 'products',
+                label: 'Products',
+                folder: 'content/products',
                 create: true,
-                slug: '{{type}}-{{category}}-{{name}}',
-                media_folder: '',
-                public_folder: '',
-                path: '{{type}}/{{category}}/{{name}}',
+                slug: '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}-{{name}}',
+                media_folder: '{{slug}}/img/',
+                path: '{{slug}}/index',
                 editor: {
-                    preview: true,
+                    preview: false,
                 },
                 fields: [
                     {
@@ -176,15 +160,8 @@ CMS.init({
                         widget: 'relation',
                         collection: 'data',
                         search_fields: ['categories.*.name'],
-                        value_field: 'categories.*.name',
-                    },
-                    {
-                        label: 'Subcategory',
-                        name: 'subcategory',
-                        widget: 'relation',
-                        collection: 'data',
-                        search_fields: ['subcategories.*.name'],
-                        value_field: 'subcategories.*.name',
+                        display_fields: ['categories.*.type', 'categories.*.name'],
+                        value_field: 'categories.*',
                     },
                 ],
             },
@@ -192,13 +169,3 @@ CMS.init({
     },
 });
 
-// const AboutPagePreview = () => (
-//     createElement(AboutPage, {
-//         title: '',
-//         body: '',
-//         image: '',
-//         chooseUs: [],
-//     })
-// );
-
-// CMS.registerPreviewTemplate('about', AboutPagePreview);
