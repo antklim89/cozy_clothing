@@ -8,6 +8,22 @@
     {
       "name": "Hudi",
       "type": "men"
+    },
+    {
+      "type": "women",
+      "name": "Hudi"
+    },
+    {
+      "name": "Dress",
+      "type": "women"
+    },
+    {
+      "name": "Sweater",
+      "type": "children"
+    },
+    {
+      "name": "Pullover",
+      "type": "women"
     }
   ]
 }

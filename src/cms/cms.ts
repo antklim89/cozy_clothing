@@ -129,19 +129,19 @@ CMS.init({
                 },
                 fields: [
                     {
-                        label: 'Name',
-                        name: 'name',
+                        label: 'Title',
+                        name: 'title',
                         widget: 'string',
 
                     },
                     {
                         label: 'Publish Date',
-                        name: 'date',
+                        name: 'publishedAt',
                         widget: 'datetime',
                     },
                     {
-                        label: 'Description',
-                        name: 'description',
+                        label: 'Preview description',
+                        name: 'prevDescription',
                         widget: 'string',
                     },
                     {
@@ -153,6 +153,8 @@ CMS.init({
                         label: 'Price',
                         name: 'price',
                         widget: 'number',
+                        value_type: 'float',
+                        min: 0,
                     },
                     {
                         label: 'Category',

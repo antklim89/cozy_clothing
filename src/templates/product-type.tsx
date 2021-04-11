@@ -1,11 +1,11 @@
-import { Page } from 'gatsby';
+import { PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import { Seo } from '~/components/Seo';
 
 
-const product: FC<Page> = ({ path, context }) => {
-    console.debug('||context: \n', context);
+const productType: FC<PageProps> = ({ path, pageContext }) => {
+    console.debug('||props: \n', pageContext);
     return (
         <main>
             <Seo
@@ -18,4 +18,4 @@ const product: FC<Page> = ({ path, context }) => {
     );
 };
 
-export default product;
+export default productType;
