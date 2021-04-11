@@ -23,23 +23,19 @@ exports.onCreateBabelConfig = ({ actions }) => {
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const { data } = await graphql(`
         {
-            file(name: {eq: "categories"}) {
-                remark: childMarkdownRemark {
-                    frontmatter {
-                        categories {
-                            name
-                        }
-                    }
+            file(name: {eq: "catalog"}) {
+                childContentJson {
+                    types
                 }
             }
         }
     `);
 
-    data.file.remark.frontmatter.categories.forEach((category) => {
+    data.file.childContentJson.types.forEach((type) => {
         createPage({
-            path: `/category/${category.name.toLowerCase()}`,
+            path: `/type/${type.toLowerCase()}`,
             component: path.resolve('src/templates/categories.tsx'),
-            context: category,
+            context: { type },
         });
     });
 };
