@@ -26,17 +26,17 @@ export const NavBar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link activeClassName={style.active} className={style.link} to="/type/men">
+                        <Link activeClassName={style.active} className={style.link} to="/category/men">
                             men
                         </Link>
                     </li>
                     <li>
-                        <Link activeClassName={style.active} className={style.link} to="/type/women">
+                        <Link activeClassName={style.active} className={style.link} to="/category/women">
                             women
                         </Link>
                     </li>
                     <li>
-                        <Link activeClassName={style.active} className={style.link} to="/type/children">
+                        <Link activeClassName={style.active} className={style.link} to="/category/children">
                             children
                         </Link>
                     </li>
