@@ -1,11 +1,11 @@
-@use '~/styles/variables.scss' as v;
+@use '~/styles/variables.scss' as *;
 
 
 .root {
-    background: v.$bg-primary-dark;
+    background: $bg-primary-dark;
     text-align: center;
 
     p {
-        color: white;
+        color: $font-light;
     }
 }

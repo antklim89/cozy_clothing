@@ -1,24 +1,21 @@
-@use '~/styles/variables.scss' as v;
+@use '~/styles/variables.scss' as *;
 
 
 .root {
-    background: v.$bg-primary;
-    @include v.shadow
+    background: $bg-primary;
 }
 
 .logo {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    height: v.$app-bar-height;
+    height: $app-bar-height;
 
-    @include v.media-sm {
+    @include media-sm {
         width: 100%;
-        margin:0 0 0  0.5rem;
+        margin: 0 0 0 0.5rem;
     }
 }
-
-
 
 .nav {
     display: flex;
@@ -27,26 +24,25 @@
 }
 
 .link {
-
     font-family: 'Lato', sans-serif;
     display: flex;
     align-items: center;
-    height: v.$app-bar-height;
-    padding: 0 1rem !important;
-    transition: 200ms;
+    height: $app-bar-height;
+    padding: 0 $space-md !important;
+    transition: $transition-speed;
     text-decoration: none;
     text-transform: uppercase;
-    color: v.$font-dark;
+    color: $font-dark;
 
     &.active {
-        color: v.$primary
+        color: $primary
     }
     
     &:hover {
-        background: v.$bg-secondary;
+        background: $bg-secondary;
     }
     
-    @include v.media-sm {
-        padding: 0 0.2rem !important;
+    @include media-sm {
+        padding: 0 $space-xs !important;
     }
 }

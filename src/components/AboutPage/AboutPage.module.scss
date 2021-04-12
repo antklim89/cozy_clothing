@@ -1,14 +1,9 @@
-@use '~/styles/variables.scss' as v;
+@use '~/styles/variables.scss' as *;
 
 
 
 .root {
-    padding: 1rem;
-    margin-bottom: 5rem;
-
-    p {
-        word-break: break-all;
-    }
+    padding: $space-md;
 }
 
 .aboutContainer {
@@ -19,7 +14,6 @@
 .aboutItem {
     flex: 1 1;
         
-
     &:last-child {
         padding-left: 1rem;
     }
@@ -31,9 +25,8 @@
         text-align: center;
     }
 
-    @include v.media-sm {
+    @include media-sm {
         flex: 1 1 100%;
-
     }
 }
 
@@ -47,10 +40,10 @@
     flex: 1 1 25%;
     text-align: center;
 
-    @include v.media-md {
+    @include media-md {
         flex: 1 1 50%;
     }
-    @include v.media-sm {
+    @include media-sm {
         flex: 1 1 100%;
     }
 

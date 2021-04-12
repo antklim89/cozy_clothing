@@ -1,4 +1,4 @@
-@use './variables.scss' as v;
+@use './variables.scss' as *;
 
 @font-face {
     font-family: 'Lato';
@@ -24,14 +24,14 @@
 
 .container {
     display: block;
-    max-width: v.$md;
+    max-width: $md;
     width: 100%;
     margin: 0 auto;
 }
 
 body {
     font-family: 'Roboto', Geneva, Verdana, sans-serif;
-    background: v.$bg-primary;
+    background: $bg-primary;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,5 +58,5 @@ h6 {
 
 p {
     padding: 0.2em 0;
-    font-size: v.$font-size-md;
+    font-size: $font-size-md;
 }

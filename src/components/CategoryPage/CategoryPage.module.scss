@@ -2,12 +2,12 @@
 
 .root {
     background: none;
+    margin-top: -$space-sm;
 }
 
 .categories {
     display: flex;
     justify-content: center;
-    box-shadow: 1px 1px 5px;
     align-items: center;
 }
 
@@ -15,6 +15,7 @@
     color: $font-dark;
     padding: $space-sm;
     transition: $transition-speed;
+    height: $app-bar-height;
 
     &:hover {
         background: $bg-secondary;

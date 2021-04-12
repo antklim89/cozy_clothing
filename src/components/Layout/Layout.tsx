@@ -9,9 +9,7 @@ export const Layout: FC = ({ children }) => {
     return (
         <div className={styles.root}>
             <Header />
-            {/* <main> */}
             {children}
-            {/* </main> */}
             <Footer />
         </div>
     );
