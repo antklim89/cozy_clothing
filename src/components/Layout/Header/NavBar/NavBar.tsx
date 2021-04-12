@@ -3,6 +3,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import style from './NavBar.module.scss';
 
+import { Catalog } from '~/components/Layout/Header/Catalog';
+
 
 export const NavBar = () => {
     return (
@@ -26,25 +28,11 @@ export const NavBar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link activeClassName={style.active} className={style.link} to="/category/men">
-                            men
-                        </Link>
-                    </li>
-                    <li>
-                        <Link activeClassName={style.active} className={style.link} to="/category/women">
-                            women
-                        </Link>
-                    </li>
-                    <li>
-                        <Link activeClassName={style.active} className={style.link} to="/category/children">
-                            children
-                        </Link>
-                    </li>
-                    <li>
                         <Link activeClassName={style.active} className={style.link} to="/about">
                             about
                         </Link>
                     </li>
+                    <Catalog activeLinksClassName={style.active} linksClassName={style.link} />
                 </ul>
             </nav>
         </div>

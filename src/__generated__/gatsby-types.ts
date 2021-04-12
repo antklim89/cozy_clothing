@@ -3744,4 +3744,9 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
+type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
+
 }
