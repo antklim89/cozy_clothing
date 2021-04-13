@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import styles from './CatalogDrawer.module.scss';
 import { CatalogDrawerPropTypes } from './CatalogDrawer.types';
@@ -11,6 +11,20 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({
     setIsOpen,
     children,
 }) => {
+    const listener = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            setIsOpen(false);
+        }
+    };
+    useEffect(() => {
+        if (isOpen) {
+            window.addEventListener('keydown', listener);
+        }
+        return () => {
+            window.removeEventListener('keydown', listener);
+        };
+    }, [isOpen]);
+
     if (!isOpen) return null;
     return (
         <div>

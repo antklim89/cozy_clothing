@@ -1,7 +1,7 @@
 @use '~/styles/variables.scss' as *;
 
 
-.sub-item-container {
+.item-container {
     display: flex;
     position: absolute;
     right: 0;
@@ -14,6 +14,21 @@
 
     &.open {
         animation: show-drawer $transition-speed;
+    }
+
+    & > * {
+        flex: 1 1 auto;
+        margin: 0 0.2rem;
+    }
+}
+
+.sub-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    & > * {
+        width: 100%;
     }
 }
 

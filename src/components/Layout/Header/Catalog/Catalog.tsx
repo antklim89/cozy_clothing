@@ -61,7 +61,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
                 Catalog
             </Button>
             <CatalogDrawer isOpen={isOpen} setIsOpen={setIsOpen}>
-                <ul className={cls(styles.subItemContainer, isOpen && styles.open)}>
+                <ul className={cls(styles.itemContainer, isOpen && styles.open)}>
                     {catalog.types.map((type) => (
                         <li key={type}>
                             <Link
@@ -72,7 +72,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
                             >
                                 {type}
                             </Link>
-                            <ul>
+                            <ul className={styles.subItemContainer}>
                                 <hr />
                                 {catalog.categories
                                     .filter((category) => category.type === type)
