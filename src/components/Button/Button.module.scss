@@ -1,10 +1,11 @@
-@use '~/styles/variables.scss' as v;
+@use '~/styles/variables.scss' as *;
 
 
 .root {
     border: none;
     background: none;
     padding: 0 1rem;
+    @include margin(0, 1);
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
 }
@@ -18,11 +19,11 @@
 }
 
 .primary {
-    color: v.$primary
+    color: $primary
 }
 
 .secondary {
-    color: v.$secondary
+    color: $secondary
 }
 
 .white {

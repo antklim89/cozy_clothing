@@ -3707,6 +3707,19 @@ type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
+type CategoryPageQueryVariables = Exact<{
+  type: Maybe<Scalars['String']>;
+}>;
+
+
+type CategoryPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
+      Pick<MarkdownRemark, 'id'>
+      & { readonly frontmatter: Maybe<(
+        Pick<MarkdownRemarkFrontmatter, 'title' | 'price'>
+        & { readonly category: Maybe<Pick<MarkdownRemarkFrontmatterCategory, 'type'>> }
+      )> }
+    )> } };
+
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3720,19 +3733,6 @@ type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
         )>>> }
       )> }
     )> }> };
-
-type CategoryPageQueryVariables = Exact<{
-  type: Maybe<Scalars['String']>;
-}>;
-
-
-type CategoryPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
-      Pick<MarkdownRemark, 'id'>
-      & { readonly frontmatter: Maybe<(
-        Pick<MarkdownRemarkFrontmatter, 'title' | 'price'>
-        & { readonly category: Maybe<Pick<MarkdownRemarkFrontmatterCategory, 'type'>> }
-      )> }
-    )> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

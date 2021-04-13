@@ -1,4 +1,4 @@
-@use '~/styles/variables.scss' as v;
+@use '~/styles/variables.scss' as *;
 
 $underline-width: 40px;
 
@@ -14,11 +14,11 @@ $underline-width: 40px;
         position: relative;
     
         &::before {
-            background: #cccccc none repeat scroll 0 0;
+            background: $secondary none repeat scroll 0 0;
             left: $underline-width;
         }
         &::after {
-            background: #cc3333 none repeat scroll 0 0;
+            background: $primary none repeat scroll 0 0;
             left: 0;
         }
         &::before, &::after {

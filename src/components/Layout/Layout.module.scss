@@ -6,7 +6,7 @@
     height: 100vh;
 
     header {
-        margin-bottom: $space-sm;
+        @include margin(0,0,2,0);
         z-index: 10;
     }
     

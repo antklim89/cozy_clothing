@@ -70,14 +70,25 @@ $xl: 1200px;
 }
 
 
-@mixin margin($top, $right, $bot, $left) {
-    margin: #{$top}rem #{$right}rem #{$bot}rem #{$left}rem;
+@function space($top: null, $right: null, $bot: null, $left: null, $mult: 1) {
+    @if $top {$top: #{$top * $mult}rem ;}
+    @if $right {$right: #{$right * $mult}rem ;}
+    @if $bot {$bot: #{$bot * $mult}rem ;}
+    @if $left {$left: #{$left * $mult}rem ;}
+
+    @return $top $right $bot $left;
+}
+
+@mixin margin($vals...) {
+    margin: space($vals...);
 
     @include media-md {
-        margin: #{$top / 2}rem #{$right / 2}rem #{$bot / 2}rem #{$left / 2}rem;
+        margin: space($vals..., $mult: 0.6);
     }
-
+    @include media-sm {
+        margin: space($vals..., $mult: 0.4);
+    }
     @include media-xs {
-        margin: #{$top / 4}rem #{$right / 4}rem #{$bot / 4}rem #{$left / 4}rem;
+        margin: space($vals..., $mult: 0.2);
     }
 }

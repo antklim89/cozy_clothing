@@ -8,13 +8,8 @@
 .logo {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    @include margin(0, 1, 0, 1);
     height: $app-bar-height;
-
-    // @include media-sm {
-    //     width: 100%;
-    //     margin: 0 0 0 0.5rem;
-    // }
 }
 
 .nav {
