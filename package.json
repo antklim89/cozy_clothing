@@ -39,7 +39,7 @@
   "scripts": {
     "build": "gatsby clean && gatsby build",
     "dev": "run-p dev:**",
-    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
+    "dev:gatsby": "gatsby develop -p 3001 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server ",
     "start": "npm run develop",
     "serve": "gatsby serve -p 3000 -H 0.0.0.0",

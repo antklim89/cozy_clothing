@@ -638,12 +638,12 @@ type MarkdownRemark_tableOfContentsArgs = {
 
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
-  readonly image: Maybe<File>;
-  readonly choose_us: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterChoose_us>>>;
   readonly publishedAt: Maybe<Scalars['Date']>;
   readonly prevDescription: Maybe<Scalars['String']>;
   readonly price: Maybe<Scalars['Int']>;
   readonly category: Maybe<MarkdownRemarkFrontmatterCategory>;
+  readonly image: Maybe<File>;
+  readonly choose_us: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterChoose_us>>>;
 };
 
 
@@ -654,15 +654,15 @@ type MarkdownRemarkFrontmatter_publishedAtArgs = {
   locale: Maybe<Scalars['String']>;
 };
 
+type MarkdownRemarkFrontmatterCategory = {
+  readonly name: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
 type MarkdownRemarkFrontmatterChoose_us = {
   readonly image: Maybe<File>;
   readonly text: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
-};
-
-type MarkdownRemarkFrontmatterCategory = {
-  readonly name: Maybe<Scalars['String']>;
-  readonly type: Maybe<Scalars['String']>;
 };
 
 type ContentJson = Node & {
@@ -1422,12 +1422,17 @@ type MarkdownRemarkFilterInput = {
 
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
-  readonly image: Maybe<FileFilterInput>;
-  readonly choose_us: Maybe<MarkdownRemarkFrontmatterChoose_usFilterListInput>;
   readonly publishedAt: Maybe<DateQueryOperatorInput>;
   readonly prevDescription: Maybe<StringQueryOperatorInput>;
   readonly price: Maybe<IntQueryOperatorInput>;
   readonly category: Maybe<MarkdownRemarkFrontmatterCategoryFilterInput>;
+  readonly image: Maybe<FileFilterInput>;
+  readonly choose_us: Maybe<MarkdownRemarkFrontmatterChoose_usFilterListInput>;
+};
+
+type MarkdownRemarkFrontmatterCategoryFilterInput = {
+  readonly name: Maybe<StringQueryOperatorInput>;
+  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type FileFilterInput = {
@@ -1507,11 +1512,6 @@ type MarkdownRemarkFrontmatterChoose_usFilterInput = {
   readonly image: Maybe<FileFilterInput>;
   readonly text: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
-};
-
-type MarkdownRemarkFrontmatterCategoryFilterInput = {
-  readonly name: Maybe<StringQueryOperatorInput>;
-  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type MarkdownHeadingFilterListInput = {
@@ -1746,6 +1746,11 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
+  | 'childrenMarkdownRemark.frontmatter.publishedAt'
+  | 'childrenMarkdownRemark.frontmatter.prevDescription'
+  | 'childrenMarkdownRemark.frontmatter.price'
+  | 'childrenMarkdownRemark.frontmatter.category.name'
+  | 'childrenMarkdownRemark.frontmatter.category.type'
   | 'childrenMarkdownRemark.frontmatter.image.sourceInstanceName'
   | 'childrenMarkdownRemark.frontmatter.image.absolutePath'
   | 'childrenMarkdownRemark.frontmatter.image.relativePath'
@@ -1788,11 +1793,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.choose_us'
   | 'childrenMarkdownRemark.frontmatter.choose_us.text'
   | 'childrenMarkdownRemark.frontmatter.choose_us.title'
-  | 'childrenMarkdownRemark.frontmatter.publishedAt'
-  | 'childrenMarkdownRemark.frontmatter.prevDescription'
-  | 'childrenMarkdownRemark.frontmatter.price'
-  | 'childrenMarkdownRemark.frontmatter.category.name'
-  | 'childrenMarkdownRemark.frontmatter.category.type'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -1847,6 +1847,11 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
+  | 'childMarkdownRemark.frontmatter.publishedAt'
+  | 'childMarkdownRemark.frontmatter.prevDescription'
+  | 'childMarkdownRemark.frontmatter.price'
+  | 'childMarkdownRemark.frontmatter.category.name'
+  | 'childMarkdownRemark.frontmatter.category.type'
   | 'childMarkdownRemark.frontmatter.image.sourceInstanceName'
   | 'childMarkdownRemark.frontmatter.image.absolutePath'
   | 'childMarkdownRemark.frontmatter.image.relativePath'
@@ -1889,11 +1894,6 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.choose_us'
   | 'childMarkdownRemark.frontmatter.choose_us.text'
   | 'childMarkdownRemark.frontmatter.choose_us.title'
-  | 'childMarkdownRemark.frontmatter.publishedAt'
-  | 'childMarkdownRemark.frontmatter.prevDescription'
-  | 'childMarkdownRemark.frontmatter.price'
-  | 'childMarkdownRemark.frontmatter.category.name'
-  | 'childMarkdownRemark.frontmatter.category.type'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -3115,6 +3115,11 @@ type MarkdownRemarkEdge = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
+  | 'frontmatter.publishedAt'
+  | 'frontmatter.prevDescription'
+  | 'frontmatter.price'
+  | 'frontmatter.category.name'
+  | 'frontmatter.category.type'
   | 'frontmatter.image.sourceInstanceName'
   | 'frontmatter.image.absolutePath'
   | 'frontmatter.image.relativePath'
@@ -3244,11 +3249,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.choose_us.image.children'
   | 'frontmatter.choose_us.text'
   | 'frontmatter.choose_us.title'
-  | 'frontmatter.publishedAt'
-  | 'frontmatter.prevDescription'
-  | 'frontmatter.price'
-  | 'frontmatter.category.name'
-  | 'frontmatter.category.type'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -4060,19 +4060,6 @@ type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
-type CategoryPageQueryVariables = Exact<{
-  type: Maybe<Scalars['String']>;
-}>;
-
-
-type CategoryPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
-      Pick<MarkdownRemark, 'id'>
-      & { readonly frontmatter: Maybe<(
-        Pick<MarkdownRemarkFrontmatter, 'title' | 'price'>
-        & { readonly category: Maybe<Pick<MarkdownRemarkFrontmatterCategory, 'type'>> }
-      )> }
-    )> } };
-
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4086,6 +4073,19 @@ type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
         )>>> }
       )> }
     )> }> };
+
+type CategoryPageQueryVariables = Exact<{
+  type: Maybe<Scalars['String']>;
+}>;
+
+
+type CategoryPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
+      Pick<MarkdownRemark, 'id'>
+      & { readonly frontmatter: Maybe<(
+        Pick<MarkdownRemarkFrontmatter, 'title' | 'price'>
+        & { readonly category: Maybe<Pick<MarkdownRemarkFrontmatterCategory, 'type'>> }
+      )> }
+    )> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
