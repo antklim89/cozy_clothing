@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { createElement, FC } from 'react';
 
 import { ContainerProps } from './Container.types';

@@ -1,10 +1,9 @@
 @use '~/styles/variables.scss' as *;
 
 
-
 .root {
     padding: $space-md;
-    @include margin(0,0,5,0)
+    margin-bottom: $space-md * 5;
 }
 
 .aboutContainer {

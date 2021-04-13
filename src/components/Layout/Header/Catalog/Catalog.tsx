@@ -58,7 +58,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
                 onClick={handleOpen}
             >
                 <img alt="=" className="icon" src={menuIcon} />
-                Catalog
+                <p className="hide-xs">Catalog</p>
             </Button>
             <CatalogDrawer isOpen={isOpen} setIsOpen={setIsOpen}>
                 <ul className={cls(styles.itemContainer, isOpen && styles.open)}>
