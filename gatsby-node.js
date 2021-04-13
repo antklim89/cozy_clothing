@@ -40,9 +40,19 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         const categories = data.file.childContentJson.categories.filter((i) => i.type === type);
 
         createPage({
-            path: `/category/${type.toLowerCase()}`,
+            path: `/category/${type}`,
             component: path.resolve('src/templates/category.tsx'),
             context: { type, categories },
+        });
+
+        categories.forEach((category) => {
+            createPage({
+                path: `/category/${type}/${category.name}`,
+                component: path.resolve('src/templates/subcategory.tsx'),
+                context: {
+                    category: category.name,
+                },
+            });
         });
     });
 };
