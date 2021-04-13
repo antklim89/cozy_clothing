@@ -32,6 +32,7 @@ export const NavBar = () => {
                             about
                         </Link>
                     </li>
+                    <li className="grow" />
                     <Catalog activeLinksClassName={style.active} linksClassName={style.link} />
                 </ul>
             </nav>

@@ -29,6 +29,14 @@
     margin: 0 auto;
 }
 
+.icon {
+    width: 1.4rem;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
 body {
     font-family: 'Roboto', Geneva, Verdana, sans-serif;
     background: $bg-primary;

@@ -4,7 +4,9 @@ import { FC, useState } from 'react';
 
 import styles from './Catalog.module.scss';
 import { CatalogPropTypes, CatalogResponse } from './Catalog.types';
+import { CatalogDrawer } from './CatalogDrawer/CatalogDrawer';
 
+import menuIcon from '~/assets/menu.svg';
 import { Button } from '~/components/Button';
 import { cls, throwErr } from '~/utils';
 
@@ -23,7 +25,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
     const catalogURL = file?.publicURL || throwErr();
 
     const [isOpen, setIsOpen] = useState(false);
-    const [catalog, setCatalog] = useState<null | CatalogResponse>(null);
+    const [catalog, setCatalog] = useState<null|CatalogResponse>(null);
 
     const handleOpen = async () => {
         if (!catalog) {
@@ -35,6 +37,19 @@ export const Catalog: FC<CatalogPropTypes> = ({
         setIsOpen((prev) => !prev);
     };
 
+    if (!catalog) {
+        return (
+            <Button
+                className={linksClassName}
+                variant="text"
+                onClick={handleOpen}
+            >
+                <img alt="=" className="icon" src={menuIcon} />
+                Catalog
+            </Button>
+        );
+    }
+
     return (
         <li>
             <Button
@@ -42,30 +57,26 @@ export const Catalog: FC<CatalogPropTypes> = ({
                 variant="text"
                 onClick={handleOpen}
             >
+                <img alt="=" className="icon" src={menuIcon} />
                 Catalog
             </Button>
-            {catalog && (
-                <>
-                    <Button
-                        className={cls(styles.shadow, isOpen && styles.show)}
-                        tabIndex={-1}
-                        variant="text"
-                        onClick={() => setIsOpen(false)}
-                        // onKeyPress={(e) => e.key === 'Esc' && setIsOpen(false)}
-                    />
-                    <ul className={cls(styles.subItemContainer, isOpen && styles.open)}>
-                        {catalog.types.map((type: any) => (
-                            <li key={type}>
-                                <Link
-                                    activeClassName={activeLinksClassName}
-                                    className={linksClassName}
-                                    to={`/category/${type}`}
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {type}
-                                </Link>
-                                <ul>
-                                    {catalog.categories.filter((category) => category.type === type).map((category) => (
+            <CatalogDrawer isOpen={isOpen} setIsOpen={setIsOpen}>
+                <ul className={cls(styles.subItemContainer, isOpen && styles.open)}>
+                    {catalog.types.map((type) => (
+                        <li key={type}>
+                            <Link
+                                activeClassName={activeLinksClassName}
+                                className={linksClassName}
+                                to={`/category/${type}`}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {type}
+                            </Link>
+                            <ul>
+                                <hr />
+                                {catalog.categories
+                                    .filter((category) => category.type === type)
+                                    .map((category) => (
                                         <li key={category.name + category.type}>
                                             <Link
                                                 activeClassName={activeLinksClassName}
@@ -77,13 +88,12 @@ export const Catalog: FC<CatalogPropTypes> = ({
                                             </Link>
                                         </li>
                                     ))}
-                                </ul>
-                            </li>
-                        ))}
+                            </ul>
+                        </li>
+                    ))}
 
-                    </ul>
-                </>
-            )}
+                </ul>
+            </CatalogDrawer>
         </li>
     );
 };
