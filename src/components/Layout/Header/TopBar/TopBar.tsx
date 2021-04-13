@@ -4,11 +4,12 @@ import { Button } from '~/components/Button';
 
 
 export const TopBar = () => {
+    // const APIUrl = process.env.URL || 'https://cozy-clothing.netlify.app';
     // const handleIndentity = async () => {
     //     const { default: netlifyIdentity } = await import('netlify-identity-widget');
 
     //     netlifyIdentity.init({
-    //         APIUrl: 'https://youthful-ptolemy-a1809e.netlify.app/.netlify/identity',
+    //         APIUrl,
     //         container: '#netlify-modal',
     //         locale: 'en',
     //     });
