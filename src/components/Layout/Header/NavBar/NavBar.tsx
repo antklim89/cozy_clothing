@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import style from './NavBar.module.scss';
@@ -7,6 +7,16 @@ import { Catalog } from '~/components/Layout/Header/Catalog';
 
 
 export const NavBar = () => {
+    const { file } = useStaticQuery<GatsbyTypes.NavBarCategoriesQuery>(graphql`
+        query NavBarCategories {
+            file(name: {eq: "catalog"}) {
+                childContentJson {
+                    types
+                }
+            }
+        }
+    `);
+
     return (
         <div className={style.root}>
             <nav className="container">
@@ -22,11 +32,18 @@ export const NavBar = () => {
                             />
                         </Link>
                     </li>
-                    <li>
+                    <li className="hide-xs">
                         <Link activeClassName={style.active} className={style.link} to="/">
                             home
                         </Link>
                     </li>
+                    {file?.childContentJson?.types?.map((type) => (
+                        <li className="hide-sm" key={type}>
+                            <Link activeClassName={style.active} className={style.link} to={`/category/${type}`}>
+                                {type}
+                            </Link>
+                        </li>
+                    ))}
                     <li>
                         <Link activeClassName={style.active} className={style.link} to="/about">
                             about
