@@ -6,4 +6,10 @@ export interface CategoryPagePropTypes {
         name: string
         type: string
     }>
+    products: Array<{
+        id: string
+        title: string;
+        price: number;
+        type: string;
+    }>
 }

@@ -3694,6 +3694,11 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
+
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3712,6 +3717,19 @@ type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
         )>>> }
       )> }
     )> }> };
+
+type CategoryPageQueryVariables = Exact<{
+  type: Maybe<Scalars['String']>;
+}>;
+
+
+type CategoryPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
+      Pick<MarkdownRemark, 'id'>
+      & { readonly frontmatter: Maybe<(
+        Pick<MarkdownRemarkFrontmatter, 'title' | 'price'>
+        & { readonly category: Maybe<Pick<MarkdownRemarkFrontmatterCategory, 'type'>> }
+      )> }
+    )> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3743,10 +3761,5 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
-type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
 }
