@@ -31,23 +31,20 @@
 }
 
 .chooseUsContainer {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0.5rem;
+
+    @include media-md {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include media-sm {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .chooseUsItem {
     padding: 1rem;
-    flex: 1 1 25%;
     text-align: center;
-
-    @include media-md {
-        flex: 1 1 50%;
-    }
-    @include media-sm {
-        flex: 1 1 100%;
-    }
-
-    & > * {
-        margin-bottom: 1rem;
-    }
 }

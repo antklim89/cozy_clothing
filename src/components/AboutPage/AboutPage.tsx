@@ -29,18 +29,18 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
 
             <Container className={styles.root} component="section">
                 <Title>Why Choose Us</Title>
-                <article className={styles.chooseUsContainer}>
+                <div className={styles.chooseUsContainer}>
                     {chooseUs.map((item: any) => (
-                        <div className={styles.chooseUsItem} key={item.title}>
+                        <article className={styles.chooseUsItem} key={item.title}>
                             <GatsbyImage
                                 alt={item.title}
                                 image={item.image}
                             />
                             <h5>{item.title}</h5>
                             <p>{item.text}</p>
-                        </div>
+                        </article>
                     ))}
-                </article>
+                </div>
             </Container>
         </>
     );
