@@ -1,26 +1,38 @@
 import { graphql, PageProps } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { FC } from 'react';
+import * as yup from 'yup';
 
 import { AboutPage } from '~/components';
 import { Seo } from '~/components/Seo';
-import { throwErr } from '~/utils/throwErr';
 
 
-const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data: { file } }) => {
+const schema = yup.object({
+    rawMarkdownBody: yup.string().required(),
+    frontmatter: yup.object({
+        chooseUs: yup.array(yup.object({
+            text: yup.string().required(),
+            title: yup.string().required(),
+            image: yup.mixed<IGatsbyImageData>().transform((v) => v.childImageSharp.gatsbyImageData).required(),
+        })).required(),
+        image: yup.mixed<IGatsbyImageData>().transform((v) => v.childImageSharp.gatsbyImageData).required(),
+        title: yup.string().required(),
+    }).required(),
+}).transform((v) => v.file.remark).required();
+
+const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data }) => {
+    const { rawMarkdownBody, frontmatter } = schema.validateSync(data);
+
     return (
         <main>
             <Seo
                 title="About Shop"
             />
             <AboutPage
-                body={file?.remark?.rawMarkdownBody || throwErr()}
-                chooseUs={file?.remark?.frontmatter?.chooseUs?.map((item) => ({
-                    text: item?.text || throwErr(),
-                    title: item?.title || throwErr(),
-                    image: item?.image?.childImageSharp?.gatsbyImageData || throwErr(),
-                })) || throwErr()}
-                image={file?.remark?.frontmatter?.image?.childImageSharp?.gatsbyImageData || throwErr()}
-                title={file?.remark?.frontmatter?.title || 'About Shop'}
+                body={rawMarkdownBody}
+                chooseUs={frontmatter.chooseUs}
+                image={frontmatter.image}
+                title={frontmatter.title}
             />
         </main>
     );
