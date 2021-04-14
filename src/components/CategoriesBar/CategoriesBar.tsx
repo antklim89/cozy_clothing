@@ -13,7 +13,7 @@ export const CategoriesBar: FC<CategoriesBarPropTypes> = ({
         <nav className={styles.root}>
             {categories.map((category) => (
                 <li key={category}>
-                    <Link to={`/category/${type}/${category}`}>{category}</Link>
+                    <Link activeClassName={styles.active} to={`/category/${type}/${category}`}>{category}</Link>
                 </li>
             ))}
         </nav>

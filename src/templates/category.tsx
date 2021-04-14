@@ -52,7 +52,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
         <main>
             <Seo title={title} />
             <Container component="section">
-                <Title>{title}</Title>
+                <Title>{type}</Title>
                 <CategoriesBar categories={categories.map((i) => i.name)} type={type} />
                 <ProductList products={products} />
             </Container>
