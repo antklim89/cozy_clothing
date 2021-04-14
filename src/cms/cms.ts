@@ -129,6 +129,12 @@ CMS.init({
                 },
                 fields: [
                     {
+                        label: 'Layout',
+                        name: 'layout',
+                        widget: 'hidden',
+                        default: 'product',
+                    },
+                    {
                         label: 'Title',
                         name: 'title',
                         widget: 'string',

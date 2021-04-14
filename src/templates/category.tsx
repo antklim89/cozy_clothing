@@ -1,59 +1,97 @@
 import { graphql, PageProps } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
+import {
+    string, number, array, object, mixed,
+} from 'yup';
 
-import { CategoryPage, CategoryPagePropTypes } from '~/components/CategoryPage';
+import { Container } from '~/components';
+import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
-import { throwErr } from '~/utils';
+import { Title } from '~/components/Title';
 
 
-const category: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPagePropTypes>> = ({
-    pageContext,
+const schema = array(object({
+    id: string().required(),
+    title: string().required(),
+    price: number().required(),
+    type: string().required(),
+    image: mixed<IGatsbyImageData>().required(),
+})).required();
+
+
+interface CategoryPageContext {
+    type: string
+    category?: string
+}
+
+
+const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageContext>> = ({
+    pageContext: { type, category },
     data,
 }) => {
     if (!data.allMarkdownRemark.nodes) throw new Error();
 
-    const products = data.allMarkdownRemark.nodes.map((i) => ({
-        id: i.id || throwErr(),
-        title: i.frontmatter?.title || throwErr(),
-        price: i.frontmatter?.price || throwErr(),
-        type: i.frontmatter?.category?.type || throwErr(),
-        image: i.frontmatter?.image?.childImageSharp?.gatsbyImageData || throwErr(),
-    }));
+    const products = schema.validateSync(data.allMarkdownRemark.nodes.map((i) => ({
+        id: i.id,
+        title: i.frontmatter?.title,
+        price: i.frontmatter?.price,
+        type: i.frontmatter?.category?.type,
+        image: i.frontmatter?.image?.childImageSharp?.gatsbyImageData,
+    })));
+
+    const title = `${capitalize(type)}${category ? ` - ${capitalize(category)}` : ''}`;
 
     return (
         <main>
-            <Seo
-                title="Home"
-            />
-            <CategoryPage
-                categories={pageContext.categories}
-                products={products}
-                type={pageContext.type}
-            />
+            <Seo title={title} />
+            <Container component="section">
+                <Title>{title}</Title>
+                <nav>
+                    <li>Hudi</li>
+                    <li>Dress</li>
+                    <li>Sweetshot</li>
+                </nav>
+                <ProductList products={products} />
+            </Container>
         </main>
     );
 };
 
+
 export const query = graphql`
-  query CategoryPage($type: String) {
-    allMarkdownRemark(filter: {frontmatter: {category: {type: {eq: $type}}}}) {
-      nodes {
-        frontmatter {
-          title
-          category {
-            type
-          }
-          price
-          image {
-            childImageSharp {
-                gatsbyImageData
+    query CategoryPage($type: String!, $category: String) {
+        allMarkdownRemark(
+            filter: {
+                frontmatter: {
+                    category: {
+                        type: {eq: $type},
+                        name: {eq: $category},
+                    },
+                    layout: {eq: "product"}
+                }
             }
-          }
+        ) {
+            nodes {
+                frontmatter {
+                    title
+                    category {
+                        type
+                        name
+                    }
+                    price
+                    image {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                id
+            }
         }
-        id
-      }
     }
-  }
 `;
 
-export default category;
+
+export default categoryPage;

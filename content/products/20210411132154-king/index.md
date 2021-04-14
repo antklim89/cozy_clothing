@@ -7,5 +7,6 @@ price: 4324
 category:
   name: Hudi
   type: men
+layout: 'product'
 ---
-fdsg
+Lorem ipsum

@@ -7,5 +7,6 @@ price: 19900
 category:
   name: Dress
   type: women
+layout: 'product'
 ---
 Lorem **ipsum**

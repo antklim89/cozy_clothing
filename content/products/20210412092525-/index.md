@@ -7,6 +7,7 @@ price: 21000
 category:
   name: Sweater
   type: children
+layout: 'product'
 ---
 fdsfsdf
 

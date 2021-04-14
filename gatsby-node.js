@@ -48,8 +48,9 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         categories.forEach((category) => {
             createPage({
                 path: `/category/${type}/${category.name}`,
-                component: path.resolve('src/templates/subcategory.tsx'),
+                component: path.resolve('src/templates/category.tsx'),
                 context: {
+                    type,
                     category: category.name,
                 },
             });
