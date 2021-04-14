@@ -1,5 +1,5 @@
 ---
-title: King
+title: King 2
 publishedAt: 2021-04-11T13:21:44.274Z
 prevDescription: dsad
 image: images/a_6.jpg

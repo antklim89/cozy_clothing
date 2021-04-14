@@ -17,6 +17,7 @@ const category: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPagePropType
         title: i.frontmatter?.title || throwErr(),
         price: i.frontmatter?.price || throwErr(),
         type: i.frontmatter?.category?.type || throwErr(),
+        image: i.frontmatter?.image?.childImageSharp?.gatsbyImageData || throwErr(),
     }));
 
     return (
@@ -43,6 +44,11 @@ export const query = graphql`
             type
           }
           price
+          image {
+            childImageSharp {
+                gatsbyImageData
+            }
+          }
         }
         id
       }

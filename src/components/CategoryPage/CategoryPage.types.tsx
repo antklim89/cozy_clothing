@@ -1,3 +1,4 @@
+import { Product } from '~/components/ProductCard';
 
 
 export interface CategoryPagePropTypes {
@@ -6,10 +7,5 @@ export interface CategoryPagePropTypes {
         name: string
         type: string
     }>
-    products: Array<{
-        id: string
-        title: string;
-        price: number;
-        type: string;
-    }>
+    products: Array<Product>
 }

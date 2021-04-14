@@ -121,7 +121,7 @@ CMS.init({
                 label: 'Products',
                 folder: 'content/products',
                 create: true,
-                slug: '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}-{{name}}',
+                slug: '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}-{{title}}',
                 media_folder: '{{slug}}/img/',
                 path: '{{slug}}/index',
                 editor: {
@@ -148,6 +148,13 @@ CMS.init({
                         label: 'Body',
                         name: 'body',
                         widget: 'markdown',
+                    },
+                    {
+                        label: 'Image',
+                        name: 'image',
+                        widget: 'image',
+                        media_folder: 'images/',
+                        allow_multiple: true,
                     },
                     {
                         label: 'Price',

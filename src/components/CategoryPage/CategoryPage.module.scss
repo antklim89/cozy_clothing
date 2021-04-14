@@ -2,22 +2,32 @@
 
 .root {
     background: none;
-    margin-top: -$space-sm;
 }
 
-.categories {
-    display: flex;
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-    align-items: center;
-}
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    grid-auto-rows: 320px;
 
-.category {
-    color: $font-dark;
-    padding: $space-sm;
-    transition: $transition-speed;
-    height: $app-bar-height;
-
-    &:hover {
-        background: $bg-secondary;
+    @include media-sm {
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        margin: 0 4rem;
     }
+
+    @include media-xs {
+        grid-template-columns: repeat(1, minmax(100px, 1fr));
+        margin: 0 2rem;
+    }
+
+    // & > * {
+    //     width: calc(25% - 0.2rem * 2);
+    //     margin: 0.2rem;
+
+    //     @include media-sm {
+    //         width: calc(50% - 0.2rem * 2);
+    //     }
+    // }
 }
