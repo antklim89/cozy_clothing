@@ -265,6 +265,8 @@ type Directory_ctimeArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -953,6 +955,8 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -2223,6 +2227,8 @@ type SiteFieldsEnum =
   | 'siteMetadata.title'
   | 'siteMetadata.description'
   | 'siteMetadata.author'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2324,6 +2330,8 @@ type SiteGroupConnection = {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -3699,11 +3707,6 @@ type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
 
 type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
-
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3757,6 +3760,16 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type NavBarCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 

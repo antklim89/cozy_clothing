@@ -6,6 +6,7 @@ export interface Product {
     title: string;
     price: number;
     type: string;
+    category: string;
     image: IGatsbyImageData;
 }
 

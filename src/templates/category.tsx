@@ -18,6 +18,7 @@ const schema = array(object({
     title: string().required(),
     price: number().required(),
     type: string().required(),
+    category: string().required(),
     image: mixed<IGatsbyImageData>().required(),
 })).required();
 
@@ -43,6 +44,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
         title: i.frontmatter?.title,
         price: i.frontmatter?.price,
         type: i.frontmatter?.category?.type,
+        category: i.frontmatter?.category?.name,
         image: i.frontmatter?.image?.childImageSharp?.gatsbyImageData,
     })));
 

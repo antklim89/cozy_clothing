@@ -12,6 +12,7 @@ export const ProductCard: FC<ProductCardProps> = ({
         <div className={styles.root}>
             <GatsbyImage alt={product.title} image={product.image} objectFit="fill" />
             <h5>{product.title}</h5>
+            <small>{product.category}</small>
             <p>
                 $
                 {product.price}
