@@ -3707,11 +3707,6 @@ type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
 
 type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
-
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3770,6 +3765,11 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type NavBarCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 

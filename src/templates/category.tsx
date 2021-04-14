@@ -7,6 +7,7 @@ import {
 } from 'yup';
 
 import { Container } from '~/components';
+import { CategoriesBar } from '~/components/CategoriesBar';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
 import { Title } from '~/components/Title';
@@ -24,11 +25,15 @@ const schema = array(object({
 interface CategoryPageContext {
     type: string
     category?: string
+    categories: Array<{
+        name: string
+        type: string
+    }>
 }
 
 
 const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageContext>> = ({
-    pageContext: { type, category },
+    pageContext: { type, category, categories },
     data,
 }) => {
     if (!data.allMarkdownRemark.nodes) throw new Error();
@@ -48,11 +53,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
             <Seo title={title} />
             <Container component="section">
                 <Title>{title}</Title>
-                <nav>
-                    <li>Hudi</li>
-                    <li>Dress</li>
-                    <li>Sweetshot</li>
-                </nav>
+                <CategoriesBar categories={categories.map((i) => i.name)} type={type} />
                 <ProductList products={products} />
             </Container>
         </main>

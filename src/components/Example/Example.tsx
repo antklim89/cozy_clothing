@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import style from './Example.module.scss';
+import styles from './Example.module.scss';
 import { ExamplePropTypes } from './Example.types';
 
 
 export const Example: FC<ExamplePropTypes> = () => {
     return (
-        <div className={style.root}>Example</div>
+        <div className={styles.root}>Example</div>
     );
 };
