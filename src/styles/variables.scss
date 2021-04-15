@@ -93,3 +93,17 @@ $xl: 1200px;
         margin: space($vals..., $mult: 0.2);
     }
 }
+
+@mixin padding($vals...) {
+    padding: space($vals...);
+
+    @include media-md {
+        padding: space($vals..., $mult: 0.6);
+    }
+    @include media-sm {
+        padding: space($vals..., $mult: 0.4);
+    }
+    @include media-xs {
+        padding: space($vals..., $mult: 0.2);
+    }
+}

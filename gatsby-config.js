@@ -22,6 +22,7 @@ module.exports = {
                 enableIdentityWidget: false,
                 manualInit: false,
                 modulePath: `${__dirname}/src/cms/cms.ts`,
+                publicPath: 'cms',
             },
         },
         {

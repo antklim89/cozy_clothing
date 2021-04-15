@@ -9,20 +9,23 @@ export const ProductCard: FC<ProductCardProps> = ({
     product,
 }) => {
     return (
-        <div className={styles.root}>
+        <article className={styles.root}>
             <GatsbyImage
                 alt={product.title}
                 className={styles.image}
                 image={product.images[0]}
-                // objectFit="cover"
-                // style={{ width: '100%' }}
             />
-            <h5>{product.title}</h5>
-            <small>{product.category}</small>
-            <p>
-                $
-                {product.price}
-            </p>
-        </div>
+            <div className={styles.body}>
+                <h5>{product.title}</h5>
+                <p>
+                    <small>{product.category}</small>
+                    {' '}
+                    for
+                    {' '}
+                    $
+                    <i>{product.price}</i>
+                </p>
+            </div>
+        </article>
     );
 };

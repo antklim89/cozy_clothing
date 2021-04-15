@@ -727,6 +727,7 @@ type SitePluginPluginOptions = {
   readonly enableIdentityWidget: Maybe<Scalars['Boolean']>;
   readonly manualInit: Maybe<Scalars['Boolean']>;
   readonly modulePath: Maybe<Scalars['String']>;
+  readonly publicPath: Maybe<Scalars['String']>;
   readonly commonmark: Maybe<Scalars['Boolean']>;
   readonly footnotes: Maybe<Scalars['Boolean']>;
   readonly pedantic: Maybe<Scalars['Boolean']>;
@@ -2405,6 +2406,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly enableIdentityWidget: Maybe<BooleanQueryOperatorInput>;
   readonly manualInit: Maybe<BooleanQueryOperatorInput>;
   readonly modulePath: Maybe<StringQueryOperatorInput>;
+  readonly publicPath: Maybe<StringQueryOperatorInput>;
   readonly commonmark: Maybe<BooleanQueryOperatorInput>;
   readonly footnotes: Maybe<BooleanQueryOperatorInput>;
   readonly pedantic: Maybe<BooleanQueryOperatorInput>;
@@ -2706,6 +2708,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.enableIdentityWidget'
   | 'pluginCreator.pluginOptions.manualInit'
   | 'pluginCreator.pluginOptions.modulePath'
+  | 'pluginCreator.pluginOptions.publicPath'
   | 'pluginCreator.pluginOptions.commonmark'
   | 'pluginCreator.pluginOptions.footnotes'
   | 'pluginCreator.pluginOptions.pedantic'
@@ -3692,6 +3695,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.enableIdentityWidget'
   | 'pluginOptions.manualInit'
   | 'pluginOptions.modulePath'
+  | 'pluginOptions.publicPath'
   | 'pluginOptions.commonmark'
   | 'pluginOptions.footnotes'
   | 'pluginOptions.pedantic'
@@ -3768,6 +3772,11 @@ type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
 
 type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3781,11 +3790,6 @@ type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
         )>>> }
       )> }
     )> }> };
-
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type CategoryPageQueryVariables = Exact<{
   type: Scalars['String'];
