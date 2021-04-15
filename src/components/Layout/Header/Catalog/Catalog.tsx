@@ -17,7 +17,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
 }) => {
     const { file } = useStaticQuery<GatsbyTypes.CatalogQuery>(graphql`
         query Catalog {
-            file(name: {eq: "catalog"}) {
+            file(name: {eq: "categories"}) {
                 publicURL
             }
         }
@@ -62,7 +62,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
             </Button>
             <CatalogDrawer isOpen={isOpen} setIsOpen={setIsOpen}>
                 <ul className={cls(styles.itemContainer, isOpen && styles.open)}>
-                    {catalog.types.map((type) => (
+                    {Object.keys(catalog).map((type) => (
                         <li key={type}>
                             <Link
                                 activeClassName={activeLinksClassName}
@@ -74,24 +74,21 @@ export const Catalog: FC<CatalogPropTypes> = ({
                             </Link>
                             <ul className={styles.subItemContainer}>
                                 <hr />
-                                {catalog.categories
-                                    .filter((category) => category.type === type)
-                                    .map((category) => (
-                                        <li key={category.name + category.type}>
-                                            <Link
-                                                activeClassName={activeLinksClassName}
-                                                className={linksClassName}
-                                                to={`/category/${category.type}/${category.name}`}
-                                                onClick={() => setIsOpen(false)}
-                                            >
-                                                {category.name}
-                                            </Link>
-                                        </li>
-                                    ))}
+                                {catalog[type].map(({ category }) => (
+                                    <li key={category + type}>
+                                        <Link
+                                            activeClassName={activeLinksClassName}
+                                            className={linksClassName}
+                                            to={`/category/${type}/${category}`}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {category}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </li>
                     ))}
-
                 </ul>
             </CatalogDrawer>
         </li>

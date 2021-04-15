@@ -1,0 +1,28 @@
+{
+  "men": [
+    {
+      "category": "Hudi"
+    },
+    {
+      "category": "Sweater"
+    }
+  ],
+  "women": [
+    {
+      "category": "Dress"
+    }
+  ],
+  "boys": [
+    {
+      "category": "Hudi"
+    }
+  ],
+  "girls": [
+    {
+      "category": "Hudi"
+    },
+    {
+      "category": "Dress"
+    }
+  ]
+}

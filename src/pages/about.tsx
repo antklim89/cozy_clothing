@@ -18,7 +18,7 @@ const schema = yup.object({
         image: yup.mixed<IGatsbyImageData>().transform((v) => v.childImageSharp.gatsbyImageData).required(),
         title: yup.string().required(),
     }).required(),
-}).transform((v) => v.file.remark).required();
+}).transform((v) => v.remark).required();
 
 const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data }) => {
     const { rawMarkdownBody, frontmatter } = schema.validateSync(data);
@@ -40,9 +40,8 @@ const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data }) => {
 
 export const query = graphql`
     query AboutPage {
-        file(name: {eq: "about"}) {
-            remark: childMarkdownRemark {
-                frontmatter {
+        remark: markdownRemark(frontmatter: {slug: {eq: "about"}}) {
+            frontmatter {
                 title
                 image {
                     childImageSharp {
@@ -62,6 +61,6 @@ export const query = graphql`
             rawMarkdownBody
         }
     }
-}`;
+`;
 
 export default about;

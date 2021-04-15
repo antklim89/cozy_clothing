@@ -8,6 +8,15 @@ module.exports = {
         author: 'Anton',
     },
     plugins: [
+        {
+            resolve: 'gatsby-plugin-netlify-cms',
+            options: {
+                enableIdentityWidget: false,
+                manualInit: false,
+                modulePath: `${__dirname}/src/cms/cms.js`,
+                publicPath: 'cms',
+            },
+        },
         'gatsby-transformer-json',
         'gatsby-plugin-netlify',
         'gatsby-plugin-react-helmet',
@@ -16,15 +25,6 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-plugin-typescript-checker',
         'gatsby-plugin-typegen',
-        {
-            resolve: 'gatsby-plugin-netlify-cms',
-            options: {
-                enableIdentityWidget: false,
-                manualInit: false,
-                modulePath: `${__dirname}/src/cms/cms.ts`,
-                publicPath: 'cms',
-            },
-        },
         {
             resolve: 'gatsby-transformer-remark',
             options: {

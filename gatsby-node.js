@@ -21,23 +21,29 @@ exports.onCreateBabelConfig = ({ actions }) => {
 
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-    const { data } = await graphql(`
+    const { data: { file: { catalog } } } = await graphql(`
         {
-            file(name: {eq: "catalog"}) {
-                childContentJson {
-                    types
-                    categories {
-                        name
-                        type
+            file(name: {eq: "categories"}) {
+                catalog: childContentJson {
+                    boys {
+                        category
+                    }
+                    girls {
+                        category
+                    }
+                    men {
+                        category
+                    }
+                    women {
+                        category
                     }
                 }
             }
         }
     `);
 
-
-    data.file.childContentJson.types.forEach((type) => {
-        const categories = data.file.childContentJson.categories.filter((i) => i.type === type);
+    Object.keys(catalog).forEach((type) => {
+        const categories = catalog[type];
 
         createPage({
             path: `/category/${type}`,
@@ -45,14 +51,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             context: { type, categories },
         });
 
-        categories.forEach((category) => {
+        categories.forEach(({ category }) => {
             createPage({
-                path: `/category/${type}/${category.name}`,
+                path: `/category/${type}/${category}`,
                 component: path.resolve('src/templates/category.tsx'),
                 context: {
                     type,
                     categories,
-                    category: category.name,
+                    category,
                 },
             });
         });

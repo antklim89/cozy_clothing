@@ -3,7 +3,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 import {
-    string, number, array, object, mixed,
+    string, number, array, object, mixed, boolean,
 } from 'yup';
 
 import { Container } from '~/components';
@@ -19,36 +19,29 @@ const schema = array(object({
     price: number().required(),
     type: string().required(),
     category: string().required(),
+    careatedAt: string().required(),
+    hidden: boolean().required(),
+    promo: boolean().required(),
     images: array(
         mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
-    ).required(),
-})).required();
+    ).default([]).required(),
+}).transform((v, { id, frontmatter }) => ({ id, ...frontmatter }))).required();
 
 
 interface CategoryPageContext {
     type: string
     category?: string
     categories: Array<{
-        name: string
-        type: string
+        category: string
     }>
 }
 
 
-const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageContext>> = ({
+const categoryPage: FC<PageProps<any, CategoryPageContext>> = ({
     pageContext: { type, category, categories },
     data,
 }) => {
-    if (!data.amr.nodes) throw new Error();
-
-    const products = schema.validateSync(data.amr.nodes.map((i) => ({
-        id: i.id,
-        title: i.frontmatter?.title,
-        price: i.frontmatter?.price,
-        type: i.frontmatter?.category?.type,
-        category: i.frontmatter?.category?.name,
-        images: i.frontmatter?.images,
-    })));
+    const products = schema.validateSync(data.amr.nodes);
 
     const title = `${capitalize(type)}${category ? ` - ${capitalize(category)}` : ''}`;
 
@@ -57,7 +50,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
             <Seo title={title} />
             <Container component="section">
                 <Title>{type}</Title>
-                <CategoriesBar categories={categories.map((i) => i.name)} type={type} />
+                <CategoriesBar categories={categories.map((i) => i.category)} type={type} />
                 <ProductList products={products} />
             </Container>
         </main>
@@ -70,10 +63,8 @@ export const query = graphql`
         amr: allMarkdownRemark(
             filter: {
                 frontmatter: {
-                    category: {
-                        type: {eq: $type},
-                        name: {eq: $category},
-                    },
+                    type: {eq: $type}
+                    category: {eq: $category}
                     layout: {eq: "product"}
                 }
             }
@@ -82,10 +73,12 @@ export const query = graphql`
                 id
                 frontmatter {
                     title
-                    category {
-                        type
-                        name
-                    }
+                    category
+                    hidden
+                    careatedAt
+                    slug
+                    promo
+                    type
                     price
                     images {
                         image {

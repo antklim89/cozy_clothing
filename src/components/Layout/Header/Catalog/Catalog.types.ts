@@ -5,12 +5,9 @@ export interface CatalogPropTypes {
     activeLinksClassName?: string
 }
 
-
 export interface CatalogResponse {
-    types: string[]
-    categories: Array<{
-        type: string
-        name: string
+    [k: string]: Array<{
+        category: string
     }>
 }
 
