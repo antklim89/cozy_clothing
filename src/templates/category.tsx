@@ -84,7 +84,7 @@ export const query = graphql`
                         image {
                             a:childImageSharp {
                                 b:gatsbyImageData(
-                                    layout: FIXED
+                                    layout: CONSTRAINED
                                     placeholder: BLURRED
                                     width: 272
                                     height: 390

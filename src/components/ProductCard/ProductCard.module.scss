@@ -1,6 +1,5 @@
 @use '~/styles/variables.scss' as *;
 
-
 .root {
     box-shadow: 1px 1px 5px black;
     cursor: pointer;
@@ -10,15 +9,24 @@
         transform: scale(1.01);
         box-shadow: 2px 2px 7px black;
     }
+
+    @include media-xs {
+        display: flex;
+    }
 }
 
 .image {
-    margin: 0 auto;
+    @include media-xs {
+        flex: 1 1.5 100%;
+    }
 }
 
 .body {
-    @include padding(0.2, 1, 0.2, 1);
+    @include media-xs {
+        flex: 1 1 100%;
+    }
 
+    @include padding(0.2, 1, 0.2, 1);
     & > * {
         @include padding(0, 0, 0.5, 1);
     }
