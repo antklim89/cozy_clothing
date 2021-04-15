@@ -1,3 +1,6 @@
+const postcss = require('postcss-preset-env');
+
+
 module.exports = {
     siteMetadata: {
         title: 'Cozy Clothing',
@@ -38,6 +41,12 @@ module.exports = {
                     esModule: false,
                     modules: { namedExport: false },
                 },
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-postcss',
+            options: {
+                postCssPlugins: [postcss()],
             },
         },
         {

@@ -86,7 +86,12 @@ export const query = graphql`
                     price
                     image {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(
+                                layout: FIXED
+                                placeholder: BLURRED
+                                width: 272
+                                height: 390
+                            )
                         }
                     }
                 }

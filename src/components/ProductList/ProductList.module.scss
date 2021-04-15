@@ -2,18 +2,25 @@
 
 
 .products {
+    --width: 272px;
+    --fr: 4;
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, 200px));
+    grid-template-columns: repeat(var(--fr), var(--width));
     justify-content: center;
-    grid-column-gap: 1rem;
+    grid-column-gap: 2rem;
     grid-row-gap: 1rem;
-    grid-auto-rows: 320px;
 
-    @include media-sm {
-        grid-template-columns: repeat(2, minmax(100px, 200px));
+
+    @include media-lg {
+        --fr: 3;
+    }
+
+    @include media-md {
+        --fr: 2;
     }
 
     @include media-xs {
-        grid-template-columns: repeat(1, minmax(100px, 200px));
+        --fr: 1;
+        --width: 1fr;
     }
 }
