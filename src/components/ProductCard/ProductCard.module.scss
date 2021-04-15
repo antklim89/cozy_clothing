@@ -6,6 +6,11 @@
     cursor: pointer;
     transition: $transition-speed-fast;
 
+    & * {
+        text-decoration: none;
+        color: black;
+    }
+
     &:hover {
         transform: scale(1.01);
         box-shadow: 2px 2px 7px black;
