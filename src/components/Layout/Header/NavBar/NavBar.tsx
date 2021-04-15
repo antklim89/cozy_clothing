@@ -33,19 +33,33 @@ export const NavBar = () => {
                         </Link>
                     </li>
                     <li className="hide-xs">
-                        <Link activeClassName={style.active} className={style.link} to="/">
+                        <Link
+                            activeClassName={style.active}
+                            className={style.link}
+                            to="/"
+                        >
                             home
                         </Link>
                     </li>
                     {file?.childContentJson?.types?.map((type) => (
                         <li className="hide-sm" key={type}>
-                            <Link activeClassName={style.active} className={style.link} to={`/category/${type}`}>
+                            <Link
+                                partiallyActive
+                                activeClassName={style.active}
+                                className={style.link}
+                                to={`/category/${type}`}
+                            >
                                 {type}
                             </Link>
                         </li>
                     ))}
                     <li>
-                        <Link activeClassName={style.active} className={style.link} to="/about">
+                        <Link
+                            partiallyActive
+                            activeClassName={style.active}
+                            className={style.link}
+                            to="/about"
+                        >
                             about
                         </Link>
                     </li>

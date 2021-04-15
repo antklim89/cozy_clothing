@@ -265,6 +265,8 @@ type Directory_ctimeArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -638,11 +640,11 @@ type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly choose_us: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterChoose_us>>>;
+  readonly layout: Maybe<Scalars['String']>;
   readonly publishedAt: Maybe<Scalars['Date']>;
   readonly prevDescription: Maybe<Scalars['String']>;
   readonly price: Maybe<Scalars['Int']>;
   readonly category: Maybe<MarkdownRemarkFrontmatterCategory>;
-  readonly layout: Maybe<Scalars['String']>;
 };
 
 
@@ -953,6 +955,8 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -1268,11 +1272,11 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
   readonly choose_us: Maybe<MarkdownRemarkFrontmatterChoose_usFilterListInput>;
+  readonly layout: Maybe<StringQueryOperatorInput>;
   readonly publishedAt: Maybe<DateQueryOperatorInput>;
   readonly prevDescription: Maybe<StringQueryOperatorInput>;
   readonly price: Maybe<IntQueryOperatorInput>;
   readonly category: Maybe<MarkdownRemarkFrontmatterCategoryFilterInput>;
-  readonly layout: Maybe<StringQueryOperatorInput>;
 };
 
 type FileFilterInput = {
@@ -1633,12 +1637,12 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.choose_us'
   | 'childrenMarkdownRemark.frontmatter.choose_us.text'
   | 'childrenMarkdownRemark.frontmatter.choose_us.title'
+  | 'childrenMarkdownRemark.frontmatter.layout'
   | 'childrenMarkdownRemark.frontmatter.publishedAt'
   | 'childrenMarkdownRemark.frontmatter.prevDescription'
   | 'childrenMarkdownRemark.frontmatter.price'
   | 'childrenMarkdownRemark.frontmatter.category.name'
   | 'childrenMarkdownRemark.frontmatter.category.type'
-  | 'childrenMarkdownRemark.frontmatter.layout'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -1735,12 +1739,12 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.choose_us'
   | 'childMarkdownRemark.frontmatter.choose_us.text'
   | 'childMarkdownRemark.frontmatter.choose_us.title'
+  | 'childMarkdownRemark.frontmatter.layout'
   | 'childMarkdownRemark.frontmatter.publishedAt'
   | 'childMarkdownRemark.frontmatter.prevDescription'
   | 'childMarkdownRemark.frontmatter.price'
   | 'childMarkdownRemark.frontmatter.category.name'
   | 'childMarkdownRemark.frontmatter.category.type'
-  | 'childMarkdownRemark.frontmatter.layout'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -2223,6 +2227,8 @@ type SiteFieldsEnum =
   | 'siteMetadata.title'
   | 'siteMetadata.description'
   | 'siteMetadata.author'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2324,6 +2330,8 @@ type SiteGroupConnection = {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -3087,12 +3095,12 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.choose_us.image.children'
   | 'frontmatter.choose_us.text'
   | 'frontmatter.choose_us.title'
+  | 'frontmatter.layout'
   | 'frontmatter.publishedAt'
   | 'frontmatter.prevDescription'
   | 'frontmatter.price'
   | 'frontmatter.category.name'
   | 'frontmatter.category.type'
-  | 'frontmatter.layout'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -3718,6 +3726,20 @@ type AboutPageQuery = { readonly file: Maybe<{ readonly remark: Maybe<(
       )> }
     )> }> };
 
+type CategoryPageQueryVariables = Exact<{
+  type: Scalars['String'];
+  category: Maybe<Scalars['String']>;
+}>;
+
+
+type CategoryPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
+      Pick<MarkdownRemark, 'id'>
+      & { readonly frontmatter: Maybe<(
+        Pick<MarkdownRemarkFrontmatter, 'title' | 'price'>
+        & { readonly category: Maybe<Pick<MarkdownRemarkFrontmatterCategory, 'type' | 'name'>>, readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+      )> }
+    )> } };
+
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -3744,19 +3766,10 @@ type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type CategoryPageQueryVariables = Exact<{
-  type: Scalars['String'];
-  category: Maybe<Scalars['String']>;
-}>;
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CategoryPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<(
-      Pick<MarkdownRemark, 'id'>
-      & { readonly frontmatter: Maybe<(
-        Pick<MarkdownRemarkFrontmatter, 'title' | 'price'>
-        & { readonly category: Maybe<Pick<MarkdownRemarkFrontmatterCategory, 'type' | 'name'>>, readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
-      )> }
-    )> } };
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type NavBarCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
