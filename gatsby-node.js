@@ -25,22 +25,33 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         {
             file(name: {eq: "categories"}) {
                 catalog: childContentJson {
-                    boys {
-                        category
-                    }
-                    girls {
-                        category
-                    }
-                    men {
-                        category
-                    }
-                    women {
-                        category
-                    }
+                    boys {category}
+                    girls {category}
+                    men {category}
+                    women {category}
                 }
             }
         }
     `);
+
+    const { data: { amr: { nodes: products } } } = await graphql(`
+        {
+            amr: allMarkdownRemark(
+                filter: {frontmatter: {
+                    layout: {eq: "product"},
+                    hidden: {eq: false}},
+                }
+            ) { nodes {id} }
+        }
+    `);
+
+    products.forEach((product) => {
+        createPage({
+            path: `/product/${product.id}`,
+            component: path.resolve('src/templates/product.tsx'),
+            context: { id: product.id },
+        });
+    });
 
     Object.keys(catalog).forEach((type) => {
         const categories = catalog[type];
