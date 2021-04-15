@@ -2,11 +2,13 @@
 layout: product
 title: King
 publishedAt: 2021-04-11T13:21:44.274Z
-prevDescription: dsad
-image: images/pexels-cottonbro-6069079.jpg
-price: 4324
+hidden: false
+promo: true
+images:
+  - image: pexels-cottonbro-6069079.jpg
+price: 19900
 category:
   name: Hudi
   type: men
 ---
-Lorem ipsum
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, eos! Animi atque voluptates labore accusantium aspernatur numquam ipsum eveniet repudiandae explicabo dolorum recusandae officia mollitia, culpa tempore dicta nobis voluptatem aut sunt, vel nisi perspiciatis harum ad delectus. Excepturi unde quod porro quidem praesentium odio impedit neque maiores nostrum soluta.

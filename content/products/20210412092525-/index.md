@@ -1,16 +1,14 @@
 ---
-title: New product
-publishedAt: 2021-04-12T09:24:52.046Z
-prevDescription: New product description
-image: new-product/images/a_4.jpg
+layout: product
+title: King child
+publishedAt: 2021-04-11T13:21:44.274Z
+hidden: false
+promo: true
+images:
+  - image: a_4.jpg
 price: 21000
 category:
-  name: Sweater
+  name: Hudi
   type: children
-layout: 'product'
 ---
-fdsfsdf
-
-gfdg
-
-fghdh
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, eos! Animi atque voluptates labore accusantium aspernatur numquam ipsum eveniet repudiandae explicabo dolorum recusandae officia mollitia, culpa tempore dicta nobis voluptatem aut sunt, vel nisi perspiciatis harum ad delectus. Excepturi unde quod porro quidem praesentium odio impedit neque maiores nostrum soluta.

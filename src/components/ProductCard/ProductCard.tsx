@@ -13,7 +13,7 @@ export const ProductCard: FC<ProductCardProps> = ({
             <GatsbyImage
                 alt={product.title}
                 className={styles.image}
-                image={product.image}
+                image={product.images[0]}
                 // objectFit="cover"
                 // style={{ width: '100%' }}
             />

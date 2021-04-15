@@ -49,7 +49,7 @@ export const query = graphql`
                         gatsbyImageData(width: 500, height: 500)
                     }
                 }
-                chooseUs: choose_us {
+                chooseUs {
                     title
                     text
                     image {

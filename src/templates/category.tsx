@@ -19,7 +19,9 @@ const schema = array(object({
     price: number().required(),
     type: string().required(),
     category: string().required(),
-    image: mixed<IGatsbyImageData>().required(),
+    images: array(
+        mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
+    ).required(),
 })).required();
 
 
@@ -37,15 +39,15 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
     pageContext: { type, category, categories },
     data,
 }) => {
-    if (!data.allMarkdownRemark.nodes) throw new Error();
+    if (!data.amr.nodes) throw new Error();
 
-    const products = schema.validateSync(data.allMarkdownRemark.nodes.map((i) => ({
+    const products = schema.validateSync(data.amr.nodes.map((i) => ({
         id: i.id,
         title: i.frontmatter?.title,
         price: i.frontmatter?.price,
         type: i.frontmatter?.category?.type,
         category: i.frontmatter?.category?.name,
-        image: i.frontmatter?.image?.childImageSharp?.gatsbyImageData,
+        images: i.frontmatter?.images,
     })));
 
     const title = `${capitalize(type)}${category ? ` - ${capitalize(category)}` : ''}`;
@@ -65,7 +67,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
 
 export const query = graphql`
     query CategoryPage($type: String!, $category: String) {
-        allMarkdownRemark(
+        amr: allMarkdownRemark(
             filter: {
                 frontmatter: {
                     category: {
@@ -77,6 +79,7 @@ export const query = graphql`
             }
         ) {
             nodes {
+                id
                 frontmatter {
                     title
                     category {
@@ -84,18 +87,19 @@ export const query = graphql`
                         name
                     }
                     price
-                    image {
-                        childImageSharp {
-                            gatsbyImageData(
-                                layout: FIXED
-                                placeholder: BLURRED
-                                width: 272
-                                height: 390
-                            )
+                    images {
+                        image {
+                            a:childImageSharp {
+                                b:gatsbyImageData(
+                                    layout: FIXED
+                                    placeholder: BLURRED
+                                    width: 272
+                                    height: 390
+                                )
+                            }
                         }
                     }
                 }
-                id
             }
         }
     }

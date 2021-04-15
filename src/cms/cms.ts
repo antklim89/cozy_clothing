@@ -48,7 +48,7 @@ CMS.init({
                             },
                             {
                                 label: 'Why Choose us',
-                                name: 'choose_us',
+                                name: 'chooseUs',
                                 widget: 'list',
                                 summary: '{{title}}',
                                 fields: [
@@ -122,7 +122,7 @@ CMS.init({
                 folder: 'content/products',
                 create: true,
                 slug: '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}-{{title}}',
-                media_folder: '{{slug}}/img/',
+                media_folder: '{{slug}}/',
                 path: '{{slug}}/index',
                 editor: {
                     preview: false,
@@ -135,20 +135,27 @@ CMS.init({
                         default: 'product',
                     },
                     {
+                        label: 'Hidden',
+                        name: 'hidden',
+                        widget: 'boolean',
+                        default: false,
+                    },
+                    {
+                        label: 'Promo',
+                        name: 'promo',
+                        widget: 'boolean',
+                        default: false,
+                    },
+                    {
                         label: 'Title',
                         name: 'title',
                         widget: 'string',
 
                     },
                     {
-                        label: 'Publish Date',
-                        name: 'publishedAt',
+                        label: 'Created Date',
+                        name: 'careatedAt',
                         widget: 'datetime',
-                    },
-                    {
-                        label: 'Preview description',
-                        name: 'prevDescription',
-                        widget: 'string',
                     },
                     {
                         label: 'Body',
@@ -156,11 +163,18 @@ CMS.init({
                         widget: 'markdown',
                     },
                     {
-                        label: 'Image',
-                        name: 'image',
-                        widget: 'image',
-                        media_folder: 'images/',
-                        allow_multiple: true,
+                        label: 'Images',
+                        name: 'images',
+                        widget: 'list',
+                        fields: [
+                            {
+                                label: 'Image',
+                                name: 'image',
+                                widget: 'image',
+                                media_folder: 'images/',
+                                allow_multiple: true,
+                            },
+                        ],
                     },
                     {
                         label: 'Price',

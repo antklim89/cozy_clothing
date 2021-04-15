@@ -7,7 +7,7 @@ export interface Product {
     price: number;
     type: string;
     category: string;
-    image: IGatsbyImageData;
+    images: IGatsbyImageData[];
 }
 
 export interface ProductCardProps {
