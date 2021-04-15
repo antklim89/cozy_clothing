@@ -3,4 +3,9 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.maxVisibleSuggestions": 15,
+    "editor.quickSuggestionsDelay": 1,
 }

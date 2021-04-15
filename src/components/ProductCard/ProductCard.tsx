@@ -28,7 +28,7 @@ export const ProductCard: FC<ProductCardProps> = ({
                     <i>{product.price}</i>
                 </p>
             </div>
-            <div className={styles.promo}>
+            <div className={styles.bagdes}>
                 {product.promo && (
                     <p>PROMO</p>
                 )}

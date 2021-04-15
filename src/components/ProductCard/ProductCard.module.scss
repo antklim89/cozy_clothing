@@ -33,7 +33,7 @@
     }
 }
 
-.promo {
+.bagdes {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
@@ -46,5 +46,6 @@
         padding: 0.2rem;
         font-size: $font-size-sm;
         text-align: center;
+        text-transform: uppercase;
     }
 }
