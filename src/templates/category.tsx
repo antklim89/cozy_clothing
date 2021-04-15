@@ -16,6 +16,7 @@ import { Title } from '~/components/Title';
 const schema = array(object({
     id: string().required(),
     title: string().required(),
+    brand: string().required(),
     price: number().required(),
     type: string().required(),
     category: string().required(),
@@ -66,6 +67,7 @@ export const query = graphql`
                     type: {eq: $type}
                     category: {eq: $category}
                     layout: {eq: "product"}
+                    hidden: {eq: false}
                 }
             }
         ) {
@@ -80,6 +82,7 @@ export const query = graphql`
                     promo
                     type
                     price
+                    brand
                     images {
                         image {
                             a:childImageSharp {

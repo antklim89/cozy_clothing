@@ -6,7 +6,7 @@ export const productsCollection = productTypes.map((type) => ({
     label: `Products ${type}`,
     folder: `content/products/${type}`,
     create: true,
-    slug: `${type}-{{category}}-{{title}}`,
+    slug: `${type}-{{category}}-{{brand}}-{{title}}`,
     media_folder: 'images',
     editor: {
         preview: false,
@@ -39,6 +39,11 @@ export const productsCollection = productTypes.map((type) => ({
         {
             label: 'Title',
             name: 'title',
+            widget: 'string',
+        },
+        {
+            label: 'Brand',
+            name: 'brand',
             widget: 'string',
         },
         {

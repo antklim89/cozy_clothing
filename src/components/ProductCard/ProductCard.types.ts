@@ -4,6 +4,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 export interface Product {
     id: string
     title: string
+    brand: string
     price: number
     type: string
     category: string
