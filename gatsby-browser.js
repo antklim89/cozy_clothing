@@ -13,5 +13,5 @@ import { Layout } from '~/components';
 
 
 export const wrapPageElement = ({ element, props }) => {
-    return createElement(Layout, { props }, element);
+    return createElement(Layout, props, element);
 };

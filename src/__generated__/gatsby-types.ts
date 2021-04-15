@@ -638,11 +638,11 @@ type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly choose_us: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterChoose_us>>>;
-  readonly layout: Maybe<Scalars['String']>;
   readonly publishedAt: Maybe<Scalars['Date']>;
   readonly prevDescription: Maybe<Scalars['String']>;
   readonly price: Maybe<Scalars['Int']>;
   readonly category: Maybe<MarkdownRemarkFrontmatterCategory>;
+  readonly layout: Maybe<Scalars['String']>;
 };
 
 
@@ -1268,11 +1268,11 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
   readonly choose_us: Maybe<MarkdownRemarkFrontmatterChoose_usFilterListInput>;
-  readonly layout: Maybe<StringQueryOperatorInput>;
   readonly publishedAt: Maybe<DateQueryOperatorInput>;
   readonly prevDescription: Maybe<StringQueryOperatorInput>;
   readonly price: Maybe<IntQueryOperatorInput>;
   readonly category: Maybe<MarkdownRemarkFrontmatterCategoryFilterInput>;
+  readonly layout: Maybe<StringQueryOperatorInput>;
 };
 
 type FileFilterInput = {
@@ -1633,12 +1633,12 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.choose_us'
   | 'childrenMarkdownRemark.frontmatter.choose_us.text'
   | 'childrenMarkdownRemark.frontmatter.choose_us.title'
-  | 'childrenMarkdownRemark.frontmatter.layout'
   | 'childrenMarkdownRemark.frontmatter.publishedAt'
   | 'childrenMarkdownRemark.frontmatter.prevDescription'
   | 'childrenMarkdownRemark.frontmatter.price'
   | 'childrenMarkdownRemark.frontmatter.category.name'
   | 'childrenMarkdownRemark.frontmatter.category.type'
+  | 'childrenMarkdownRemark.frontmatter.layout'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -1735,12 +1735,12 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.choose_us'
   | 'childMarkdownRemark.frontmatter.choose_us.text'
   | 'childMarkdownRemark.frontmatter.choose_us.title'
-  | 'childMarkdownRemark.frontmatter.layout'
   | 'childMarkdownRemark.frontmatter.publishedAt'
   | 'childMarkdownRemark.frontmatter.prevDescription'
   | 'childMarkdownRemark.frontmatter.price'
   | 'childMarkdownRemark.frontmatter.category.name'
   | 'childMarkdownRemark.frontmatter.category.type'
+  | 'childMarkdownRemark.frontmatter.layout'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -3087,12 +3087,12 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.choose_us.image.children'
   | 'frontmatter.choose_us.text'
   | 'frontmatter.choose_us.title'
-  | 'frontmatter.layout'
   | 'frontmatter.publishedAt'
   | 'frontmatter.prevDescription'
   | 'frontmatter.price'
   | 'frontmatter.category.name'
   | 'frontmatter.category.type'
+  | 'frontmatter.layout'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -3699,6 +3699,11 @@ type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
 
 type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3738,11 +3743,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type CategoryPageQueryVariables = Exact<{
   type: Scalars['String'];
