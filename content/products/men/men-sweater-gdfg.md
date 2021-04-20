@@ -10,6 +10,7 @@ images:
   - image: images/4206.jpg
   - image: images/exiter23.jpg
   - image: images/a_4.jpg
+  - image: images/pexels-karolina-grabowska-4210866.jpg
 price: 44400
 category: Sweater
 ---

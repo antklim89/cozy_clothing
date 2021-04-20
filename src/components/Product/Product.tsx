@@ -12,16 +12,19 @@ export const Product: FC<ProductPropTypes> = ({ product }) => {
     return (
         <>
             <div className={styles.root}>
-                <div className={styles.imagesPreview}>
+                <ul className={styles.imagesPreview}>
                     {product.imagesPreview.map((image) => (
-                        <GatsbyImage
-                            alt={product.title}
-                            className={styles.imagePreview}
-                            image={image}
-                            key={image.images.fallback?.src}
-                        />
+                        <li className={styles.imagePreview}>
+                            <div>
+                                <GatsbyImage
+                                    alt={product.title}
+                                    image={image}
+                                    key={image.images.fallback?.src}
+                                />
+                            </div>
+                        </li>
                     ))}
-                </div>
+                </ul>
                 <div className={styles.image}>
                     <GatsbyImage
                         alt={product.title}
