@@ -2,26 +2,13 @@
 
 
 .root {
-    border: none;
     background: none;
     @include padding(0.4, 1.5);
     text-transform: uppercase;
-}
-
-.outlined {
     border: 1px solid $secondary;
-    color: $font-light;
-    transition: $transition-speed;
-
-    &:hover {
-        background: $primary;
-        color: $font-light;
-    }
+    cursor: pointer;
 }
 
-.text {
-    border: none;
-}
 
 .primary {
     color: $primary

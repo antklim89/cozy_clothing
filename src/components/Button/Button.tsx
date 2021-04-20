@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { FC } from 'react';
 
 import style from './Button.module.scss';
-import { ButtonProps } from './Button.types';
+import { ButtonPropTypes } from './Button.types';
 
 
-export const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonPropTypes> = ({
     children,
     variant = 'outlined',
     color = 'black',

@@ -7,6 +7,7 @@
 
 import '~/styles/reset.scss';
 import '~/styles/global.scss';
+import '~/styles/fonts.scss';
 import { createElement } from 'react';
 
 import { Layout } from '~/components';
