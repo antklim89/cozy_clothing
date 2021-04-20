@@ -21,6 +21,12 @@ exports.onCreateBabelConfig = ({ actions }) => {
 
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
+    await createProductPages(graphql, createPage);
+    await createCategoriesPage(graphql, createPage);
+};
+
+
+async function createCategoriesPage(graphql, createPage) {
     const { data: { file: { catalog } } } = await graphql(`
         {
             file(name: {eq: "categories"}) {
@@ -33,25 +39,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             }
         }
     `);
-
-    const { data: { amr: { nodes: products } } } = await graphql(`
-        {
-            amr: allMarkdownRemark(
-                filter: {frontmatter: {
-                    layout: {eq: "product"},
-                    hidden: {eq: false}},
-                }
-            ) { nodes {id} }
-        }
-    `);
-
-    products.forEach((product) => {
-        createPage({
-            path: `/product/${product.id}`,
-            component: path.resolve('src/templates/product.tsx'),
-            context: { id: product.id },
-        });
-    });
 
     Object.keys(catalog).forEach((type) => {
         const categories = catalog[type];
@@ -74,4 +61,26 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             });
         });
     });
-};
+}
+
+async function createProductPages(graphql, createPage) {
+    const { data: { amr: { nodes: products } } } = await graphql(`
+        {
+            amr: allMarkdownRemark(
+                filter: {frontmatter: {
+                    layout: {eq: "product"},
+                    hidden: {eq: false}},
+                }
+            ) { nodes {id} }
+        }
+    `);
+
+    products.forEach((product) => {
+        createPage({
+            path: `/product/${product.id}`,
+            component: path.resolve('src/templates/product.tsx'),
+            context: { id: product.id },
+        });
+    });
+}
+

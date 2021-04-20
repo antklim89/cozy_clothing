@@ -1,6 +1,6 @@
-import { Product } from '~/components/ProductCard';
+import { IProduct } from '~/types';
 
 
 export interface ProductListPropTypes {
-    products: Array<Product>
+    products: IProduct[]
 }

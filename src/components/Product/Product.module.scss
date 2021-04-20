@@ -1,0 +1,26 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    display: flex;
+    
+}
+
+.imagesPreview {
+    flex: 1 1 auto;
+    padding: 1.5rem;
+}
+
+.imagePreview {
+    margin: 0 0.5rem;
+}
+
+.image {
+    flex: 2 1 100%;
+    @include padding(1)
+}
+
+.body {
+    flex: 2 1 100%;
+    @include padding(1)
+}
