@@ -1,22 +1,43 @@
-import { FC } from 'react';
+import { ReactElement } from 'react';
 
 import style from './Button.module.scss';
-import { ButtonPropTypes } from './Button.types';
+import {
+    ButtonPropTypes,
+    ButtonPropTypesWithComponent,
+    ButtonPropTypesButton,
+    ButtonPropTypesAnchor,
+} from './Button.types';
+
+import { cls } from '~/utils';
 
 
-export const Button: FC<ButtonPropTypes> = ({
+export function Button(props: ButtonPropTypesAnchor): ReactElement
+export function Button(props: ButtonPropTypesButton): ReactElement
+export function Button<P>(props: ButtonPropTypesWithComponent<P>): ReactElement
+export function Button(props: ButtonPropTypes): ReactElement
+export function Button<P>({
     children,
+    component: Component = 'button',
     variant = 'outlined',
-    color = 'black',
+    color = 'primary',
+    fontColor = 'dark',
+    size,
     ...props
-}) => {
+}: ButtonPropTypesWithComponent<P> | ButtonPropTypesButton): ReactElement {
     return (
-        <button
+        <Component
             type="button"
-            {...props}
-            className={`${props.className} ${style.root} ${style[variant]} ${style[color]}`}
+            {...props as P}
+            className={cls(
+                props.className,
+                style.root,
+                style[variant],
+                style[color],
+                style[fontColor],
+                size && style[size],
+            )}
         >
             {children}
-        </button>
+        </Component>
     );
-};
+}

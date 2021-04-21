@@ -83,7 +83,7 @@ export const Product: FC<ProductPropTypes> = ({ product }) => {
                             <Button>-</Button>
                         </div>
                         <div className={styles.cardBtn}>
-                            <Button>Add To Card</Button>
+                            <Button size="large">Add To Card</Button>
                         </div>
                     </div>
                 </div>

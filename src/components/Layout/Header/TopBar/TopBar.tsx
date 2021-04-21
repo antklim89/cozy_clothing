@@ -20,7 +20,7 @@ export const TopBar = () => {
     return (
         <div className={style.root}>
             <div className="container">
-                <Button color="white">login/register</Button>
+                <Button color="secondary" fontColor="light" variant="text">login | register</Button>
                 {/* <Button color="white" onClick={handleIndentity}>login/register</Button> */}
             </div>
         </div>

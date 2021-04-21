@@ -2,21 +2,18 @@
 
 
 .root {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     background: none;
     @include padding(0.4, 1.5);
     text-transform: uppercase;
+    transition: $transition-speed;
 }
 
 .outlined {
     border: 1px solid $secondary;
-    color: $font-light;
-    transition: $transition-speed;
-
-    &:hover {
-        background: $primary;
-        color: $font-light;
-    }
 }
 
 .text {
@@ -24,17 +21,31 @@
 }
 
 .primary {
-    color: $primary
+    &:hover {
+        background: $primary;
+        color: $font-light;
+    }
 }
 
 .secondary {
-    color: $secondary
+    &:hover {
+        background: $secondary;
+        color: $primary;
+    }
 }
 
-.white {
-    color: white
+.light {
+    color: $font-light;
 }
 
-.black {
-    color: black
+.dark {
+    color: $font-dark;
+}
+
+.small {
+    @include padding(0.2, 0.7);
+}
+
+.large {
+    @include padding(0.8, 3);
 }

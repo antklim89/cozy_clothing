@@ -1,13 +1,15 @@
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { FC } from 'react';
 
 import style from './NavBar.module.scss';
 
+import { Button } from '~/components/Button';
 import { Catalog } from '~/components/Layout/Header/Catalog';
 import { productTypes } from '~/constants';
 
 
-export const NavBar = () => {
+export const NavBar: FC = () => {
     return (
         <div className={style.root}>
             <nav className="container">
@@ -24,35 +26,44 @@ export const NavBar = () => {
                         </Link>
                     </li>
                     <li className="hide-xs">
-                        <Link
+                        <Button
                             activeClassName={style.active}
                             className={style.link}
+                            color="secondary"
+                            component={Link}
                             to="/"
+                            variant="text"
                         >
                             home
-                        </Link>
+                        </Button>
                     </li>
                     {productTypes.map((type) => (
                         <li className="hide-sm" key={type}>
-                            <Link
+                            <Button
                                 partiallyActive
                                 activeClassName={style.active}
                                 className={style.link}
+                                color="secondary"
+                                component={Link}
                                 to={`/category/${type}`}
+                                variant="text"
                             >
                                 {type}
-                            </Link>
+                            </Button>
                         </li>
                     ))}
                     <li>
-                        <Link
+                        <Button
                             partiallyActive
                             activeClassName={style.active}
                             className={style.link}
+                            color="secondary"
+                            component={Link}
                             to="/about"
+                            variant="text"
                         >
                             about
-                        </Link>
+                        </Button>
                     </li>
                     <li className="grow" />
                     <Catalog activeLinksClassName={style.active} linksClassName={style.link} />
