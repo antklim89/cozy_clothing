@@ -27,9 +27,9 @@ body {
 }
 
 /* make sure to set some focus styles for accessibility */
-:focus {
-    outline: 0;
-}
+// :focus {
+//     outline: 0;
+// }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -131,9 +131,9 @@ html {
  * Address `outline` inconsistency between Chrome and other browsers.
  */
 
-a:focus {
-    outline: thin dotted;
-}
+// a:focus {
+//     outline: thin dotted;
+// }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
