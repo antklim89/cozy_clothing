@@ -12,8 +12,8 @@ import { Seo } from '~/components/Seo';
 
 const schema = object({
     id: string().required(),
-    rawMarkdownBody: string().required(),
-    title: string().required(),
+    rawMarkdownBody: string().transform((v) => v.replace(/\s/ig, ' ')).required(),
+    title: string().transform((v) => v.replace(/\s/ig, ' ')).required(),
     brand: string().required(),
     price: number().required(),
     type: string().required(),
@@ -35,13 +35,13 @@ interface ProductPageContext {
 }
 
 
-const productPage: FC<PageProps<any, ProductPageContext>> = ({
+const productPage: FC<PageProps<GatsbyTypes.ProductPageQuery, ProductPageContext>> = ({
     data,
 }) => {
     const product = schema.validateSync({
-        ...data.amr.frontmatter,
-        rawMarkdownBody: data.amr.rawMarkdownBody,
-        id: data.amr.id,
+        ...data?.amr?.frontmatter,
+        rawMarkdownBody: data?.amr?.rawMarkdownBody,
+        id: data?.amr?.id,
     });
 
     return (

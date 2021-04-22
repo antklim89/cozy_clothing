@@ -2,7 +2,7 @@
 
 .root {
     position: relative;
-    box-shadow: 1px 1px 5px black;
+    box-shadow: 0px 0px 1px black;
     cursor: pointer;
     transition: $transition-speed-fast;
 
@@ -13,7 +13,7 @@
 
     &:hover {
         transform: scale(1.01);
-        box-shadow: 2px 2px 7px black;
+        box-shadow: 3px 3px 5px black;
     }
 
     @include media-xs {

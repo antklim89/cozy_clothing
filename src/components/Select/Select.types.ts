@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react';
+import { SelectHTMLAttributes } from 'react';
 
 
-export interface SelectPropTypes extends HTMLAttributes<HTMLSelectElement> {
+export interface SelectPropTypes extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
