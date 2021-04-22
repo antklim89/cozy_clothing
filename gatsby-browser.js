@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -7,7 +8,10 @@
 
 import '~/styles/reset.scss';
 import '~/styles/global.scss';
-import '~/styles/fonts.scss';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/400-italic.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/700-italic.css';
 import { createElement } from 'react';
 
 import { Layout } from '~/components';
