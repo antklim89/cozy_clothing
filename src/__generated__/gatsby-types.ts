@@ -3825,11 +3825,6 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
-
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3866,6 +3861,11 @@ type CategoryPageQuery = { readonly amr: { readonly nodes: ReadonlyArray<(
         & ProductFrontmatterFragmentFragment
       )> }
     )> } };
+
+type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
 type ProductImagesFragmentFragment = { readonly images: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>>, readonly imagesPreview: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>> };
 

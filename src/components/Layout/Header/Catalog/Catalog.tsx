@@ -67,7 +67,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
                             <Button
                                 activeClassName={activeLinksClassName}
                                 className={linksClassName}
-                                color="primary"
+                                color="secondary"
                                 component={Link}
                                 to={`/category/${type}`}
                                 variant="text"
@@ -82,7 +82,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
                                         <Button
                                             activeClassName={activeLinksClassName}
                                             className={linksClassName}
-                                            color="primary"
+                                            color="secondary"
                                             component={Link}
                                             to={`/category/${type}/${category}`}
                                             variant="text"
