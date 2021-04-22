@@ -1,0 +1,30 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    display: flex;
+    flex: 2;
+
+    @include media-md {
+        @include margin(0,0,10,0);
+    }
+}
+
+.imagesPreview {
+    flex: 1;
+    padding: 0 1.5rem;
+    overflow-y: scroll;
+    max-height: 460px;
+    scrollbar-width: thin;
+}
+
+.imagePreview {
+    @include margin(0.5, 0);
+    @include padding(0, 2);
+    box-shadow: 1px 1px 5px black;
+}
+
+.image {
+    flex: 3;
+    @include padding(1)
+}

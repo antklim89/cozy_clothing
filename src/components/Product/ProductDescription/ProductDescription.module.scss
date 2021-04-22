@@ -1,0 +1,60 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $bg-secondary;
+    background: #fafafa ;
+    flex: 1;
+    
+    // @include media-md {
+    //     @include margin(0,0,5,0)
+    // }
+}
+
+.titleSection, .brandSection {
+    border-bottom: 1px solid $bg-secondary;
+    @include padding(1);
+}
+
+.titleSection {
+    h1 {
+        @include padding(0, 0, 2, 0);
+    }
+    
+    .price {
+        font-size: $font-size-xl;
+    }
+            
+    .new {
+        display: block;
+        background: $primary;
+        color: white;
+        width: 70px;
+        padding: 0.2rem;
+        text-align: center;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.cartSection {
+    @include padding(1);
+
+    > * {
+        @include padding(1, 0);
+    }
+
+    .qty {
+        > button {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+        }
+
+        > span {
+            @include margin(0, 1)
+        }
+    }
+}

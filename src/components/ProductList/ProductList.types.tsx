@@ -1,6 +1,6 @@
-import { IProduct } from '~/types';
+import { IProductPreview } from '~/types';
 
 
 export interface ProductListPropTypes {
-    products: IProduct[]
+    products: IProductPreview[]
 }

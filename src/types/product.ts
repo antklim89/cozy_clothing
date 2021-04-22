@@ -1,7 +1,7 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 
-export interface IProduct {
+export interface IProductPreview {
     id: string
     title: string
     brand: string
@@ -12,4 +12,9 @@ export interface IProduct {
     hidden: boolean
     promo: boolean
     images: IGatsbyImageData[];
+}
+
+export interface IProduct extends IProductPreview {
+    rawMarkdownBody: string
+    imagesPreview: IGatsbyImageData[]
 }
