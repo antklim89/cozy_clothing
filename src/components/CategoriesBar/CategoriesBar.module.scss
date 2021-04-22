@@ -2,21 +2,15 @@
 
 
 .root {
-    border: none;
     display: flex;
     justify-content: flex-start;
-    margin: 0 0 1.4rem 0;
+    @include margin(0, 0, 1.4, 0);
 
     li {
         list-style: none;
-        @include margin(0, 0.5)
     }
-
-    a {
-        color: $font-dark;
-        padding: 2px;
-    }
+    
     a.active{
-        color: $primary
+        color: $primary;
     }
 }

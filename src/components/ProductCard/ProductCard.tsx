@@ -11,8 +11,8 @@ export const ProductCard: FC<ProductCardProps> = ({
 }) => {
     const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
     return (
-        <article className={styles.root}>
-            <Link to={`/product/${product.id}`}>
+        <Link to={`/product/${product.id}`}>
+            <article className={styles.root}>
                 <GatsbyImage
                     alt={product.title}
                     className={styles.image}
@@ -38,7 +38,7 @@ export const ProductCard: FC<ProductCardProps> = ({
                         <p>NEW</p>
                     )}
                 </div>
-            </Link>
-        </article>
+            </article>
+        </Link>
     );
 };
