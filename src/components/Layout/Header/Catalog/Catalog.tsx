@@ -64,26 +64,32 @@ export const Catalog: FC<CatalogPropTypes> = ({
                 <ul className={cls(styles.itemContainer, isOpen && styles.open)}>
                     {Object.keys(catalog).map((type) => (
                         <li key={type}>
-                            <Link
+                            <Button
                                 activeClassName={activeLinksClassName}
                                 className={linksClassName}
+                                color="primary"
+                                component={Link}
                                 to={`/category/${type}`}
+                                variant="text"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {type}
-                            </Link>
+                            </Button>
                             <ul className={styles.subItemContainer}>
                                 <hr />
                                 {catalog[type].map(({ category }) => (
                                     <li key={category + type}>
-                                        <Link
+                                        <Button
                                             activeClassName={activeLinksClassName}
                                             className={linksClassName}
+                                            color="primary"
+                                            component={Link}
                                             to={`/category/${type}/${category}`}
+                                            variant="text"
                                             onClick={() => setIsOpen(false)}
                                         >
                                             {category}
-                                        </Link>
+                                        </Button>
                                     </li>
                                 ))}
                             </ul>
