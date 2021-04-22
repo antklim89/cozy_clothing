@@ -2,7 +2,6 @@
 
 
 .shadow {
-    display: none;
     background: grey;
     opacity: 0.3;
     position: fixed;
@@ -10,8 +9,4 @@
     height: 100%;
     top: 0;
     left: 0;
-
-    &.show {
-        display: block;
-    }
 }

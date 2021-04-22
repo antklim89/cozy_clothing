@@ -17,9 +17,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
 }) => {
     const { file } = useStaticQuery<GatsbyTypes.CatalogQuery>(graphql`
         query Catalog {
-            file(name: {eq: "categories"}) {
-                publicURL
-            }
+            file(name: {eq: "categories"}) { publicURL }
         }
     `);
     const catalogURL = file?.publicURL || throwErr();
@@ -27,14 +25,12 @@ export const Catalog: FC<CatalogPropTypes> = ({
     const [isOpen, setIsOpen] = useState(false);
     const [catalog, setCatalog] = useState<null|CatalogResponse>(null);
 
-    const handleOpen = async () => {
-        if (!catalog) {
-            const response = await fetch(catalogURL);
-            const data: CatalogResponse = await response.json();
-            setCatalog(data);
-        }
+    const handleOpen = async (): Promise<void> => {
+        if (catalog) return setIsOpen((prev) => !prev);
 
-        setIsOpen((prev) => !prev);
+        const response = await fetch(catalogURL);
+        const data: CatalogResponse = await response.json();
+        return setCatalog(data);
     };
 
     if (!catalog) {
@@ -45,7 +41,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
                 onClick={handleOpen}
             >
                 <img alt="=" className="icon" src={menuIcon} />
-                Catalog
+                <p className="hide-xs">Catalog</p>
             </Button>
         );
     }
