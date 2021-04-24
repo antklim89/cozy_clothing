@@ -31,8 +31,14 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     const handleChangeQty = (e: ChangeEvent<HTMLInputElement>) => {
         const value = Number(e.target.value);
         if (Number.isNaN(value)) return;
-        if (value > MAX_QTY || value < 1) return;
+        if (value > 99) return;
         setQty(value);
+    };
+
+    const handleBlurQty = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = Number(e.target.value);
+        if (value > MAX_QTY) setQty(MAX_QTY);
+        if (value < 1) setQty(1);
     };
 
     const handlePlusQty = () => setQty((prev) => Math.min(prev + 1, MAX_QTY));
@@ -80,6 +86,7 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                     <Button onClick={handlePlusQty}>+</Button>
                     <input
                         value={qty}
+                        onBlur={handleBlurQty}
                         onChange={handleChangeQty}
                     />
                     <Button onClick={handleMinusQty}>-</Button>
