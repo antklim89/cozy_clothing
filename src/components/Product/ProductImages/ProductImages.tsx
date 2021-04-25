@@ -15,7 +15,7 @@ export const ProductImages: FC<ProductPropTypes> = ({ product }) => {
                 {product.imagesPreview.map((image, index) => (
                     <li
                         className={styles.imagePreview}
-                        key={image.images.fallback?.src}
+                        key={Math.random()}
                     >
                         <button
                             className={index === imageIndex ? styles.selected : ''}
