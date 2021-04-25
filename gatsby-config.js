@@ -26,6 +26,14 @@ module.exports = {
         'gatsby-plugin-typescript-checker',
         'gatsby-plugin-typegen',
         {
+            resolve: 'gatsby-plugin-react-svg',
+            options: {
+                rule: {
+                    include: /assets/,
+                },
+            },
+        },
+        {
             resolve: 'gatsby-transformer-remark',
             options: {
                 commonmark: true,

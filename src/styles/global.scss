@@ -1,8 +1,17 @@
 @use './variables.scss' as *;
 
+// @use './scss/fontawesome.scss';
+// @use './scss/solid.scss';
+
+// $fa-font-path: "~/assets/webfonts";
 
 * {
     box-sizing: border-box;
+}
+
+svg {
+    width: 2rem;
+    padding: 0.2rem;
 }
 
 a {

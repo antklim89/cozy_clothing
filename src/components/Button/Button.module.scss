@@ -24,6 +24,7 @@
     &:hover {
         background: $primary;
         color: $font-light;
+        fill: $font-light;
     }
 }
 
@@ -31,6 +32,7 @@
     &:hover {
         background: $secondary;
         color: $primary;
+        fill: $primary;
     }
 }
 

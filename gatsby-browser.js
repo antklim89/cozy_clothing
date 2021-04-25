@@ -12,6 +12,11 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/400-italic.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/700-italic.css';
+// import '@fortawesome/fontawesome-free/scss/regular.scss';
+// import '@fortawesome/fontawesome-free/js/regular.min';
+// import '@fortawesome/fontawesome-free/js/brands.min';
+// import '@fortawesome/fontawesome-free/js/solid.min';
+// import '@fortawesome/fontawesome-free/js/fontawesome.min';
 import { createElement } from 'react';
 
 import { Layout } from '~/components';

@@ -6,9 +6,12 @@ import styles from './Catalog.module.scss';
 import { CatalogPropTypes, CatalogResponse } from './Catalog.types';
 import { CatalogDrawer } from './CatalogDrawer/CatalogDrawer';
 
-import menuIcon from '~/assets/menu.svg';
+import Menu from '~/assets/menu.svg';
 import { Button } from '~/components/Button';
 import { cls, throwErr } from '~/utils';
+
+
+console.debug('||Menu: \n', Menu);
 
 
 export const Catalog: FC<CatalogPropTypes> = ({
@@ -41,7 +44,8 @@ export const Catalog: FC<CatalogPropTypes> = ({
                 variant="text"
                 onClick={handleOpen}
             >
-                <img alt="=" className="icon" src={menuIcon} />
+                <Menu />
+                {/* <i className="fas fa-bars" /> */}
                 <p className="hide-xs">Catalog</p>
             </Button>
         );
@@ -54,7 +58,8 @@ export const Catalog: FC<CatalogPropTypes> = ({
                 variant="text"
                 onClick={handleOpen}
             >
-                <img alt="=" className="icon" src={menuIcon} />
+                {/* <i className="fas fa-bars" /> */}
+                <Menu />
                 <p className="hide-xs">Catalog</p>
             </Button>
             <CatalogDrawer isOpen={isOpen} setIsOpen={setIsOpen}>

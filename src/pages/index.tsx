@@ -1,7 +1,9 @@
+import { FC } from 'react';
+
 import { Seo } from '~/components/Seo';
 
 
-const index = () => {
+const index: FC = () => {
     return (
         <main>
             <Seo
