@@ -30,6 +30,7 @@ export const Catalog: FC<CatalogPropTypes> = ({
 
         const response = await fetch(catalogURL);
         const data: CatalogResponse = await response.json();
+        setIsOpen(true);
         return setCatalog(data);
     };
 
