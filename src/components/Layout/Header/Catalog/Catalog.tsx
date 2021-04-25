@@ -11,9 +11,6 @@ import { Button } from '~/components/Button';
 import { cls, throwErr } from '~/utils';
 
 
-console.debug('||Menu: \n', Menu);
-
-
 export const Catalog: FC<CatalogPropTypes> = ({
     linksClassName,
     activeLinksClassName,

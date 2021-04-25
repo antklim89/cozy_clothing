@@ -1,9 +1,8 @@
 import { FC, useEffect } from 'react';
 
-import styles from './CatalogDrawer.module.scss';
 import { CatalogDrawerPropTypes } from './CatalogDrawer.types';
 
-import { cls } from '~/utils';
+import { Shadow } from '~/components/Shadow';
 
 
 export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({
@@ -22,13 +21,7 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({
     if (!isOpen) return null;
     return (
         <div>
-            <div
-                className={cls(styles.shadow)}
-                role="menu"
-                tabIndex={-1}
-                onClick={() => setIsOpen(false)}
-                onKeyPress={() => null}
-            />
+            <Shadow onClick={() => setIsOpen(false)} />
             {children}
         </div>
     );

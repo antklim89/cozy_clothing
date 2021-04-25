@@ -1,0 +1,30 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    position: relative;
+}
+
+.cart {
+    position: absolute;
+    background: $bg-primary;
+    right: 0;
+    max-width: 720px;
+    min-width: 310px;
+    box-shadow: $shadow;
+    z-index: 1;
+}
+
+.cart-length {
+    position: relative;
+    background: red;
+    top: 0;
+    right: 0;
+    border-radius: 100%;
+    min-width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

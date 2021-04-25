@@ -4,6 +4,11 @@
 .root {
     background: $bg-primary-dark;
 
+    > div {
+        display: flex;
+        justify-content: space-between;
+    }
+    
     p {
         color: $font-light;
     }

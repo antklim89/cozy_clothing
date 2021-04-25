@@ -1,10 +1,13 @@
-import { ChangeEvent, FC, useState } from 'react';
+import {
+    ChangeEvent, FC, useEffect, useState,
+} from 'react';
 
 import { ProductPropTypes } from '../Product.types';
 
 import styles from './ProductDescription.module.scss';
 
 import { Button } from '~/components/Button';
+import { useCart } from '~/components/Cart/Cart.provider';
 import { Select } from '~/components/Select';
 
 
@@ -21,8 +24,27 @@ enum Sizes {
 export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
 
+    const {
+        cart, addToCart, removeFromCart, updateCartItem,
+    } = useCart();
+    const cartItem = cart.find((i) => i.id === product.id);
+
     const [qty, setQty] = useState(1);
     const [size, setSize] = useState<Sizes>(Sizes.M);
+
+    const handleAddToCart = () => {
+        addToCart({
+            id: product.id, qty, size, product,
+        });
+    };
+
+    const handleRemoveFromCart = () => {
+        if (cartItem) removeFromCart(cartItem);
+    };
+
+    useEffect(() => {
+        if (cartItem) updateCartItem({ ...cartItem, qty, size });
+    }, [qty, size]);
 
     const handleSizeChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setSize(e.target.value as Sizes);
@@ -92,7 +114,21 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                     <Button onClick={handleMinusQty}>-</Button>
                 </div>
                 <div className={styles.cardBtn}>
-                    <Button size="large">Add To Card</Button>
+                    {cartItem ? (
+                        <Button
+                            size="large"
+                            onClick={handleRemoveFromCart}
+                        >
+                            Remove From Cart
+                        </Button>
+                    ) : (
+                        <Button
+                            size="large"
+                            onClick={handleAddToCart}
+                        >
+                            Add To Card
+                        </Button>
+                    )}
                 </div>
             </div>
         </div>
