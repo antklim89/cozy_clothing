@@ -1,0 +1,17 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    display: flex;
+    
+    > button {
+        width: 40px;
+        user-select: none;
+    }
+    input {
+        width: 40px;
+        border: none;
+        background: none;
+        text-align: center;
+    }
+}
