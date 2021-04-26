@@ -7,7 +7,7 @@ import { ProductPropTypes } from '../Product.types';
 import styles from './ProductDescription.module.scss';
 
 import { Button } from '~/components/Button';
-import { useCart } from '~/components/Cart/Cart.provider';
+import { useCart } from '~/components/CartProvider';
 import { Select } from '~/components/Select';
 import { SelectNumber } from '~/components/SelectNumber';
 

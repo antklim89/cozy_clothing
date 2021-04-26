@@ -2,7 +2,7 @@ import {
     FC, createContext, useContext, useState, useEffect,
 } from 'react';
 
-import { CartContext, CartItem } from './Cart.types';
+import { CartContext, CartItem } from './CartProvider.types';
 
 
 const context = createContext<CartContext>({} as CartContext);
