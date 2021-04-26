@@ -84,13 +84,10 @@ $xl: 1200px;
     margin: space($vals...);
 
     @include media-md {
-        margin: space($vals..., $mult: 0.6);
-    }
-    @include media-sm {
-        margin: space($vals..., $mult: 0.4);
+        margin: space($vals..., $mult: 0.8);
     }
     @include media-xs {
-        margin: space($vals..., $mult: 0.2);
+        margin: space($vals..., $mult: 0.6);
     }
 }
 
@@ -98,12 +95,9 @@ $xl: 1200px;
     padding: space($vals...);
 
     @include media-md {
-        padding: space($vals..., $mult: 0.6);
-    }
-    @include media-sm {
-        padding: space($vals..., $mult: 0.4);
+        padding: space($vals..., $mult: 0.8);
     }
     @include media-xs {
-        padding: space($vals..., $mult: 0.2);
+        padding: space($vals..., $mult: 0.6);
     }
 }

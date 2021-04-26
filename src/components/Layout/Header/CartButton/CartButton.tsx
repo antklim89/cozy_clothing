@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import { FC } from 'react';
 
 
@@ -14,7 +15,9 @@ export const CartButton: FC = () => {
     return (
         <Button
             color="secondary"
+            component={Link}
             fontColor="light"
+            to="/cart"
             variant="text"
         >
             <CartIcon />

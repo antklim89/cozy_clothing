@@ -30,7 +30,7 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
             <Container className={styles.root} component="section">
                 <Title>Why Choose Us</Title>
                 <div className={styles.chooseUsContainer}>
-                    {chooseUs.map((item: any) => (
+                    {chooseUs.map((item) => (
                         <article className={styles.chooseUsItem} key={item.title}>
                             <GatsbyImage
                                 alt={item.title}
