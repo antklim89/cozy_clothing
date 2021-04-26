@@ -9,9 +9,8 @@ import styles from './ProductDescription.module.scss';
 import { Button } from '~/components/Button';
 import { useCart } from '~/components/Cart/Cart.provider';
 import { Select } from '~/components/Select';
+import { SelectNumber } from '~/components/SelectNumber';
 
-
-const MAX_QTY = 50;
 
 enum Sizes {
     XXL = 'XXL',
@@ -29,7 +28,7 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     } = useCart();
     const cartItem = cart.find((i) => i.id === product.id);
 
-    const [qty, setQty] = useState(1);
+    const [qty, setQty] = useState(cartItem?.qty || 1);
     const [size, setSize] = useState<Sizes>(Sizes.M);
 
     const handleAddToCart = () => {
@@ -43,28 +42,17 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     };
 
     useEffect(() => {
-        if (cartItem) updateCartItem({ ...cartItem, qty, size });
+        if (cartItem && cartItem.qty !== qty) updateCartItem({ ...cartItem, qty, size });
+        if (cartItem && cartItem.size !== size) updateCartItem({ ...cartItem, qty, size });
     }, [qty, size]);
+
+    useEffect(() => {
+        if (cartItem && cartItem.qty !== qty) setQty(cartItem.qty);
+    }, [cartItem?.qty]);
 
     const handleSizeChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setSize(e.target.value as Sizes);
     };
-
-    const handleChangeQty = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = Number(e.target.value);
-        if (Number.isNaN(value)) return;
-        if (value > 99) return;
-        setQty(value);
-    };
-
-    const handleBlurQty = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = Number(e.target.value);
-        if (value > MAX_QTY) setQty(MAX_QTY);
-        if (value < 1) setQty(1);
-    };
-
-    const handlePlusQty = () => setQty((prev) => Math.min(prev + 1, MAX_QTY));
-    const handleMinusQty = () => setQty((prev) => Math.max(prev - 1, 1));
 
     return (
         <div className={styles.root}>
@@ -91,28 +79,12 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                 </p>
             </div>
             <div className={styles.cartSection}>
-                <div className={styles.selectSize}>
-                    <div>
-                        SIZE:
-                        {' '}
-                        <Select id="select-size" value={size} onChange={handleSizeChange}>
-                            {Object.keys(Sizes).map((sizeItem) => (
-                                <option key={sizeItem} value={sizeItem}>{sizeItem}</option>
-                            ))}
-                        </Select>
-                    </div>
-                </div>
-                <div className={styles.qty}>
-                    QTY:
-                    {' '}
-                    <Button onClick={handlePlusQty}>+</Button>
-                    <input
-                        value={qty}
-                        onBlur={handleBlurQty}
-                        onChange={handleChangeQty}
-                    />
-                    <Button onClick={handleMinusQty}>-</Button>
-                </div>
+                <Select label="SIZE:" value={size} onChange={handleSizeChange}>
+                    {Object.keys(Sizes).map((sizeItem) => (
+                        <option key={sizeItem} value={sizeItem}>{sizeItem}</option>
+                    ))}
+                </Select>
+                <SelectNumber label="QTY:" value={qty} onChange={(n) => setQty(n)} />
                 <div className={styles.cardBtn}>
                     {cartItem ? (
                         <Button

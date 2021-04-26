@@ -2,8 +2,16 @@
 
 
 .root {
-    display: flex;
-    
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
     > button {
         width: 40px;
         user-select: none;

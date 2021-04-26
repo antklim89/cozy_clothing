@@ -1,5 +1,5 @@
 import {
-    FC, createContext, useContext, useState,
+    FC, createContext, useContext, useState, useEffect,
 } from 'react';
 
 import { CartContext, CartItem } from './Cart.types';
@@ -9,7 +9,14 @@ const context = createContext<CartContext>({} as CartContext);
 
 
 export const CartProvider: FC = ({ children }) => {
-    const [cart, setCart] = useState<CartItem[]>([]);
+    const [cart, setCart] = useState<CartItem[]>(() => {
+        const data = localStorage.getItem('cart');
+        return data ? JSON.parse(data) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }, [cart]);
 
     const addToCart = (newItem: CartItem) => {
         setCart((prev) => [...prev, newItem]);

@@ -1,17 +1,16 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 
 import { Button } from '../Button';
-import { Shadow } from '../Shadow';
 
 import styles from './Cart.module.scss';
 import { useCart } from './Cart.provider';
 
+import CartIcon from '~/assets/shopping-cart.svg';
+
 
 export const Cart: FC = () => {
-    const [isShow, setIsShow] = useState(false);
     const { cart } = useCart();
-
 
     return (
         <div className={styles.root}>
@@ -19,26 +18,11 @@ export const Cart: FC = () => {
                 color="secondary"
                 fontColor="light"
                 variant="text"
-                onClick={() => setIsShow((p) => !p)}
             >
-                Cart
+                <CartIcon />
                 {' '}
                 <span className={styles.cartLength}>{cart.length}</span>
             </Button>
-            {isShow && (
-                <>
-                    <Shadow onClick={() => setIsShow(false)} />
-                    <section className={styles.cart}>
-                        <ul>
-                            {cart.map((cartItem) => (
-                                <li>
-                                    {cartItem.product.title}
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                </>
-            )}
         </div>
     );
 };

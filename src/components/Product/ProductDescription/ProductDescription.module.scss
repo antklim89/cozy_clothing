@@ -43,17 +43,4 @@
     > * {
         @include padding(1, 0);
     }
-
-    .qty {
-        > button {
-            width: 40px;
-            user-select: none;
-        }
-        input {
-            width: 40px;
-            border: none;
-            background: none;
-            text-align: center;
-        }
-    }
 }

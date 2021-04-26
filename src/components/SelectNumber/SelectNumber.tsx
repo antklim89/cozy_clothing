@@ -7,7 +7,7 @@ import { SelectNumberPropTypes } from './SelectNumber.types';
 
 
 export const SelectNumber: FC<SelectNumberPropTypes> = ({
-    value, onChange, max = 50, min = 1, label = 'QTY',
+    value, onChange, max = 50, min = 1, label,
 }) => {
     const handleChangeQty = (e: ChangeEvent<HTMLInputElement>) => {
         const newValue = Number(e.target.value);
@@ -25,19 +25,20 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
     const handlePlusQty = () => onChange(Math.min(value + 1, max));
     const handleMinusQty = () => onChange(Math.max(value - 1, min));
 
+    const id = (Math.random() * 10000).toString(32);
 
     return (
-        <div className={styles.root}>
-            {label}
-            :
-            {' '}
+        <label className={styles.root} htmlFor={id}>
+            {label ? `${label}  ` : ''}
             <Button onClick={handlePlusQty}>+</Button>
             <input
+                id={id}
+                type="number"
                 value={value}
                 onBlur={handleBlurQty}
                 onChange={handleChangeQty}
             />
             <Button onClick={handleMinusQty}>-</Button>
-        </div>
+        </label>
     );
 };

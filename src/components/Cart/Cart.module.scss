@@ -9,10 +9,16 @@
     position: absolute;
     background: $bg-primary;
     right: 0;
+    width: 100%;
     max-width: 720px;
     min-width: 310px;
     box-shadow: $shadow;
     z-index: 1;
+}
+
+.empty-cart {
+    font-size: 2rem;
+    text-align: center;
 }
 
 .cart-length {
