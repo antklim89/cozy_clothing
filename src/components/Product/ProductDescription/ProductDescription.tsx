@@ -1,14 +1,11 @@
-import {
-    ChangeEvent, FC, useEffect, useState,
-} from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { ProductPropTypes } from '../Product.types';
 
 import styles from './ProductDescription.module.scss';
 
 import { Button } from '~/components/Button';
-import { useCart } from '~/components/CartProvider';
-import { Select } from '~/components/Select';
+import { CartItem, useCart } from '~/components/CartProvider';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
 import { Sizes } from '~/types/product-sizes';
@@ -20,15 +17,18 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     const {
         cart, addToCart, removeFromCart, updateCartItem,
     } = useCart();
-    const cartItem = cart.find((i) => i.id === product.id);
 
-    const [qty, setQty] = useState(cartItem?.qty || 1);
-    const [size, setSize] = useState<Sizes>(Sizes.M);
+    const [cartItem, setCartItem] = useState<CartItem>(() => (
+        cart.find((i) => i.id === product.id) || {
+            id: product.id,
+            product,
+            qty: 1,
+            size: Sizes.M,
+        }
+    ));
 
     const handleAddToCart = () => {
-        addToCart({
-            id: product.id, qty, size, product,
-        });
+        addToCart(cartItem);
     };
 
     const handleRemoveFromCart = () => {
@@ -36,17 +36,8 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     };
 
     useEffect(() => {
-        if (cartItem && cartItem.qty !== qty) updateCartItem({ ...cartItem, qty, size });
-        if (cartItem && cartItem.size !== size) updateCartItem({ ...cartItem, qty, size });
-    }, [qty, size]);
-
-    useEffect(() => {
-        if (cartItem && cartItem.qty !== qty) setQty(cartItem.qty);
-    }, [cartItem?.qty]);
-
-    const handleSizeChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setSize(e.target.value as Sizes);
-    };
+        updateCartItem(cartItem);
+    }, [cartItem.qty, cartItem.size]);
 
     return (
         <div className={styles.root}>
@@ -75,13 +66,13 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
             <div className={styles.cartSection}>
                 <SelectSize
                     label="SIZE:"
-                    value={size}
-                    onChange={(s) => setSize(s)}
+                    value={cartItem.size}
+                    onChange={(size) => setCartItem((p) => ({ ...p, size }))}
                 />
                 <SelectNumber
                     label="QTY:"
-                    value={qty}
-                    onChange={(n) => setQty(n)}
+                    value={cartItem.qty}
+                    onChange={(qty) => setCartItem((p) => ({ ...p, qty }))}
                 />
                 <div className={styles.cardBtn}>
                     {cartItem ? (
