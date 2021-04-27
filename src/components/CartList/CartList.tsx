@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 
 import { Button } from '../Button';
@@ -11,10 +11,14 @@ import { useCart } from '~/components/CartProvider';
 import { Container } from '~/components/Container';
 
 
-export const CartList: FC<CartListPropTypes> = () => {
+export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
     const { cart } = useCart();
 
     const totalPrice = cart.reduce((acc, i) => (acc + i.product.price * i.qty), 0);
+
+    useEffect(() => {
+        if (onChangeEmpty) onChangeEmpty(cart.length === 0);
+    }, [cart.length === 0]);
 
     if (cart.length === 0) {
         return (
