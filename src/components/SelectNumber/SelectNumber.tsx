@@ -29,7 +29,12 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
 
     return (
         <label className={styles.root} htmlFor={id}>
-            {label ? `${label}  ` : ''}
+            {label && (
+                <span>
+                    {label}
+                    &nbsp;
+                </span>
+            )}
             <Button onClick={handlePlusQty}>+</Button>
             <input
                 id={id}

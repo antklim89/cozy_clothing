@@ -3830,6 +3830,11 @@ type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
 
 type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
 type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3844,12 +3849,22 @@ type AboutPageQuery = { readonly remark: Maybe<(
     )> }
   )> };
 
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
-
 type ProductFrontmatterFragmentFragment = Pick<MarkdownRemarkFrontmatter, 'title' | 'category' | 'hidden' | 'careatedAt' | 'slug' | 'promo' | 'type' | 'price' | 'brand'>;
+
+type ProductImagesFragmentFragment = { readonly images: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>>, readonly imagesPreview: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>> };
+
+type ProductPageQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type ProductPageQuery = { readonly amr: Maybe<(
+    Pick<MarkdownRemark, 'id' | 'rawMarkdownBody'>
+    & { readonly frontmatter: Maybe<(
+      ProductFrontmatterFragmentFragment
+      & ProductImagesFragmentFragment
+    )> }
+  )> };
 
 type ProductCardImageFragmentFragment = { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> };
 
@@ -3866,21 +3881,6 @@ type CategoryPageQuery = { readonly amr: { readonly nodes: ReadonlyArray<(
         & ProductFrontmatterFragmentFragment
       )> }
     )> } };
-
-type ProductImagesFragmentFragment = { readonly images: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>>, readonly imagesPreview: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>> };
-
-type ProductPageQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type ProductPageQuery = { readonly amr: Maybe<(
-    Pick<MarkdownRemark, 'id' | 'rawMarkdownBody'>
-    & { readonly frontmatter: Maybe<(
-      ProductFrontmatterFragmentFragment
-      & ProductImagesFragmentFragment
-    )> }
-  )> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

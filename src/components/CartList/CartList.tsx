@@ -2,7 +2,6 @@ import { FC } from 'react';
 
 
 import { CartItem } from './CartItem';
-import styles from './CartList.module.scss';
 import { CartListPropTypes } from './CartList.types';
 
 import { useCart } from '~/components/CartProvider';

@@ -10,15 +10,9 @@ import { Button } from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 import { Select } from '~/components/Select';
 import { SelectNumber } from '~/components/SelectNumber';
+import { SelectSize } from '~/components/SelectSize';
+import { Sizes } from '~/types/product-sizes';
 
-
-enum Sizes {
-    XXL = 'XXL',
-    XL = 'XL',
-    L = 'L',
-    M = 'M',
-    S = 'S',
-}
 
 export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
@@ -79,12 +73,16 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                 </p>
             </div>
             <div className={styles.cartSection}>
-                <Select label="SIZE:" value={size} onChange={handleSizeChange}>
-                    {Object.keys(Sizes).map((sizeItem) => (
-                        <option key={sizeItem} value={sizeItem}>{sizeItem}</option>
-                    ))}
-                </Select>
-                <SelectNumber label="QTY:" value={qty} onChange={(n) => setQty(n)} />
+                <SelectSize
+                    label="SIZE:"
+                    value={size}
+                    onChange={(s) => setSize(s)}
+                />
+                <SelectNumber
+                    label="QTY:"
+                    value={qty}
+                    onChange={(n) => setQty(n)}
+                />
                 <div className={styles.cardBtn}>
                     {cartItem ? (
                         <Button

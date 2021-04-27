@@ -8,3 +8,9 @@
     border: 1px solid $secondary;
     cursor: pointer;
 }
+
+.label {
+    display: flex;
+    align-items: baseline;
+    @include margin(0.2);
+}

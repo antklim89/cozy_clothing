@@ -14,8 +14,13 @@ export const Select: FC<SelectPropTypes> = ({
 }) => {
     const id = (Math.random() * 10000).toString(32);
     return (
-        <label htmlFor={id}>
-            {label ? `${label}  ` : ''}
+        <label className={style.label} htmlFor={id}>
+            {label && (
+                <span>
+                    {label}
+                    &nbsp;
+                </span>
+            )}
             <select
                 id={id}
                 {...props}

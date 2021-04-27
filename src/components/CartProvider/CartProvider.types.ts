@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { IProduct } from '~/types';
+import { IProduct, Sizes } from '~/types';
 
 
 export interface CartItem {
     id: string
     qty: number
-    size: string
+    size: Sizes
     product: IProduct
 }
 

@@ -9,6 +9,40 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Roboto', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    font-size: 1.1rem;
+    color: $font-dark;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.8em;
+}
+h3 {
+    font-size: 1.5em;
+}
+h4 {
+    font-size: 1.4em;
+}
+h5 {
+    font-size: 1.3em;
+}
+h6 {
+    font-size: 1.2em;
+}
+
+p {
+    padding: 0.2em 0;
+}
+
 svg {
     width: 2rem;
     padding: 0.2rem;
@@ -16,6 +50,7 @@ svg {
 
 a {
     text-decoration: none;
+    color: $font-dark;
 }
 
 a:focus, button:focus {
@@ -52,39 +87,6 @@ a:focus, button:focus {
 
 .grow {
     flex-grow: 1;
-}
-
-body {
-    font-family: 'Roboto', Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-    font-size: 1.1rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-}
-
-h1 {
-    font-size: 2em;
-}
-h2 {
-    font-size: 1.8em;
-}
-h3 {
-    font-size: 1.5em;
-}
-h4 {
-    font-size: 1.4em;
-}
-h5 {
-    font-size: 1.3em;
-}
-h6 {
-    font-size: 1.2em;
-}
-
-p {
-    padding: 0.2em 0;
 }
 
 @include media-md {
