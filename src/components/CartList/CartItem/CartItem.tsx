@@ -35,16 +35,22 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                         {cartItem.product.type}
                     </small>
                 </section>
-                <p className={styles.price}>
-                    Price:&nbsp;$
-                    {cartItem.product.price}
-                    <br />
-                    Quantity:&nbsp;
-                    {cartItem.qty}
-                    <br />
-                    Total:&nbsp;$
-                    {cartItem.product.price * cartItem.qty}
-                </p>
+                <div className={styles.price}>
+                    <p>
+                        Price:&nbsp;$
+                        {cartItem.product.price}
+                    </p>
+                    <p>
+                        Quantity:&nbsp;
+                        {cartItem.qty}
+                    </p>
+                    <p>
+                        <b>
+                            Total:&nbsp;$
+                            {cartItem.product.price * cartItem.qty}
+                        </b>
+                    </p>
+                </div>
                 <div className={styles.options}>
                     <SelectNumber
                         value={cartItem.qty}

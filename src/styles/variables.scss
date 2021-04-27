@@ -101,3 +101,18 @@ $xl: 1200px;
         padding: space($vals..., $mult: 0.6);
     }
 }
+
+@mixin base-input-align {
+    display: flex;
+    align-items: center;
+    @include margin(0.2);
+}
+
+@mixin base-input-style {
+    justify-content: center;
+    border: 1px solid $secondary;
+    @include padding(0.4, 1.5);
+    background: none;
+    text-transform: uppercase;
+    transition: $transition-speed;
+}

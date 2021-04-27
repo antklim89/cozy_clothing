@@ -2,9 +2,7 @@
 
 
 .root {
-    display: flex;
-    align-items: baseline;
-    @include margin(0.2);
+    @include base-input-align;
     
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {

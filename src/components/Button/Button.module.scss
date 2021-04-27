@@ -2,15 +2,8 @@
 
 
 .root {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background: none;
-    @include padding(0.4, 1.5);
-    @include margin(0.2);
-    text-transform: uppercase;
-    transition: $transition-speed;
+    @include base-input-align;
+    @include base-input-style;
 }
 
 .outlined {

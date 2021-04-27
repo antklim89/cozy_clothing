@@ -14,7 +14,7 @@ export const Select: FC<SelectPropTypes> = ({
 }) => {
     const id = (Math.random() * 10000).toString(32);
     return (
-        <label className={style.label} htmlFor={id}>
+        <label className={style.root} htmlFor={id}>
             {label && (
                 <span>
                     {label}
@@ -24,7 +24,7 @@ export const Select: FC<SelectPropTypes> = ({
             <select
                 id={id}
                 {...props}
-                className={cls(props.className, style.root)}
+                className={cls(props.className, style.select)}
             >
                 {children}
             </select>
