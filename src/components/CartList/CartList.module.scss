@@ -1,0 +1,14 @@
+@use '~/styles/variables.scss' as *;
+
+
+.total-price {
+    font-size: $font-size-xl;
+    @include padding(0, 0, 2, 0);
+}
+
+.right {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    @include padding(2);
+}
