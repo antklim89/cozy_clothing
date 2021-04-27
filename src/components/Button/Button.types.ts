@@ -24,8 +24,7 @@ export type ButtonPropTypesWithComponent<T> = {
 
 
 export type ButtonPropTypes = {
-    variant?: 'outlined' | 'text'
-    color?: 'primary' | 'secondary'
+    variant?: 'outlined' | 'text' | 'contained'
     fontColor?: 'dark' | 'light'
     size?: 'small' | 'large'
     children: ReactNode

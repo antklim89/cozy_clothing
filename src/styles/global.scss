@@ -1,9 +1,5 @@
 @use './variables.scss' as *;
 
-// @use './scss/fontawesome.scss';
-// @use './scss/solid.scss';
-
-// $fa-font-path: "~/assets/webfonts";
 
 * {
     box-sizing: border-box;
@@ -55,7 +51,7 @@ a {
 
 a:focus, button:focus {
     outline: 0;
-    box-shadow: 0px 0px 5px blue;
+    box-shadow: $shadow $primary;
 }
 
 .container {

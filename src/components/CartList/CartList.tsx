@@ -15,6 +15,12 @@ export const CartList: FC<CartListPropTypes> = () => {
     const { cart } = useCart();
 
     const totalPrice = cart.reduce((acc, i) => (acc + i.product.price * i.qty), 0);
+
+    if (cart.length === 0) {
+        return (
+            <p className={styles.emptyCart}>Cart is empty...</p>
+        );
+    }
     return (
         <Container>
             <ul>

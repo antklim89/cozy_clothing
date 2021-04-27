@@ -18,8 +18,7 @@ export function Button(props: ButtonPropTypes): ReactElement
 export function Button<P>({
     children,
     component: Component = 'button',
-    variant = 'outlined',
-    color = 'primary',
+    variant = 'contained',
     fontColor = 'dark',
     size,
     ...props
@@ -32,7 +31,6 @@ export function Button<P>({
                 props.className,
                 style.root,
                 style[variant],
-                style[color],
                 style[fontColor],
                 size && style[size],
             )}

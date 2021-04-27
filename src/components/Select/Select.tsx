@@ -4,8 +4,6 @@ import { FC } from 'react';
 import style from './Select.module.scss';
 import { SelectPropTypes } from './Select.types';
 
-import { cls } from '~/utils';
-
 
 export const Select: FC<SelectPropTypes> = ({
     children,
@@ -24,7 +22,7 @@ export const Select: FC<SelectPropTypes> = ({
             <select
                 id={id}
                 {...props}
-                className={cls(props.className, style.select)}
+                className={props.className}
             >
                 {children}
             </select>

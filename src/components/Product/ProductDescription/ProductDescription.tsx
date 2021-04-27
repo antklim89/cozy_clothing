@@ -75,7 +75,7 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                     onChange={(qty) => setCartItem((p) => ({ ...p, qty }))}
                 />
                 <div className={styles.cardBtn}>
-                    {cartItem ? (
+                    {cart.includes(cartItem) ? (
                         <Button
                             size="large"
                             onClick={handleRemoveFromCart}

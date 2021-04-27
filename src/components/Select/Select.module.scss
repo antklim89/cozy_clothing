@@ -5,7 +5,11 @@
     @include base-input-align;
 }
 
-.select {
+select {
     cursor: pointer;
     @include base-input-style;
+
+    &:hover {
+        border-color: $primary;
+    }
 }

@@ -12,3 +12,11 @@
     flex-direction: column;
     @include padding(2);
 }
+
+.empty-cart {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}

@@ -24,7 +24,7 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                 />
                 <section className={styles.title}>
                     <Link className={styles.title} to={`/product/${cartItem.product.id}`}>
-                        {cartItem.product.title}
+                        <h4>{cartItem.product.title}</h4>
                     </Link>
                     <br />
                     <b>

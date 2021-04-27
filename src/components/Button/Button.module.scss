@@ -8,25 +8,32 @@
 
 .outlined {
     border: 1px solid $secondary;
-}
 
-.text {
-    border: none;
-}
-
-.primary {
     &:hover {
-        background: $primary;
-        color: $font-light;
+        border: 1px solid $primary;
+        color: $primary;
         fill: $font-light;
     }
 }
 
-.secondary {
+.text {
+    border: none;
+
     &:hover {
-        background: $secondary;
         color: $primary;
         fill: $primary;
+    }
+    
+}
+
+.contained {
+    border: 1px solid $secondary;
+
+    &:hover {
+        border: 1px solid $primary;
+        background: $primary;
+        color: $font-light;
+        fill: $font-light;
     }
 }
 
