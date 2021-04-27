@@ -1,26 +1,24 @@
 @use '~/styles/variables.scss' as *;
 
+$width: 272px;
 
 .products {
-    --width: 272px;
-    --fr: 4;
     display: grid;
-    grid-template-columns: repeat(var(--fr), var(--width));
+    grid-template-columns: repeat(4, $width);
     justify-content: center;
     grid-column-gap: 2rem;
     grid-row-gap: 1rem;
 
 
     @include media-lg {
-        --fr: 3;
+        grid-template-columns: repeat(3, $width);
     }
 
     @include media-md {
-        --fr: 2;
+        grid-template-columns: repeat(2, $width);
     }
 
     @include media-xs {
-        --fr: 1;
-        --width: 1fr;
+        grid-template-columns: repeat(1, $width);
     }
 }

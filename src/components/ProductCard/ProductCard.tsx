@@ -2,14 +2,21 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
+
 import styles from './ProductCard.module.scss';
 import { ProductCardProps } from './ProductCard.types';
+
+import CartIcon from '~/assets/shopping-cart.svg';
+import { useCart } from '~/components/CartProvider';
 
 
 export const ProductCard: FC<ProductCardProps> = ({
     product,
 }) => {
+    const { cart } = useCart();
     const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
+    const isInCart = cart.some((i) => i.id === product.id);
+
     return (
         <Link to={`/product/${product.id}`}>
             <article className={styles.root}>
@@ -36,6 +43,9 @@ export const ProductCard: FC<ProductCardProps> = ({
                     )}
                     {isNew && (
                         <p>NEW</p>
+                    )}
+                    {isInCart && (
+                        <CartIcon fill="white" />
                     )}
                 </div>
             </article>
