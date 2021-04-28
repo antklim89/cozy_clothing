@@ -3,6 +3,15 @@
 
 .root {
     display: flex;
+    flex-wrap: wrap;
+}
+
+.errorMessage {
+    width: 100%;
+    text-align: center;
+    border: 1px solid $secondary-light;
+    color: crimson;
+    padding: 1rem;
 }
 
 .input-group {
