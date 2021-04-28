@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { Button } from '~/components';
 import { CartList } from '~/components/CartList';
+import { ConfirmOrder } from '~/components/ConfirmOrder';
 import { Container } from '~/components/Container';
 import { OrderForm } from '~/components/OrderForm';
 import { Seo } from '~/components/Seo';
@@ -41,7 +42,7 @@ const cart: FC = () => {
                             <OrderForm onValidation={(isValid) => completeStep(2, isValid)} />
                         </Step>
                         <Step index={3} step={step}>
-                            <div>OrderConfirm</div>
+                            <ConfirmOrder />
                         </Step>
                     </Container>
                 )}

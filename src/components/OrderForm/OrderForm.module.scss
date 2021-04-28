@@ -16,25 +16,23 @@
 
 .input-group {
     display: flex;
+    @include media-xs {
+        flex-wrap: wrap;
+        flex-basis: 100%;
+    }
 }
 
-.customer-data, .order-detail {
-    > * {
+.input-columns {
+    flex: 1 1 50%;
+
+    @include media-md {
+        flex-basis: 100%;
+    }
+
+    .input-group, input, textarea {
         @include margin(1, 0);
     }
 }
-.customer-data {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.order-detail {
-    flex: 1;
-    width: 100%;
-    @include margin(0, 0, 0, 2);
-}
-
 
 
 
