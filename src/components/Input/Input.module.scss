@@ -1,0 +1,16 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    @include base-input-align;
+    @include margin(0.2);
+    
+    select, input {
+        @include base-button-input-style;
+    
+        &:hover {
+            border-color: $primary;
+        }
+    }
+}
+

@@ -2,8 +2,21 @@
 
 
 .root {
-    @include base-input-align;
-    @include base-input-style;
+    @include base-button-input-style;
+    @include base-button-align;
+    @include margin(0.2);
+
+
+    &.disabled {
+        background: $secondary;
+
+        &:hover {
+            border: 1px solid $secondary;
+            color: $font-dark;
+            fill: $font-dark;
+            background: $secondary;
+        }
+    }
 }
 
 .outlined {

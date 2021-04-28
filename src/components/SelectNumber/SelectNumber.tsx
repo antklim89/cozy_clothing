@@ -35,15 +35,17 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
                     &nbsp;
                 </span>
             )}
-            <Button onClick={handlePlusQty}>+</Button>
-            <input
-                id={id}
-                type="number"
-                value={value}
-                onBlur={handleBlurQty}
-                onChange={handleChangeQty}
-            />
-            <Button onClick={handleMinusQty}>-</Button>
+            <div className={styles.select}>
+                <Button onClick={handlePlusQty}>+</Button>
+                <input
+                    id={id}
+                    type="number"
+                    value={value}
+                    onBlur={handleBlurQty}
+                    onChange={handleChangeQty}
+                />
+                <Button onClick={handleMinusQty}>-</Button>
+            </div>
         </label>
     );
 };

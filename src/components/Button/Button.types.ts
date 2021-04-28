@@ -27,6 +27,7 @@ export type ButtonPropTypes = {
     variant?: 'outlined' | 'text' | 'contained'
     fontColor?: 'dark' | 'light'
     size?: 'small' | 'large'
+    disabled?: boolean
     children: ReactNode
 } & ButtonHTMLAttributes<HTMLButtonElement>
 

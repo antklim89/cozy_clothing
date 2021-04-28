@@ -3,7 +3,12 @@
 
 .root {
     @include base-input-align;
-    
+    @include margin(0.2);
+}
+
+.select {
+    @include base-button-align;
+        
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -19,6 +24,7 @@
         user-select: none;
         @include margin(0);
     }
+    
     input {
         width: 40px;
         border: none;
