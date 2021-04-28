@@ -20,6 +20,10 @@
     }
 }
 
+.full-width {
+    width: 100%;
+}
+
 .outlined {
     &:hover {
         border: 1px solid $primary;

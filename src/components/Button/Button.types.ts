@@ -28,6 +28,7 @@ export type ButtonPropTypes = {
     fontColor?: 'dark' | 'light'
     size?: 'small' | 'large'
     disabled?: boolean
+    fullWidth?: boolean
     children: ReactNode
 } & ButtonHTMLAttributes<HTMLButtonElement>
 

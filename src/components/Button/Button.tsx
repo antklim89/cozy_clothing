@@ -21,6 +21,7 @@ export function Button<P>({
     variant = 'contained',
     fontColor = 'dark',
     size,
+    fullWidth = false,
     disabled = false,
     ...props
 }: ButtonPropTypesWithComponent<P> | ButtonPropTypesButton): ReactElement {
@@ -33,6 +34,7 @@ export function Button<P>({
                 style.root,
                 style[variant],
                 style[fontColor],
+                fullWidth && style.fullWidth,
                 disabled && style.disabled,
                 size && style[size],
             )}
