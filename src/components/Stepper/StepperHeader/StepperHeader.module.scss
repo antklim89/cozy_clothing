@@ -1,0 +1,12 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    display: flex;
+    justify-content: space-around;
+    @include padding(1);
+}
+
+
+
+
