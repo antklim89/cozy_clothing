@@ -1,8 +1,6 @@
 import { FC, useEffect } from 'react';
 
 
-import { Button } from '../Button';
-
 import { CartItem } from './CartItem';
 import styles from './CartList.module.scss';
 import { CartListPropTypes } from './CartList.types';
@@ -26,19 +24,14 @@ export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
         );
     }
     return (
-        <Container>
-            <ul>
-                {cart.map((cartItem) => (
-                    <CartItem cartItem={cartItem} key={cartItem.id} />
-                ))}
-            </ul>
-            <div className={styles.right}>
-                <p className={styles.totalPrice}>
-                    Total price: $
-                    {totalPrice}
-                </p>
-                <Button size="large">Next</Button>
-            </div>
-        </Container>
+        <ul>
+            {cart.map((cartItem) => (
+                <CartItem cartItem={cartItem} key={cartItem.id} />
+            ))}
+            <p className={styles.totalPrice}>
+                Total price: $
+                {totalPrice}
+            </p>
+        </ul>
     );
 };
