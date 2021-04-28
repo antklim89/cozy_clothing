@@ -44,7 +44,7 @@ export const ConfirmOrder: FC<ConfirmOrderPropTypes> = () => {
                 Total price: $
                 {totalPrice}
             </p>
-            <Button fullWidth>Confirm</Button>
+            <Button fullWidth>Place Order</Button>
         </section>
     );
 };
