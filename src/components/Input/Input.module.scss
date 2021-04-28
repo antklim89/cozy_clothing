@@ -3,10 +3,12 @@
 
 .root {
     @include base-input-align;
-    @include margin(0.2);
+    @include padding(0.2);
+    width: 100%;
     
-    select, input {
+    select, input, textarea {
         @include base-button-input-style;
+        width: 100%;
     
         &:hover {
             border-color: $primary;

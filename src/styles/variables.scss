@@ -4,8 +4,8 @@ $secondary: #bcbcbc;
 $primary-dark: darken(#c33c33, 20);
 $secondary-dark: darken(#bcbcbc, 20);
 
-$primary-light: lighten(#c33c33, 20);
-$secondary-light: lighten(#bcbcbc, 20);
+$primary-light: lighten(#c33c33, 10);
+$secondary-light: lighten(#bcbcbc, 10);
  
 $bg-primary: #fafafa;
 $bg-secondary: #bcbcbc;
@@ -116,9 +116,8 @@ $xl: 1200px;
 
 @mixin base-button-input-style {
     justify-content: center;
-    border: 1px solid $secondary;
+    border: 1px solid $secondary-light;
     @include padding(0.4, 1.5);
     background: none;
-    text-transform: uppercase;
     transition: $transition-speed;
 }

@@ -6,12 +6,13 @@
     @include base-button-align;
     @include margin(0.2);
 
+    text-transform: uppercase;
+    border: 1px solid $secondary-light;
 
     &.disabled {
         background: $secondary;
 
         &:hover {
-            border: 1px solid $secondary;
             color: $font-dark;
             fill: $font-dark;
             background: $secondary;
@@ -20,8 +21,6 @@
 }
 
 .outlined {
-    border: 1px solid $secondary;
-
     &:hover {
         border: 1px solid $primary;
         color: $primary;
@@ -40,8 +39,6 @@
 }
 
 .contained {
-    border: 1px solid $secondary;
-
     &:hover {
         border: 1px solid $primary;
         background: $primary;
