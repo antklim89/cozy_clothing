@@ -1,0 +1,32 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    h2 {
+        padding-bottom: 1rem;
+    }
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item {
+    display: flex;
+    border-bottom: 1px solid $secondary-light;
+    @include padding(2, 0);
+
+    > *:first-child {
+        flex: 2;
+    }
+    > *:last-child {
+        flex: 1;
+    }
+}
+
+.total-price {
+    font-size: $font-size-xl;
+    @include padding(5);
+    text-align: end;
+}
