@@ -37,7 +37,6 @@
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.3",
     "sass": "^1.32.8",
-    "strapi-server": "file:./strapi",
     "yup": "^0.32.9"
   },
   "keywords": [
