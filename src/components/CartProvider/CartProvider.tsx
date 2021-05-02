@@ -8,14 +8,17 @@ import { CartContext, CartItem } from './CartProvider.types';
 const context = createContext<CartContext>({} as CartContext);
 
 
+const isBrowser = typeof window !== 'undefined';
+
 export const CartProvider: FC = ({ children }) => {
     const [cart, setCart] = useState<CartItem[]>(() => {
+        if (!isBrowser) return [];
         const data = localStorage.getItem('cart');
         return data ? JSON.parse(data) : [];
     });
 
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart));
+        if (isBrowser) localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
 
     const addToCart = (newItem: CartItem) => {
