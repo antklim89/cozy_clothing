@@ -51,7 +51,7 @@
     "dev": "run-p dev:**",
     "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server",
-    "deploy": "run-s deploy:**",
+    "deploy": "npm run build & npm run serve",
     "deploy:build": "npm run build",
     "deploy:serve": "npm run serve",
     "start": "npm run develop",
