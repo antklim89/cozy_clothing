@@ -37,6 +37,7 @@
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.3",
     "sass": "^1.32.8",
+    "strapi-server": "file:./strapi",
     "yup": "^0.32.9"
   },
   "keywords": [
@@ -50,6 +51,9 @@
     "dev": "run-p dev:**",
     "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server",
+    "deploy": "npm run build && npm run build --prefix ./strapi && run-p dev:**",
+    "deploy:strapi": "npm run start --prefix ./strapi",
+    "deploy:serve": "npm run serve",
     "start": "npm run develop",
     "serve": "gatsby serve -p 3000 -H 0.0.0.0",
     "clean": "gatsby clean",
