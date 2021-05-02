@@ -3817,11 +3817,6 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
-
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3840,6 +3835,11 @@ type AboutPageQuery = { readonly remark: Maybe<(
       )>>> }
     )> }
   )> };
+
+type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CatalogQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
 
 type CategoryPageQueryVariables = Exact<{
   type: Scalars['String'];
