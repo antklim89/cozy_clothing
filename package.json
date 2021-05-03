@@ -1,88 +1,87 @@
 {
-  "name": "cozy_clothing",
-  "private": true,
-  "description": "A small online clothing store created for training web development.",
-  "version": "0.1.0",
-  "author": "me",
-  "dependencies": {
-    "@fontsource/roboto": "^4.2.3",
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "@types/faker": "^5.5.3",
-    "faker": "^5.5.3",
-    "gatsby": "^3.1.2",
-    "gatsby-alias-imports": "^1.0.6",
-    "gatsby-plugin-image": "^1.2.0",
-    "gatsby-plugin-manifest": "^3.2.0",
-    "gatsby-plugin-netlify": "^3.2.0",
-    "gatsby-plugin-netlify-cms": "^5.2.0",
-    "gatsby-plugin-offline": "^4.1.0",
-    "gatsby-plugin-postcss": "^4.3.0",
-    "gatsby-plugin-react-helmet": "^4.1.0",
-    "gatsby-plugin-react-svg": "^3.0.1",
-    "gatsby-plugin-sass": "^4.2.0",
-    "gatsby-plugin-sharp": "^3.2.0",
-    "gatsby-plugin-typegen": "^2.2.4",
-    "gatsby-plugin-typescript-checker": "^1.1.1",
-    "gatsby-remark-images": "^4.2.0",
-    "gatsby-source-filesystem": "^3.1.0",
-    "gatsby-transformer-json": "^3.2.0",
-    "gatsby-transformer-remark": "^3.2.0",
-    "gatsby-transformer-sharp": "^3.2.0",
-    "lodash": "^4.17.21",
-    "netlify-cms-app": "^2.14.35",
-    "postcss": "^8.2.6",
-    "postcss-preset-env": "^6.7.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "react-markdown": "^5.0.3",
-    "sass": "^1.32.8",
-    "yup": "^0.32.9"
-  },
-  "keywords": [
-    "gatsby",
-    "clothing",
-    "shop"
-  ],
-  "license": "0BSD",
-  "scripts": {
-    "build": "gatsby clean && gatsby build",
-    "dev": "run-p dev:**",
-    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
-    "dev:cms-proxy": "netlify-cms-proxy-server",
-    "deploy": "npm run build & npm run serve",
-    "deploy:build": "npm run build",
-    "deploy:serve": "npm run serve",
-    "start": "npm run develop",
-    "serve": "gatsby serve -p $PORT -H 0.0.0.0",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "devDependencies": {
-    "@types/react-dom": "^17.0.3",
-    "@types/react-helmet": "^6.1.0",
-    "@typescript-eslint/eslint-plugin": "^4.20.0",
-    "@typescript-eslint/parser": "^4.20.0",
-    "eslint": "^7.23.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.23.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "netlify-cms-proxy-server": "^1.3.12",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^4.2.3"
-  },
-  "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "IE 10"
-  ]
-}
+    "name": "cozy_clothing",
+    "private": true,
+    "description": "A small online clothing store created for training web development.",
+    "version": "0.1.0",
+    "author": "me",
+    "dependencies": {
+      "@fontsource/roboto": "^4.2.3",
+      "@fortawesome/fontawesome-free": "^5.15.3",
+      "@types/faker": "^5.5.3",
+      "faker": "^5.5.3",
+      "gatsby": "^3.1.2",
+      "gatsby-alias-imports": "^1.0.6",
+      "gatsby-plugin-image": "^1.2.0",
+      "gatsby-plugin-manifest": "^3.2.0",
+      "gatsby-plugin-netlify": "^3.2.0",
+      "gatsby-plugin-offline": "^4.1.0",
+      "gatsby-plugin-postcss": "^4.3.0",
+      "gatsby-plugin-react-helmet": "^4.1.0",
+      "gatsby-plugin-react-svg": "^3.0.1",
+      "gatsby-plugin-sass": "^4.2.0",
+      "gatsby-plugin-sharp": "^3.2.0",
+      "gatsby-plugin-typegen": "^2.2.4",
+      "gatsby-plugin-typescript-checker": "^1.1.1",
+      "gatsby-remark-images": "^4.2.0",
+      "gatsby-source-filesystem": "^3.1.0",
+      "gatsby-transformer-json": "^3.2.0",
+      "gatsby-transformer-remark": "^3.2.0",
+      "gatsby-transformer-sharp": "^3.2.0",
+      "lodash": "^4.17.21",
+      "postcss": "^8.2.6",
+      "postcss-preset-env": "^6.7.0",
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-helmet": "^6.1.0",
+      "react-markdown": "^5.0.3",
+      "sass": "^1.32.8",
+      "yup": "^0.32.9"
+    },
+    "keywords": [
+      "gatsby",
+      "clothing",
+      "shop"
+    ],
+    "license": "0BSD",
+    "scripts": {
+      "build": "gatsby clean && gatsby build",
+      "dev": "run-p dev:**",
+      "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
+      "dev:cms-proxy": "netlify-cms-proxy-server",
+      "deploy": "npm run build & npm run serve",
+      "deploy:build": "npm run build",
+      "deploy:serve": "npm run serve",
+      "start": "npm run develop",
+      "serve": "gatsby serve -p $PORT -H 0.0.0.0",
+      "clean": "gatsby clean",
+      "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    },
+    "bugs": {
+      "url": "https://github.com/gatsbyjs/gatsby/issues"
+    },
+    "devDependencies": {
+      "@types/react-dom": "^17.0.3",
+      "@types/react-helmet": "^6.1.0",
+      "@typescript-eslint/eslint-plugin": "^4.20.0",
+      "@typescript-eslint/parser": "^4.20.0",
+      "eslint": "^7.23.0",
+      "eslint-config-airbnb": "^18.2.1",
+      "eslint-plugin-import": "^2.22.1",
+      "eslint-plugin-jsx-a11y": "^6.4.1",
+      "eslint-plugin-react": "^7.23.1",
+      "eslint-plugin-react-hooks": "^4.2.0",
+      "netlify-cms-proxy-server": "^1.3.12",
+      "npm-run-all": "^4.1.5",
+      "typescript": "^4.2.3"
+    },
+    "browserslist": [
+      "last 1 version",
+      "> 1%",
+      "IE 10"
+    ]
+  }
+  
