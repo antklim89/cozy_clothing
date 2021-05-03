@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const postcss = require('postcss-preset-env');
 
 
@@ -12,7 +13,7 @@ module.exports = {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {
                 enableIdentityWidget: false,
-                manualInit: false,
+                manualInit: true,
                 modulePath: `${__dirname}/src/cms/cms.js`,
                 publicPath: 'cms',
             },
