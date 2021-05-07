@@ -1,33 +1,11 @@
 import { graphql, PageProps } from 'gatsby';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { FC } from 'react';
-import {
-    string, number, array, object, mixed, boolean,
-} from 'yup';
 
 import { Container } from '~/components';
 import { Product } from '~/components/Product';
 import { Seo } from '~/components/Seo';
-
-
-const schema = object({
-    id: string().required(),
-    rawMarkdownBody: string().transform((v) => v.replace(/\s/ig, ' ')).required(),
-    title: string().transform((v) => v.replace(/\s/ig, ' ')).required(),
-    brand: string().required(),
-    price: number().required(),
-    type: string().required(),
-    category: string().required(),
-    careatedAt: string().required(),
-    hidden: boolean().required(),
-    promo: boolean().required(),
-    images: array(
-        mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
-    ).default([]).required(),
-    imagesPreview: array(
-        mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
-    ).default([]).required(),
-});
+import { throwErr } from '~/utils';
+import { productSchema } from '~/validation/productSchema';
 
 
 interface ProductPageContext {
@@ -38,10 +16,13 @@ interface ProductPageContext {
 const productPage: FC<PageProps<GatsbyTypes.ProductPageQuery, ProductPageContext>> = ({
     data,
 }) => {
-    const product = schema.validateSync({
-        ...data?.amr?.frontmatter,
-        rawMarkdownBody: data?.amr?.rawMarkdownBody,
-        id: data?.amr?.id,
+    const { rawMarkdownBody, id } = data?.amr || throwErr();
+    const frontmatter = data?.amr?.frontmatter || throwErr();
+
+    const product = productSchema.validateSync({
+        ...frontmatter,
+        rawMarkdownBody,
+        id,
     });
 
     return (

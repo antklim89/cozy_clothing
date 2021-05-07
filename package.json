@@ -14,7 +14,7 @@
     "gatsby-plugin-image": "^1.2.0",
     "gatsby-plugin-manifest": "^3.2.0",
     "gatsby-plugin-netlify": "^3.2.0",
-    "gatsby-plugin-netlify-cms": "^5.2.0",
+    "gatsby-plugin-netlify-cms": "^5.0.0",
     "gatsby-plugin-offline": "^4.1.0",
     "gatsby-plugin-postcss": "^4.3.0",
     "gatsby-plugin-react-helmet": "^4.1.0",
@@ -48,7 +48,7 @@
   "scripts": {
     "build": "gatsby clean && gatsby build",
     "dev": "run-p dev:**",
-    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
+    "dev:gatsby": "gatsby develop -p 3001 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server",
     "start": "npm run develop",
     "serve": "gatsby serve -p 3000 -H 0.0.0.0",

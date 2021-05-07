@@ -5,6 +5,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
