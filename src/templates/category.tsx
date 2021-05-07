@@ -14,9 +14,7 @@ import { Title } from '~/components/Title';
 interface CategoryPageContext {
     type: string
     category?: string
-    categories: Array<{
-        category: string
-    }>
+    categories: string[]
 }
 
 
@@ -35,7 +33,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
             <Seo title={title} />
             <Container component="section">
                 <Title>{type}</Title>
-                <CategoriesBar categories={categories.map((i) => i.category)} type={type} />
+                <CategoriesBar categories={categories} type={type} />
                 <ProductList products={products} />
             </Container>
         </main>

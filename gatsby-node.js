@@ -11,19 +11,6 @@ exports.onCreateBabelConfig = ({ actions }) => {
     });
 };
 
-// exports.onCreateWebpackConfig = ({ _, actions, getConfig }) => {
-//     const config = getConfig();
-//     config.cache = {
-//         type: 'filesystem',
-//     };
-//     // const miniCssExtractPlugin = config.plugins.find(
-//     //     (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin',
-//     // );
-//     // if (miniCssExtractPlugin) miniCssExtractPlugin.options.ignoreOrder = true;
-//     actions.replaceWebpackConfig(config);
-// };
-
-
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     await createProductPages(graphql, createPage);
     await createCategoriesPage(graphql, createPage);
@@ -31,18 +18,32 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
 
 async function createCategoriesPage(graphql, createPage) {
-    const { data: { file: { catalog } } } = await graphql(`
+    const { data } = await graphql(`
         {
-            file(name: {eq: "categories"}) {
-                catalog: childContentJson {
-                    boys {category}
-                    girls {category}
-                    men {category}
-                    women {category}
+            amr: allMarkdownRemark(
+                filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}}}
+            ) {
+                nodes {
+                    frontmatter {
+                        category
+                        type
+                    }
                 }
             }
         }
     `);
+
+    const catalog = data.amr.nodes.reduce((acc, { frontmatter: { type, category } }) => {
+        if (Array.isArray(acc[type])) {
+            if (!acc[type].includes(category)) {
+                acc[type].push(category);
+            }
+        } else {
+            acc[type] = [category];
+        }
+
+        return acc;
+    }, {});
 
     Object.keys(catalog).forEach((type) => {
         const categories = catalog[type];
@@ -53,7 +54,7 @@ async function createCategoriesPage(graphql, createPage) {
             context: { type, categories },
         });
 
-        categories.forEach(({ category }) => {
+        categories.forEach((category) => {
             createPage({
                 path: `/category/${type}/${category}`,
                 component: path.resolve('src/templates/category.tsx'),

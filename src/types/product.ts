@@ -1,7 +1,5 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
-import { productPreviewSchema, productSchema } from '~/validation';
-
 
 export interface IProductPreview {
     id: string

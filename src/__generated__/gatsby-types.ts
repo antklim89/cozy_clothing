@@ -321,11 +321,7 @@ type SitePage = Node & {
 type SitePageContext = {
   readonly id: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
-  readonly categories: Maybe<ReadonlyArray<Maybe<SitePageContextCategories>>>;
-  readonly category: Maybe<Scalars['String']>;
-};
-
-type SitePageContextCategories = {
+  readonly categories: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly category: Maybe<Scalars['String']>;
 };
 
@@ -2670,15 +2666,7 @@ type SiteFunctionSortInput = {
 type SitePageContextFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly type: Maybe<StringQueryOperatorInput>;
-  readonly categories: Maybe<SitePageContextCategoriesFilterListInput>;
-  readonly category: Maybe<StringQueryOperatorInput>;
-};
-
-type SitePageContextCategoriesFilterListInput = {
-  readonly elemMatch: Maybe<SitePageContextCategoriesFilterInput>;
-};
-
-type SitePageContextCategoriesFilterInput = {
+  readonly categories: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2969,7 +2957,6 @@ type SitePageFieldsEnum =
   | 'context.id'
   | 'context.type'
   | 'context.categories'
-  | 'context.categories.category'
   | 'context.category'
   | 'pluginCreator.id'
   | 'pluginCreator.parent.id'
