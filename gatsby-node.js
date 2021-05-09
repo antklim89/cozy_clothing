@@ -16,7 +16,7 @@ exports.onCreateNode = async ({
     actions, getNodesByType,
 }) => {
     const catalog = getNodesByType('MarkdownRemark')
-        .filter((i) => i?.frontmatter?.layout === 'product' && i?.frontmatter?.hidden === false)
+        .filter(({ frontmatter: { layout, hidden } = {} } = {}) => layout === 'product' && hidden === false)
         .reduce((acc, { frontmatter: { type, category } }) => {
             if (Array.isArray(acc[type])) {
                 if (!acc[type].includes(category)) {
