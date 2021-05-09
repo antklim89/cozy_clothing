@@ -6,7 +6,7 @@ import { FC } from 'react';
 import styles from './ProductCard.module.scss';
 import { ProductCardProps } from './ProductCard.types';
 
-import CartIcon from '~/assets/shopping-cart.svg';
+import CartIcon from '~/assets/shopping_cart.svg';
 import { useCart } from '~/components/CartProvider';
 
 
@@ -18,8 +18,8 @@ export const ProductCard: FC<ProductCardProps> = ({
     const isInCart = cart.some((i) => i.id === product.id);
 
     return (
-        <Link to={`/product/${product.id}`}>
-            <article className={styles.root}>
+        <Link className={styles.root} to={`/product/${product.id}`}>
+            <article>
                 <GatsbyImage
                     alt={product.title}
                     className={styles.image}

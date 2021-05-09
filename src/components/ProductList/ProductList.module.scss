@@ -19,6 +19,7 @@ $width: 272px;
     }
 
     @include media-xs {
-        grid-template-columns: repeat(1, $width);
+        display: flex;
+        flex-direction: column;
     }
 }

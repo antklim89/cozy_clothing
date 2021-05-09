@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import DoneIcon from '~/assets/done.svg';
 import { Button } from '~/components';
 import { CartList } from '~/components/CartList';
 import { ConfirmOrder } from '~/components/ConfirmOrder';
@@ -23,11 +24,11 @@ const cart: FC = () => {
                     <Container>
                         <StepperHeader>
                             <Button onClick={() => setStep(1)}>
-                                {isStepCompleted(1) && ' OK '}
+                                {isStepCompleted(1) && <DoneIcon />}
                                 Cart
                             </Button>
                             <Button disabled={!isPrevStepsCompleted(1)} onClick={() => setStep(2)}>
-                                {isStepCompleted(2) && ' OK '}
+                                {isStepCompleted(2) && <DoneIcon />}
                                 Form
                             </Button>
                             <Button disabled={!isPrevStepsCompleted(2)} onClick={() => setStep(3)}>

@@ -9,8 +9,8 @@
 .errorMessage {
     width: 100%;
     text-align: center;
-    border: 1px solid $secondary-light;
-    color: crimson;
+    border: 1px solid $error;
+    color: $error;
     padding: 1rem;
 }
 
@@ -29,7 +29,7 @@
         flex-basis: 100%;
     }
 
-    .input-group, input, textarea {
+    > * {
         @include margin(1, 0);
     }
 }

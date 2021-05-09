@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 import styles from './CartButton.module.scss';
 
-import CartIcon from '~/assets/shopping-cart.svg';
+import CartIcon from '~/assets/shopping_cart.svg';
 import { Button } from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 
