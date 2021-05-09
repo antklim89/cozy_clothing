@@ -4,11 +4,12 @@ module.exports = {
         es2021: true,
     },
     extends: [
-        'plugin:react/recommended',
+        // 'plugin:jsx-a11y/recommended',
+        // 'plugin:react/recommended',
         'airbnb',
-        'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:import/typescript',
+        // 'plugin:import/recommended',
+        // 'plugin:import/typescript',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -19,7 +20,6 @@ module.exports = {
         sourceType: 'module',
     },
     plugins: [
-        'react',
         '@typescript-eslint',
     ],
     rules: {
@@ -35,8 +35,8 @@ module.exports = {
                 caseInsensitive: true, /* ignore case. Options: [true, false] */
             },
         }],
-        // 'import/no-extraneous-dependencies': [
-        //     'error', { devDependencies: ['**/*.test.*', '**/*.spec.*', '**/test/**/*', '**/*.config.*'] }],
+        'import/no-extraneous-dependencies': [
+            'error', { devDependencies: ['*.js'] }],
 
         'react/jsx-sort-props': [1, { callbacksLast: true, shorthandFirst: true }],
         'react/jsx-max-props-per-line': [1, { maximum: 3 }],
@@ -49,7 +49,6 @@ module.exports = {
         'react/react-in-jsx-scope': 0,
 
         '@typescript-eslint/no-shadow': 2,
-        // '@typescript-eslint/no-undef': 2,
         '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '^_' }],
         '@typescript-eslint/no-empty-interface': 0,
 
@@ -66,4 +65,12 @@ module.exports = {
         'max-len': [1, { code: 120, ignoreComments: true }],
         'no-restricted-syntax': ['error', 'WithStatement'],
     },
+    settings: {
+        react: {
+            pragma: 'React', // Pragma to use, default to "React"
+            fragment: 'Fragment', // Fragment to use (may be a property of <pragma>), default to "Fragment"
+            version: 'detect', // React version. "detect" automatically picks the version you have installed.
+        },
+    },
+
 };

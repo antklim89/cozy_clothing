@@ -2,8 +2,10 @@
 // import Layout from '../components/layout';
 // import SEO from '../components/seo';
 
+import { FC } from 'react';
 
-const NotFoundPage = () => (
+
+const NotFoundPage: FC = () => (
     <div>ERROR</div>
     // <Layout>
     //     <SEO title="404: Not found" />

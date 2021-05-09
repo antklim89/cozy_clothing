@@ -1,1 +1,1 @@
-export const throwErr = () => { throw new Error(''); };
+export const throwErr = (): never => { throw new Error(''); };

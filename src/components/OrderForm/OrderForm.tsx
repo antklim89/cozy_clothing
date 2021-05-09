@@ -88,7 +88,11 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
     };
 
     return (
-        <form className={styles.root} ref={formRef} onChange={handleChangeForm}>
+        <form
+            className={styles.root}
+            ref={formRef}
+            onChange={handleChangeForm}
+        >
             {error && (
                 <div className={styles.errorMessage}>
                     {error}

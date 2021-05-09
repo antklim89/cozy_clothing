@@ -54,6 +54,7 @@
     "typecheck": "tsc --preserveWatchOutput --watch --noEmit",
     "serve": "gatsby serve -p 3000 -H 0.0.0.0",
     "clean": "gatsby clean",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {

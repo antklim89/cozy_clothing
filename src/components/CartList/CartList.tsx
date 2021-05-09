@@ -6,7 +6,6 @@ import styles from './CartList.module.scss';
 import { CartListPropTypes } from './CartList.types';
 
 import { useCart } from '~/components/CartProvider';
-import { Container } from '~/components/Container';
 
 
 export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
