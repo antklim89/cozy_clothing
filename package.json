@@ -48,9 +48,10 @@
   "scripts": {
     "build": "gatsby clean && gatsby build",
     "dev": "run-p dev:**",
-    "dev:gatsby": "gatsby develop -p 3001 -H 0.0.0.0",
+    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server",
     "start": "npm run develop",
+    "typecheck": "tsc --preserveWatchOutput --watch --noEmit",
     "serve": "gatsby serve -p 3000 -H 0.0.0.0",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

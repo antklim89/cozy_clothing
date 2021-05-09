@@ -25,18 +25,6 @@ export const NavBar: FC = () => {
                             />
                         </Link>
                     </li>
-                    <li className="hide-xs">
-                        <Button
-                            activeClassName={style.active}
-                            className={style.link}
-                            color="secondary"
-                            component={Link}
-                            to="/"
-                            variant="text"
-                        >
-                            home
-                        </Button>
-                    </li>
                     {productTypes.map((type) => (
                         <li className="hide-sm" key={type}>
                             <Button
@@ -66,7 +54,7 @@ export const NavBar: FC = () => {
                         </Button>
                     </li>
                     <li className="grow" />
-                    <Catalog activeLinksClassName={style.active} linksClassName={style.link} />
+                    <Catalog />
                 </ul>
             </nav>
         </div>

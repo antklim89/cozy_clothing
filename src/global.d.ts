@@ -59,7 +59,7 @@ declare module '*.svg' {
   import { FC } from 'react';
 
 
-  const content: FC<{fill?: string}>;
+  const content: FC<{fill?: string, className?: string}>;
   export default content;
 }
 

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const crypto = require('crypto');
 const path = require('path');
 
 
@@ -11,6 +12,37 @@ exports.onCreateBabelConfig = ({ actions }) => {
     });
 };
 
+exports.onCreateNode = async ({
+    actions, getNodesByType,
+}) => {
+    const catalog = getNodesByType('MarkdownRemark')
+        .filter((i) => i?.frontmatter?.layout === 'product' && i?.frontmatter?.hidden === false)
+        .reduce((acc, { frontmatter: { type, category } }) => {
+            if (Array.isArray(acc[type])) {
+                if (!acc[type].includes(category)) {
+                    acc[type].push(category);
+                }
+            } else {
+                acc[type] = [category];
+            }
+
+            return acc;
+        }, {});
+
+    actions.createNode({
+        catalog,
+        id: 'a-node-id',
+        parent: null,
+        internal: {
+            type: 'ProductCatalog',
+            contentDigest: crypto
+                .createHash('md5')
+                .update(JSON.stringify(catalog))
+                .digest('hex'),
+        },
+    });
+};
+
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     await createProductPages(graphql, createPage);
     await createCategoriesPage(graphql, createPage);
@@ -18,32 +50,18 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
 
 async function createCategoriesPage(graphql, createPage) {
-    const { data } = await graphql(`
+    const { data: { productCatalog: { catalog } } } = await graphql(`
         {
-            amr: allMarkdownRemark(
-                filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}}}
-            ) {
-                nodes {
-                    frontmatter {
-                        category
-                        type
-                    }
+            productCatalog {
+                catalog {
+                    boys
+                    girls
+                    men
+                    women
                 }
             }
         }
     `);
-
-    const catalog = data.amr.nodes.reduce((acc, { frontmatter: { type, category } }) => {
-        if (Array.isArray(acc[type])) {
-            if (!acc[type].includes(category)) {
-                acc[type].push(category);
-            }
-        } else {
-            acc[type] = [category];
-        }
-
-        return acc;
-    }, {});
 
     Object.keys(catalog).forEach((type) => {
         const categories = catalog[type];

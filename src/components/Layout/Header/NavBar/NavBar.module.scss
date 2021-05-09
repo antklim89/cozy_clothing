@@ -19,26 +19,9 @@
 }
 
 .link {
-    // font-family: 'Lato', sans-serif;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     height: $app-bar-height;
     padding: 0 $space-md !important;
-    // transition: $transition-speed;
     text-decoration: none;
-    // text-transform: uppercase;
-    // color: $font-dark;
-
-
-    
-    // &:hover {
-    //     background: $bg-secondary;
-    // }
-    
-    // @include media-sm {
-    //     padding: 0 $space-xs !important;
-    // }
     &.active {
         color: $primary
     }
