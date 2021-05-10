@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+// import { Container } from '~/components';
+import { Hero } from '~/components/Hero/Hero';
 import { Seo } from '~/components/Seo';
 
 
@@ -9,7 +11,9 @@ const index: FC = () => {
             <Seo
                 title="Home"
             />
-            <div>HOME PAGE</div>
+            <Hero />
+            {/* <Container>
+            </Container> */}
         </main>
     );
 };
