@@ -1,12 +1,12 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 import * as yup from 'yup';
 
 import styles from './Hero.module.scss';
 
-import { Container } from '~/components/Container';
 import { Title } from '~/components/Title';
+import { heroSchema } from '~/validation';
 
 
 export const Hero: FC = () => {
@@ -30,11 +30,7 @@ export const Hero: FC = () => {
         }
     `);
 
-    const data = yup.object({
-        title: yup.string().min(5).max(50).required(),
-        body: yup.string().min(5).max(1000).required(),
-        image: yup.mixed<IGatsbyImageData>().transform((v, o) => o.a.b).required(),
-    }).validateSync(json);
+    const data = yup.object(heroSchema).validateSync(json);
 
     return (
         <section className={styles.root}>
