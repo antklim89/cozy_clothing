@@ -5320,6 +5320,12 @@ type IndexPageQuery = { readonly newProducts: { readonly nodes: ReadonlyArray<(
         { readonly images: Maybe<ReadonlyArray<Maybe<ProductCardImageFragmentFragment>>> }
         & ProductFrontmatterFragmentFragment
       )> }
+    )> }, readonly promoProducts: { readonly nodes: ReadonlyArray<(
+      Pick<MarkdownRemark, 'id'>
+      & { readonly frontmatter: Maybe<(
+        { readonly images: Maybe<ReadonlyArray<Maybe<ProductCardImageFragmentFragment>>> }
+        & ProductFrontmatterFragmentFragment
+      )> }
     )> } };
 
 type CategoryPageQueryVariables = Exact<{

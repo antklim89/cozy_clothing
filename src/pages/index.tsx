@@ -13,16 +13,21 @@ const index: FC<PageProps<AnyObject>> = ({ data }) => {
     const newProducts = productPreviewArraySchema.validateSync(
         data.newProducts.nodes.map(({ id, frontmatter }: AnyObject) => ({ id, ...frontmatter })),
     );
+    const promoProducts = productPreviewArraySchema.validateSync(
+        data.promoProducts.nodes.map(({ id, frontmatter }: AnyObject) => ({ id, ...frontmatter })),
+    );
 
     return (
         <main>
-            <Seo
-                title="Home"
-            />
+            <Seo title="Home" />
             <Hero />
             <Container bottomSpace="sm">
                 <Title>New Products</Title>
                 <ProductList products={newProducts} />
+            </Container>
+            <Container bottomSpace="sm">
+                <Title>Promo Products</Title>
+                <ProductList products={promoProducts} />
             </Container>
         </main>
     );
@@ -37,10 +42,8 @@ query IndexPage {
     newProducts: allMarkdownRemark(
         filter: {
             frontmatter: {
-                type: {},
                 layout: {eq: "product"},
                 hidden: {eq: false},
-                category: {}
             }
         }
         limit: 4
@@ -54,6 +57,21 @@ query IndexPage {
             ...ProductFrontmatterFragment
                 images {
                     ...ProductCardImageFragment
+                }
+            }
+        }
+    }
+    promoProducts: allMarkdownRemark(
+        filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, promo: {eq: true}}}
+        limit: 4
+        sort: {fields: id}
+    ) {
+        nodes {
+            id
+            frontmatter {
+                ...ProductFrontmatterFragment
+                images {
+                ...ProductCardImageFragment
                 }
             }
         }
