@@ -64,7 +64,6 @@ fragment ProductFrontmatterFragment on MarkdownRemarkFrontmatter {
     category
     hidden
     careatedAt
-    slug
     promo
     type
     price

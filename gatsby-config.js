@@ -14,7 +14,7 @@ module.exports = {
             options: {
                 enableIdentityWidget: false,
                 manualInit: true,
-                modulePath: `${__dirname}/src/cms/cms.js`,
+                modulePath: `${__dirname}/cms/build/cms/index.js`,
                 publicPath: 'cms',
             },
         },

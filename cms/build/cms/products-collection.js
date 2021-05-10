@@ -1,6 +1,4 @@
-import { productTypes } from '../constants';
-
-
+import { productTypes } from '../src/constants';
 export const productsCollection = productTypes.map((type) => ({
     name: type,
     label: `Products ${type}`,
@@ -87,23 +85,3 @@ export const productsCollection = productTypes.map((type) => ({
         },
     ],
 }));
-
-export const productCategories = {
-    label: 'Categories',
-    name: 'categories',
-    file: 'content/categories.json',
-    fields: productTypes.map((type) => ({
-        label: `Category - ${type}`,
-        name: type,
-        widget: 'list',
-        minimize_collapsed: true,
-        summary: '{{category}}',
-        fields: [
-            {
-                label: 'Category',
-                name: 'category',
-                widget: 'string',
-            },
-        ],
-    })),
-};

@@ -1,15 +1,12 @@
-export const aboutPage = {
+import { CmsCollectionFile } from 'netlify-cms-core';
+
+
+export const aboutPage: CmsCollectionFile = {
     label: 'About',
     name: 'about',
-    file: 'content/about/index.md',
+    file: 'content/about/index.json',
     media_folder: 'images/',
     fields: [
-        {
-            label: 'Slug',
-            name: 'slug',
-            widget: 'hidden',
-            default: 'about',
-        },
         {
             label: 'Title',
             name: 'title',

@@ -12,6 +12,6 @@
         "~/*": ["./src/*"],
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "cms"],
   "exclude": ["node_modules/**/*"],
 }
