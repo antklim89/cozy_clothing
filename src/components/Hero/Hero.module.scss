@@ -18,5 +18,8 @@
 }
 
 .image {
-    height: 720px;
+    height: 480px;
+    @include media-sm {
+        height: 240px;
+    }
 }

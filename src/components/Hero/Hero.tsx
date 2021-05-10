@@ -20,8 +20,6 @@ export const Hero: FC = () => {
                         b:gatsbyImageData(
                             layout: FULL_WIDTH
                             placeholder: BLURRED
-                            # height: 700
-                            # width: 1920
                             transformOptions: {cropFocus: CENTER}
                         )
                     }
