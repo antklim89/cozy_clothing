@@ -3,7 +3,7 @@
 
 .total-price {
     font-size: $font-size-xl;
-    @include padding(0, 0, 2, 0);
+    @extend .pb-1;
     display: flex;
     align-items: flex-end;
     flex-direction: column;

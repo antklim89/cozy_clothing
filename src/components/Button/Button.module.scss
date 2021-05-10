@@ -4,7 +4,7 @@
 .root {
     @include base-button-input-style;
     @include base-button-align;
-    @include margin(0.2);
+    @extend .m-1;
 
     text-transform: uppercase;
     border: 1px solid $secondary-light;
@@ -62,9 +62,9 @@
 }
 
 .small {
-    @include padding(0.2, 0.7);
+    @extend .py-1, .px-2;
 }
 
 .large {
-    @include padding(0.8, 3);
+    @extend .py-2, .px-3;
 }

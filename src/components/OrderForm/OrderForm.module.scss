@@ -30,7 +30,7 @@
     }
 
     > * {
-        @include margin(1, 0);
+        @extend .my-2;
     }
 }
 

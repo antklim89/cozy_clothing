@@ -4,7 +4,7 @@
 .root {
     display: flex;
     justify-content: space-around;
-    @include padding(1);
+    @extend .py-2;
 }
 
 

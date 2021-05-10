@@ -15,7 +15,7 @@
 .order-item {
     display: flex;
     border-bottom: 1px solid $secondary-light;
-    @include padding(2, 0);
+    @extend .py-3;
 
     > *:first-child {
         flex: 2;
@@ -27,6 +27,6 @@
 
 .total-price {
     font-size: $font-size-xl;
-    @include padding(5);
+    @extend .p-4;
     text-align: end;
 }

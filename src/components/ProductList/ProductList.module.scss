@@ -8,12 +8,7 @@ $width: minmax(0, 272px);
     justify-content: center;
     grid-column-gap: 2rem;
     grid-row-gap: 1rem;
-    @include padding(1);
-
-
-    // @include media-lg {
-    //     grid-template-columns: repeat(3, $width);
-    // }
+    @extend .py-2;
 
     @include media-md {
         grid-template-columns: repeat(2, $width);
@@ -22,6 +17,6 @@ $width: minmax(0, 272px);
     @include media-xs {
         display: flex;
         flex-direction: column;
-        @include padding(0);
+        padding: 0;
     }
 }

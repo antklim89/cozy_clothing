@@ -3,7 +3,7 @@
 
 .root {
     @include base-input-align;
-    @include margin(0.2);
+    @extend .m-1;
 }
 
 .select {
@@ -22,7 +22,7 @@
     > button {
         width: 40px;
         user-select: none;
-        @include margin(0);
+        margin: 0 !important;
     }
     
     input {

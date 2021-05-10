@@ -84,7 +84,7 @@ $container-width: $xl;
 $types: 'm' 'margin', 'p' 'padding';
 $directions-all: 't' 'top', 'r' 'right', 'b' 'bottom', 'l' 'left';
 $directions: 'x' 'right' 'left', 'y' 'top' 'bottom';
-$spaces: '1' 1rem, '2' 2rem, '3' 3rem, '4' 4rem, '5' 5rem;
+$spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 4rem, '5' 6rem;
 
 @each $typekey, $type in $types {
     @each $dirkey, $dir in $directions-all {
@@ -119,8 +119,8 @@ $spaces: '1' 1rem, '2' 2rem, '3' 3rem, '4' 4rem, '5' 5rem;
             }
         }
     }
-    @each $key, $space in $spaces {
-        .#{$typekey}#{$key} {
+    @each $spacekey, $space in $spaces {
+        .#{$typekey}-#{$spacekey} {
             #{$type}: $space;
         
             @include media-md {
@@ -171,7 +171,7 @@ $spaces: '1' 1rem, '2' 2rem, '3' 3rem, '4' 4rem, '5' 5rem;
 @mixin base-button-input-style {
     justify-content: center;
     border: 1px solid $secondary-light;
-    @include padding(1, 1.5);
+    @extend .py-2, .px-2;
     background: none;
     transition: $transition-speed;
 }

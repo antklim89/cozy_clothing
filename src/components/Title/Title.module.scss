@@ -3,7 +3,7 @@
 $underline-width: 40px;
 
 .root {
-    @include margin(1.4, 0);
+    @extend .my-1;
     text-align: center;
 
     h1,h2,h3,h4,h5,h6 {

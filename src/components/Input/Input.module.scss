@@ -3,7 +3,7 @@
 
 .root {
     @include base-input-align;
-    @include padding(0.2);
+    @extend .p-1;
     width: 100%;
     
     select, input, textarea {
