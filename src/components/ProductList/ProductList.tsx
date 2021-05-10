@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import { ProductCard } from '../ProductCard';
-
+import { ProductCard } from './ProductCard';
 import styles from './ProductList.module.scss';
 import { ProductListPropTypes } from './ProductList.types';
 
