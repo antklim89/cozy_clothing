@@ -42,7 +42,6 @@ p {
 svg {
     height: 1.5rem;
     width: 1.5rem;
-    // margin: -0.5rem 0px;
 }
 
 a {
@@ -55,12 +54,12 @@ a:focus, button:focus {
     box-shadow: $shadow $primary;
 }
 
-.container {
-    display: block;
-    max-width: $xl;
-    width: 100%;
-    margin: 0 auto;
-}
+// .container {
+//     display: block;
+//     max-width: $xl;
+//     width: 100%;
+//     margin: 0 auto;
+// }
 
 .icon {
     width: 1.4rem;

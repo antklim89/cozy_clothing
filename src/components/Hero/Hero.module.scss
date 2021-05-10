@@ -4,6 +4,7 @@
 .root {
     position: relative;
     overflow: hidden;
+    @extend .mb-3;
 }
 
 .body {

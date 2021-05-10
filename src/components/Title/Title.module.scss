@@ -3,16 +3,16 @@
 $underline-width: 40px;
 
 .root {
-    text-align: center;
     @include margin(1.4, 0);
+    text-align: center;
 
-    h1 {
+    h1,h2,h3,h4,h5,h6 {
         display: inline-block;
         font-family: 'Lato', sans-serif;
         margin-bottom: 1rem;
         text-transform: uppercase;
-        text-align: center;
         position: relative;
+        text-align: left;
     
         &::before {
             background: $secondary none repeat scroll 0 0;
@@ -30,4 +30,14 @@ $underline-width: 40px;
             width: $underline-width;
         }
     }
+}
+
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
 }

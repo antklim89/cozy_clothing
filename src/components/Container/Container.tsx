@@ -1,16 +1,25 @@
-import { createElement, FC } from 'react';
+import { FC } from 'react';
 
+import styles from './Container.module.scss';
 import { ContainerProps } from './Container.types';
 
 import { cls } from '~/utils';
 
 
 export const Container: FC<ContainerProps> = ({
-    component = 'div',
+    component: Component = 'div',
     className,
+    bottomSpace,
     ...props
 }) => {
     return (
-        createElement(component, { ...props, className: cls('container', className) })
+        <Component
+            {...props}
+            className={cls(
+                styles.root,
+                className,
+                bottomSpace && styles[`bottom__${bottomSpace}`],
+            )}
+        />
     );
 };

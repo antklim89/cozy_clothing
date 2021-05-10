@@ -34,7 +34,7 @@ export const Hero: FC = () => {
         <section className={styles.root}>
             <GatsbyImage alt={data.title} className={styles.image} image={data.image} />
             <div className={styles.body}>
-                <Title>{data.title}</Title>
+                <Title position="left">{data.title}</Title>
                 <p className="hide-sm">{data.body}</p>
             </div>
         </section>

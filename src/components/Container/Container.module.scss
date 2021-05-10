@@ -1,0 +1,20 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    display: block;
+    max-width: $container-width;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bottom__xl { @extend .mb-5; }
+
+.bottom__lg { @extend .mb-4; }
+
+.bottom__md { @extend .mb-3; }
+
+.bottom__sm { @extend .mb-2; }
+
+.bottom__xs { @extend .mb-1; }

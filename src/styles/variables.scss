@@ -44,6 +44,7 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 
+$container-width: $xl;
 
 @mixin media-xs {
     @media screen and (max-width: $sm)  { @content; }
@@ -80,15 +81,67 @@ $xl: 1200px;
     @return $top $right $bot $left;
 }
 
+$types: 'm' 'margin', 'p' 'padding';
+$directions-all: 't' 'top', 'r' 'right', 'b' 'bottom', 'l' 'left';
+$directions: 'x' 'right' 'left', 'y' 'top' 'bottom';
+$spaces: '1' 1rem, '2' 2rem, '3' 3rem, '4' 4rem, '5' 5rem;
 
-@mixin margin($vals...) {
-    margin: space($vals...);
+@each $typekey, $type in $types {
+    @each $dirkey, $dir in $directions-all {
+        @each $key, $space in $spaces {
+            .#{$typekey}#{$dirkey}-#{$key} {
+                #{$type}-#{$dir}: $space;
+            
+                @include media-md {
+                    #{$type}-#{$dir}: $space*0.7;
+                }
+                @include media-xs {
+                    #{$type}-#{$dir}: $space*0.5;
+                }
+            }
+        }
+    }
+
+    @each $dirkey, $dir1, $dir2 in $directions {
+        @each $spacekey, $space in $spaces {
+            .#{$typekey}#{$dirkey}-#{$spacekey} {
+                #{$type}-#{$dir1}: $space;
+                #{$type}-#{$dir2}: $space;
+            
+                @include media-md {
+                    #{$type}-#{$dir1}: $space*0.7;
+                    #{$type}-#{$dir2}: $space*0.7;
+                }
+                @include media-xs {
+                    #{$type}-#{$dir1}: $space*0.5;
+                    #{$type}-#{$dir2}: $space*0.5;
+                }
+            }
+        }
+    }
+    @each $key, $space in $spaces {
+        .#{$typekey}#{$key} {
+            #{$type}: $space;
+        
+            @include media-md {
+                #{$type}: $space*0.7;
+            }
+            @include media-xs {
+                #{$type}: $space*0.5;
+            }
+        }
+    }
+}
+
+
+@mixin margin($top: null, $right: null, $bot: null, $left: null) {
+    margin: space($top: null, $right: null, $bot: null, $left: null);
 
     @include media-md {
-        margin: space($vals..., $mult: 0.8);
+        margin: space($top: null, $right: null, $bot: null, $left: null, $mult: 0.8);
     }
     @include media-xs {
-        margin: space($vals..., $mult: 0.6);
+        margin: space($top: null, $right: null, $bot: null, $left: null, $mult: 0.6);
     }
 }
 

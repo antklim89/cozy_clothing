@@ -1,6 +1,6 @@
 @use '~/styles/variables.scss' as *;
 
-$width: 272px;
+$width: minmax(0, 272px);
 
 .products {
     display: grid;
@@ -8,11 +8,12 @@ $width: 272px;
     justify-content: center;
     grid-column-gap: 2rem;
     grid-row-gap: 1rem;
+    @include padding(1);
 
 
-    @include media-lg {
-        grid-template-columns: repeat(3, $width);
-    }
+    // @include media-lg {
+    //     grid-template-columns: repeat(3, $width);
+    // }
 
     @include media-md {
         grid-template-columns: repeat(2, $width);
@@ -21,5 +22,6 @@ $width: 272px;
     @include media-xs {
         display: flex;
         flex-direction: column;
+        @include padding(0);
     }
 }
