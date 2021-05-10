@@ -6,7 +6,6 @@ import { FC } from 'react';
 import styles from './ProductCard.module.scss';
 import { ProductCardProps } from './ProductCard.types';
 
-import CartIcon from '~/assets/shopping_cart.svg';
 import { useCart } from '~/components/CartProvider';
 
 
