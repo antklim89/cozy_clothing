@@ -73,6 +73,5 @@ declare module '*.module.scss' {
   export default classes;
 }
 
-type AnyObject = {
-  [x: string]: AnyObject;
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyObject = any

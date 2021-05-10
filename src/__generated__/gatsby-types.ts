@@ -5311,6 +5311,17 @@ type ProductFrontmatterFragmentFragment = Pick<MarkdownRemarkFrontmatter, 'title
 
 type ProductCardImageFragmentFragment = { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> };
 
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly newProducts: { readonly nodes: ReadonlyArray<(
+      Pick<MarkdownRemark, 'id'>
+      & { readonly frontmatter: Maybe<(
+        { readonly images: Maybe<ReadonlyArray<Maybe<ProductCardImageFragmentFragment>>> }
+        & ProductFrontmatterFragmentFragment
+      )> }
+    )> } };
+
 type CategoryPageQueryVariables = Exact<{
   type: Scalars['String'];
   category: Maybe<Scalars['String']>;
@@ -5370,16 +5381,5 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'apiRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
-type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type IndexPageQuery = { readonly newProducts: { readonly nodes: ReadonlyArray<(
-      Pick<MarkdownRemark, 'id'>
-      & { readonly frontmatter: Maybe<(
-        { readonly images: Maybe<ReadonlyArray<Maybe<ProductCardImageFragmentFragment>>> }
-        & ProductFrontmatterFragmentFragment
-      )> }
-    )> } };
 
 }

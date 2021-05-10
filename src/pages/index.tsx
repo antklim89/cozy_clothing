@@ -8,9 +8,9 @@ import { Title } from '~/components/Title';
 import { productPreviewArraySchema } from '~/validation';
 
 
-const index: FC<PageProps<GatsbyTypes.IndexPageQuery>> = ({ data }) => {
+const index: FC<PageProps<AnyObject>> = ({ data }) => {
     const newProducts = productPreviewArraySchema.validateSync(
-        data.newProducts.nodes.map(({ id, frontmatter }) => ({ id, ...frontmatter })),
+        data.newProducts.nodes.map(({ id, frontmatter }: AnyObject) => ({ id, ...frontmatter })),
     );
 
     return (

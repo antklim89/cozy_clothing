@@ -18,10 +18,10 @@ export const Hero: FC = () => {
                 image {
                     a:childImageSharp {
                         b:gatsbyImageData(
-                            layout: CONSTRAINED
+                            layout: FULL_WIDTH
                             placeholder: BLURRED
-                            height: 700
-                            width: 1920
+                            # height: 700
+                            # width: 1920
                             transformOptions: {cropFocus: CENTER}
                         )
                     }
@@ -34,7 +34,7 @@ export const Hero: FC = () => {
 
     return (
         <section className={styles.root}>
-            <GatsbyImage alt={data.title} image={data.image} />
+            <GatsbyImage alt={data.title} className={styles.image} image={data.image} />
             <div className={styles.body}>
                 <Title>{data.title}</Title>
                 <p className="hide-sm">{data.body}</p>
