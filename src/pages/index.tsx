@@ -62,7 +62,7 @@ query IndexPage {
         }
     }
     promoProducts: allMarkdownRemark(
-        filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, promo: {eq: true}}}
+        filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {eq: 0}}}
         limit: 4
         sort: {fields: id}
     ) {

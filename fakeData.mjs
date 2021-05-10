@@ -10,12 +10,12 @@ _.times(20, () => {
     const title = faker.commerce.productName();
     const category = faker.commerce.product();
 
-    const fileName = `${_.kebabCase(`${productType}-${category}-${title}`)}.md`;
+    const fileName = `${_.kebabCase(`${category}-${title}`)}.md`;
     const markdown = `---
 layout: product
 type: ${productType}
 hidden: false
-promo: ${Math.random() > 0.5}
+discount: ${_.random(0, 1, true) > 0.5 ? _.random(5, 40, false) : 0}
 title: ${title}
 careatedAt: ${faker.date.between(new Date(), new Date(Date.now() - 100 * 100)).toISOString()}
 images:
@@ -27,7 +27,6 @@ images:
     - image: images/4206.jpg
 price: ${faker.commerce.price()}
 category: ${category}
-brand: ${faker.company.companyName()}
 ---
 ${faker.commerce.productDescription()}
 ${faker.commerce.productDescription()}
@@ -38,6 +37,10 @@ ${faker.lorem.paragraphs(2)}
     console.debug('||fileName: \n', fileName);
     console.debug('||productType: \n', productType);
 
+    try {
+        fs.mkdirSync(path.resolve('./content/products', productType));
+    // eslint-disable-next-line no-empty
+    } catch {}
     fs.writeFileSync(path.resolve('./content/products', productType, fileName), markdown);
 });
 

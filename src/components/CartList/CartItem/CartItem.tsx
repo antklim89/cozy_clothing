@@ -27,10 +27,6 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                         <h4>{cartItem.product.title}</h4>
                     </Link>
                     <br />
-                    <b>
-                        {cartItem.product.brand}
-                    </b>
-                    <br />
                     <small>
                         {cartItem.product.type}
                     </small>

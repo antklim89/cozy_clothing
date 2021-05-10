@@ -6,6 +6,7 @@ import styles from './ProductDescription.module.scss';
 
 import { Button } from '~/components/Button';
 import { CartItem, useCart } from '~/components/CartProvider';
+import { Price } from '~/components/Price';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
 import { Sizes } from '~/types/product-sizes';
@@ -40,28 +41,30 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     }, [cartItem.qty, cartItem.size]);
 
     return (
-        <div className={styles.root}>
+        <section className={styles.root}>
             <div className={styles.titleSection}>
                 <h1>
                     {product.title}
                 </h1>
-                {isNew && (
-                    <span className={styles.new}>NEW</span>
-                )}
-                <b className={styles.price}>
-                    $
-                    {product.price}
-                </b>
-
-            </div>
-            <div className={styles.brandSection}>
-                <h2>
-                    {product.brand}
-                    <br />
-                </h2>
                 <p>
                     {product.type}
                 </p>
+                <p className={styles.promos}>
+                    {isNew && (
+                        <span>NEW PRODUCT</span>
+                    )}
+                    {product.discount > 0 && (
+                        <span>
+                            DISCOUNT
+                            {' '}
+                            {product.discount}
+                            %
+                        </span>
+                    )}
+                </p>
+            </div>
+            <div className={styles.priceSection}>
+                <Price discount={product.discount} price={product.price} />
             </div>
             <div className={styles.cartSection}>
                 <SelectSize
@@ -92,6 +95,6 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                     )}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };

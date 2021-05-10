@@ -7,13 +7,12 @@ import {
 export const productPreviewSchema = object({
     id: string().required(),
     title: string().required(),
-    brand: string().required(),
     price: number().required(),
     type: string().required(),
     category: string().required(),
     careatedAt: string().required(),
     hidden: boolean().required(),
-    promo: boolean().required(),
+    discount: number().min(0).max(100).required(),
     images: array(
         mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
     ).default([]).required(),

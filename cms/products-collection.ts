@@ -8,7 +8,7 @@ export const productsCollection: CmsCollection[] = productTypes.map((type) => ({
     label: `Products ${type}`,
     folder: `content/products/${type}`,
     create: true,
-    slug: `${type}-{{category}}-{{brand}}-{{title}}`,
+    slug: '{{category}}-{{title}}',
     media_folder: 'images',
     editor: {
         preview: false,
@@ -33,19 +33,16 @@ export const productsCollection: CmsCollection[] = productTypes.map((type) => ({
             default: false,
         },
         {
-            label: 'Promo',
-            name: 'promo',
-            widget: 'boolean',
-            default: false,
+            label: 'Discount',
+            name: 'discount',
+            widget: 'number',
+            min: 0,
+            max: 100,
+            default: 0,
         },
         {
             label: 'Title',
             name: 'title',
-            widget: 'string',
-        },
-        {
-            label: 'Brand',
-            name: 'brand',
             widget: 'string',
         },
         {

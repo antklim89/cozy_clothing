@@ -6,7 +6,7 @@ import { Seo } from '~/components/Seo';
 import { aboutSchema } from '~/validation';
 
 
-const about: FC<PageProps<any>> = ({ data }) => {
+const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data }) => {
     const {
         body, chooseUs, image, title,
     } = aboutSchema.validateSync(data.aboutJson);

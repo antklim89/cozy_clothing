@@ -7,6 +7,7 @@ import styles from './ProductCard.module.scss';
 import { ProductCardProps } from './ProductCard.types';
 
 import { useCart } from '~/components/CartProvider';
+import { Price } from '~/components/Price';
 
 
 export const ProductCard: FC<ProductCardProps> = ({
@@ -27,19 +28,17 @@ export const ProductCard: FC<ProductCardProps> = ({
                 <div className={styles.body}>
                     <h5>{product.title}</h5>
                     <p>
-                        <strong>{product.brand}</strong>
-                    </p>
-                    <p>
                         <small>{product.category}</small>
                     </p>
-                    <p>
-                        $
-                        <i>{product.price}</i>
-                    </p>
+                    <Price discount={product.discount} price={product.price} />
                 </div>
                 <div className={styles.bagdes}>
-                    {product.promo && (
-                        <p>PROMO</p>
+                    {product.discount > 0 && (
+                        <p>
+                            -
+                            {product.discount}
+                            %
+                        </p>
                     )}
                     {isNew && (
                         <p>NEW</p>

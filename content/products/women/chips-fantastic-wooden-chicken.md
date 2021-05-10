@@ -1,10 +1,10 @@
 ---
 layout: product
-type: men
+type: women
 hidden: false
-promo: false
-title: Intelligent Metal Mouse
-careatedAt: 2021-04-24T18:28:53.973Z
+discount: 0
+title: Fantastic Wooden Chicken
+careatedAt: 2021-05-10T17:16:38.961Z
 images:
     - image: images/pexels-karolina-grabowska-4210866.jpg
     - image: images/4206.jpg
@@ -12,12 +12,11 @@ images:
     - image: images/4206.jpg
     - image: images/4206.jpg
     - image: images/4206.jpg
-price: 433.00
-category: Car
-brand: Halvorson LLC
+price: 160.00
+category: Chips
 ---
 New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart
 New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart
-Dolores et perferendis ut itaque laboriosam laborum natus porro. Quos optio debitis et iusto dolores numquam eaque et aut. Iusto corrupti aperiam atque eaque at vitae nobis.
- Et quod ipsa. Eum illo aut nihil et voluptatibus. Sapiente optio magni corporis non. Ducimus corrupti minima qui voluptas asperiores.
+Excepturi nihil hic minima laborum quas aspernatur. Praesentium et accusamus et harum et. Ut et veniam dolor. Non natus et impedit officia ea. Natus sit odio error sunt at omnis quis.
+ Beatae dicta in sequi ut perferendis. Qui voluptatem voluptatem non qui. Deserunt natus magni veritatis deserunt quod fugit deserunt vero id.
     

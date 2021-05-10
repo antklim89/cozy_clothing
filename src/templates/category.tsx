@@ -64,10 +64,9 @@ fragment ProductFrontmatterFragment on MarkdownRemarkFrontmatter {
     category
     hidden
     careatedAt
-    promo
+    discount
     type
     price
-    brand
 }
 
 fragment ProductCardImageFragment on MarkdownRemarkFrontmatterImages {

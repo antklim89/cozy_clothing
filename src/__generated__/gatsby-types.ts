@@ -657,12 +657,11 @@ type MarkdownRemarkFrontmatter = {
   readonly layout: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
   readonly hidden: Maybe<Scalars['Boolean']>;
-  readonly promo: Maybe<Scalars['Boolean']>;
+  readonly discount: Maybe<Scalars['Int']>;
   readonly careatedAt: Maybe<Scalars['Date']>;
   readonly images: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFrontmatterImages>>>;
   readonly price: Maybe<Scalars['Int']>;
   readonly category: Maybe<Scalars['String']>;
-  readonly brand: Maybe<Scalars['String']>;
 };
 
 
@@ -1431,12 +1430,11 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly layout: Maybe<StringQueryOperatorInput>;
   readonly type: Maybe<StringQueryOperatorInput>;
   readonly hidden: Maybe<BooleanQueryOperatorInput>;
-  readonly promo: Maybe<BooleanQueryOperatorInput>;
+  readonly discount: Maybe<IntQueryOperatorInput>;
   readonly careatedAt: Maybe<DateQueryOperatorInput>;
   readonly images: Maybe<MarkdownRemarkFrontmatterImagesFilterListInput>;
   readonly price: Maybe<IntQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
-  readonly brand: Maybe<StringQueryOperatorInput>;
 };
 
 type MarkdownRemarkFrontmatterImagesFilterListInput = {
@@ -1837,12 +1835,11 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.layout'
   | 'childrenMarkdownRemark.frontmatter.type'
   | 'childrenMarkdownRemark.frontmatter.hidden'
-  | 'childrenMarkdownRemark.frontmatter.promo'
+  | 'childrenMarkdownRemark.frontmatter.discount'
   | 'childrenMarkdownRemark.frontmatter.careatedAt'
   | 'childrenMarkdownRemark.frontmatter.images'
   | 'childrenMarkdownRemark.frontmatter.price'
   | 'childrenMarkdownRemark.frontmatter.category'
-  | 'childrenMarkdownRemark.frontmatter.brand'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -1900,12 +1897,11 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.layout'
   | 'childMarkdownRemark.frontmatter.type'
   | 'childMarkdownRemark.frontmatter.hidden'
-  | 'childMarkdownRemark.frontmatter.promo'
+  | 'childMarkdownRemark.frontmatter.discount'
   | 'childMarkdownRemark.frontmatter.careatedAt'
   | 'childMarkdownRemark.frontmatter.images'
   | 'childMarkdownRemark.frontmatter.price'
   | 'childMarkdownRemark.frontmatter.category'
-  | 'childMarkdownRemark.frontmatter.brand'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -4079,7 +4075,7 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.layout'
   | 'frontmatter.type'
   | 'frontmatter.hidden'
-  | 'frontmatter.promo'
+  | 'frontmatter.discount'
   | 'frontmatter.careatedAt'
   | 'frontmatter.images'
   | 'frontmatter.images.image.sourceInstanceName'
@@ -4125,7 +4121,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.images.image.children'
   | 'frontmatter.price'
   | 'frontmatter.category'
-  | 'frontmatter.brand'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -4508,12 +4503,11 @@ type AboutJsonFieldsEnum =
   | 'image.childrenMarkdownRemark.frontmatter.layout'
   | 'image.childrenMarkdownRemark.frontmatter.type'
   | 'image.childrenMarkdownRemark.frontmatter.hidden'
-  | 'image.childrenMarkdownRemark.frontmatter.promo'
+  | 'image.childrenMarkdownRemark.frontmatter.discount'
   | 'image.childrenMarkdownRemark.frontmatter.careatedAt'
   | 'image.childrenMarkdownRemark.frontmatter.images'
   | 'image.childrenMarkdownRemark.frontmatter.price'
   | 'image.childrenMarkdownRemark.frontmatter.category'
-  | 'image.childrenMarkdownRemark.frontmatter.brand'
   | 'image.childrenMarkdownRemark.excerpt'
   | 'image.childrenMarkdownRemark.rawMarkdownBody'
   | 'image.childrenMarkdownRemark.fileAbsolutePath'
@@ -4547,12 +4541,11 @@ type AboutJsonFieldsEnum =
   | 'image.childMarkdownRemark.frontmatter.layout'
   | 'image.childMarkdownRemark.frontmatter.type'
   | 'image.childMarkdownRemark.frontmatter.hidden'
-  | 'image.childMarkdownRemark.frontmatter.promo'
+  | 'image.childMarkdownRemark.frontmatter.discount'
   | 'image.childMarkdownRemark.frontmatter.careatedAt'
   | 'image.childMarkdownRemark.frontmatter.images'
   | 'image.childMarkdownRemark.frontmatter.price'
   | 'image.childMarkdownRemark.frontmatter.category'
-  | 'image.childMarkdownRemark.frontmatter.brand'
   | 'image.childMarkdownRemark.excerpt'
   | 'image.childMarkdownRemark.rawMarkdownBody'
   | 'image.childMarkdownRemark.fileAbsolutePath'
@@ -5296,12 +5289,11 @@ type HeroJsonFieldsEnum =
   | 'image.childrenMarkdownRemark.frontmatter.layout'
   | 'image.childrenMarkdownRemark.frontmatter.type'
   | 'image.childrenMarkdownRemark.frontmatter.hidden'
-  | 'image.childrenMarkdownRemark.frontmatter.promo'
+  | 'image.childrenMarkdownRemark.frontmatter.discount'
   | 'image.childrenMarkdownRemark.frontmatter.careatedAt'
   | 'image.childrenMarkdownRemark.frontmatter.images'
   | 'image.childrenMarkdownRemark.frontmatter.price'
   | 'image.childrenMarkdownRemark.frontmatter.category'
-  | 'image.childrenMarkdownRemark.frontmatter.brand'
   | 'image.childrenMarkdownRemark.excerpt'
   | 'image.childrenMarkdownRemark.rawMarkdownBody'
   | 'image.childrenMarkdownRemark.fileAbsolutePath'
@@ -5335,12 +5327,11 @@ type HeroJsonFieldsEnum =
   | 'image.childMarkdownRemark.frontmatter.layout'
   | 'image.childMarkdownRemark.frontmatter.type'
   | 'image.childMarkdownRemark.frontmatter.hidden'
-  | 'image.childMarkdownRemark.frontmatter.promo'
+  | 'image.childMarkdownRemark.frontmatter.discount'
   | 'image.childMarkdownRemark.frontmatter.careatedAt'
   | 'image.childMarkdownRemark.frontmatter.images'
   | 'image.childMarkdownRemark.frontmatter.price'
   | 'image.childMarkdownRemark.frontmatter.category'
-  | 'image.childMarkdownRemark.frontmatter.brand'
   | 'image.childMarkdownRemark.excerpt'
   | 'image.childMarkdownRemark.rawMarkdownBody'
   | 'image.childMarkdownRemark.fileAbsolutePath'
@@ -6443,7 +6434,7 @@ type AboutPageQuery = { readonly aboutJson: Maybe<(
     )>>> }
   )> };
 
-type ProductFrontmatterFragmentFragment = Pick<MarkdownRemarkFrontmatter, 'title' | 'category' | 'hidden' | 'careatedAt' | 'promo' | 'type' | 'price' | 'brand'>;
+type ProductFrontmatterFragmentFragment = Pick<MarkdownRemarkFrontmatter, 'title' | 'category' | 'hidden' | 'careatedAt' | 'discount' | 'type' | 'price'>;
 
 type ProductCardImageFragmentFragment = { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> };
 
