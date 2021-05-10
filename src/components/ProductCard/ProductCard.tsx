@@ -28,11 +28,12 @@ export const ProductCard: FC<ProductCardProps> = ({
                 <div className={styles.body}>
                     <h5>{product.title}</h5>
                     <p>
-                        <small>{product.category}</small>
-                        <br />
                         <strong>{product.brand}</strong>
-                        <br />
-                        <br />
+                    </p>
+                    <p>
+                        <small>{product.category}</small>
+                    </p>
+                    <p>
                         $
                         <i>{product.price}</i>
                     </p>
@@ -45,7 +46,7 @@ export const ProductCard: FC<ProductCardProps> = ({
                         <p>NEW</p>
                     )}
                     {isInCart && (
-                        <CartIcon fill="white" />
+                        <p>IN CART</p>
                     )}
                 </div>
             </article>
