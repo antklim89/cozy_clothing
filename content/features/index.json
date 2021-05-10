@@ -1,0 +1,20 @@
+{
+  "features": [
+    {
+      "image": "images/garantee.png",
+      "text": "Money Back Guarantee"
+    },
+    {
+      "image": "images/coupon.png",
+      "text": "Gift Coupon"
+    },
+    {
+      "text": "Free Shipping",
+      "image": "images/delivery.png"
+    },
+    {
+      "text": "Free Shipping",
+      "image": "images/support.png"
+    }
+  ]
+}

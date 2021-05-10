@@ -1,5 +1,6 @@
 import CMS from 'netlify-cms-app';
 import { aboutPage } from './about-page';
+import { features } from './features';
 import { hero } from './hero';
 import { productCategoriesCollection } from './product-categories-collection';
 import { productsCollection } from './products-collection';
@@ -26,6 +27,7 @@ CMS.init({
                 files: [
                     aboutPage,
                     hero,
+                    features,
                 ],
             },
         ],

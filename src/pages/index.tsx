@@ -2,6 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import { Container } from '~/components';
+import { Features } from '~/components/Features';
 import { Hero } from '~/components/Hero/Hero';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
@@ -21,12 +22,13 @@ const index: FC<PageProps<AnyObject>> = ({ data }) => {
         <main>
             <Seo title="Home" />
             <Hero />
+            <Features />
             <Container bottomSpace="sm">
                 <Title>New Products</Title>
                 <ProductList products={newProducts} />
             </Container>
             <Container bottomSpace="sm">
-                <Title>Promo Products</Title>
+                <Title>Discount Products</Title>
                 <ProductList products={promoProducts} />
             </Container>
         </main>
@@ -62,9 +64,9 @@ query IndexPage {
         }
     }
     promoProducts: allMarkdownRemark(
-        filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {eq: 0}}}
+        filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {nin: 0}}}
         limit: 4
-        sort: {fields: id}
+        sort: {fields: frontmatter___discount, order: DESC}
     ) {
         nodes {
             id
