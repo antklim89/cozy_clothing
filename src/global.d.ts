@@ -72,3 +72,7 @@ declare module '*.module.scss' {
   const classes: { readonly [key: string]: string };
   export default classes;
 }
+
+type AnyObject = {
+  [x: string]: AnyObject;
+}

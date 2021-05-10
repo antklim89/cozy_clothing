@@ -2,7 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
-import { categoriesShema } from '../validation/categoriesSchema';
+import { productPreviewArraySchema } from '../validation/productPreviewArraySchema';
 
 import { Container } from '~/components';
 import { CategoriesBar } from '~/components/CategoriesBar';
@@ -22,7 +22,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
     pageContext: { type, category, categories },
     data,
 }) => {
-    const products = categoriesShema.validateSync(data.amr.nodes.map(({ id, frontmatter }) => {
+    const products = productPreviewArraySchema.validateSync(data.amr.nodes.map(({ id, frontmatter }) => {
         return { id, ...frontmatter };
     }));
 
