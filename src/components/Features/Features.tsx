@@ -1,18 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
-import * as yup from 'yup';
 
 import { Container } from '../Container';
-import { Title } from '../Title';
 
 import styles from './Features.module.scss';
-
-
-const featuresSchema = yup.array(yup.object({
-    text: yup.string().required(),
-    image: yup.mixed<IGatsbyImageData>().transform((v) => v.a.b).required(),
-}).required()).required();
+import featuresSchema from './Features.schema';
 
 
 export const Features: FC = () => {
@@ -42,7 +35,7 @@ export const Features: FC = () => {
         <Container bottomSpace="sm" component="section">
             <div className={styles.features}>
                 {features.map((feature) => (
-                    <section className={styles.feature}>
+                    <section className={styles.feature} key={feature.text}>
                         <GatsbyImage alt={feature.text} image={feature.image} />
                         <h6>{feature.text}</h6>
                     </section>

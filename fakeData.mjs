@@ -10,7 +10,7 @@ const categories = _.times(10, () => faker.commerce.product());
 
 
 types.forEach((type) => {
-    categories.forEach((category) => {
+    _.sampleSize(categories, 5).forEach((category) => {
         _.times(10, () => {
             const title = faker.commerce.productName();
 
@@ -23,7 +23,15 @@ discount: ${_.random(0, 1, true) > 0.5 ? _.random(5, 40, false) : 0}
 title: ${title}
 careatedAt: ${faker.date.between(new Date(), new Date(Date.now() - 100 * 100)).toISOString()}
 images:
-    - image: "../../images/fake-image-1.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
 price: ${faker.commerce.price()}
 category: ${category}
 ---

@@ -15,7 +15,7 @@ export const Price: FC<PricePropTypes> = ({ price, discount }) => {
                     </span>
                     <b>
                         $
-                        {(price - (price / (100 * discount))).toFixed(2)}
+                        {(price - ((price / 100) * discount)).toFixed(2)}
                     </b>
                 </p>
             ) : (

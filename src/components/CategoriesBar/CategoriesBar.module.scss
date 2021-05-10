@@ -4,6 +4,7 @@
 .root {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     @extend .mt-2;
 
     li {
