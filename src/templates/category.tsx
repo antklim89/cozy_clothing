@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
@@ -9,9 +9,10 @@ import { CategoriesBar } from '~/components/CategoriesBar';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
 import { Title } from '~/components/Title';
+import { IPagination } from '~/types';
 
 
-interface CategoryPageContext {
+interface CategoryPageContext extends IPagination {
     type: string
     category?: string
     categories: string[]
@@ -19,7 +20,9 @@ interface CategoryPageContext {
 
 
 const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageContext>> = ({
-    pageContext: { type, category, categories },
+    pageContext: {
+        category, type, categories, previousPagePath, nextPagePath,
+    },
     data,
 }) => {
     const products = productPreviewArraySchema.validateSync(data.amr.nodes.map(({ id, frontmatter }) => {
@@ -35,6 +38,8 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
                 <Title>{type}</Title>
                 <CategoriesBar categories={categories} type={type} />
                 <ProductList products={products} />
+                <Link to={previousPagePath}>Prev</Link>
+                <Link to={nextPagePath}>Next</Link>
             </Container>
         </main>
     );
@@ -43,9 +48,19 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
 
 export const query = graphql`
 
-query CategoryPage($type: String!, $category: String) {
+query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!) {
   amr: allMarkdownRemark(
-    filter: {frontmatter: {type: {eq: $type}, category: {eq: $category}, layout: {eq: "product"}, hidden: {eq: false}}}
+    filter: {frontmatter: {
+        type: {eq: $type},
+        category: {eq: $category},
+        layout: {eq: "product"},
+        hidden: {eq: false}
+    }}
+    sort: {
+        fields: frontmatter___careatedAt
+    }
+    skip: $skip
+    limit: $limit
   ) {
     nodes {
         id

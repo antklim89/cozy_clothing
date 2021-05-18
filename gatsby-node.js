@@ -2,6 +2,8 @@
 const crypto = require('crypto');
 const path = require('path');
 
+const { paginate } = require('gatsby-awesome-pagination');
+
 
 exports.onCreateBabelConfig = ({ actions }) => {
     actions.setBabelPreset({
@@ -11,6 +13,7 @@ exports.onCreateBabelConfig = ({ actions }) => {
         },
     });
 };
+
 
 exports.onCreateNode = async ({
     actions, getNodesByType,
@@ -63,18 +66,49 @@ async function createCategoriesPage(graphql, createPage) {
         }
     `);
 
-    Object.keys(catalog).forEach((type) => {
+    await Promise.all(Object.keys(catalog).map(async (type) => {
         const categories = catalog[type];
 
-        createPage({
-            path: `/category/${type}`,
+        const { data: { allMarkdownRemark: { nodes: productsByTypes } } } = await graphql(`
+            {
+                allMarkdownRemark(
+                    filter: {frontmatter: {
+                        layout: {eq: "product"},
+                        hidden: {eq: false},
+                        type: {eq: "${type}"}
+                    }}
+                ) { nodes { id } }
+            }
+        `);
+
+        paginate({
+            createPage,
+            items: productsByTypes,
+            itemsPerPage: 12,
+            pathPrefix: `/category/${type}`,
             component: path.resolve('src/templates/category.tsx'),
             context: { type, categories },
         });
 
-        categories.forEach((category) => {
-            createPage({
-                path: `/category/${type}/${category}`,
+        await Promise.all(categories.map(async (category) => {
+            const { data: { allMarkdownRemark: { nodes: productsByCategories } } } = await graphql(`
+                {
+                    allMarkdownRemark(
+                        filter: {frontmatter: {
+                            layout: {eq: "product"},
+                            hidden: {eq: false},
+                            type: {eq: "${type}"}
+                            category: {eq: "${category}"}
+                        }}
+                    ) { nodes { id } }
+                }
+            `);
+
+            paginate({
+                createPage,
+                items: productsByCategories,
+                itemsPerPage: 12,
+                pathPrefix: `/category/${type}/${category}`,
                 component: path.resolve('src/templates/category.tsx'),
                 context: {
                     type,
@@ -82,8 +116,8 @@ async function createCategoriesPage(graphql, createPage) {
                     category,
                 },
             });
-        });
-    });
+        }));
+    }));
 }
 
 async function createProductPages(graphql, createPage) {
