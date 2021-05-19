@@ -9,13 +9,14 @@
     text-transform: uppercase;
     border: 1px solid $secondary-light;
 
-    &.disabled {
+    &[disabled] {
         background: $secondary;
 
         &:hover {
             color: $font-dark;
             fill: $font-dark;
             background: $secondary;
+            border: 1px solid $secondary-light;
         }
     }
 }
