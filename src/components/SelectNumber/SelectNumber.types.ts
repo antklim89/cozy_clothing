@@ -6,5 +6,6 @@ export interface SelectNumberPropTypes {
     max?: number
     min?: number
     label?: string
+    className?: string
 }
 

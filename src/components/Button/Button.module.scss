@@ -2,12 +2,9 @@
 
 
 .root {
-    @include base-button-input-style;
-    @include base-button-align;
-    @extend .m-1;
-
+    @extend .button;
+    transition: $transition-speed;
     text-transform: uppercase;
-    border: 1px solid $secondary-light;
 
     &[disabled] {
         background: $secondary;

@@ -8,7 +8,7 @@ $width: minmax(0, 272px);
     justify-content: center;
     grid-column-gap: 2rem;
     grid-row-gap: 1rem;
-    @extend .py-2;
+    @extend .p-2;
 
     @include media-md {
         grid-template-columns: repeat(2, $width);

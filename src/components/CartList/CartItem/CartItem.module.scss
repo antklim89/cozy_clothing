@@ -26,20 +26,27 @@
 
     .options {
         flex: 1;
+        > * {
+            margin: 0.2rem 0;
+        }
+        
+        button, input, select {
+            width: 100%;
+        }
     }
 
     @include media-xs {
         .title {
             flex: 1 1 100%;
             text-align: center;
+            order: -1;
         }
         .image {
-            order: 1;
-        }
-        .options {
             flex: 1 1 100%;
-            order: 1;
         }
+        // .options {
+        //     flex: 1 1 100%;
+        // }
     }
 }
 

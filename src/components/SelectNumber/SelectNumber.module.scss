@@ -2,13 +2,18 @@
 
 
 .root {
-    @include base-input-align;
-    @extend .m-1;
+    display: flex;
+    align-items: center;
 }
 
-.select {
-    @include base-button-align;
-        
+.label {
+    margin-right: 0.5rem;
+}
+
+.select {       
+    display: flex;
+    width: 100%;
+
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -18,17 +23,17 @@
     input[type=number] {
         -moz-appearance: textfield;
     }
+}
 
-    > button {
-        width: 40px;
-        user-select: none;
-        margin: 0 !important;
-    }
-    
-    input {
-        width: 40px;
-        border: none;
-        background: none;
-        text-align: center;
-    }
+.button {
+    width: 40px;
+    user-select: none;
+    margin: 0 !important;
+}
+
+.input {
+    width: 40px;
+    border: none;
+    background: none;
+    text-align: center;
 }

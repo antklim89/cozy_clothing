@@ -2,17 +2,19 @@
 
 
 .root {
-    @include base-input-align;
-    @extend .p-1;
-    width: 100%;
+    display: flex;
+    align-items: center;
     
     select, input, textarea {
-        @include base-button-input-style;
-        width: 100%;
-    
+        @extend .button;
+        transition: $transition-speed;
+        
         &:hover {
             border-color: $primary;
         }
     }
 }
 
+.label {
+    margin-right: 0.5rem;
+}

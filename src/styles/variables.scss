@@ -84,7 +84,7 @@ $container-width: $xl;
 $types: 'm' 'margin', 'p' 'padding';
 $directions-all: 't' 'top', 'r' 'right', 'b' 'bottom', 'l' 'left';
 $directions: 'x' 'right' 'left', 'y' 'top' 'bottom';
-$spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 4rem, '5' 6rem;
+$spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 3rem, '5' 4rem;
 
 @each $typekey, $type in $types {
     @each $dirkey, $dir in $directions-all {
@@ -94,9 +94,6 @@ $spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 4rem, '5' 6rem;
             
                 @include media-md {
                     #{$type}-#{$dir}: $space*0.7;
-                }
-                @include media-xs {
-                    #{$type}-#{$dir}: $space*0.5;
                 }
             }
         }
@@ -112,10 +109,6 @@ $spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 4rem, '5' 6rem;
                     #{$type}-#{$dir1}: $space*0.7;
                     #{$type}-#{$dir2}: $space*0.7;
                 }
-                @include media-xs {
-                    #{$type}-#{$dir1}: $space*0.5;
-                    #{$type}-#{$dir2}: $space*0.5;
-                }
             }
         }
     }
@@ -126,53 +119,16 @@ $spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 4rem, '5' 6rem;
             @include media-md {
                 #{$type}: $space*0.7;
             }
-            @include media-xs {
-                #{$type}: $space*0.5;
-            }
         }
     }
 }
 
 
-@mixin margin($top: null, $right: null, $bot: null, $left: null) {
-    margin: space($top: null, $right: null, $bot: null, $left: null);
-
-    @include media-md {
-        margin: space($top: null, $right: null, $bot: null, $left: null, $mult: 0.8);
-    }
-    @include media-xs {
-        margin: space($top: null, $right: null, $bot: null, $left: null, $mult: 0.6);
-    }
-}
-
-@mixin padding($vals...) {
-    padding: space($vals...);
-
-    @include media-md {
-        padding: space($vals..., $mult: 0.8);
-    }
-    @include media-xs {
-        padding: space($vals..., $mult: 0.6);
-    }
-}
-
-@mixin base-input-align {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-@mixin base-button-align {
-    display: flex;
-    align-items: center;
-}
-
-@mixin base-button-input-style {
-    justify-content: center;
-    align-self: center;
+.button {
+    @extend .p-2;
     border: 1px solid $secondary-light;
-    @extend .py-2, .px-2;
     background: none;
-    transition: $transition-speed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

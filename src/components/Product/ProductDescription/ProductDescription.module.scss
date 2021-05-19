@@ -37,7 +37,12 @@
     display: flex;
     flex-direction: column;
 
+    button, input, select {
+        width: 100%;
+    }
+
     > * {
         @extend .py-2;
+        
     }
 }

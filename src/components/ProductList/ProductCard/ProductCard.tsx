@@ -18,13 +18,14 @@ export const ProductCard: FC<ProductCardProps> = ({
     const isInCart = cart.some((i) => i.id === product.id);
 
     return (
-        <Link className={styles.root} to={`/product/${product.id}`}>
-            <article>
-                <GatsbyImage
-                    alt={product.title}
-                    className={styles.image}
-                    image={product.images[0]}
-                />
+        <Link className={styles.link} to={`/product/${product.id}`}>
+            <section className={styles.cart}>
+                <div className={styles.image}>
+                    <GatsbyImage
+                        alt={product.title}
+                        image={product.images[0]}
+                    />
+                </div>
                 <div className={styles.body}>
                     <h5>{product.title}</h5>
                     <p>
@@ -47,7 +48,7 @@ export const ProductCard: FC<ProductCardProps> = ({
                         <p>IN CART</p>
                     )}
                 </div>
-            </article>
+            </section>
         </Link>
     );
 };
