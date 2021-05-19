@@ -170,6 +170,7 @@ $spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 4rem, '5' 6rem;
 
 @mixin base-button-input-style {
     justify-content: center;
+    align-self: center;
     border: 1px solid $secondary-light;
     @extend .py-2, .px-2;
     background: none;

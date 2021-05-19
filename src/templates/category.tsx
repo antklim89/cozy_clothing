@@ -6,6 +6,7 @@ import { productPreviewArraySchema } from '../validation/productPreviewArraySche
 
 import { Container } from '~/components';
 import { CategoriesBar } from '~/components/CategoriesBar';
+import { Pagination } from '~/components/Pagination';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
 import { Title } from '~/components/Title';
@@ -21,7 +22,7 @@ interface CategoryPageContext extends IPagination {
 
 const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageContext>> = ({
     pageContext: {
-        category, type, categories, previousPagePath, nextPagePath,
+        category, type, categories, ...paginationContext
     },
     data,
 }) => {
@@ -37,9 +38,9 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
             <Container component="section">
                 <Title>{type}</Title>
                 <CategoriesBar categories={categories} type={type} />
+                <Pagination {...paginationContext} />
                 <ProductList products={products} />
-                <Link to={previousPagePath}>Prev</Link>
-                <Link to={nextPagePath}>Next</Link>
+                <Pagination {...paginationContext} />
             </Container>
         </main>
     );
