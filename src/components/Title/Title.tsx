@@ -10,6 +10,7 @@ import { cls } from '~/utils';
 export const Title: FC<TitleProps> = ({
     component: Component = 'h1',
     position = 'center',
+    bottomSpace = 'sm',
     className,
     ...props
 }) => {
@@ -18,6 +19,7 @@ export const Title: FC<TitleProps> = ({
             className={cls(
                 styles.root,
                 styles[position],
+                bottomSpace && styles[`bottom__${bottomSpace}`],
             )}
         >
             <Component

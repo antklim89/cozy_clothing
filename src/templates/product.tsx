@@ -28,7 +28,7 @@ const productPage: FC<PageProps<GatsbyTypes.ProductPageQuery, ProductPageContext
     return (
         <main>
             <Seo title={product.title} />
-            <Container component="section">
+            <Container component="section" topSpace="md">
                 <Product product={product} />
             </Container>
         </main>

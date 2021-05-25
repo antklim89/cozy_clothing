@@ -35,7 +35,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
     return (
         <main>
             <Seo title={title} />
-            <Container component="section">
+            <Container component="section" topSpace="md">
                 <Title>{type}</Title>
                 <CategoriesBar categories={categories} type={type} />
                 <Pagination {...paginationContext} />

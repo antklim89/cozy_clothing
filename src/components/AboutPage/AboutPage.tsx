@@ -1,4 +1,3 @@
-// import { StaticImage } from 'gatsby-plugin-image';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
@@ -15,7 +14,7 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
 }) => {
     return (
         <>
-            <Container className={styles.root} component="section">
+            <Container bottomSpace="xl" component="section" topSpace="md">
                 <Title>{title}</Title>
                 <article className={styles.aboutContainer}>
                     <div className={styles.aboutItem}>
@@ -27,7 +26,7 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
                 </article>
             </Container>
 
-            <Container className={styles.root} component="section">
+            <Container component="section">
                 <Title>Why Choose Us</Title>
                 <div className={styles.chooseUsContainer}>
                     {chooseUs.map((item) => (

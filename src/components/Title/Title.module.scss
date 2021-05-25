@@ -3,7 +3,6 @@
 $underline-width: 40px;
 
 .root {
-    @extend .my-1;
     text-align: center;
 
     h1,h2,h3,h4,h5,h6 {
@@ -41,3 +40,19 @@ $underline-width: 40px;
 .left {
     text-align: left;
 }
+
+.bottom__xl { @extend .mb-5; }
+.top__xl { @extend .mt-5 ;}
+
+.bottom__lg { @extend .mb-4; }
+.top__lg { @extend .mt-4 ;}
+
+.bottom__md { @extend .mb-3; }
+.top__md { @extend .mt-3 ;}
+
+.bottom__sm { @extend .mb-2; }
+.top__sm { @extend .mt-2 ;}
+
+.bottom__xs { @extend .mb-1; }
+.top__xs { @extend .mt-1 ;}
+

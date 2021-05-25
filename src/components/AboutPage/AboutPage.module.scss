@@ -1,11 +1,6 @@
 @use '~/styles/variables.scss' as *;
 
 
-.root {
-    padding: $space-md;
-    margin-bottom: $space-md * 5;
-}
-
 .aboutContainer {
     display: flex;
     flex-wrap: wrap;
