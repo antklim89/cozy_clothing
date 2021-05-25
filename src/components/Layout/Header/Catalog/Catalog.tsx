@@ -15,7 +15,7 @@ export const Catalog: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <li className={styles.root}>
+        <div className={styles.root}>
             <Button
                 variant="text"
                 onClick={() => setIsOpen(true)}
@@ -28,6 +28,6 @@ export const Catalog: FC = () => {
                     <CatalogDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
                 </Suspense>
             )}
-        </li>
+        </div>
     );
 };

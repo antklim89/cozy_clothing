@@ -1,10 +1,5 @@
 @use '~/styles/variables.scss' as *;
 
-
-.root {
-    background: $bg-primary;
-}
-
 .logo {
     display: flex;
     align-items: center;
@@ -21,8 +16,7 @@
 .link {
     height: $app-bar-height;
     padding: 0 $space-md !important;
-    text-decoration: none;
     &.active {
-        color: $primary
+        color: $primary;
     }
 }

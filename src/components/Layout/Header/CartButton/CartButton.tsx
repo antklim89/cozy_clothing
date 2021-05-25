@@ -16,7 +16,6 @@ export const CartButton: FC = () => {
         <Button
             color="secondary"
             component={Link}
-            fontColor="light"
             to="/cart"
             variant="text"
         >

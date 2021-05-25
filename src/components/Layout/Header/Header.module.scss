@@ -1,0 +1,9 @@
+@use '~/styles/variables.scss' as *;
+
+.background {
+    background: $bg-primary;
+}
+
+.container {
+    display: flex;
+}

@@ -2,62 +2,58 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import style from './NavBar.module.scss';
+
+import styles from './NavBar.module.scss';
+import { NavBarPropTypes } from './NavBar.types';
 
 import { Button } from '~/components/Button';
-import { Container } from '~/components/Container';
-import { Catalog } from '~/components/Layout/Header/Catalog';
 import { productTypes } from '~/constants';
 
 
-export const NavBar: FC = () => {
+export const NavBar: FC<NavBarPropTypes> = () => {
     return (
-        <div className={style.root}>
-            <Container component="nav">
-                <ul className={style.nav}>
-                    <li className={style.logo}>
-                        <Link to="/">
-                            <StaticImage
-                                alt="logo"
-                                formats={['webp']}
-                                layout="fixed"
-                                placeholder="blurred"
-                                src="./logo.png"
-                            />
-                        </Link>
-                    </li>
-                    {productTypes.map((type) => (
-                        <li className="hide-sm" key={type}>
-                            <Button
-                                partiallyActive
-                                activeClassName={style.active}
-                                className={style.link}
-                                color="secondary"
-                                component={Link}
-                                to={`/category/${type}`}
-                                variant="text"
-                            >
-                                {type}
-                            </Button>
-                        </li>
-                    ))}
-                    <li>
+        <nav>
+            <ul className={styles.nav}>
+                <li className={styles.logo}>
+                    <Link to="/">
+                        <StaticImage
+                            alt="logo"
+                            formats={['webp']}
+                            layout="fixed"
+                            placeholder="blurred"
+                            src="./logo.png"
+                        />
+                    </Link>
+                </li>
+                {productTypes.map((type) => (
+                    <li className="hide-sm" key={type}>
                         <Button
                             partiallyActive
-                            activeClassName={style.active}
-                            className={style.link}
+                            activeClassName={styles.active}
+                            className={styles.link}
                             color="secondary"
                             component={Link}
-                            to="/about"
+                            to={`/category/${type}`}
                             variant="text"
                         >
-                            about
+                            {type}
                         </Button>
                     </li>
-                    <li className="grow" />
-                    <Catalog />
-                </ul>
-            </Container>
-        </div>
+                ))}
+                <li>
+                    <Button
+                        partiallyActive
+                        activeClassName={styles.active}
+                        className={styles.link}
+                        color="secondary"
+                        component={Link}
+                        to="/about"
+                        variant="text"
+                    >
+                        about
+                    </Button>
+                </li>
+            </ul>
+        </nav>
     );
 };
