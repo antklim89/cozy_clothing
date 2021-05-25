@@ -7,7 +7,7 @@ $secondary-dark: darken(#bcbcbc, 20);
 
 $primary-light: lighten(#c33c33, 10);
 $secondary-light: lighten(#bcbcbc, 10);
- 
+
 $bg-primary: #fafafa;
 $bg-secondary: #bcbcbc;
 
@@ -29,12 +29,11 @@ $space-md: 1rem;
 $space-lg: 1.2rem;
 $space-xl: 1.4rem;
 
-
-$font-size-xs: 0.5rem; 
+$font-size-xs: 0.5rem;
 $font-size-sm: 0.7rem;
 $font-size-md: 0.9rem;
-$font-size-lg: 1.4rem; 
-$font-size-xl: 1.7rem; 
+$font-size-lg: 1.4rem;
+$font-size-xl: 1.7rem;
 
 $shadow: 0px 0px 5px;
 $shadow-lg: 2px 2px 20px;
@@ -47,38 +46,54 @@ $xl: 1200px;
 $container-width: $xl;
 
 @mixin media-xs {
-    @media screen and (max-width: $sm)  { @content; }
+	@media screen and (max-width: $sm) {
+		@content;
+	}
 }
 
 @mixin media-sm {
-    @media screen and (max-width: $md) { @content; }
+	@media screen and (max-width: $md) {
+		@content;
+	}
 }
 
 @mixin media-md {
-    @media screen and (max-width: $lg) { @content; }
+	@media screen and (max-width: $lg) {
+		@content;
+	}
 }
 
 @mixin media-lg {
-    @media screen and (max-width: $xl) { @content; }
+	@media screen and (max-width: $xl) {
+		@content;
+	}
 }
 
 @mixin media-xl {
-    @media screen and (max-width: 2000px) { @content; }
+	@media screen and (max-width: 2000px) {
+		@content;
+	}
 }
-
 
 @mixin shadow {
-    box-shadow: 0px 0px 10px black;
+	box-shadow: 0px 0px 10px black;
 }
 
-
 @function space($top: null, $right: null, $bot: null, $left: null, $mult: 1) {
-    @if $top {$top: #{$top * $mult}rem ;}
-    @if $right {$right: #{$right * $mult}rem ;}
-    @if $bot {$bot: #{$bot * $mult}rem ;}
-    @if $left {$left: #{$left * $mult}rem ;}
+	@if $top {
+		$top: #{$top * $mult}rem;
+	}
+	@if $right {
+		$right: #{$right * $mult}rem;
+	}
+	@if $bot {
+		$bot: #{$bot * $mult}rem;
+	}
+	@if $left {
+		$left: #{$left * $mult}rem;
+	}
 
-    @return $top $right $bot $left;
+	@return $top $right $bot $left;
 }
 
 $types: 'm' 'margin', 'p' 'padding';
@@ -87,48 +102,47 @@ $directions: 'x' 'right' 'left', 'y' 'top' 'bottom';
 $spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 3rem, '5' 4rem;
 
 @each $typekey, $type in $types {
-    @each $dirkey, $dir in $directions-all {
-        @each $key, $space in $spaces {
-            .#{$typekey}#{$dirkey}-#{$key} {
-                #{$type}-#{$dir}: $space;
-            
-                @include media-md {
-                    #{$type}-#{$dir}: $space*0.7;
-                }
-            }
-        }
-    }
+	@each $dirkey, $dir in $directions-all {
+		@each $key, $space in $spaces {
+			.#{$typekey}#{$dirkey}-#{$key} {
+				#{$type}-#{$dir}: $space;
 
-    @each $dirkey, $dir1, $dir2 in $directions {
-        @each $spacekey, $space in $spaces {
-            .#{$typekey}#{$dirkey}-#{$spacekey} {
-                #{$type}-#{$dir1}: $space;
-                #{$type}-#{$dir2}: $space;
-            
-                @include media-md {
-                    #{$type}-#{$dir1}: $space*0.7;
-                    #{$type}-#{$dir2}: $space*0.7;
-                }
-            }
-        }
-    }
-    @each $spacekey, $space in $spaces {
-        .#{$typekey}-#{$spacekey} {
-            #{$type}: $space;
-        
-            @include media-md {
-                #{$type}: $space*0.7;
-            }
-        }
-    }
+				@include media-md {
+					#{$type}-#{$dir}: $space * 0.7;
+				}
+			}
+		}
+	}
+
+	@each $dirkey, $dir1, $dir2 in $directions {
+		@each $spacekey, $space in $spaces {
+			.#{$typekey}#{$dirkey}-#{$spacekey} {
+				#{$type}-#{$dir1}: $space;
+				#{$type}-#{$dir2}: $space;
+
+				@include media-md {
+					#{$type}-#{$dir1}: $space * 0.7;
+					#{$type}-#{$dir2}: $space * 0.7;
+				}
+			}
+		}
+	}
+	@each $spacekey, $space in $spaces {
+		.#{$typekey}-#{$spacekey} {
+			#{$type}: $space;
+
+			@include media-md {
+				#{$type}: $space * 0.7;
+			}
+		}
+	}
 }
 
-
 .button {
-    @extend .p-2;
-    border: 1px solid $secondary-light;
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	@extend .p-2;
+	border: 1px solid $secondary-light;
+	background: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

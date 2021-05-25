@@ -8,6 +8,10 @@ import {
 } from 'react';
 
 
+export type ButtonPropTypesElement = {
+    component: 'span'|'div'
+} & HTMLAttributes<HTMLElement> & ButtonPropTypes
+
 export type ButtonPropTypesAnchor = {
     component: 'a'
 } & AnchorHTMLAttributes<HTMLAnchorElement> & ButtonPropTypes

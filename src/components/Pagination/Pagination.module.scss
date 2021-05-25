@@ -1,18 +1,14 @@
 @use '~/styles/variables.scss' as *;
 
-
 .root {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .hidden {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 .pageNumber {
-    // @include base-button-input-style;
+	@extend .button;
 }
-
-
-

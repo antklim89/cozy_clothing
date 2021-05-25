@@ -6,11 +6,13 @@ import {
     ButtonPropTypesWithComponent,
     ButtonPropTypesButton,
     ButtonPropTypesAnchor,
+    ButtonPropTypesElement,
 } from './Button.types';
 
 import { cls } from '~/utils';
 
 
+export function Button(props: ButtonPropTypesElement): ReactElement
 export function Button(props: ButtonPropTypesAnchor): ReactElement
 export function Button(props: ButtonPropTypesButton): ReactElement
 export function Button<P>(props: ButtonPropTypesWithComponent<P>): ReactElement
@@ -27,6 +29,7 @@ export function Button<P>({
 }: ButtonPropTypesWithComponent<P> | ButtonPropTypesButton): ReactElement {
     return (
         <Component
+            role="button"
             type="button"
             {...props as P}
             className={cls(

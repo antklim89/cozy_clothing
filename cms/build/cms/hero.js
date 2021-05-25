@@ -2,7 +2,7 @@ export const hero = {
     label: 'Hero',
     name: 'hero',
     file: 'content/hero/hero.json',
-    media_folder: 'hero/',
+    media_folder: 'images/',
     fields: [
         {
             label: 'Layout',
