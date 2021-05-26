@@ -53,6 +53,19 @@ export const NavBar: FC<NavBarPropTypes> = () => {
                         about
                     </Button>
                 </li>
+                <li>
+                    <Button
+                        partiallyActive
+                        activeClassName={styles.active}
+                        className={styles.link}
+                        color="secondary"
+                        component={Link}
+                        to="/search"
+                        variant="text"
+                    >
+                        search
+                    </Button>
+                </li>
             </ul>
         </nav>
     );

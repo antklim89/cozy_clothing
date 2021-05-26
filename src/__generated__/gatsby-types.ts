@@ -343,6 +343,26 @@ type SitePageContext = {
   readonly category: Maybe<Scalars['String']>;
 };
 
+type LocalSearchAllProducts = Node & {
+  /** The name of the index. */
+  readonly name: Scalars['String'];
+  /** The search engine used to create the index. */
+  readonly engine: Scalars['String'];
+  /** The search index created using the selected engine. */
+  readonly index: Scalars['String'];
+  /** A JSON object used to map search results to their data. */
+  readonly store: Scalars['JSON'];
+  /** Save the index to the site's static directory and return a public URL to it. */
+  readonly publicIndexURL: Scalars['String'];
+  /** Save the store to the site's static directory and return a public URL to it. */
+  readonly publicStoreURL: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+
 type ImageFormat =
   | 'NO_CHANGE'
   | 'AUTO'
@@ -534,7 +554,6 @@ type ImageSharpFluid = {
   readonly presentationWidth: Scalars['Int'];
   readonly presentationHeight: Scalars['Int'];
 };
-
 
 type ImagePlaceholder =
   | 'dominantColor'
@@ -806,6 +825,12 @@ type SitePluginPluginOptions = {
   readonly manualInit: Maybe<Scalars['Boolean']>;
   readonly modulePath: Maybe<Scalars['String']>;
   readonly publicPath: Maybe<Scalars['String']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly engine: Maybe<Scalars['String']>;
+  readonly query: Maybe<Scalars['String']>;
+  readonly ref: Maybe<Scalars['String']>;
+  readonly index: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly store: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly base64Width: Maybe<Scalars['Int']>;
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
   readonly defaultQuality: Maybe<Scalars['Int']>;
@@ -827,7 +852,6 @@ type SitePluginPluginOptions = {
   readonly disableBgImageOnAlpha: Maybe<Scalars['Boolean']>;
   readonly disableBgImage: Maybe<Scalars['Boolean']>;
   readonly cssLoaderOptions: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
-  readonly name: Maybe<Scalars['String']>;
   readonly path: Maybe<Scalars['String']>;
   readonly short_name: Maybe<Scalars['String']>;
   readonly start_url: Maybe<Scalars['String']>;
@@ -925,6 +949,8 @@ type Query = {
   readonly allSiteFunction: SiteFunctionConnection;
   readonly sitePage: Maybe<SitePage>;
   readonly allSitePage: SitePageConnection;
+  readonly localSearchAllProducts: Maybe<LocalSearchAllProducts>;
+  readonly allLocalSearchAllProducts: LocalSearchAllProductsConnection;
   readonly imageSharp: Maybe<ImageSharp>;
   readonly allImageSharp: ImageSharpConnection;
   readonly markdownRemark: Maybe<MarkdownRemark>;
@@ -1120,6 +1146,28 @@ type Query_sitePageArgs = {
 type Query_allSitePageArgs = {
   filter: Maybe<SitePageFilterInput>;
   sort: Maybe<SitePageSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_localSearchAllProductsArgs = {
+  name: Maybe<StringQueryOperatorInput>;
+  engine: Maybe<StringQueryOperatorInput>;
+  index: Maybe<StringQueryOperatorInput>;
+  store: Maybe<JSONQueryOperatorInput>;
+  publicIndexURL: Maybe<StringQueryOperatorInput>;
+  publicStoreURL: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allLocalSearchAllProductsArgs = {
+  filter: Maybe<LocalSearchAllProductsFilterInput>;
+  sort: Maybe<LocalSearchAllProductsSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -3701,6 +3749,12 @@ type SitePluginPluginOptionsFilterInput = {
   readonly manualInit: Maybe<BooleanQueryOperatorInput>;
   readonly modulePath: Maybe<StringQueryOperatorInput>;
   readonly publicPath: Maybe<StringQueryOperatorInput>;
+  readonly name: Maybe<StringQueryOperatorInput>;
+  readonly engine: Maybe<StringQueryOperatorInput>;
+  readonly query: Maybe<StringQueryOperatorInput>;
+  readonly ref: Maybe<StringQueryOperatorInput>;
+  readonly index: Maybe<StringQueryOperatorInput>;
+  readonly store: Maybe<StringQueryOperatorInput>;
   readonly base64Width: Maybe<IntQueryOperatorInput>;
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
@@ -3722,7 +3776,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly disableBgImageOnAlpha: Maybe<BooleanQueryOperatorInput>;
   readonly disableBgImage: Maybe<BooleanQueryOperatorInput>;
   readonly cssLoaderOptions: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
-  readonly name: Maybe<StringQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly short_name: Maybe<StringQueryOperatorInput>;
   readonly start_url: Maybe<StringQueryOperatorInput>;
@@ -4027,6 +4080,12 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.manualInit'
   | 'pluginCreator.pluginOptions.modulePath'
   | 'pluginCreator.pluginOptions.publicPath'
+  | 'pluginCreator.pluginOptions.name'
+  | 'pluginCreator.pluginOptions.engine'
+  | 'pluginCreator.pluginOptions.query'
+  | 'pluginCreator.pluginOptions.ref'
+  | 'pluginCreator.pluginOptions.index'
+  | 'pluginCreator.pluginOptions.store'
   | 'pluginCreator.pluginOptions.base64Width'
   | 'pluginCreator.pluginOptions.stripMetadata'
   | 'pluginCreator.pluginOptions.defaultQuality'
@@ -4048,7 +4107,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.disableBgImageOnAlpha'
   | 'pluginCreator.pluginOptions.disableBgImage'
   | 'pluginCreator.pluginOptions.cssLoaderOptions.esModule'
-  | 'pluginCreator.pluginOptions.name'
   | 'pluginCreator.pluginOptions.path'
   | 'pluginCreator.pluginOptions.short_name'
   | 'pluginCreator.pluginOptions.start_url'
@@ -4115,6 +4173,172 @@ type SitePageFilterInput = {
 
 type SitePageSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<SitePageFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type LocalSearchAllProductsConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<LocalSearchAllProductsEdge>;
+  readonly nodes: ReadonlyArray<LocalSearchAllProducts>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly group: ReadonlyArray<LocalSearchAllProductsGroupConnection>;
+};
+
+
+type LocalSearchAllProductsConnection_distinctArgs = {
+  field: LocalSearchAllProductsFieldsEnum;
+};
+
+
+type LocalSearchAllProductsConnection_maxArgs = {
+  field: LocalSearchAllProductsFieldsEnum;
+};
+
+
+type LocalSearchAllProductsConnection_minArgs = {
+  field: LocalSearchAllProductsFieldsEnum;
+};
+
+
+type LocalSearchAllProductsConnection_sumArgs = {
+  field: LocalSearchAllProductsFieldsEnum;
+};
+
+
+type LocalSearchAllProductsConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: LocalSearchAllProductsFieldsEnum;
+};
+
+type LocalSearchAllProductsEdge = {
+  readonly next: Maybe<LocalSearchAllProducts>;
+  readonly node: LocalSearchAllProducts;
+  readonly previous: Maybe<LocalSearchAllProducts>;
+};
+
+type LocalSearchAllProductsFieldsEnum =
+  | 'name'
+  | 'engine'
+  | 'index'
+  | 'store'
+  | 'publicIndexURL'
+  | 'publicStoreURL'
+  | 'id'
+  | 'parent.id'
+  | 'parent.parent.id'
+  | 'parent.parent.parent.id'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.children.children'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.children'
+  | 'parent.children.id'
+  | 'parent.children.parent.id'
+  | 'parent.children.parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.children.children'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'children'
+  | 'children.id'
+  | 'children.parent.id'
+  | 'children.parent.parent.id'
+  | 'children.parent.parent.children'
+  | 'children.parent.children'
+  | 'children.parent.children.id'
+  | 'children.parent.children.children'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.children'
+  | 'children.children.id'
+  | 'children.children.parent.id'
+  | 'children.children.parent.children'
+  | 'children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.children.children'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type';
+
+type LocalSearchAllProductsGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<LocalSearchAllProductsEdge>;
+  readonly nodes: ReadonlyArray<LocalSearchAllProducts>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type LocalSearchAllProductsFilterInput = {
+  readonly name: Maybe<StringQueryOperatorInput>;
+  readonly engine: Maybe<StringQueryOperatorInput>;
+  readonly index: Maybe<StringQueryOperatorInput>;
+  readonly store: Maybe<JSONQueryOperatorInput>;
+  readonly publicIndexURL: Maybe<StringQueryOperatorInput>;
+  readonly publicStoreURL: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type LocalSearchAllProductsSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<LocalSearchAllProductsFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
@@ -6952,6 +7176,12 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.manualInit'
   | 'pluginOptions.modulePath'
   | 'pluginOptions.publicPath'
+  | 'pluginOptions.name'
+  | 'pluginOptions.engine'
+  | 'pluginOptions.query'
+  | 'pluginOptions.ref'
+  | 'pluginOptions.index'
+  | 'pluginOptions.store'
   | 'pluginOptions.base64Width'
   | 'pluginOptions.stripMetadata'
   | 'pluginOptions.defaultQuality'
@@ -6974,7 +7204,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.disableBgImage'
   | 'pluginOptions.cssLoaderOptions.esModule'
   | 'pluginOptions.cssLoaderOptions.modules.namedExport'
-  | 'pluginOptions.name'
   | 'pluginOptions.path'
   | 'pluginOptions.short_name'
   | 'pluginOptions.start_url'

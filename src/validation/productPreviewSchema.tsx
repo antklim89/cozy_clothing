@@ -1,6 +1,6 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import {
-    string, number, array, object, mixed, boolean,
+    string, number, array, object, mixed,
 } from 'yup';
 
 
@@ -11,7 +11,6 @@ export const productPreviewSchema = object({
     type: string().required(),
     category: string().required(),
     careatedAt: string().required(),
-    hidden: boolean().required(),
     discount: number().min(0).max(100).required(),
     images: array(
         mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),

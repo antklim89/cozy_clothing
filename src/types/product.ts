@@ -8,7 +8,6 @@ export interface IProductPreview {
     type: string
     category: string
     careatedAt: string
-    hidden: boolean
     discount: number
     images: IGatsbyImageData[];
 }

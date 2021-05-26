@@ -18,6 +18,54 @@ module.exports = {
                 publicPath: 'cms',
             },
         },
+        {
+            resolve: 'gatsby-plugin-local-search',
+            options: {
+                name: 'allProducts',
+                engine: 'lunr',
+                query: `
+                    {
+                        allMarkdownRemark(
+                            filter: {frontmatter: {
+                                layout: {eq: "product"},
+                                hidden: {eq: false},
+                            }}
+                        ) { nodes {
+                            id
+                            rawMarkdownBody
+                            frontmatter {
+                                title
+                                category
+                                careatedAt
+                                discount
+                                type
+                                price
+                                images {
+                                    image {
+                                        a:childImageSharp {
+                                            b:gatsbyImageData(
+                                                layout: CONSTRAINED
+                                                placeholder: BLURRED
+                                                width: 272
+                                                height: 390
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        } }
+                    }
+                `,
+                ref: 'id',
+                index: ['title', 'body'],
+                store: ['id', 'body', 'title', 'category', 'careatedAt', 'discount', 'type', 'price', 'images'],
+                normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(({ id, rawMarkdownBody, frontmatter }) => ({
+                    id,
+                    rawMarkdownBody,
+                    ...frontmatter,
+                })),
+            },
+        },
         'gatsby-transformer-json',
         'gatsby-plugin-netlify',
         'gatsby-plugin-react-helmet',
