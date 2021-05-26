@@ -2,8 +2,7 @@
 
 
 .root {
-    display: flex;
-    align-items: center;
+    @extend .base-input;
 }
 
 .label {

@@ -61,7 +61,7 @@ let formData = {};
 
 export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
     const formRef = useRef<HTMLFormElement>(null);
-    const [error, setError] = useState<string|null>(null);
+    const [error, setError] = useState<string | null>(null);
 
     async function validate(data: Record<string, string>) {
         try {
@@ -88,78 +88,88 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
     };
 
     return (
-        <form
-            className={styles.root}
-            ref={formRef}
-            onChange={handleChangeForm}
-        >
+        <>
             {error && (
                 <div className={styles.errorMessage}>
                     {error}
                 </div>
             )}
-            <div className={styles.inputColumns}>
-                <div className={styles.inputGroup}>
-                    <Input
-                        autoComplete="given-name"
-                        label="First Name"
-                        name="firstname"
-                        type="text"
-                    />
-                    <Input
-                        autoComplete="family-name"
-                        label="Last Name"
-                        name="lastname"
-                        type="text"
-                    />
+            <form
+                className={styles.form}
+                ref={formRef}
+                onChange={handleChangeForm}
+            >
+                <div className={styles.inputColumns}>
+                    <div className={styles.inputGroup}>
+                        <Input
+                            autoComplete="given-name"
+                            label="First Name"
+                            name="firstname"
+                            type="text"
+                        />
+                        <Input
+                            autoComplete="family-name"
+                            label="Last Name"
+                            name="lastname"
+                            type="text"
+                        />
+                    </div>
+                    <div className={styles.inputGroup}>
+                        <Input
+                            autoComplete="organization"
+                            label="Organization"
+                            name="organization"
+                            type="text"
+                        />
+                    </div>
+                    <div className={styles.inputGroup}>
+                        <Input
+                            autoComplete="email"
+                            label="E-mail"
+                            name="email"
+                            type="email"
+                        />
+                        <Input
+                            autoComplete="tel"
+                            label="Phone number"
+                            name="phone"
+                            type="phone"
+                        />
+                    </div>
+                    <div className={styles.inputGroup}>
+                        <Input
+                            autoComplete="country-name"
+                            label="Country"
+                            name="country"
+                            type="text"
+                        />
+                    </div>
+                    <div className={styles.inputGroup}>
+                        <Input
+                            autoComplete="address-line1"
+                            label="Address"
+                            name="address"
+                            type="text"
+                        />
+                    </div>
                 </div>
-                <Input
-                    autoComplete="organization"
-                    label="Organization"
-                    name="organization"
-                    type="text"
-                />
-                <div className={styles.inputGroup}>
-                    <Input
-                        autoComplete="email"
-                        label="E-mail"
-                        name="email"
-                        type="email"
-                    />
-                    <Input
-                        autoComplete="tel"
-                        label="Phone number"
-                        name="phone"
-                        type="phone"
-                    />
+                <div className={styles.inputColumns}>
+                    <div className={styles.inputGroup}>
+                        <Input
+                            className={styles.textarea}
+                            component="textarea"
+                            label="Order details"
+                            name="details"
+                        />
+                    </div>
                 </div>
-                <Input
-                    autoComplete="country-name"
-                    label="Country"
-                    name="country"
-                    type="text"
-                />
-                <Input
-                    autoComplete="address-line1"
-                    label="Address"
-                    name="address"
-                    type="text"
-                />
-            </div>
-            <div className={styles.inputColumns}>
-                <Input
-                    component="textarea"
-                    label="Order details"
-                    name="details"
-                    rows={10}
-                />
-            </div>
-        </form>
+            </form>
+        </>
     );
 };
 
 
-function restoreForm(form?: HTMLFormElement|null, data?: Record<string, string>): void {
+function restoreForm(form?: HTMLFormElement | null, data?: Record<string, string>): void {
     if (!form || !data) return;
     Array.from(form).forEach((item) => {
         if (item instanceof HTMLInputElement || item instanceof HTMLTextAreaElement) {

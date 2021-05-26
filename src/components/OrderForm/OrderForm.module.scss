@@ -1,9 +1,48 @@
 @use '~/styles/variables.scss' as *;
 
 
-.root {
+.form {
     display: flex;
     flex-wrap: wrap;
+
+    .input-group {
+        margin: 0.5rem 0;
+        display: flex;
+
+        @include media-xs {
+            flex-wrap: wrap;
+            flex-basis: 100%;
+        }
+    }
+
+    .input-columns {
+        flex: 1;
+        height: 100%;
+
+        @include media-md {
+            flex-basis: 100%;
+        }
+    }
+
+    .input-columns:first-child {
+        margin-right: 0.5rem;
+    }
+
+    .input-columns:last-child {
+        margin-left: 0.5rem;
+    }
+
+    .input-columns:first-child,
+    .input-columns:last-child {
+        @include media-md {
+            margin: 0;
+        }
+    }
+
+    .textarea {
+        resize: none;
+        min-height: 320px;
+    }
 }
 
 .errorMessage {
@@ -13,26 +52,4 @@
     color: $error;
     padding: 1rem;
 }
-
-.input-group {
-    display: flex;
-    @include media-xs {
-        flex-wrap: wrap;
-        flex-basis: 100%;
-    }
-}
-
-.input-columns {
-    flex: 1 1 50%;
-
-    @include media-md {
-        flex-basis: 100%;
-    }
-
-    > * {
-        @extend .my-2;
-    }
-}
-
-
 
