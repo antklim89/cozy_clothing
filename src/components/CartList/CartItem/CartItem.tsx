@@ -20,7 +20,8 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
             <li className={styles.root}>
                 <GatsbyImage
                     alt={cartItem.product.title}
-                    className={styles.image} image={cartItem.product.imagesPreview[0]}
+                    className={styles.image}
+                    image={cartItem.product.imagesPreview[0]}
                 />
                 <section className={styles.title}>
                     <Link className={styles.title} to={`/product/${cartItem.product.id}`}>

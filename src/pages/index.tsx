@@ -23,7 +23,7 @@ const index: FC<PageProps<AnyObject>> = ({ data }) => {
             <Seo title="Home" />
             <Hero />
             <Features />
-            <Container bottomSpace="sm" component="section">
+            <Container bottomSpace="sm" component="section" topSpace="xl">
                 <Title>New Products</Title>
                 <ProductList products={newProducts} />
             </Container>

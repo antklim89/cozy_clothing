@@ -63,11 +63,11 @@ a:focus, button:focus {
 }
 
 @include media-md {
-    html {font-size: 95%;};
-}
-@include media-sm {
     html {font-size: 90%;};
 }
-@include media-xs {
+@include media-sm {
     html {font-size: 85%;};
+}
+@include media-xs {
+    html {font-size: 80%;};
 }
