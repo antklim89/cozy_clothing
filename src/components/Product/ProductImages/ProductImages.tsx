@@ -11,14 +11,20 @@ export const ProductImages: FC<ProductPropTypes> = ({ product }) => {
 
     return (
         <div className={styles.root}>
+            <div className={styles.image}>
+                <GatsbyImage
+                    alt={product.title}
+                    image={product.images[imageIndex]}
+                    key={product.images[imageIndex].images.fallback?.src}
+                />
+            </div>
             <ul className={styles.imagesPreview}>
                 {product.imagesPreview.map((image, index) => (
                     <li
                         className={styles.imagePreview}
-                        key={Math.random()}
+                        key={JSON.stringify(image)}
                     >
                         <button
-                            className={index === imageIndex ? styles.selected : ''}
                             type="button"
                             onClick={() => setImageIndex(index)}
                         >
@@ -27,13 +33,6 @@ export const ProductImages: FC<ProductPropTypes> = ({ product }) => {
                     </li>
                 ))}
             </ul>
-            <div className={styles.image}>
-                <GatsbyImage
-                    alt={product.title}
-                    image={product.images[imageIndex]}
-                    key={product.images[imageIndex].images.fallback?.src}
-                />
-            </div>
         </div>
     );
 };
