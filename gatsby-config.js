@@ -9,6 +9,7 @@ module.exports = {
         author: 'Anton',
     },
     plugins: [
+        'gatsby-plugin-zopfli',
         {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {
