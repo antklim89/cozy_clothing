@@ -7,6 +7,8 @@ import { Search } from '~/components/Search';
 import { Seo } from '~/components/Seo';
 
 
+let queryMemo = '';
+
 export const search: FC = () => {
     const { localSearchAllProducts } = useStaticQuery(graphql`
         {
@@ -16,6 +18,10 @@ export const search: FC = () => {
             }
         }
     `);
+
+    const [index, setindex] = useState<string | null>(null);
+    const [store, setStore] = useState<Record<string, unknown> | null>(null);
+    const [query, setQuery] = useState(queryMemo);
 
     useEffect(() => {
         if (localSearchAllProducts?.publicIndexURL) {
@@ -31,10 +37,7 @@ export const search: FC = () => {
         }
     }, []);
 
-    const [index, setindex] = useState<string | null>(null);
-    const [store, setStore] = useState<Record<string, unknown> | null>(null);
-    const [query, setQuery] = useState('');
-
+    useEffect(() => { queryMemo = query; }, [query]);
 
     return (
         <main>

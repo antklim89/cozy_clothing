@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { useLunr } from 'react-lunr';
 
-
 import { ProductList } from '../ProductList';
 
 import styles from './Search.module.scss';
