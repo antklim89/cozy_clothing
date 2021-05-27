@@ -24,18 +24,18 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
     `);
     const catalog = productCatalog?.catalog || throwErr();
 
-    useEffect(() => {
-        const { href } = window.location;
-        window.location.hash = 'catalog';
-        const listener = () => {
-            setIsOpen(false);
-        };
-        window.addEventListener('popstate', listener);
-        return () => {
-            window.history.pushState(null, '', href);
-            window.removeEventListener('popstate', listener);
-        };
-    }, []);
+    // useEffect(() => {
+    //     const { href } = window.location;
+    //     window.location.hash = 'catalog';
+    //     const listener = () => {
+    //         setIsOpen(false);
+    //     };
+    //     window.addEventListener('popstate', listener);
+    //     return () => {
+    //         window.history.pushState(null, '', href);
+    //         window.removeEventListener('popstate', listener);
+    //     };
+    // }, []);
 
     useEffect(() => {
         const listener = (e: KeyboardEvent) => {
@@ -46,40 +46,64 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
     }, []);
 
     return (
-        <div>
+        <>
             <Shadow onClick={() => setIsOpen(false)} />
-            <ul className={styles.itemContainer}>
-                {Object.keys(catalog).map((type) => (
-                    <li key={type}>
+            <nav className={styles.root}>
+                <ul className={styles.itemContainer}>
+                    <li className="show-sm">
                         <Button
-                            color="secondary"
                             component={Link}
-                            to={`/category/${type}`}
+                            to="/about"
                             variant="text"
                             onClick={() => setIsOpen(false)}
                         >
-                            {type}
+                            about
                         </Button>
-                        <ul className={styles.subItemContainer}>
-                            <hr />
-                            {catalog[type as keyof typeof catalog]?.map((category) => (
-                                <li key={category + type}>
-                                    <Button
-                                        color="secondary"
-                                        component={Link}
-                                        to={`/category/${type}/${category}`}
-                                        variant="text"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {category}
-                                    </Button>
-                                </li>
-                            ))}
-                        </ul>
                     </li>
-                ))}
-            </ul>
-        </div>
+                    <li className="show-sm">
+                        <Button
+                            component={Link}
+                            to="/search"
+                            variant="text"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            search
+                        </Button>
+                    </li>
+                </ul>
+                <ul className={styles.itemContainer}>
+                    {Object.keys(catalog).map((type) => (
+                        <li key={type}>
+                            <Button
+                                color="secondary"
+                                component={Link}
+                                to={`/category/${type}`}
+                                variant="text"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                <b>{type}</b>
+                            </Button>
+                            <ul className={styles.subItemContainer}>
+                                <hr />
+                                {catalog[type as keyof typeof catalog]?.map((category) => (
+                                    <li key={category + type}>
+                                        <Button
+                                            color="secondary"
+                                            component={Link}
+                                            to={`/category/${type}/${category}`}
+                                            variant="text"
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {category}
+                                        </Button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </>
     );
 };
 

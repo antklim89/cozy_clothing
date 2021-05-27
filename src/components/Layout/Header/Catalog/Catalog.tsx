@@ -21,7 +21,7 @@ export const Catalog: FC = () => {
                 onClick={() => setIsOpen(true)}
             >
                 <Menu />
-                <p className="hide-xs">Catalog</p>
+                <span className="hide-md">Catalog</span>
             </Button>
             { isOpen && (
                 <Suspense fallback={<HourglassEmptyIcon className={styles.icon} />}>

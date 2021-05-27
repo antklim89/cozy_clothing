@@ -38,12 +38,17 @@ $font-size-xl: 1.7rem;
 $shadow: 0px 0px 5px;
 $shadow-lg: 2px 2px 20px;
 
+$xs: 0;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
+$xxl: 1400px;
 
 $container-width: $xl;
+
+$shadow-z-index: 10;
+$catalog-z-index: 100;
 
 @mixin media-xs {
 	@media screen and (max-width: $sm) {
@@ -153,4 +158,20 @@ $spaces: '1' 0.2rem, '2' 1rem, '3' 2rem, '4' 3rem, '5' 4rem;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+}
+
+$breakpoints: ('xl' $xxl, 'lg' $xl, 'md' $lg, 'sm' $md, 'xs' $sm);
+
+@each $k, $v in $breakpoints {
+		.show-#{$k} {
+			@media screen and (min-width: $v) {
+				display: none;
+			}
+		}
+
+		.hide-#{$k} {
+			@media screen and (max-width: $v) {
+				display: none;
+			}
+		}
 }

@@ -40,7 +40,7 @@ export const NavBar: FC<NavBarPropTypes> = () => {
                         </Button>
                     </li>
                 ))}
-                <li>
+                <li className="hide-sm">
                     <Button
                         partiallyActive
                         activeClassName={styles.active}
@@ -53,7 +53,7 @@ export const NavBar: FC<NavBarPropTypes> = () => {
                         about
                     </Button>
                 </li>
-                <li>
+                <li className="hide-sm">
                     <Button
                         partiallyActive
                         activeClassName={styles.active}
