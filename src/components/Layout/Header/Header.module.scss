@@ -1,9 +1,17 @@
 @use '~/styles/variables.scss' as *;
 
 .background {
-    background: $bg-primary;
+    background-color: $bg-primary;
+    position: fixed;
+    width: 100%;
 }
 
 .container {
     display: flex;
+    position: relative;
+}
+
+.height {
+    margin-bottom: $app-bar-height;
+    height: 0;
 }
