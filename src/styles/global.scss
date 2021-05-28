@@ -10,6 +10,9 @@ body {
     overflow-x: hidden;
     font-size: 1.1rem;
     color: $font-dark;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,11 +47,6 @@ svg {
     width: 1.5rem;
 }
 
-a {
-    text-decoration: none;
-    color: $font-dark;
-}
-
 a:focus, button:focus {
     outline: 0;
     box-shadow: $shadow $primary;
@@ -60,6 +58,13 @@ a:focus, button:focus {
 
 .grow {
     flex-grow: 1;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @include media-md {

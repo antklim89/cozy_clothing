@@ -4,6 +4,8 @@
     display: flex;
     cursor: pointer;
     transition: $transition-speed-fast;
+    text-decoration: none;
+    color: inherit;
     
     @include media-xs {
         margin: 0.5rem 0;
