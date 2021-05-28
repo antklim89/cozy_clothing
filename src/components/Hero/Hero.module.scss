@@ -19,7 +19,13 @@
 }
 
 .image {
-    height: 480px;
+    height: 640px;
+    width: 100%;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
     @include media-sm {
         height: 240px;
     }

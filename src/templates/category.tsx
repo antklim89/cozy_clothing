@@ -65,10 +65,10 @@ query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!)
       nodes {
         id
         frontmatter {
-          ...ProductFrontmatterFragment
-          imagePreview {
-            ...ProductCardImageFragment
-          }
+            ...ProductFrontmatterFragment
+            imagePreview {
+                ...ProductCardImageFragment
+            }
         }
       }
     }

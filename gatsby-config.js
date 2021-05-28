@@ -2,6 +2,38 @@
 const postcss = require('postcss-preset-env');
 
 
+const query = `
+{
+    allMarkdownRemark(
+        filter: {frontmatter: {
+            layout: {eq: "product"},
+            hidden: {eq: false},
+        }}
+    ) { nodes {
+        id
+        rawMarkdownBody
+        frontmatter {
+            title
+            category
+            careatedAt
+            discount
+            type
+            price
+            imagePreview {
+                a:childImageSharp {
+                    b:gatsbyImageData(
+                        layout: CONSTRAINED
+                        placeholder: BLURRED
+                        width: 272
+                        height: 390
+                    )
+                }
+            }
+        }
+    } }
+}
+`;
+
 module.exports = {
     siteMetadata: {
         title: 'Cozy Clothing',
@@ -24,42 +56,10 @@ module.exports = {
             options: {
                 name: 'allProducts',
                 engine: 'lunr',
-                query: `
-                    {
-                        allMarkdownRemark(
-                            filter: {frontmatter: {
-                                layout: {eq: "product"},
-                                hidden: {eq: false},
-                            }}
-                        ) { nodes {
-                            id
-                            rawMarkdownBody
-                            frontmatter {
-                                title
-                                category
-                                careatedAt
-                                discount
-                                type
-                                price
-                                images {
-                                    image {
-                                        a:childImageSharp {
-                                            b:gatsbyImageData(
-                                                layout: CONSTRAINED
-                                                placeholder: BLURRED
-                                                width: 272
-                                                height: 390
-                                            )
-                                        }
-                                    }
-                                }
-                            }
-                        } }
-                    }
-                `,
+                query,
                 ref: 'id',
                 index: ['title', 'body'],
-                store: ['id', 'body', 'title', 'category', 'careatedAt', 'discount', 'type', 'price', 'images'],
+                store: ['id', 'body', 'title', 'category', 'careatedAt', 'discount', 'type', 'price', 'imagePreview'],
                 normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(({ id, rawMarkdownBody, frontmatter }) => ({
                     id,
                     rawMarkdownBody,

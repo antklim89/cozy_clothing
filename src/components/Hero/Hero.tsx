@@ -18,9 +18,12 @@ export const Hero: FC = () => {
                 image {
                     a:childImageSharp {
                         b:gatsbyImageData(
-                            layout: FULL_WIDTH
+                            layout: CONSTRAINED
                             placeholder: BLURRED
                             transformOptions: {cropFocus: CENTER}
+                            breakpoints: [380, 640]
+                            width: 1440
+                            height: 640
                         )
                     }
                 }
