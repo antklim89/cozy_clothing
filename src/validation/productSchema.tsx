@@ -3,7 +3,7 @@ import {
     string, array, object, mixed,
 } from 'yup';
 
-import { productPreviewSchema } from './productPreviewSchema';
+import { productBaseSchema } from './productBaseSchema';
 
 
 export const productSchema = object({
@@ -11,4 +11,7 @@ export const productSchema = object({
     imagesPreview: array(
         mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
     ).default([]).required(),
-}).concat(productPreviewSchema).required();
+    images: array(
+        mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
+    ).default([]).required(),
+}).concat(productBaseSchema).required();

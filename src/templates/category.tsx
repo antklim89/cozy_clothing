@@ -50,32 +50,31 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
 export const query = graphql`
 
 query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!) {
-  amr: allMarkdownRemark(
-    filter: {frontmatter: {
-        type: {eq: $type},
-        category: {eq: $category},
-        layout: {eq: "product"},
-        hidden: {eq: false}
-    }}
-    sort: {
-        fields: frontmatter___careatedAt
-    }
-    skip: $skip
-    limit: $limit
-  ) {
-    nodes {
-        id
-        frontmatter {
-            ...ProductFrontmatterFragment
-                images {
-                    ...ProductCardImageFragment
-                }
-            }
+    amr: allMarkdownRemark(
+      filter: {frontmatter: {
+            type: {eq: $type},
+            category: {eq: $category},
+            layout: {eq: "product"},
+            hidden: {eq: false}
         }
     }
-}
-
-fragment ProductFrontmatterFragment on MarkdownRemarkFrontmatter {
+      sort: {fields: frontmatter___careatedAt}
+      skip: $skip
+      limit: $limit
+    ) {
+      nodes {
+        id
+        frontmatter {
+          ...ProductFrontmatterFragment
+          imagePreview {
+            ...ProductCardImageFragment
+          }
+        }
+      }
+    }
+  }
+  
+  fragment ProductFrontmatterFragment on MarkdownRemarkFrontmatter {
     title
     category
     hidden
@@ -83,20 +82,19 @@ fragment ProductFrontmatterFragment on MarkdownRemarkFrontmatter {
     discount
     type
     price
-}
-
-fragment ProductCardImageFragment on MarkdownRemarkFrontmatterImages {
-    image {
-        a:childImageSharp {
-            b:gatsbyImageData(
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                width: 272
-                height: 390
-            )
-        }
+  }
+  
+  fragment ProductCardImageFragment on File {
+    a: childImageSharp {
+      b: gatsbyImageData(
+        layout: CONSTRAINED
+        placeholder: BLURRED
+        width: 272
+        height: 390
+      )
     }
-}
+  }
+  
 
 `;
 

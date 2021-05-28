@@ -53,16 +53,17 @@ query IndexPage {
             fields: frontmatter___careatedAt
         }
     ) {
-    nodes {
-        id
-        frontmatter {
-            ...ProductFrontmatterFragment
-                images {
-                    ...ProductCardImageFragment
+        nodes {
+            id
+            frontmatter {
+                ...ProductFrontmatterFragment
+                imagePreview {
+                  ...ProductCardImageFragment
                 }
             }
         }
     }
+
     promoProducts: allMarkdownRemark(
         filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {nin: 0}}}
         limit: 4
@@ -72,8 +73,8 @@ query IndexPage {
             id
             frontmatter {
                 ...ProductFrontmatterFragment
-                images {
-                ...ProductCardImageFragment
+                imagePreview {
+                    ...ProductCardImageFragment
                 }
             }
         }

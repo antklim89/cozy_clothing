@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { useLunr } from 'react-lunr';
 
 import { ProductList } from '../ProductList';
@@ -12,10 +12,10 @@ import { productPreviewArraySchema } from '~/validation';
 export const Search: FC<SearchPropTypes> = ({ index, store, query }) => {
     const results = useLunr(query, index, store);
 
-    const products = productPreviewArraySchema.validateSync(results);
+    const products = useMemo(() => productPreviewArraySchema.validateSync(results), [results.length]);
 
     if (results.length === 0) return <h5 className={styles.noResults}>No Results</h5>;
     return (
-        <ProductList products={products} />
+        <ProductList products={products.slice(0, 20)} />
     );
 };

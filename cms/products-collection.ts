@@ -70,6 +70,12 @@ export const productsCollection: CmsCollection[] = productTypes.map((type) => ({
             ],
         },
         {
+            label: 'Image Preview',
+            name: 'imagePreview',
+            widget: 'image',
+            required: true,
+        },
+        {
             label: 'Price',
             name: 'price',
             widget: 'number',

@@ -5,13 +5,17 @@ import faker from 'faker';
 import _ from 'lodash';
 
 
+const TOTAL_CATEGORIES = 20;
+const PRODUCT_PER_CATEGORY = 10;
+const CATEGORIES_PER_TYPE = 4;
+
 const types = ['men', 'women', 'boys', 'girls'];
-const categories = _.times(10, () => faker.commerce.product());
+const categories = _.times(TOTAL_CATEGORIES, () => faker.commerce.product());
 
 
 types.forEach((type) => {
-    _.sampleSize(categories, 5).forEach((category) => {
-        _.times(10, () => {
+    _.sampleSize(categories, CATEGORIES_PER_TYPE).forEach((category) => {
+        _.times(PRODUCT_PER_CATEGORY, () => {
             const title = faker.commerce.productName();
 
             const fileName = `${_.kebabCase(`${category}-${title}`)}.md`;
@@ -22,16 +26,14 @@ hidden: false
 discount: ${_.random(0, 1, true) > 0.5 ? _.random(5, 40, false) : 0}
 title: ${title}
 careatedAt: ${faker.date.between(new Date(), new Date(Date.now() - 100 * 100)).toISOString()}
+imagePreview: "../../images/fake-image-1.jpg"
 images:
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
-    - image: "../../images/fake-image-${_.random(1, 6, false)}.jpg"
+    - image: "../../images/fake-image-1.jpg"
+    - image: "../../images/fake-image-2.jpg"
+    - image: "../../images/fake-image-3.jpg"
+    - image: "../../images/fake-image-4.jpg"
+    - image: "../../images/fake-image-5.jpg"
+    - image: "../../images/fake-image-6.jpg"
 price: ${faker.commerce.price()}
 category: ${category}
 ---
@@ -45,7 +47,7 @@ ${faker.lorem.paragraphs(2)}
             try {
                 fs.mkdirSync(path.resolve('./content/products', type));
                 // eslint-disable-next-line no-empty
-            } catch {}
+            } catch { }
 
             fs.writeFileSync(path.resolve('./content/products', type, fileName), markdown);
         });

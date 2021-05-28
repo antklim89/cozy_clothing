@@ -23,7 +23,7 @@ export const ProductCard: FC<ProductCardProps> = ({
                 <div className={styles.image}>
                     <GatsbyImage
                         alt={product.title}
-                        image={product.images[0]}
+                        image={product.imagePreview}
                     />
                 </div>
                 <div className={styles.body}>
