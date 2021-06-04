@@ -4,13 +4,13 @@
 .root {
     display: flex;
     flex-direction: column;
-    border: 1px solid $bg-secondary;
+    border: 1px solid $bg-primary;
     background: $bg-primary;
     flex: 1;
 }
 
 .titleSection, .priceSection {
-    border-bottom: 1px solid $bg-secondary;
+    border-bottom: 1px solid $bg-primary;
     @extend .p-2;
 }
 

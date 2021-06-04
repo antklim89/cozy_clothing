@@ -1,15 +1,15 @@
-$primary: #c33c33;
-$secondary: #bcbcbc;
+$primary: #9E2B25;
+$secondary: #CAC8BB;
 $error: #f44336;
 
-$primary-dark: darken(#c33c33, 20);
-$secondary-dark: darken(#bcbcbc, 20);
+$primary-dark: darken($primary, 20);
+$secondary-dark: darken($secondary, 20);
 
-$primary-light: lighten(#c33c33, 10);
-$secondary-light: lighten(#bcbcbc, 10);
+$primary-light: lighten($primary, 10);
+$secondary-light: lighten($secondary, 10);
 
-$bg-primary: #fafafa;
-$bg-secondary: #bcbcbc;
+$bg-primary: #FDFDFD;
+$app-bg: #F8FAF5;
 
 $bg-primary-dark: #383838;
 $bg-secondary-dark: #010101;
