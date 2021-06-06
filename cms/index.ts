@@ -7,9 +7,19 @@ import { productCategoriesCollection } from './product-categories-collection';
 import { productsCollection } from './products-collection';
 
 
+// console.debug('======================\n\n\n\n', process.env.uploadcarePublicKey);
+
 CMS.init({
     config: {
         load_config_file: false,
+
+        media_library: {
+            name: 'uploadcare',
+            config: {
+                publicKey: process.env.uploadcarePublicKey,
+            },
+        },
+
         site_url: 'https://cozy-clothing.netlify.app',
 
         backend: {
