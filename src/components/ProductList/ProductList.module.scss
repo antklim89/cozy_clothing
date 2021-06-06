@@ -1,22 +1,22 @@
 @use '~/styles/variables.scss' as *;
 
-$width: minmax(0, 272px);
-
 .products {
-    display: grid;
-    grid-template-columns: repeat(4, $width);
     justify-content: center;
-    grid-column-gap: 2rem;
-    grid-row-gap: 1rem;
     @extend .p-2;
+    display: flex;
+    margin: -1rem -0.5rem;
+    flex-wrap: wrap;
 
-    @include media-md {
-        grid-template-columns: repeat(2, $width);
+    > * {
+        justify-content: center;
+        flex: 1 1 calc(25% - 1rem);
+        margin: 1rem 0.5rem;
     }
 
-    @include media-xs {
+    @include media-sm {
         display: flex;
         flex-direction: column;
         padding: 0;
+        margin: 0;
     }
 }

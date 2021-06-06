@@ -7,7 +7,7 @@
     text-decoration: none;
     color: inherit;
     
-    @include media-xs {
+    @include media-sm {
         margin: 0.5rem 0;
     }
 }
@@ -24,13 +24,20 @@
         box-shadow: 3px 3px 5px black;
     }
 
-    @include media-xs {
+    @include media-sm {
         flex-direction: row;
     }
 }
 
 .image {
-    @include media-xs {
+    * {
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        object-fit: cover;
+    }
+    @include media-sm {
         flex: 1;
     }
 }
@@ -38,7 +45,7 @@
 .body {
     @extend .py-3, .px-2;
 
-    @include media-xs {
+    @include media-sm {
         flex: 2;
     }
 }
