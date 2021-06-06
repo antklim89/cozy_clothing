@@ -8,6 +8,8 @@ import { productCategoriesCollection } from './product-categories-collection';
 import { productsCollection } from './products-collection';
 
 
+console.debug('=======================\n\n\n', process.env.uploadcarePublicKey);
+
 CMS.registerMediaLibrary(uploadcare);
 
 CMS.init({
