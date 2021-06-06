@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const autoprefixer = require('autoprefixer');
 const postcss = require('postcss-preset-env');
 
 
@@ -105,7 +106,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-postcss',
             options: {
-                postCssPlugins: [postcss()],
+                postCssPlugins: [postcss(), autoprefixer],
             },
         },
         {
