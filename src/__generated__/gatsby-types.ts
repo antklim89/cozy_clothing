@@ -277,6 +277,8 @@ type Directory_ctimeArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -1085,6 +1087,8 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -3513,6 +3517,8 @@ type SiteFieldsEnum =
   | 'siteMetadata.title'
   | 'siteMetadata.description'
   | 'siteMetadata.author'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3614,6 +3620,8 @@ type SiteGroupConnection = {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -7460,11 +7468,6 @@ type FeaturesQuery = { readonly featuresJson: Maybe<{ readonly features: Maybe<R
       & { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }
     )>>> }> };
 
-type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type CatalogQuery = { readonly productCatalog: Maybe<{ readonly catalog: Maybe<Pick<ProductCatalogCatalog, 'boys' | 'girls' | 'men' | 'women'>> }> };
-
 type HeroQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -7472,6 +7475,11 @@ type HeroQuery = { readonly json: Maybe<(
     Pick<HeroJson, 'title' | 'body'>
     & { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }
   )> };
+
+type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CatalogQuery = { readonly productCatalog: Maybe<{ readonly catalog: Maybe<Pick<ProductCatalogCatalog, 'boys' | 'girls' | 'men' | 'women'>> }> };
 
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7488,6 +7496,10 @@ type AboutPageQuery = { readonly aboutJson: Maybe<(
       & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
     )>>> }
   )> };
+
+type ProductFrontmatterFragmentFragment = Pick<MarkdownRemarkFrontmatter, 'title' | 'category' | 'hidden' | 'careatedAt' | 'discount' | 'type' | 'price'>;
+
+type ProductCardImageFragmentFragment = { readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> };
 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7506,10 +7518,10 @@ type IndexPageQuery = { readonly newProducts: { readonly nodes: ReadonlyArray<(
       )> }
     )> } };
 
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+type homeantonprojectscozyClothingsrcpagessearchTsx1916430915QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly localSearchAllProducts: Maybe<Pick<LocalSearchAllProducts, 'publicStoreURL' | 'publicIndexURL'>> };
+type homeantonprojectscozyClothingsrcpagessearchTsx1916430915Query = { readonly localSearchAllProducts: Maybe<Pick<LocalSearchAllProducts, 'publicStoreURL' | 'publicIndexURL'>> };
 
 type CategoryPageQueryVariables = Exact<{
   type: Scalars['String'];
@@ -7527,9 +7539,7 @@ type CategoryPageQuery = { readonly amr: { readonly nodes: ReadonlyArray<(
       )> }
     )> } };
 
-type ProductFrontmatterFragmentFragment = Pick<MarkdownRemarkFrontmatter, 'title' | 'category' | 'hidden' | 'careatedAt' | 'discount' | 'type' | 'price'>;
-
-type ProductCardImageFragmentFragment = { readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> };
+type ProductImagesFragmentFragment = { readonly images: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>>, readonly imagesPreview: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>> };
 
 type ProductPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -7543,8 +7553,6 @@ type ProductPageQuery = { readonly amr: Maybe<(
       & ProductImagesFragmentFragment
     )> }
   )> };
-
-type ProductImagesFragmentFragment = { readonly images: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>>, readonly imagesPreview: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -7571,5 +7579,10 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'apiRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }
