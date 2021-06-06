@@ -1,4 +1,5 @@
 import CMS from 'netlify-cms-app';
+import uploadcare from 'netlify-cms-media-library-uploadcare';
 
 import { aboutPage } from './about-page';
 import { features } from './features';
@@ -7,7 +8,7 @@ import { productCategoriesCollection } from './product-categories-collection';
 import { productsCollection } from './products-collection';
 
 
-// console.debug('======================\n\n\n\n', process.env.uploadcarePublicKey);
+CMS.registerMediaLibrary(uploadcare);
 
 CMS.init({
     config: {
