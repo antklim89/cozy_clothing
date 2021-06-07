@@ -15,7 +15,6 @@ export const ProductImages: FC<ProductPropTypes> = ({ product }) => {
                 <GatsbyImage
                     alt={product.title}
                     image={product.images[imageIndex]}
-                    key={product.images[imageIndex].images.fallback?.src}
                 />
             </div>
             <ul className={styles.imagesPreview}>

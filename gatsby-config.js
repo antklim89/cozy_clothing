@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const autoprefixer = require('autoprefixer');
 const postcss = require('postcss-preset-env');
 
 
@@ -75,8 +76,6 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-plugin-typescript-checker',
         'gatsby-plugin-typegen',
-        'gatsby-plugin-offline',
-
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {
@@ -107,7 +106,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-postcss',
             options: {
-                postCssPlugins: [postcss()],
+                postCssPlugins: [postcss(), autoprefixer],
             },
         },
         {
@@ -127,13 +126,13 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                name: 'gatsby-starter-default',
-                short_name: 'starter',
+                name: 'cozy_clothing',
+                short_name: 'cozy_clothing',
                 start_url: '/',
-                background_color: '#663399',
-                theme_color: '#663399',
+                background_color: '#FDFDFD',
+                theme_color: '#9E2B25',
                 display: 'minimal-ui',
-                icon: 'src/assets/logo512.png', // This path is relative to the root of the site.
+                icon: 'src/assets/logo512.png',
             },
         },
         {

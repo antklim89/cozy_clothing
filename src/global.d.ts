@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /// <reference types="node" />
 // <reference types="react" />
 
@@ -39,8 +40,8 @@ declare module '*.png' {
 }
 
 declare module '*.webp' {
-    const src: string;
-    export default src;
+  const src: string;
+  export default src;
 }
 
 // declare module '*.svg' {
@@ -59,7 +60,7 @@ declare module '*.svg' {
   import { FC } from 'react';
 
 
-  const content: FC<{fill?: string, className?: string}>;
+  const content: FC<{ fill?: string, className?: string }>;
   export default content;
 }
 
@@ -73,5 +74,9 @@ declare module '*.module.scss' {
   export default classes;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare module 'netlify-cms-media-library-uploadcare' {
+  const src: any;
+  export default src;
+}
+
 type AnyObject = any
