@@ -8,8 +8,6 @@
 // You can delete this file if you're not using it
 
 import { createElement } from 'react';
-// import '@fortawesome/fontawesome-free/js/solid.min';
-// import '@fortawesome/fontawesome-free/js/fontawesome.min';
 
 import { Layout } from '~/components';
 

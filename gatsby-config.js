@@ -75,6 +75,8 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-plugin-typescript-checker',
         'gatsby-plugin-typegen',
+        'gatsby-plugin-offline',
+
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {
@@ -142,9 +144,5 @@ module.exports = {
                 },
             },
         },
-    // `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     ],
 };

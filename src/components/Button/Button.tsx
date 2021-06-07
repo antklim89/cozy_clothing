@@ -27,7 +27,6 @@ export function Button<P>({
     disabled = false,
     ...props
 }: ButtonPropTypesWithComponent<P> | ButtonPropTypesButton): ReactElement {
-    console.debug(props);
     return (
         <Component
             {...props as P}
