@@ -58,7 +58,10 @@ query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!)
             hidden: {eq: false}
         }
     }
-      sort: {fields: frontmatter___careatedAt}
+      sort: {
+        fields: frontmatter___careatedAt,
+        order: DESC
+      }
       skip: $skip
       limit: $limit
     ) {

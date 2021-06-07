@@ -50,7 +50,8 @@ query IndexPage {
         }
         limit: 4
         sort: {
-            fields: frontmatter___careatedAt
+            fields: frontmatter___careatedAt,
+            order: DESC
         }
     ) {
         nodes {
@@ -67,7 +68,10 @@ query IndexPage {
     promoProducts: allMarkdownRemark(
         filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {nin: 0}}}
         limit: 4
-        sort: {fields: frontmatter___discount, order: DESC}
+        sort: {
+            fields: frontmatter___discount,
+            order: DESC
+        }
     ) {
         nodes {
             id

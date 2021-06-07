@@ -10,8 +10,8 @@ export const productSchema = object({
     rawMarkdownBody: string().transform((v) => v.replace(/\s/ig, ' ')).required(),
     imagesPreview: array(
         mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
-    ).default([]).required(),
+    ).min(1).default([]).required(),
     images: array(
         mixed<IGatsbyImageData>().transform((v, o) => o.image.a.b).required(),
-    ).default([]).required(),
+    ).min(1).default([]).required(),
 }).concat(productBaseSchema).required();
