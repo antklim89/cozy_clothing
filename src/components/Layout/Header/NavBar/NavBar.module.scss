@@ -1,12 +1,5 @@
 @use '~/styles/variables.scss' as *;
 
-.logo {
-    display: flex;
-    align-items: center;
-    @extend .mx-2;
-    height: $app-bar-height;
-}
-
 .nav {
     display: flex;
     align-items: center;

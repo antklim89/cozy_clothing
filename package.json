@@ -52,7 +52,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby clean && gatsby build",
+    "build": "gatsby build",
     "dev": "run-p dev:**",
     "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server",

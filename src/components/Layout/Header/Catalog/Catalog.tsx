@@ -17,6 +17,8 @@ export const Catalog: FC = () => {
     return (
         <div className={styles.root}>
             <Button
+                aria-expanded={isOpen}
+                aria-label="catalog"
                 variant="text"
                 onClick={() => setIsOpen(true)}
             >

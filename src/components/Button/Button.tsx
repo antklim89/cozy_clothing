@@ -27,10 +27,9 @@ export function Button<P>({
     disabled = false,
     ...props
 }: ButtonPropTypesWithComponent<P> | ButtonPropTypesButton): ReactElement {
+    console.debug(props);
     return (
         <Component
-            role="button"
-            type="button"
             {...props as P}
             className={cls(
                 props.className,

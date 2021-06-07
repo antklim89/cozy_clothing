@@ -34,7 +34,7 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
         <div className={cls(styles.root, className)}>
             {label && <label className={styles.label} htmlFor={id}>{label}</label>}
             <div className={styles.select}>
-                <Button className={styles.button} onClick={handlePlusQty}>+</Button>
+                <Button aria-label="plus" className={styles.button} onClick={handlePlusQty}>+</Button>
                 <input
                     className={styles.input}
                     id={id}
@@ -43,7 +43,7 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
                     onBlur={handleBlurQty}
                     onChange={handleChangeQty}
                 />
-                <Button className={styles.button} onClick={handleMinusQty}>-</Button>
+                <Button aria-label="minus" className={styles.button} onClick={handleMinusQty}>-</Button>
             </div>
         </div>
     );

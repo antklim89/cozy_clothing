@@ -14,6 +14,7 @@ export const CartButton: FC = () => {
 
     return (
         <Button
+            aria-label={`cart with ${cart.length} products.`}
             color="secondary"
             component={Link}
             to="/cart"

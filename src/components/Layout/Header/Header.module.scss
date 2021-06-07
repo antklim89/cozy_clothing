@@ -15,3 +15,10 @@
     margin-bottom: $app-bar-height;
     height: 0;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    @extend .mx-2;
+    height: $app-bar-height;
+}

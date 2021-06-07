@@ -18,7 +18,15 @@ export const ProductCard: FC<ProductCardProps> = ({
     const isInCart = cart.some((i) => i.id === product.id);
 
     return (
-        <Link className={styles.link} to={`/product/${product.id}`}>
+        <Link
+            aria-label={`
+                ${product.title}
+                ${isNew ? 'is new' : ''}
+                ${product.discount > 0 ? `with discount ${product.discount}%` : ''}
+                ${isInCart ? 'in cart' : ''}
+            `}
+            className={styles.link} to={`/product/${product.id}`}
+        >
             <section className={styles.cart}>
                 <div className={styles.image}>
                     <GatsbyImage
