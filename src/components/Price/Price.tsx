@@ -3,6 +3,8 @@ import { FC } from 'react';
 import styles from './Price.module.scss';
 import { PricePropTypes } from './Price.types';
 
+import { getPrice } from '~/utils';
+
 
 export const Price: FC<PricePropTypes> = ({ price, discount }) => {
     return (
@@ -15,7 +17,7 @@ export const Price: FC<PricePropTypes> = ({ price, discount }) => {
                     </span>
                     <b>
                         $
-                        {(price - ((price / 100) * discount)).toFixed(2)}
+                        {getPrice(price, discount)}
                     </b>
                 </p>
             ) : (
@@ -29,3 +31,5 @@ export const Price: FC<PricePropTypes> = ({ price, discount }) => {
         </div>
     );
 };
+
+

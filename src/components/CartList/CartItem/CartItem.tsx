@@ -10,6 +10,7 @@ import { Button } from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
+import { getPrice } from '~/utils';
 
 
 export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
@@ -35,7 +36,7 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                 <div className={styles.price}>
                     <p>
                         Price:&nbsp;$
-                        {cartItem.product.price}
+                        {getPrice(cartItem.product.price, cartItem.product.discount)}
                     </p>
                     <p>
                         Quantity:&nbsp;

@@ -6,12 +6,15 @@ import { ConfirmOrderPropTypes } from './ConfirmOrder.types';
 
 import { Button } from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
+import { getPrice } from '~/utils';
 
 
 export const ConfirmOrder: FC<ConfirmOrderPropTypes> = () => {
     const { cart } = useCart();
 
-    const totalPrice = cart.reduce((acc, i) => (acc + i.product.price * i.qty), 0);
+    const totalPrice = cart.reduce(
+        (acc, i) => (acc + parseFloat(getPrice(i.product.price, i.product.discount)) * i.qty), 0,
+    );
     return (
         <section className={styles.root}>
             <h2>Your Order</h2>
@@ -35,7 +38,7 @@ export const ConfirmOrder: FC<ConfirmOrderPropTypes> = () => {
                         </p>
                         <p>
                             $
-                            {cartItem.product.price * cartItem.qty}
+                            {parseFloat(getPrice(cartItem.product.price, cartItem.product.discount)) * cartItem.qty}
                         </p>
                     </li>
                 ))}

@@ -6,12 +6,15 @@ import styles from './CartList.module.scss';
 import { CartListPropTypes } from './CartList.types';
 
 import { useCart } from '~/components/CartProvider';
+import { getPrice } from '~/utils';
 
 
 export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
     const { cart } = useCart();
 
-    const totalPrice = cart.reduce((acc, i) => (acc + i.product.price * i.qty), 0);
+    const totalPrice = cart.reduce(
+        (acc, i) => (acc + parseFloat(getPrice(i.product.price, i.product.discount)) * i.qty), 0,
+    );
 
     useEffect(() => {
         if (onChangeEmpty) onChangeEmpty(cart.length === 0);
