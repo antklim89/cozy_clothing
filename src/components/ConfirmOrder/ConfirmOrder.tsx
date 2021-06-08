@@ -45,7 +45,7 @@ export const ConfirmOrder: FC<ConfirmOrderPropTypes> = () => {
             </ul>
             <p className={styles.totalPrice}>
                 Total price: $
-                {totalPrice}
+                {totalPrice.toFixed(2)}
             </p>
             <Button fullWidth>Place Order</Button>
         </section>

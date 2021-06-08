@@ -1,61 +1,12 @@
 import {
     ChangeEvent, FC, useEffect, useRef, useState,
 } from 'react';
-import * as yup from 'yup';
 
 import styles from './OrderForm.module.scss';
 import { OrderFormPropTypes } from './OrderForm.types';
 
 import { Input } from '~/components/Input';
-
-
-const schema = yup.object({
-    details: yup
-        .string()
-        .min(5)
-        .nullable(),
-    country: yup
-        .string()
-        .label('Country')
-        .min(5)
-        .max(500)
-        .required(),
-    address: yup
-        .string()
-        .label('Address')
-        .min(5)
-        .max(500)
-        .required(),
-    phone: yup
-        .string()
-        .label('Phone')
-        .matches(/^[\d\s]*$/ig, 'Not valid phone number.')
-        .max(500)
-        .required(),
-    email: yup
-        .string()
-        .label('E-mail')
-        .max(500)
-        .email('Not valid e-mail.')
-        .required(),
-    organization: yup.string()
-        .label('Company Name')
-        .min(5)
-        .nullable()
-        .max(500),
-    lastname: yup
-        .string()
-        .label('Last name')
-        .min(3)
-        .max(500)
-        .required(),
-    firstname: yup
-        .string()
-        .label('First Name')
-        .min(3)
-        .max(500)
-        .required(),
-}).required();
+import { orderSchema } from '~/validation';
 
 
 let formData = {};
@@ -66,7 +17,7 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
 
     async function validate(data: Record<string, string>) {
         try {
-            const result = await schema.validate(data, { stripUnknown: true });
+            const result = await orderSchema.validate(data, { stripUnknown: true });
             onValidation(true);
             setError(null);
             return { result };
@@ -134,7 +85,7 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             autoComplete="tel"
                             label="Phone number"
                             name="phone"
-                            type="phone"
+                            type="tel"
                         />
                     </div>
                     <div className={styles.inputGroup}>
