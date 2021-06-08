@@ -82,6 +82,10 @@ type File = Node & {
   readonly childrenHeroJson: Maybe<ReadonlyArray<Maybe<HeroJson>>>;
   /** Returns the first child node of type HeroJson or null if there are no children of given type on this node */
   readonly childHeroJson: Maybe<HeroJson>;
+  /** Returns all children nodes filtered by type ContentJson */
+  readonly childrenContentJson: Maybe<ReadonlyArray<Maybe<ContentJson>>>;
+  /** Returns the first child node of type ContentJson or null if there are no children of given type on this node */
+  readonly childContentJson: Maybe<ContentJson>;
   /** Returns all children nodes filtered by type FeaturesJson */
   readonly childrenFeaturesJson: Maybe<ReadonlyArray<Maybe<FeaturesJson>>>;
   /** Returns the first child node of type FeaturesJson or null if there are no children of given type on this node */
@@ -90,10 +94,6 @@ type File = Node & {
   readonly childrenAboutJson: Maybe<ReadonlyArray<Maybe<AboutJson>>>;
   /** Returns the first child node of type AboutJson or null if there are no children of given type on this node */
   readonly childAboutJson: Maybe<AboutJson>;
-  /** Returns all children nodes filtered by type ContentJson */
-  readonly childrenContentJson: Maybe<ReadonlyArray<Maybe<ContentJson>>>;
-  /** Returns the first child node of type ContentJson or null if there are no children of given type on this node */
-  readonly childContentJson: Maybe<ContentJson>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
@@ -716,6 +716,33 @@ type HeroJson = Node & {
   readonly image: Maybe<File>;
 };
 
+type ContentJson = Node & {
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+  readonly men: Maybe<ReadonlyArray<Maybe<ContentJsonMen>>>;
+  readonly women: Maybe<ReadonlyArray<Maybe<ContentJsonWomen>>>;
+  readonly boys: Maybe<ReadonlyArray<Maybe<ContentJsonBoys>>>;
+  readonly girls: Maybe<ReadonlyArray<Maybe<ContentJsonGirls>>>;
+};
+
+type ContentJsonMen = {
+  readonly category: Maybe<Scalars['String']>;
+};
+
+type ContentJsonWomen = {
+  readonly category: Maybe<Scalars['String']>;
+};
+
+type ContentJsonBoys = {
+  readonly category: Maybe<Scalars['String']>;
+};
+
+type ContentJsonGirls = {
+  readonly category: Maybe<Scalars['String']>;
+};
+
 type FeaturesJson = Node & {
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
@@ -744,33 +771,6 @@ type AboutJsonChooseUs = {
   readonly image: Maybe<File>;
   readonly text: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
-};
-
-type ContentJson = Node & {
-  readonly id: Scalars['ID'];
-  readonly parent: Maybe<Node>;
-  readonly children: ReadonlyArray<Node>;
-  readonly internal: Internal;
-  readonly men: Maybe<ReadonlyArray<Maybe<ContentJsonMen>>>;
-  readonly women: Maybe<ReadonlyArray<Maybe<ContentJsonWomen>>>;
-  readonly boys: Maybe<ReadonlyArray<Maybe<ContentJsonBoys>>>;
-  readonly girls: Maybe<ReadonlyArray<Maybe<ContentJsonGirls>>>;
-};
-
-type ContentJsonMen = {
-  readonly category: Maybe<Scalars['String']>;
-};
-
-type ContentJsonWomen = {
-  readonly category: Maybe<Scalars['String']>;
-};
-
-type ContentJsonBoys = {
-  readonly category: Maybe<Scalars['String']>;
-};
-
-type ContentJsonGirls = {
-  readonly category: Maybe<Scalars['String']>;
 };
 
 type ProductCatalog = Node & {
@@ -958,12 +958,12 @@ type Query = {
   readonly allMarkdownRemark: MarkdownRemarkConnection;
   readonly heroJson: Maybe<HeroJson>;
   readonly allHeroJson: HeroJsonConnection;
+  readonly contentJson: Maybe<ContentJson>;
+  readonly allContentJson: ContentJsonConnection;
   readonly featuresJson: Maybe<FeaturesJson>;
   readonly allFeaturesJson: FeaturesJsonConnection;
   readonly aboutJson: Maybe<AboutJson>;
   readonly allAboutJson: AboutJsonConnection;
-  readonly contentJson: Maybe<ContentJson>;
-  readonly allContentJson: ContentJsonConnection;
   readonly productCatalog: Maybe<ProductCatalog>;
   readonly allProductCatalog: ProductCatalogConnection;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
@@ -1014,12 +1014,12 @@ type Query_fileArgs = {
   childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
   childrenHeroJson: Maybe<HeroJsonFilterListInput>;
   childHeroJson: Maybe<HeroJsonFilterInput>;
+  childrenContentJson: Maybe<ContentJsonFilterListInput>;
+  childContentJson: Maybe<ContentJsonFilterInput>;
   childrenFeaturesJson: Maybe<FeaturesJsonFilterListInput>;
   childFeaturesJson: Maybe<FeaturesJsonFilterInput>;
   childrenAboutJson: Maybe<AboutJsonFilterListInput>;
   childAboutJson: Maybe<AboutJsonFilterInput>;
-  childrenContentJson: Maybe<ContentJsonFilterListInput>;
-  childContentJson: Maybe<ContentJsonFilterInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
@@ -1241,6 +1241,26 @@ type Query_allHeroJsonArgs = {
 };
 
 
+type Query_contentJsonArgs = {
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+  men: Maybe<ContentJsonMenFilterListInput>;
+  women: Maybe<ContentJsonWomenFilterListInput>;
+  boys: Maybe<ContentJsonBoysFilterListInput>;
+  girls: Maybe<ContentJsonGirlsFilterListInput>;
+};
+
+
+type Query_allContentJsonArgs = {
+  filter: Maybe<ContentJsonFilterInput>;
+  sort: Maybe<ContentJsonSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
 type Query_featuresJsonArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -1273,26 +1293,6 @@ type Query_aboutJsonArgs = {
 type Query_allAboutJsonArgs = {
   filter: Maybe<AboutJsonFilterInput>;
   sort: Maybe<AboutJsonSortInput>;
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-};
-
-
-type Query_contentJsonArgs = {
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
-  men: Maybe<ContentJsonMenFilterListInput>;
-  women: Maybe<ContentJsonWomenFilterListInput>;
-  boys: Maybe<ContentJsonBoysFilterListInput>;
-  girls: Maybe<ContentJsonGirlsFilterListInput>;
-};
-
-
-type Query_allContentJsonArgs = {
-  filter: Maybe<ContentJsonFilterInput>;
-  sort: Maybe<ContentJsonSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -1571,12 +1571,12 @@ type FileFilterInput = {
   readonly childMarkdownRemark: Maybe<MarkdownRemarkFilterInput>;
   readonly childrenHeroJson: Maybe<HeroJsonFilterListInput>;
   readonly childHeroJson: Maybe<HeroJsonFilterInput>;
+  readonly childrenContentJson: Maybe<ContentJsonFilterListInput>;
+  readonly childContentJson: Maybe<ContentJsonFilterInput>;
   readonly childrenFeaturesJson: Maybe<FeaturesJsonFilterListInput>;
   readonly childFeaturesJson: Maybe<FeaturesJsonFilterInput>;
   readonly childrenAboutJson: Maybe<AboutJsonFilterListInput>;
   readonly childAboutJson: Maybe<AboutJsonFilterInput>;
-  readonly childrenContentJson: Maybe<ContentJsonFilterListInput>;
-  readonly childContentJson: Maybe<ContentJsonFilterInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
@@ -1595,52 +1595,6 @@ type HeroJsonFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly body: Maybe<StringQueryOperatorInput>;
   readonly image: Maybe<FileFilterInput>;
-};
-
-type FeaturesJsonFilterListInput = {
-  readonly elemMatch: Maybe<FeaturesJsonFilterInput>;
-};
-
-type FeaturesJsonFilterInput = {
-  readonly id: Maybe<StringQueryOperatorInput>;
-  readonly parent: Maybe<NodeFilterInput>;
-  readonly children: Maybe<NodeFilterListInput>;
-  readonly internal: Maybe<InternalFilterInput>;
-  readonly features: Maybe<FeaturesJsonFeaturesFilterListInput>;
-};
-
-type FeaturesJsonFeaturesFilterListInput = {
-  readonly elemMatch: Maybe<FeaturesJsonFeaturesFilterInput>;
-};
-
-type FeaturesJsonFeaturesFilterInput = {
-  readonly image: Maybe<FileFilterInput>;
-  readonly text: Maybe<StringQueryOperatorInput>;
-};
-
-type AboutJsonFilterListInput = {
-  readonly elemMatch: Maybe<AboutJsonFilterInput>;
-};
-
-type AboutJsonFilterInput = {
-  readonly id: Maybe<StringQueryOperatorInput>;
-  readonly parent: Maybe<NodeFilterInput>;
-  readonly children: Maybe<NodeFilterListInput>;
-  readonly internal: Maybe<InternalFilterInput>;
-  readonly body: Maybe<StringQueryOperatorInput>;
-  readonly title: Maybe<StringQueryOperatorInput>;
-  readonly image: Maybe<FileFilterInput>;
-  readonly chooseUs: Maybe<AboutJsonChooseUsFilterListInput>;
-};
-
-type AboutJsonChooseUsFilterListInput = {
-  readonly elemMatch: Maybe<AboutJsonChooseUsFilterInput>;
-};
-
-type AboutJsonChooseUsFilterInput = {
-  readonly image: Maybe<FileFilterInput>;
-  readonly text: Maybe<StringQueryOperatorInput>;
-  readonly title: Maybe<StringQueryOperatorInput>;
 };
 
 type ContentJsonFilterListInput = {
@@ -1688,6 +1642,52 @@ type ContentJsonGirlsFilterListInput = {
 
 type ContentJsonGirlsFilterInput = {
   readonly category: Maybe<StringQueryOperatorInput>;
+};
+
+type FeaturesJsonFilterListInput = {
+  readonly elemMatch: Maybe<FeaturesJsonFilterInput>;
+};
+
+type FeaturesJsonFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+  readonly features: Maybe<FeaturesJsonFeaturesFilterListInput>;
+};
+
+type FeaturesJsonFeaturesFilterListInput = {
+  readonly elemMatch: Maybe<FeaturesJsonFeaturesFilterInput>;
+};
+
+type FeaturesJsonFeaturesFilterInput = {
+  readonly image: Maybe<FileFilterInput>;
+  readonly text: Maybe<StringQueryOperatorInput>;
+};
+
+type AboutJsonFilterListInput = {
+  readonly elemMatch: Maybe<AboutJsonFilterInput>;
+};
+
+type AboutJsonFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+  readonly body: Maybe<StringQueryOperatorInput>;
+  readonly title: Maybe<StringQueryOperatorInput>;
+  readonly image: Maybe<FileFilterInput>;
+  readonly chooseUs: Maybe<AboutJsonChooseUsFilterListInput>;
+};
+
+type AboutJsonChooseUsFilterListInput = {
+  readonly elemMatch: Maybe<AboutJsonChooseUsFilterInput>;
+};
+
+type AboutJsonChooseUsFilterInput = {
+  readonly image: Maybe<FileFilterInput>;
+  readonly text: Maybe<StringQueryOperatorInput>;
+  readonly title: Maybe<StringQueryOperatorInput>;
 };
 
 type MarkdownRemarkFrontmatterImagesFilterListInput = {
@@ -1990,9 +1990,9 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.imagePreview.childrenImageSharp'
   | 'childrenMarkdownRemark.frontmatter.imagePreview.childrenMarkdownRemark'
   | 'childrenMarkdownRemark.frontmatter.imagePreview.childrenHeroJson'
+  | 'childrenMarkdownRemark.frontmatter.imagePreview.childrenContentJson'
   | 'childrenMarkdownRemark.frontmatter.imagePreview.childrenFeaturesJson'
   | 'childrenMarkdownRemark.frontmatter.imagePreview.childrenAboutJson'
-  | 'childrenMarkdownRemark.frontmatter.imagePreview.childrenContentJson'
   | 'childrenMarkdownRemark.frontmatter.imagePreview.id'
   | 'childrenMarkdownRemark.frontmatter.imagePreview.children'
   | 'childrenMarkdownRemark.frontmatter.images'
@@ -2094,9 +2094,9 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.imagePreview.childrenImageSharp'
   | 'childMarkdownRemark.frontmatter.imagePreview.childrenMarkdownRemark'
   | 'childMarkdownRemark.frontmatter.imagePreview.childrenHeroJson'
+  | 'childMarkdownRemark.frontmatter.imagePreview.childrenContentJson'
   | 'childMarkdownRemark.frontmatter.imagePreview.childrenFeaturesJson'
   | 'childMarkdownRemark.frontmatter.imagePreview.childrenAboutJson'
-  | 'childMarkdownRemark.frontmatter.imagePreview.childrenContentJson'
   | 'childMarkdownRemark.frontmatter.imagePreview.id'
   | 'childMarkdownRemark.frontmatter.imagePreview.children'
   | 'childMarkdownRemark.frontmatter.images'
@@ -2268,6 +2268,19 @@ type FileFieldsEnum =
   | 'childrenHeroJson.image.childHeroJson.children'
   | 'childrenHeroJson.image.childHeroJson.title'
   | 'childrenHeroJson.image.childHeroJson.body'
+  | 'childrenHeroJson.image.childrenContentJson'
+  | 'childrenHeroJson.image.childrenContentJson.id'
+  | 'childrenHeroJson.image.childrenContentJson.children'
+  | 'childrenHeroJson.image.childrenContentJson.men'
+  | 'childrenHeroJson.image.childrenContentJson.women'
+  | 'childrenHeroJson.image.childrenContentJson.boys'
+  | 'childrenHeroJson.image.childrenContentJson.girls'
+  | 'childrenHeroJson.image.childContentJson.id'
+  | 'childrenHeroJson.image.childContentJson.children'
+  | 'childrenHeroJson.image.childContentJson.men'
+  | 'childrenHeroJson.image.childContentJson.women'
+  | 'childrenHeroJson.image.childContentJson.boys'
+  | 'childrenHeroJson.image.childContentJson.girls'
   | 'childrenHeroJson.image.childrenFeaturesJson'
   | 'childrenHeroJson.image.childrenFeaturesJson.id'
   | 'childrenHeroJson.image.childrenFeaturesJson.children'
@@ -2286,19 +2299,6 @@ type FileFieldsEnum =
   | 'childrenHeroJson.image.childAboutJson.body'
   | 'childrenHeroJson.image.childAboutJson.title'
   | 'childrenHeroJson.image.childAboutJson.chooseUs'
-  | 'childrenHeroJson.image.childrenContentJson'
-  | 'childrenHeroJson.image.childrenContentJson.id'
-  | 'childrenHeroJson.image.childrenContentJson.children'
-  | 'childrenHeroJson.image.childrenContentJson.men'
-  | 'childrenHeroJson.image.childrenContentJson.women'
-  | 'childrenHeroJson.image.childrenContentJson.boys'
-  | 'childrenHeroJson.image.childrenContentJson.girls'
-  | 'childrenHeroJson.image.childContentJson.id'
-  | 'childrenHeroJson.image.childContentJson.children'
-  | 'childrenHeroJson.image.childContentJson.men'
-  | 'childrenHeroJson.image.childContentJson.women'
-  | 'childrenHeroJson.image.childContentJson.boys'
-  | 'childrenHeroJson.image.childContentJson.girls'
   | 'childrenHeroJson.image.id'
   | 'childrenHeroJson.image.parent.id'
   | 'childrenHeroJson.image.parent.children'
@@ -2426,6 +2426,19 @@ type FileFieldsEnum =
   | 'childHeroJson.image.childHeroJson.children'
   | 'childHeroJson.image.childHeroJson.title'
   | 'childHeroJson.image.childHeroJson.body'
+  | 'childHeroJson.image.childrenContentJson'
+  | 'childHeroJson.image.childrenContentJson.id'
+  | 'childHeroJson.image.childrenContentJson.children'
+  | 'childHeroJson.image.childrenContentJson.men'
+  | 'childHeroJson.image.childrenContentJson.women'
+  | 'childHeroJson.image.childrenContentJson.boys'
+  | 'childHeroJson.image.childrenContentJson.girls'
+  | 'childHeroJson.image.childContentJson.id'
+  | 'childHeroJson.image.childContentJson.children'
+  | 'childHeroJson.image.childContentJson.men'
+  | 'childHeroJson.image.childContentJson.women'
+  | 'childHeroJson.image.childContentJson.boys'
+  | 'childHeroJson.image.childContentJson.girls'
   | 'childHeroJson.image.childrenFeaturesJson'
   | 'childHeroJson.image.childrenFeaturesJson.id'
   | 'childHeroJson.image.childrenFeaturesJson.children'
@@ -2444,19 +2457,6 @@ type FileFieldsEnum =
   | 'childHeroJson.image.childAboutJson.body'
   | 'childHeroJson.image.childAboutJson.title'
   | 'childHeroJson.image.childAboutJson.chooseUs'
-  | 'childHeroJson.image.childrenContentJson'
-  | 'childHeroJson.image.childrenContentJson.id'
-  | 'childHeroJson.image.childrenContentJson.children'
-  | 'childHeroJson.image.childrenContentJson.men'
-  | 'childHeroJson.image.childrenContentJson.women'
-  | 'childHeroJson.image.childrenContentJson.boys'
-  | 'childHeroJson.image.childrenContentJson.girls'
-  | 'childHeroJson.image.childContentJson.id'
-  | 'childHeroJson.image.childContentJson.children'
-  | 'childHeroJson.image.childContentJson.men'
-  | 'childHeroJson.image.childContentJson.women'
-  | 'childHeroJson.image.childContentJson.boys'
-  | 'childHeroJson.image.childContentJson.girls'
   | 'childHeroJson.image.id'
   | 'childHeroJson.image.parent.id'
   | 'childHeroJson.image.parent.children'
@@ -2471,6 +2471,99 @@ type FileFieldsEnum =
   | 'childHeroJson.image.internal.mediaType'
   | 'childHeroJson.image.internal.owner'
   | 'childHeroJson.image.internal.type'
+  | 'childrenContentJson'
+  | 'childrenContentJson.id'
+  | 'childrenContentJson.parent.id'
+  | 'childrenContentJson.parent.parent.id'
+  | 'childrenContentJson.parent.parent.children'
+  | 'childrenContentJson.parent.children'
+  | 'childrenContentJson.parent.children.id'
+  | 'childrenContentJson.parent.children.children'
+  | 'childrenContentJson.parent.internal.content'
+  | 'childrenContentJson.parent.internal.contentDigest'
+  | 'childrenContentJson.parent.internal.description'
+  | 'childrenContentJson.parent.internal.fieldOwners'
+  | 'childrenContentJson.parent.internal.ignoreType'
+  | 'childrenContentJson.parent.internal.mediaType'
+  | 'childrenContentJson.parent.internal.owner'
+  | 'childrenContentJson.parent.internal.type'
+  | 'childrenContentJson.children'
+  | 'childrenContentJson.children.id'
+  | 'childrenContentJson.children.parent.id'
+  | 'childrenContentJson.children.parent.children'
+  | 'childrenContentJson.children.children'
+  | 'childrenContentJson.children.children.id'
+  | 'childrenContentJson.children.children.children'
+  | 'childrenContentJson.children.internal.content'
+  | 'childrenContentJson.children.internal.contentDigest'
+  | 'childrenContentJson.children.internal.description'
+  | 'childrenContentJson.children.internal.fieldOwners'
+  | 'childrenContentJson.children.internal.ignoreType'
+  | 'childrenContentJson.children.internal.mediaType'
+  | 'childrenContentJson.children.internal.owner'
+  | 'childrenContentJson.children.internal.type'
+  | 'childrenContentJson.internal.content'
+  | 'childrenContentJson.internal.contentDigest'
+  | 'childrenContentJson.internal.description'
+  | 'childrenContentJson.internal.fieldOwners'
+  | 'childrenContentJson.internal.ignoreType'
+  | 'childrenContentJson.internal.mediaType'
+  | 'childrenContentJson.internal.owner'
+  | 'childrenContentJson.internal.type'
+  | 'childrenContentJson.men'
+  | 'childrenContentJson.men.category'
+  | 'childrenContentJson.women'
+  | 'childrenContentJson.women.category'
+  | 'childrenContentJson.boys'
+  | 'childrenContentJson.boys.category'
+  | 'childrenContentJson.girls'
+  | 'childrenContentJson.girls.category'
+  | 'childContentJson.id'
+  | 'childContentJson.parent.id'
+  | 'childContentJson.parent.parent.id'
+  | 'childContentJson.parent.parent.children'
+  | 'childContentJson.parent.children'
+  | 'childContentJson.parent.children.id'
+  | 'childContentJson.parent.children.children'
+  | 'childContentJson.parent.internal.content'
+  | 'childContentJson.parent.internal.contentDigest'
+  | 'childContentJson.parent.internal.description'
+  | 'childContentJson.parent.internal.fieldOwners'
+  | 'childContentJson.parent.internal.ignoreType'
+  | 'childContentJson.parent.internal.mediaType'
+  | 'childContentJson.parent.internal.owner'
+  | 'childContentJson.parent.internal.type'
+  | 'childContentJson.children'
+  | 'childContentJson.children.id'
+  | 'childContentJson.children.parent.id'
+  | 'childContentJson.children.parent.children'
+  | 'childContentJson.children.children'
+  | 'childContentJson.children.children.id'
+  | 'childContentJson.children.children.children'
+  | 'childContentJson.children.internal.content'
+  | 'childContentJson.children.internal.contentDigest'
+  | 'childContentJson.children.internal.description'
+  | 'childContentJson.children.internal.fieldOwners'
+  | 'childContentJson.children.internal.ignoreType'
+  | 'childContentJson.children.internal.mediaType'
+  | 'childContentJson.children.internal.owner'
+  | 'childContentJson.children.internal.type'
+  | 'childContentJson.internal.content'
+  | 'childContentJson.internal.contentDigest'
+  | 'childContentJson.internal.description'
+  | 'childContentJson.internal.fieldOwners'
+  | 'childContentJson.internal.ignoreType'
+  | 'childContentJson.internal.mediaType'
+  | 'childContentJson.internal.owner'
+  | 'childContentJson.internal.type'
+  | 'childContentJson.men'
+  | 'childContentJson.men.category'
+  | 'childContentJson.women'
+  | 'childContentJson.women.category'
+  | 'childContentJson.boys'
+  | 'childContentJson.boys.category'
+  | 'childContentJson.girls'
+  | 'childContentJson.girls.category'
   | 'childrenFeaturesJson'
   | 'childrenFeaturesJson.id'
   | 'childrenFeaturesJson.parent.id'
@@ -2548,9 +2641,9 @@ type FileFieldsEnum =
   | 'childrenFeaturesJson.features.image.childrenImageSharp'
   | 'childrenFeaturesJson.features.image.childrenMarkdownRemark'
   | 'childrenFeaturesJson.features.image.childrenHeroJson'
+  | 'childrenFeaturesJson.features.image.childrenContentJson'
   | 'childrenFeaturesJson.features.image.childrenFeaturesJson'
   | 'childrenFeaturesJson.features.image.childrenAboutJson'
-  | 'childrenFeaturesJson.features.image.childrenContentJson'
   | 'childrenFeaturesJson.features.image.id'
   | 'childrenFeaturesJson.features.image.children'
   | 'childrenFeaturesJson.features.text'
@@ -2630,9 +2723,9 @@ type FileFieldsEnum =
   | 'childFeaturesJson.features.image.childrenImageSharp'
   | 'childFeaturesJson.features.image.childrenMarkdownRemark'
   | 'childFeaturesJson.features.image.childrenHeroJson'
+  | 'childFeaturesJson.features.image.childrenContentJson'
   | 'childFeaturesJson.features.image.childrenFeaturesJson'
   | 'childFeaturesJson.features.image.childrenAboutJson'
-  | 'childFeaturesJson.features.image.childrenContentJson'
   | 'childFeaturesJson.features.image.id'
   | 'childFeaturesJson.features.image.children'
   | 'childFeaturesJson.features.text'
@@ -2750,6 +2843,19 @@ type FileFieldsEnum =
   | 'childrenAboutJson.image.childHeroJson.children'
   | 'childrenAboutJson.image.childHeroJson.title'
   | 'childrenAboutJson.image.childHeroJson.body'
+  | 'childrenAboutJson.image.childrenContentJson'
+  | 'childrenAboutJson.image.childrenContentJson.id'
+  | 'childrenAboutJson.image.childrenContentJson.children'
+  | 'childrenAboutJson.image.childrenContentJson.men'
+  | 'childrenAboutJson.image.childrenContentJson.women'
+  | 'childrenAboutJson.image.childrenContentJson.boys'
+  | 'childrenAboutJson.image.childrenContentJson.girls'
+  | 'childrenAboutJson.image.childContentJson.id'
+  | 'childrenAboutJson.image.childContentJson.children'
+  | 'childrenAboutJson.image.childContentJson.men'
+  | 'childrenAboutJson.image.childContentJson.women'
+  | 'childrenAboutJson.image.childContentJson.boys'
+  | 'childrenAboutJson.image.childContentJson.girls'
   | 'childrenAboutJson.image.childrenFeaturesJson'
   | 'childrenAboutJson.image.childrenFeaturesJson.id'
   | 'childrenAboutJson.image.childrenFeaturesJson.children'
@@ -2768,19 +2874,6 @@ type FileFieldsEnum =
   | 'childrenAboutJson.image.childAboutJson.body'
   | 'childrenAboutJson.image.childAboutJson.title'
   | 'childrenAboutJson.image.childAboutJson.chooseUs'
-  | 'childrenAboutJson.image.childrenContentJson'
-  | 'childrenAboutJson.image.childrenContentJson.id'
-  | 'childrenAboutJson.image.childrenContentJson.children'
-  | 'childrenAboutJson.image.childrenContentJson.men'
-  | 'childrenAboutJson.image.childrenContentJson.women'
-  | 'childrenAboutJson.image.childrenContentJson.boys'
-  | 'childrenAboutJson.image.childrenContentJson.girls'
-  | 'childrenAboutJson.image.childContentJson.id'
-  | 'childrenAboutJson.image.childContentJson.children'
-  | 'childrenAboutJson.image.childContentJson.men'
-  | 'childrenAboutJson.image.childContentJson.women'
-  | 'childrenAboutJson.image.childContentJson.boys'
-  | 'childrenAboutJson.image.childContentJson.girls'
   | 'childrenAboutJson.image.id'
   | 'childrenAboutJson.image.parent.id'
   | 'childrenAboutJson.image.parent.children'
@@ -2833,9 +2926,9 @@ type FileFieldsEnum =
   | 'childrenAboutJson.chooseUs.image.childrenImageSharp'
   | 'childrenAboutJson.chooseUs.image.childrenMarkdownRemark'
   | 'childrenAboutJson.chooseUs.image.childrenHeroJson'
+  | 'childrenAboutJson.chooseUs.image.childrenContentJson'
   | 'childrenAboutJson.chooseUs.image.childrenFeaturesJson'
   | 'childrenAboutJson.chooseUs.image.childrenAboutJson'
-  | 'childrenAboutJson.chooseUs.image.childrenContentJson'
   | 'childrenAboutJson.chooseUs.image.id'
   | 'childrenAboutJson.chooseUs.image.children'
   | 'childrenAboutJson.chooseUs.text'
@@ -2953,6 +3046,19 @@ type FileFieldsEnum =
   | 'childAboutJson.image.childHeroJson.children'
   | 'childAboutJson.image.childHeroJson.title'
   | 'childAboutJson.image.childHeroJson.body'
+  | 'childAboutJson.image.childrenContentJson'
+  | 'childAboutJson.image.childrenContentJson.id'
+  | 'childAboutJson.image.childrenContentJson.children'
+  | 'childAboutJson.image.childrenContentJson.men'
+  | 'childAboutJson.image.childrenContentJson.women'
+  | 'childAboutJson.image.childrenContentJson.boys'
+  | 'childAboutJson.image.childrenContentJson.girls'
+  | 'childAboutJson.image.childContentJson.id'
+  | 'childAboutJson.image.childContentJson.children'
+  | 'childAboutJson.image.childContentJson.men'
+  | 'childAboutJson.image.childContentJson.women'
+  | 'childAboutJson.image.childContentJson.boys'
+  | 'childAboutJson.image.childContentJson.girls'
   | 'childAboutJson.image.childrenFeaturesJson'
   | 'childAboutJson.image.childrenFeaturesJson.id'
   | 'childAboutJson.image.childrenFeaturesJson.children'
@@ -2971,19 +3077,6 @@ type FileFieldsEnum =
   | 'childAboutJson.image.childAboutJson.body'
   | 'childAboutJson.image.childAboutJson.title'
   | 'childAboutJson.image.childAboutJson.chooseUs'
-  | 'childAboutJson.image.childrenContentJson'
-  | 'childAboutJson.image.childrenContentJson.id'
-  | 'childAboutJson.image.childrenContentJson.children'
-  | 'childAboutJson.image.childrenContentJson.men'
-  | 'childAboutJson.image.childrenContentJson.women'
-  | 'childAboutJson.image.childrenContentJson.boys'
-  | 'childAboutJson.image.childrenContentJson.girls'
-  | 'childAboutJson.image.childContentJson.id'
-  | 'childAboutJson.image.childContentJson.children'
-  | 'childAboutJson.image.childContentJson.men'
-  | 'childAboutJson.image.childContentJson.women'
-  | 'childAboutJson.image.childContentJson.boys'
-  | 'childAboutJson.image.childContentJson.girls'
   | 'childAboutJson.image.id'
   | 'childAboutJson.image.parent.id'
   | 'childAboutJson.image.parent.children'
@@ -3036,106 +3129,13 @@ type FileFieldsEnum =
   | 'childAboutJson.chooseUs.image.childrenImageSharp'
   | 'childAboutJson.chooseUs.image.childrenMarkdownRemark'
   | 'childAboutJson.chooseUs.image.childrenHeroJson'
+  | 'childAboutJson.chooseUs.image.childrenContentJson'
   | 'childAboutJson.chooseUs.image.childrenFeaturesJson'
   | 'childAboutJson.chooseUs.image.childrenAboutJson'
-  | 'childAboutJson.chooseUs.image.childrenContentJson'
   | 'childAboutJson.chooseUs.image.id'
   | 'childAboutJson.chooseUs.image.children'
   | 'childAboutJson.chooseUs.text'
   | 'childAboutJson.chooseUs.title'
-  | 'childrenContentJson'
-  | 'childrenContentJson.id'
-  | 'childrenContentJson.parent.id'
-  | 'childrenContentJson.parent.parent.id'
-  | 'childrenContentJson.parent.parent.children'
-  | 'childrenContentJson.parent.children'
-  | 'childrenContentJson.parent.children.id'
-  | 'childrenContentJson.parent.children.children'
-  | 'childrenContentJson.parent.internal.content'
-  | 'childrenContentJson.parent.internal.contentDigest'
-  | 'childrenContentJson.parent.internal.description'
-  | 'childrenContentJson.parent.internal.fieldOwners'
-  | 'childrenContentJson.parent.internal.ignoreType'
-  | 'childrenContentJson.parent.internal.mediaType'
-  | 'childrenContentJson.parent.internal.owner'
-  | 'childrenContentJson.parent.internal.type'
-  | 'childrenContentJson.children'
-  | 'childrenContentJson.children.id'
-  | 'childrenContentJson.children.parent.id'
-  | 'childrenContentJson.children.parent.children'
-  | 'childrenContentJson.children.children'
-  | 'childrenContentJson.children.children.id'
-  | 'childrenContentJson.children.children.children'
-  | 'childrenContentJson.children.internal.content'
-  | 'childrenContentJson.children.internal.contentDigest'
-  | 'childrenContentJson.children.internal.description'
-  | 'childrenContentJson.children.internal.fieldOwners'
-  | 'childrenContentJson.children.internal.ignoreType'
-  | 'childrenContentJson.children.internal.mediaType'
-  | 'childrenContentJson.children.internal.owner'
-  | 'childrenContentJson.children.internal.type'
-  | 'childrenContentJson.internal.content'
-  | 'childrenContentJson.internal.contentDigest'
-  | 'childrenContentJson.internal.description'
-  | 'childrenContentJson.internal.fieldOwners'
-  | 'childrenContentJson.internal.ignoreType'
-  | 'childrenContentJson.internal.mediaType'
-  | 'childrenContentJson.internal.owner'
-  | 'childrenContentJson.internal.type'
-  | 'childrenContentJson.men'
-  | 'childrenContentJson.men.category'
-  | 'childrenContentJson.women'
-  | 'childrenContentJson.women.category'
-  | 'childrenContentJson.boys'
-  | 'childrenContentJson.boys.category'
-  | 'childrenContentJson.girls'
-  | 'childrenContentJson.girls.category'
-  | 'childContentJson.id'
-  | 'childContentJson.parent.id'
-  | 'childContentJson.parent.parent.id'
-  | 'childContentJson.parent.parent.children'
-  | 'childContentJson.parent.children'
-  | 'childContentJson.parent.children.id'
-  | 'childContentJson.parent.children.children'
-  | 'childContentJson.parent.internal.content'
-  | 'childContentJson.parent.internal.contentDigest'
-  | 'childContentJson.parent.internal.description'
-  | 'childContentJson.parent.internal.fieldOwners'
-  | 'childContentJson.parent.internal.ignoreType'
-  | 'childContentJson.parent.internal.mediaType'
-  | 'childContentJson.parent.internal.owner'
-  | 'childContentJson.parent.internal.type'
-  | 'childContentJson.children'
-  | 'childContentJson.children.id'
-  | 'childContentJson.children.parent.id'
-  | 'childContentJson.children.parent.children'
-  | 'childContentJson.children.children'
-  | 'childContentJson.children.children.id'
-  | 'childContentJson.children.children.children'
-  | 'childContentJson.children.internal.content'
-  | 'childContentJson.children.internal.contentDigest'
-  | 'childContentJson.children.internal.description'
-  | 'childContentJson.children.internal.fieldOwners'
-  | 'childContentJson.children.internal.ignoreType'
-  | 'childContentJson.children.internal.mediaType'
-  | 'childContentJson.children.internal.owner'
-  | 'childContentJson.children.internal.type'
-  | 'childContentJson.internal.content'
-  | 'childContentJson.internal.contentDigest'
-  | 'childContentJson.internal.description'
-  | 'childContentJson.internal.fieldOwners'
-  | 'childContentJson.internal.ignoreType'
-  | 'childContentJson.internal.mediaType'
-  | 'childContentJson.internal.owner'
-  | 'childContentJson.internal.type'
-  | 'childContentJson.men'
-  | 'childContentJson.men.category'
-  | 'childContentJson.women'
-  | 'childContentJson.women.category'
-  | 'childContentJson.boys'
-  | 'childContentJson.boys.category'
-  | 'childContentJson.girls'
-  | 'childContentJson.girls.category'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -4733,6 +4733,19 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.imagePreview.childHeroJson.children'
   | 'frontmatter.imagePreview.childHeroJson.title'
   | 'frontmatter.imagePreview.childHeroJson.body'
+  | 'frontmatter.imagePreview.childrenContentJson'
+  | 'frontmatter.imagePreview.childrenContentJson.id'
+  | 'frontmatter.imagePreview.childrenContentJson.children'
+  | 'frontmatter.imagePreview.childrenContentJson.men'
+  | 'frontmatter.imagePreview.childrenContentJson.women'
+  | 'frontmatter.imagePreview.childrenContentJson.boys'
+  | 'frontmatter.imagePreview.childrenContentJson.girls'
+  | 'frontmatter.imagePreview.childContentJson.id'
+  | 'frontmatter.imagePreview.childContentJson.children'
+  | 'frontmatter.imagePreview.childContentJson.men'
+  | 'frontmatter.imagePreview.childContentJson.women'
+  | 'frontmatter.imagePreview.childContentJson.boys'
+  | 'frontmatter.imagePreview.childContentJson.girls'
   | 'frontmatter.imagePreview.childrenFeaturesJson'
   | 'frontmatter.imagePreview.childrenFeaturesJson.id'
   | 'frontmatter.imagePreview.childrenFeaturesJson.children'
@@ -4751,19 +4764,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.imagePreview.childAboutJson.body'
   | 'frontmatter.imagePreview.childAboutJson.title'
   | 'frontmatter.imagePreview.childAboutJson.chooseUs'
-  | 'frontmatter.imagePreview.childrenContentJson'
-  | 'frontmatter.imagePreview.childrenContentJson.id'
-  | 'frontmatter.imagePreview.childrenContentJson.children'
-  | 'frontmatter.imagePreview.childrenContentJson.men'
-  | 'frontmatter.imagePreview.childrenContentJson.women'
-  | 'frontmatter.imagePreview.childrenContentJson.boys'
-  | 'frontmatter.imagePreview.childrenContentJson.girls'
-  | 'frontmatter.imagePreview.childContentJson.id'
-  | 'frontmatter.imagePreview.childContentJson.children'
-  | 'frontmatter.imagePreview.childContentJson.men'
-  | 'frontmatter.imagePreview.childContentJson.women'
-  | 'frontmatter.imagePreview.childContentJson.boys'
-  | 'frontmatter.imagePreview.childContentJson.girls'
   | 'frontmatter.imagePreview.id'
   | 'frontmatter.imagePreview.parent.id'
   | 'frontmatter.imagePreview.parent.children'
@@ -4816,9 +4816,9 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.images.image.childrenImageSharp'
   | 'frontmatter.images.image.childrenMarkdownRemark'
   | 'frontmatter.images.image.childrenHeroJson'
+  | 'frontmatter.images.image.childrenContentJson'
   | 'frontmatter.images.image.childrenFeaturesJson'
   | 'frontmatter.images.image.childrenAboutJson'
-  | 'frontmatter.images.image.childrenContentJson'
   | 'frontmatter.images.image.id'
   | 'frontmatter.images.image.children'
   | 'frontmatter.price'
@@ -5330,9 +5330,9 @@ type HeroJsonFieldsEnum =
   | 'image.childrenHeroJson.image.childrenImageSharp'
   | 'image.childrenHeroJson.image.childrenMarkdownRemark'
   | 'image.childrenHeroJson.image.childrenHeroJson'
+  | 'image.childrenHeroJson.image.childrenContentJson'
   | 'image.childrenHeroJson.image.childrenFeaturesJson'
   | 'image.childrenHeroJson.image.childrenAboutJson'
-  | 'image.childrenHeroJson.image.childrenContentJson'
   | 'image.childrenHeroJson.image.id'
   | 'image.childrenHeroJson.image.children'
   | 'image.childHeroJson.id'
@@ -5388,11 +5388,56 @@ type HeroJsonFieldsEnum =
   | 'image.childHeroJson.image.childrenImageSharp'
   | 'image.childHeroJson.image.childrenMarkdownRemark'
   | 'image.childHeroJson.image.childrenHeroJson'
+  | 'image.childHeroJson.image.childrenContentJson'
   | 'image.childHeroJson.image.childrenFeaturesJson'
   | 'image.childHeroJson.image.childrenAboutJson'
-  | 'image.childHeroJson.image.childrenContentJson'
   | 'image.childHeroJson.image.id'
   | 'image.childHeroJson.image.children'
+  | 'image.childrenContentJson'
+  | 'image.childrenContentJson.id'
+  | 'image.childrenContentJson.parent.id'
+  | 'image.childrenContentJson.parent.children'
+  | 'image.childrenContentJson.children'
+  | 'image.childrenContentJson.children.id'
+  | 'image.childrenContentJson.children.children'
+  | 'image.childrenContentJson.internal.content'
+  | 'image.childrenContentJson.internal.contentDigest'
+  | 'image.childrenContentJson.internal.description'
+  | 'image.childrenContentJson.internal.fieldOwners'
+  | 'image.childrenContentJson.internal.ignoreType'
+  | 'image.childrenContentJson.internal.mediaType'
+  | 'image.childrenContentJson.internal.owner'
+  | 'image.childrenContentJson.internal.type'
+  | 'image.childrenContentJson.men'
+  | 'image.childrenContentJson.men.category'
+  | 'image.childrenContentJson.women'
+  | 'image.childrenContentJson.women.category'
+  | 'image.childrenContentJson.boys'
+  | 'image.childrenContentJson.boys.category'
+  | 'image.childrenContentJson.girls'
+  | 'image.childrenContentJson.girls.category'
+  | 'image.childContentJson.id'
+  | 'image.childContentJson.parent.id'
+  | 'image.childContentJson.parent.children'
+  | 'image.childContentJson.children'
+  | 'image.childContentJson.children.id'
+  | 'image.childContentJson.children.children'
+  | 'image.childContentJson.internal.content'
+  | 'image.childContentJson.internal.contentDigest'
+  | 'image.childContentJson.internal.description'
+  | 'image.childContentJson.internal.fieldOwners'
+  | 'image.childContentJson.internal.ignoreType'
+  | 'image.childContentJson.internal.mediaType'
+  | 'image.childContentJson.internal.owner'
+  | 'image.childContentJson.internal.type'
+  | 'image.childContentJson.men'
+  | 'image.childContentJson.men.category'
+  | 'image.childContentJson.women'
+  | 'image.childContentJson.women.category'
+  | 'image.childContentJson.boys'
+  | 'image.childContentJson.boys.category'
+  | 'image.childContentJson.girls'
+  | 'image.childContentJson.girls.category'
   | 'image.childrenFeaturesJson'
   | 'image.childrenFeaturesJson.id'
   | 'image.childrenFeaturesJson.parent.id'
@@ -5480,9 +5525,9 @@ type HeroJsonFieldsEnum =
   | 'image.childrenAboutJson.image.childrenImageSharp'
   | 'image.childrenAboutJson.image.childrenMarkdownRemark'
   | 'image.childrenAboutJson.image.childrenHeroJson'
+  | 'image.childrenAboutJson.image.childrenContentJson'
   | 'image.childrenAboutJson.image.childrenFeaturesJson'
   | 'image.childrenAboutJson.image.childrenAboutJson'
-  | 'image.childrenAboutJson.image.childrenContentJson'
   | 'image.childrenAboutJson.image.id'
   | 'image.childrenAboutJson.image.children'
   | 'image.childrenAboutJson.chooseUs'
@@ -5541,59 +5586,14 @@ type HeroJsonFieldsEnum =
   | 'image.childAboutJson.image.childrenImageSharp'
   | 'image.childAboutJson.image.childrenMarkdownRemark'
   | 'image.childAboutJson.image.childrenHeroJson'
+  | 'image.childAboutJson.image.childrenContentJson'
   | 'image.childAboutJson.image.childrenFeaturesJson'
   | 'image.childAboutJson.image.childrenAboutJson'
-  | 'image.childAboutJson.image.childrenContentJson'
   | 'image.childAboutJson.image.id'
   | 'image.childAboutJson.image.children'
   | 'image.childAboutJson.chooseUs'
   | 'image.childAboutJson.chooseUs.text'
   | 'image.childAboutJson.chooseUs.title'
-  | 'image.childrenContentJson'
-  | 'image.childrenContentJson.id'
-  | 'image.childrenContentJson.parent.id'
-  | 'image.childrenContentJson.parent.children'
-  | 'image.childrenContentJson.children'
-  | 'image.childrenContentJson.children.id'
-  | 'image.childrenContentJson.children.children'
-  | 'image.childrenContentJson.internal.content'
-  | 'image.childrenContentJson.internal.contentDigest'
-  | 'image.childrenContentJson.internal.description'
-  | 'image.childrenContentJson.internal.fieldOwners'
-  | 'image.childrenContentJson.internal.ignoreType'
-  | 'image.childrenContentJson.internal.mediaType'
-  | 'image.childrenContentJson.internal.owner'
-  | 'image.childrenContentJson.internal.type'
-  | 'image.childrenContentJson.men'
-  | 'image.childrenContentJson.men.category'
-  | 'image.childrenContentJson.women'
-  | 'image.childrenContentJson.women.category'
-  | 'image.childrenContentJson.boys'
-  | 'image.childrenContentJson.boys.category'
-  | 'image.childrenContentJson.girls'
-  | 'image.childrenContentJson.girls.category'
-  | 'image.childContentJson.id'
-  | 'image.childContentJson.parent.id'
-  | 'image.childContentJson.parent.children'
-  | 'image.childContentJson.children'
-  | 'image.childContentJson.children.id'
-  | 'image.childContentJson.children.children'
-  | 'image.childContentJson.internal.content'
-  | 'image.childContentJson.internal.contentDigest'
-  | 'image.childContentJson.internal.description'
-  | 'image.childContentJson.internal.fieldOwners'
-  | 'image.childContentJson.internal.ignoreType'
-  | 'image.childContentJson.internal.mediaType'
-  | 'image.childContentJson.internal.owner'
-  | 'image.childContentJson.internal.type'
-  | 'image.childContentJson.men'
-  | 'image.childContentJson.men.category'
-  | 'image.childContentJson.women'
-  | 'image.childContentJson.women.category'
-  | 'image.childContentJson.boys'
-  | 'image.childContentJson.boys.category'
-  | 'image.childContentJson.girls'
-  | 'image.childContentJson.girls.category'
   | 'image.id'
   | 'image.parent.id'
   | 'image.parent.parent.id'
@@ -5644,6 +5644,161 @@ type HeroJsonGroupConnection = {
 
 type HeroJsonSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<HeroJsonFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type ContentJsonConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentJsonEdge>;
+  readonly nodes: ReadonlyArray<ContentJson>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly group: ReadonlyArray<ContentJsonGroupConnection>;
+};
+
+
+type ContentJsonConnection_distinctArgs = {
+  field: ContentJsonFieldsEnum;
+};
+
+
+type ContentJsonConnection_maxArgs = {
+  field: ContentJsonFieldsEnum;
+};
+
+
+type ContentJsonConnection_minArgs = {
+  field: ContentJsonFieldsEnum;
+};
+
+
+type ContentJsonConnection_sumArgs = {
+  field: ContentJsonFieldsEnum;
+};
+
+
+type ContentJsonConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentJsonFieldsEnum;
+};
+
+type ContentJsonEdge = {
+  readonly next: Maybe<ContentJson>;
+  readonly node: ContentJson;
+  readonly previous: Maybe<ContentJson>;
+};
+
+type ContentJsonFieldsEnum =
+  | 'id'
+  | 'parent.id'
+  | 'parent.parent.id'
+  | 'parent.parent.parent.id'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.children.children'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.children'
+  | 'parent.children.id'
+  | 'parent.children.parent.id'
+  | 'parent.children.parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.children.children'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'children'
+  | 'children.id'
+  | 'children.parent.id'
+  | 'children.parent.parent.id'
+  | 'children.parent.parent.children'
+  | 'children.parent.children'
+  | 'children.parent.children.id'
+  | 'children.parent.children.children'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.children'
+  | 'children.children.id'
+  | 'children.children.parent.id'
+  | 'children.children.parent.children'
+  | 'children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.children.children'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type'
+  | 'men'
+  | 'men.category'
+  | 'women'
+  | 'women.category'
+  | 'boys'
+  | 'boys.category'
+  | 'girls'
+  | 'girls.category';
+
+type ContentJsonGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentJsonEdge>;
+  readonly nodes: ReadonlyArray<ContentJson>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type ContentJsonSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentJsonFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
@@ -5853,6 +6008,19 @@ type FeaturesJsonFieldsEnum =
   | 'features.image.childHeroJson.children'
   | 'features.image.childHeroJson.title'
   | 'features.image.childHeroJson.body'
+  | 'features.image.childrenContentJson'
+  | 'features.image.childrenContentJson.id'
+  | 'features.image.childrenContentJson.children'
+  | 'features.image.childrenContentJson.men'
+  | 'features.image.childrenContentJson.women'
+  | 'features.image.childrenContentJson.boys'
+  | 'features.image.childrenContentJson.girls'
+  | 'features.image.childContentJson.id'
+  | 'features.image.childContentJson.children'
+  | 'features.image.childContentJson.men'
+  | 'features.image.childContentJson.women'
+  | 'features.image.childContentJson.boys'
+  | 'features.image.childContentJson.girls'
   | 'features.image.childrenFeaturesJson'
   | 'features.image.childrenFeaturesJson.id'
   | 'features.image.childrenFeaturesJson.children'
@@ -5871,19 +6039,6 @@ type FeaturesJsonFieldsEnum =
   | 'features.image.childAboutJson.body'
   | 'features.image.childAboutJson.title'
   | 'features.image.childAboutJson.chooseUs'
-  | 'features.image.childrenContentJson'
-  | 'features.image.childrenContentJson.id'
-  | 'features.image.childrenContentJson.children'
-  | 'features.image.childrenContentJson.men'
-  | 'features.image.childrenContentJson.women'
-  | 'features.image.childrenContentJson.boys'
-  | 'features.image.childrenContentJson.girls'
-  | 'features.image.childContentJson.id'
-  | 'features.image.childContentJson.children'
-  | 'features.image.childContentJson.men'
-  | 'features.image.childContentJson.women'
-  | 'features.image.childContentJson.boys'
-  | 'features.image.childContentJson.girls'
   | 'features.image.id'
   | 'features.image.parent.id'
   | 'features.image.parent.children'
@@ -6306,9 +6461,9 @@ type AboutJsonFieldsEnum =
   | 'image.childrenHeroJson.image.childrenImageSharp'
   | 'image.childrenHeroJson.image.childrenMarkdownRemark'
   | 'image.childrenHeroJson.image.childrenHeroJson'
+  | 'image.childrenHeroJson.image.childrenContentJson'
   | 'image.childrenHeroJson.image.childrenFeaturesJson'
   | 'image.childrenHeroJson.image.childrenAboutJson'
-  | 'image.childrenHeroJson.image.childrenContentJson'
   | 'image.childrenHeroJson.image.id'
   | 'image.childrenHeroJson.image.children'
   | 'image.childHeroJson.id'
@@ -6364,11 +6519,56 @@ type AboutJsonFieldsEnum =
   | 'image.childHeroJson.image.childrenImageSharp'
   | 'image.childHeroJson.image.childrenMarkdownRemark'
   | 'image.childHeroJson.image.childrenHeroJson'
+  | 'image.childHeroJson.image.childrenContentJson'
   | 'image.childHeroJson.image.childrenFeaturesJson'
   | 'image.childHeroJson.image.childrenAboutJson'
-  | 'image.childHeroJson.image.childrenContentJson'
   | 'image.childHeroJson.image.id'
   | 'image.childHeroJson.image.children'
+  | 'image.childrenContentJson'
+  | 'image.childrenContentJson.id'
+  | 'image.childrenContentJson.parent.id'
+  | 'image.childrenContentJson.parent.children'
+  | 'image.childrenContentJson.children'
+  | 'image.childrenContentJson.children.id'
+  | 'image.childrenContentJson.children.children'
+  | 'image.childrenContentJson.internal.content'
+  | 'image.childrenContentJson.internal.contentDigest'
+  | 'image.childrenContentJson.internal.description'
+  | 'image.childrenContentJson.internal.fieldOwners'
+  | 'image.childrenContentJson.internal.ignoreType'
+  | 'image.childrenContentJson.internal.mediaType'
+  | 'image.childrenContentJson.internal.owner'
+  | 'image.childrenContentJson.internal.type'
+  | 'image.childrenContentJson.men'
+  | 'image.childrenContentJson.men.category'
+  | 'image.childrenContentJson.women'
+  | 'image.childrenContentJson.women.category'
+  | 'image.childrenContentJson.boys'
+  | 'image.childrenContentJson.boys.category'
+  | 'image.childrenContentJson.girls'
+  | 'image.childrenContentJson.girls.category'
+  | 'image.childContentJson.id'
+  | 'image.childContentJson.parent.id'
+  | 'image.childContentJson.parent.children'
+  | 'image.childContentJson.children'
+  | 'image.childContentJson.children.id'
+  | 'image.childContentJson.children.children'
+  | 'image.childContentJson.internal.content'
+  | 'image.childContentJson.internal.contentDigest'
+  | 'image.childContentJson.internal.description'
+  | 'image.childContentJson.internal.fieldOwners'
+  | 'image.childContentJson.internal.ignoreType'
+  | 'image.childContentJson.internal.mediaType'
+  | 'image.childContentJson.internal.owner'
+  | 'image.childContentJson.internal.type'
+  | 'image.childContentJson.men'
+  | 'image.childContentJson.men.category'
+  | 'image.childContentJson.women'
+  | 'image.childContentJson.women.category'
+  | 'image.childContentJson.boys'
+  | 'image.childContentJson.boys.category'
+  | 'image.childContentJson.girls'
+  | 'image.childContentJson.girls.category'
   | 'image.childrenFeaturesJson'
   | 'image.childrenFeaturesJson.id'
   | 'image.childrenFeaturesJson.parent.id'
@@ -6456,9 +6656,9 @@ type AboutJsonFieldsEnum =
   | 'image.childrenAboutJson.image.childrenImageSharp'
   | 'image.childrenAboutJson.image.childrenMarkdownRemark'
   | 'image.childrenAboutJson.image.childrenHeroJson'
+  | 'image.childrenAboutJson.image.childrenContentJson'
   | 'image.childrenAboutJson.image.childrenFeaturesJson'
   | 'image.childrenAboutJson.image.childrenAboutJson'
-  | 'image.childrenAboutJson.image.childrenContentJson'
   | 'image.childrenAboutJson.image.id'
   | 'image.childrenAboutJson.image.children'
   | 'image.childrenAboutJson.chooseUs'
@@ -6517,59 +6717,14 @@ type AboutJsonFieldsEnum =
   | 'image.childAboutJson.image.childrenImageSharp'
   | 'image.childAboutJson.image.childrenMarkdownRemark'
   | 'image.childAboutJson.image.childrenHeroJson'
+  | 'image.childAboutJson.image.childrenContentJson'
   | 'image.childAboutJson.image.childrenFeaturesJson'
   | 'image.childAboutJson.image.childrenAboutJson'
-  | 'image.childAboutJson.image.childrenContentJson'
   | 'image.childAboutJson.image.id'
   | 'image.childAboutJson.image.children'
   | 'image.childAboutJson.chooseUs'
   | 'image.childAboutJson.chooseUs.text'
   | 'image.childAboutJson.chooseUs.title'
-  | 'image.childrenContentJson'
-  | 'image.childrenContentJson.id'
-  | 'image.childrenContentJson.parent.id'
-  | 'image.childrenContentJson.parent.children'
-  | 'image.childrenContentJson.children'
-  | 'image.childrenContentJson.children.id'
-  | 'image.childrenContentJson.children.children'
-  | 'image.childrenContentJson.internal.content'
-  | 'image.childrenContentJson.internal.contentDigest'
-  | 'image.childrenContentJson.internal.description'
-  | 'image.childrenContentJson.internal.fieldOwners'
-  | 'image.childrenContentJson.internal.ignoreType'
-  | 'image.childrenContentJson.internal.mediaType'
-  | 'image.childrenContentJson.internal.owner'
-  | 'image.childrenContentJson.internal.type'
-  | 'image.childrenContentJson.men'
-  | 'image.childrenContentJson.men.category'
-  | 'image.childrenContentJson.women'
-  | 'image.childrenContentJson.women.category'
-  | 'image.childrenContentJson.boys'
-  | 'image.childrenContentJson.boys.category'
-  | 'image.childrenContentJson.girls'
-  | 'image.childrenContentJson.girls.category'
-  | 'image.childContentJson.id'
-  | 'image.childContentJson.parent.id'
-  | 'image.childContentJson.parent.children'
-  | 'image.childContentJson.children'
-  | 'image.childContentJson.children.id'
-  | 'image.childContentJson.children.children'
-  | 'image.childContentJson.internal.content'
-  | 'image.childContentJson.internal.contentDigest'
-  | 'image.childContentJson.internal.description'
-  | 'image.childContentJson.internal.fieldOwners'
-  | 'image.childContentJson.internal.ignoreType'
-  | 'image.childContentJson.internal.mediaType'
-  | 'image.childContentJson.internal.owner'
-  | 'image.childContentJson.internal.type'
-  | 'image.childContentJson.men'
-  | 'image.childContentJson.men.category'
-  | 'image.childContentJson.women'
-  | 'image.childContentJson.women.category'
-  | 'image.childContentJson.boys'
-  | 'image.childContentJson.boys.category'
-  | 'image.childContentJson.girls'
-  | 'image.childContentJson.girls.category'
   | 'image.id'
   | 'image.parent.id'
   | 'image.parent.parent.id'
@@ -6682,6 +6837,19 @@ type AboutJsonFieldsEnum =
   | 'chooseUs.image.childHeroJson.children'
   | 'chooseUs.image.childHeroJson.title'
   | 'chooseUs.image.childHeroJson.body'
+  | 'chooseUs.image.childrenContentJson'
+  | 'chooseUs.image.childrenContentJson.id'
+  | 'chooseUs.image.childrenContentJson.children'
+  | 'chooseUs.image.childrenContentJson.men'
+  | 'chooseUs.image.childrenContentJson.women'
+  | 'chooseUs.image.childrenContentJson.boys'
+  | 'chooseUs.image.childrenContentJson.girls'
+  | 'chooseUs.image.childContentJson.id'
+  | 'chooseUs.image.childContentJson.children'
+  | 'chooseUs.image.childContentJson.men'
+  | 'chooseUs.image.childContentJson.women'
+  | 'chooseUs.image.childContentJson.boys'
+  | 'chooseUs.image.childContentJson.girls'
   | 'chooseUs.image.childrenFeaturesJson'
   | 'chooseUs.image.childrenFeaturesJson.id'
   | 'chooseUs.image.childrenFeaturesJson.children'
@@ -6700,19 +6868,6 @@ type AboutJsonFieldsEnum =
   | 'chooseUs.image.childAboutJson.body'
   | 'chooseUs.image.childAboutJson.title'
   | 'chooseUs.image.childAboutJson.chooseUs'
-  | 'chooseUs.image.childrenContentJson'
-  | 'chooseUs.image.childrenContentJson.id'
-  | 'chooseUs.image.childrenContentJson.children'
-  | 'chooseUs.image.childrenContentJson.men'
-  | 'chooseUs.image.childrenContentJson.women'
-  | 'chooseUs.image.childrenContentJson.boys'
-  | 'chooseUs.image.childrenContentJson.girls'
-  | 'chooseUs.image.childContentJson.id'
-  | 'chooseUs.image.childContentJson.children'
-  | 'chooseUs.image.childContentJson.men'
-  | 'chooseUs.image.childContentJson.women'
-  | 'chooseUs.image.childContentJson.boys'
-  | 'chooseUs.image.childContentJson.girls'
   | 'chooseUs.image.id'
   | 'chooseUs.image.parent.id'
   | 'chooseUs.image.parent.children'
@@ -6741,161 +6896,6 @@ type AboutJsonGroupConnection = {
 
 type AboutJsonSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<AboutJsonFieldsEnum>>>;
-  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
-};
-
-type ContentJsonConnection = {
-  readonly totalCount: Scalars['Int'];
-  readonly edges: ReadonlyArray<ContentJsonEdge>;
-  readonly nodes: ReadonlyArray<ContentJson>;
-  readonly pageInfo: PageInfo;
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly group: ReadonlyArray<ContentJsonGroupConnection>;
-};
-
-
-type ContentJsonConnection_distinctArgs = {
-  field: ContentJsonFieldsEnum;
-};
-
-
-type ContentJsonConnection_maxArgs = {
-  field: ContentJsonFieldsEnum;
-};
-
-
-type ContentJsonConnection_minArgs = {
-  field: ContentJsonFieldsEnum;
-};
-
-
-type ContentJsonConnection_sumArgs = {
-  field: ContentJsonFieldsEnum;
-};
-
-
-type ContentJsonConnection_groupArgs = {
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-  field: ContentJsonFieldsEnum;
-};
-
-type ContentJsonEdge = {
-  readonly next: Maybe<ContentJson>;
-  readonly node: ContentJson;
-  readonly previous: Maybe<ContentJson>;
-};
-
-type ContentJsonFieldsEnum =
-  | 'id'
-  | 'parent.id'
-  | 'parent.parent.id'
-  | 'parent.parent.parent.id'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.children.children'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.children'
-  | 'parent.children.id'
-  | 'parent.children.parent.id'
-  | 'parent.children.parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.children.children'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'children'
-  | 'children.id'
-  | 'children.parent.id'
-  | 'children.parent.parent.id'
-  | 'children.parent.parent.children'
-  | 'children.parent.children'
-  | 'children.parent.children.id'
-  | 'children.parent.children.children'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.children'
-  | 'children.children.id'
-  | 'children.children.parent.id'
-  | 'children.children.parent.children'
-  | 'children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.children.children'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'men'
-  | 'men.category'
-  | 'women'
-  | 'women.category'
-  | 'boys'
-  | 'boys.category'
-  | 'girls'
-  | 'girls.category';
-
-type ContentJsonGroupConnection = {
-  readonly totalCount: Scalars['Int'];
-  readonly edges: ReadonlyArray<ContentJsonEdge>;
-  readonly nodes: ReadonlyArray<ContentJson>;
-  readonly pageInfo: PageInfo;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-};
-
-type ContentJsonSortInput = {
-  readonly fields: Maybe<ReadonlyArray<Maybe<ContentJsonFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
@@ -7481,16 +7481,10 @@ type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
 
 type CatalogQuery = { readonly productCatalog: Maybe<{ readonly catalog: Maybe<Pick<ProductCatalogCatalog, 'boys' | 'girls' | 'men' | 'women'>> }> };
 
-type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutPageQuery = { readonly aboutJson: Maybe<(
-    Pick<AboutJson, 'body' | 'title'>
-    & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly chooseUs: Maybe<ReadonlyArray<Maybe<(
-      Pick<AboutJsonChooseUs, 'title' | 'text'>
-      & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
-    )>>> }
-  )> };
+type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type ProductFrontmatterFragmentFragment = Pick<MarkdownRemarkFrontmatter, 'title' | 'category' | 'hidden' | 'careatedAt' | 'discount' | 'type' | 'price'>;
 
@@ -7513,6 +7507,17 @@ type IndexPageQuery = { readonly newProducts: { readonly nodes: ReadonlyArray<(
       )> }
     )> } };
 
+type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutPageQuery = { readonly aboutJson: Maybe<(
+    Pick<AboutJson, 'body' | 'title'>
+    & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>, readonly chooseUs: Maybe<ReadonlyArray<Maybe<(
+      Pick<AboutJsonChooseUs, 'title' | 'text'>
+      & { readonly image: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+    )>>> }
+  )> };
+
 type CategoryPageQueryVariables = Exact<{
   type: Scalars['String'];
   category: Maybe<Scalars['String']>;
@@ -7528,16 +7533,6 @@ type CategoryPageQuery = { readonly amr: { readonly nodes: ReadonlyArray<(
         & ProductFrontmatterFragmentFragment
       )> }
     )> } };
-
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
-
-type homeantonprojectscozyClothingsrcpagessearchTsx1916430915QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type homeantonprojectscozyClothingsrcpagessearchTsx1916430915Query = { readonly localSearchAllProducts: Maybe<Pick<LocalSearchAllProducts, 'publicStoreURL' | 'publicIndexURL'>> };
 
 type ProductImagesFragmentFragment = { readonly images: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>>, readonly imagesPreview: Maybe<ReadonlyArray<Maybe<{ readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }>>> };
 

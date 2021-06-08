@@ -8,6 +8,7 @@ import { SeoProps } from './Seo.types';
 export const Seo: FC<SeoProps> = ({
     description,
     meta = [],
+    keywords = [],
     title = 'Page',
 }) => {
     const { site } = useStaticQuery<GatsbyTypes.SeoQuery>(graphql` 
@@ -22,13 +23,17 @@ export const Seo: FC<SeoProps> = ({
         }
     `);
 
-    const metaDescription = description || site?.siteMetadata?.description;
+    const metaDescription = `${site?.siteMetadata?.description} ${description || ''}`.trim();
     const defaultTitle = site?.siteMetadata?.title;
     return (
         <Helmet
             htmlAttributes={{ lang: 'en' }}
             meta={[
                 ...meta,
+                {
+                    name: 'keywords',
+                    content: ['clothing', 'shop', ...keywords].join(', '),
+                },
                 {
                     name: 'description',
                     content: metaDescription,

@@ -7,5 +7,6 @@ export interface SeoProps {
         content: string;
     }[];
     title: string;
+    keywords?: string[]
 }
 

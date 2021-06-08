@@ -14,6 +14,7 @@ const about: FC<PageProps<GatsbyTypes.AboutPageQuery>> = ({ data }) => {
     return (
         <main>
             <Seo
+                description={body}
                 title="About Shop"
             />
             <AboutPage

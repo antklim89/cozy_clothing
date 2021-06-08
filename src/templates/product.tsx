@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { Container } from '~/components';
 import { Product } from '~/components/Product';
 import { Seo } from '~/components/Seo';
+import { IProduct } from '~/types';
 import { throwErr } from '~/utils';
 import { productSchema } from '~/validation/productSchema';
 
@@ -19,7 +20,7 @@ const productPage: FC<PageProps<GatsbyTypes.ProductPageQuery, ProductPageContext
     const { rawMarkdownBody, id } = data?.amr || throwErr();
     const frontmatter = data?.amr?.frontmatter || throwErr();
 
-    const product = productSchema.validateSync({
+    const product: IProduct = productSchema.validateSync({
         ...frontmatter,
         rawMarkdownBody,
         id,
@@ -27,7 +28,11 @@ const productPage: FC<PageProps<GatsbyTypes.ProductPageQuery, ProductPageContext
 
     return (
         <main>
-            <Seo title={product.title} />
+            <Seo
+                description={product.rawMarkdownBody}
+                keywords={[product.category, product.type]}
+                title={product.title}
+            />
             <Container component="section" topSpace="md">
                 <Product product={product} />
             </Container>
