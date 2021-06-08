@@ -29,6 +29,7 @@ const schema = yup.object({
     phone: yup
         .string()
         .label('Phone')
+        .matches(/^[\d\s]*$/ig, 'Not valid phone number.')
         .max(500)
         .required(),
     email: yup
