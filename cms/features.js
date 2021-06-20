@@ -1,7 +1,5 @@
-import { CmsCollectionFile } from 'netlify-cms-core';
 
-
-export const features: CmsCollectionFile = {
+export const features = {
     label: 'Features',
     name: 'features',
     file: 'content/features/index.json',

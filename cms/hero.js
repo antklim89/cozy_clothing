@@ -1,3 +1,4 @@
+
 export const hero = {
     label: 'Hero',
     name: 'hero',

@@ -1,9 +1,7 @@
-import { CmsCollection } from 'netlify-cms-core';
-
-import { productTypes } from '../src/constants';
+import productTypes from './productTypes';
 
 
-export const productCategoriesCollection: CmsCollection = {
+export const productCategoriesCollection = {
     label: 'Categories',
     name: 'categories',
     editor: {

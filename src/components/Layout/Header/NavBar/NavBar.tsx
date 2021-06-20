@@ -6,14 +6,13 @@ import styles from './NavBar.module.scss';
 import { NavBarPropTypes } from './NavBar.types';
 
 import { Button } from '~/components/Button';
-import { productTypes } from '~/constants';
 
 
 export const NavBar: FC<NavBarPropTypes> = () => {
     return (
         <nav>
             <ul className={styles.nav}>
-                {productTypes.map((type) => (
+                {['men', 'women', 'boys', 'girls'].map((type) => (
                     <li className="hide-sm" key={type}>
                         <Button
                             partiallyActive

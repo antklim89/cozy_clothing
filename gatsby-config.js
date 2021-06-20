@@ -42,13 +42,12 @@ module.exports = {
         author: 'Anton',
     },
     plugins: [
-        'gatsby-plugin-zopfli',
         {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {
                 enableIdentityWidget: false,
                 manualInit: true,
-                modulePath: `${__dirname}/cms/build/cms/index.js`,
+                modulePath: `${__dirname}/cms/index.js`,
                 publicPath: 'cms',
             },
         },
@@ -68,6 +67,7 @@ module.exports = {
                 })),
             },
         },
+        'gatsby-plugin-zopfli',
         'gatsby-transformer-json',
         'gatsby-plugin-netlify',
         'gatsby-plugin-react-helmet',

@@ -1,4 +1,6 @@
-import { productTypes } from '../src/constants';
+import productTypes from './productTypes';
+
+
 export const productsCollection = productTypes.map((type) => ({
     name: type,
     label: `Products ${type}`,
@@ -88,3 +90,4 @@ export const productsCollection = productTypes.map((type) => ({
         },
     ],
 }));
+
