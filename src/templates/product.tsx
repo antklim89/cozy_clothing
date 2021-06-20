@@ -59,7 +59,7 @@ export const query = graphql`
             image {
                 a:childImageSharp {
                     b:gatsbyImageData(
-                        layout: FULL_WIDTH
+                        layout: CONSTRAINED
                         placeholder: BLURRED
                     )
                 }

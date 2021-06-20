@@ -7460,14 +7460,6 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type HeroQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HeroQuery = { readonly json: Maybe<(
-    Pick<HeroJson, 'title' | 'body'>
-    & { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }
-  )> };
-
 type FeaturesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -7475,6 +7467,14 @@ type FeaturesQuery = { readonly featuresJson: Maybe<{ readonly features: Maybe<R
       Pick<FeaturesJsonFeatures, 'text'>
       & { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }
     )>>> }> };
+
+type HeroQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HeroQuery = { readonly json: Maybe<(
+    Pick<HeroJson, 'title' | 'body'>
+    & { readonly image: Maybe<{ readonly a: Maybe<{ b: ImageSharp['gatsbyImageData'] }> }> }
+  )> };
 
 type CatalogQueryVariables = Exact<{ [key: string]: never; }>;
 

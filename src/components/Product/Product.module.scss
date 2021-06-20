@@ -5,9 +5,12 @@
     display: flex;
     @extend .mb-5;
     
+    > * {
+        flex: 1 0;
+    }
 
     @include media-md {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 }
 
