@@ -69,6 +69,8 @@ export const Seo: FC<SeoProps> = ({
             ]}
             title={title}
             titleTemplate={defaultTitle && `%s | ${defaultTitle}`}
-        />
+        >
+            <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" type="text/javascript" />
+        </Helmet>
     );
 };
