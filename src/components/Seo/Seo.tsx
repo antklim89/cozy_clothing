@@ -25,6 +25,8 @@ export const Seo: FC<SeoProps> = ({
 
     const metaDescription = `${site?.siteMetadata?.description} ${description || ''}`.trim();
     const defaultTitle = site?.siteMetadata?.title;
+
+    console.debug('||process.env.NETLIFY: \n', process.env.NETLIFY);
     return (
         <Helmet
             htmlAttributes={{ lang: 'en' }}
@@ -70,7 +72,9 @@ export const Seo: FC<SeoProps> = ({
             title={title}
             titleTemplate={defaultTitle && `%s | ${defaultTitle}`}
         >
-            <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" type="text/javascript" />
+            {process.env.NETLIFY && (
+                <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" type="text/javascript" />
+            )}
         </Helmet>
     );
 };

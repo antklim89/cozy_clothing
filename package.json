@@ -33,14 +33,12 @@
     "lodash": "^4.17.21",
     "netlify-cms-app": "^2.14.47",
     "netlify-cms-core": "^2.40.6",
-    "netlify-cms-media-library-uploadcare": "^0.5.10",
     "postcss": "^8.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-lunr": "^1.1.0",
     "react-markdown": "^5.0.3",
-    "react-use-flexsearch": "^0.1.1",
     "sass": "^1.32.8",
     "yup": "^0.32.9"
   },
@@ -53,7 +51,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "run-p dev:**",
-    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
+    "dev:gatsby": "gatsby develop -p 3001 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server",
     "start": "npm run develop",
     "typecheck": "tsc --preserveWatchOutput --watch --noEmit",
