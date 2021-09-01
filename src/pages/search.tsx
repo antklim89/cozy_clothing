@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { FC, useEffect, useState } from 'react';
 
-import { Container } from '~/components';
+import { Container } from '~/components/Container';
 import { Input } from '~/components/Input';
 import { Search } from '~/components/Search';
 import { Seo } from '~/components/Seo';

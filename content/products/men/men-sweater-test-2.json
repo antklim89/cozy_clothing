@@ -7,7 +7,9 @@
   "imagePreview": "images/zv_4205.jpg",
   "careatedAt": "2021-09-03T10:44:35.125Z",
   "title": "TEST 2",
-  "images": [],
+  "images": [
+    "images/zv_4205.jpg"
+  ],
   "type": "men",
   "category": "Sweater"
 }

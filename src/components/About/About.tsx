@@ -2,14 +2,14 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import styles from './AboutPage.module.scss';
-import { AboutPagePropTypes } from './AboutPage.types';
+import styles from './About.module.scss';
 
 import { Container } from '~/components/Container';
 import { Title } from '~/components/Title';
+import { IAbout } from '~/types';
 
 
-export const AboutPage: FC<AboutPagePropTypes> = ({
+export const About: FC<IAbout> = ({
     title, body, image, chooseUs,
 }) => {
     return (
@@ -18,7 +18,7 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
                 <Title>{title}</Title>
                 <article className={styles.aboutContainer}>
                     <div className={styles.aboutItem}>
-                        <GatsbyImage alt="about" image={image} />
+                        <GatsbyImage alt="about" image={image.childImageSharp.gatsbyImageData} />
                     </div>
                     <div className={styles.aboutItem}>
                         <ReactMarkdown source={body} />
@@ -33,7 +33,7 @@ export const AboutPage: FC<AboutPagePropTypes> = ({
                         <article className={styles.chooseUsItem} key={item.title}>
                             <GatsbyImage
                                 alt={item.title}
-                                image={item.image}
+                                image={item.image.childImageSharp.gatsbyImageData}
                             />
                             <h5>{item.title}</h5>
                             <p>{item.text}</p>

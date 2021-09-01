@@ -1,7 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Container } from '~/components';
+import { Container } from '~/components/Container';
 import { Features } from '~/components/Features';
 import { Hero } from '~/components/Hero/Hero';
 import { ProductList } from '~/components/ProductList';

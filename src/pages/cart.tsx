@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import DoneIcon from '~/assets/done.svg';
-import { Button } from '~/components';
+import { Button } from '~/components/Button';
 import { CartList } from '~/components/CartList';
 import { ConfirmOrder } from '~/components/ConfirmOrder';
 import { Container } from '~/components/Container';

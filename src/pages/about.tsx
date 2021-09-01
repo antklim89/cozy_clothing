@@ -1,28 +1,23 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { AboutPage } from '~/components';
+import { About } from '~/components/About';
 import { Seo } from '~/components/Seo';
-import { aboutSchema } from '~/validation';
+import { IAbout } from '~/types/about';
 
 
-const about: FC<PageProps<any>> = ({ data }) => {
-    const {
-        body, chooseUs, image, title,
-    } = aboutSchema.validateSync(data.aboutJson);
+interface AboutPageQuery {
+    about: IAbout
+}
 
+const AboutPage: FC<PageProps<AboutPageQuery>> = ({ data: { about } }) => {
     return (
         <main>
             <Seo
-                description={body}
+                description={about.body}
                 title="About Shop"
             />
-            <AboutPage
-                body={body}
-                chooseUs={chooseUs}
-                image={image}
-                title={title}
-            />
+            <About {...about} />
         </main>
     );
 };
@@ -50,4 +45,4 @@ export const query = graphql`
     }
 `;
 
-export default about;
+export default AboutPage;

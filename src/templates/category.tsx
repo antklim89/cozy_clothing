@@ -2,8 +2,8 @@ import { graphql, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
-import { Container } from '~/components';
 import { CategoriesBar } from '~/components/CategoriesBar';
+import { Container } from '~/components/Container';
 import { Pagination } from '~/components/Pagination';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';

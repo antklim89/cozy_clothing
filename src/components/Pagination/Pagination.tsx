@@ -1,10 +1,11 @@
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
-import { Button } from '../Button';
 
 import styles from './Pagination.module.scss';
 import { PaginationPropTypes } from './Pagination.types';
+
+import { Button } from '~/components/Button';
 
 
 export const Pagination: FC<PaginationPropTypes> = ({

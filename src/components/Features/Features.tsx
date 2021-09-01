@@ -2,10 +2,10 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import { Container } from '../Container';
-
 import styles from './Features.module.scss';
 import featuresSchema from './Features.schema';
+
+import { Container } from '~/components/Container';
 
 
 export const Features: FC = () => {

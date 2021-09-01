@@ -7,7 +7,9 @@
   "imagePreview": "images/zv_4204.jpg",
   "careatedAt": "2021-09-03T09:06:43.758Z",
   "title": "new",
-  "images": [],
+  "images": [
+    "images/zv_4205.jpg"
+  ],
   "type": "men",
   "category": "Sweater"
 }

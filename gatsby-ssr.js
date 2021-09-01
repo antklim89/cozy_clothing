@@ -9,7 +9,7 @@
 
 import { createElement } from 'react';
 
-import { Layout } from '~/components';
+import { Layout } from '~/components/Layout';
 
 
 export const wrapPageElement = ({ element, props }) => {

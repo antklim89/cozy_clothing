@@ -1,11 +1,9 @@
 import { ChangeEvent, FC, useMemo } from 'react';
 
-
-import { Button } from '../Button';
-
 import styles from './SelectNumber.module.scss';
 import { SelectNumberPropTypes } from './SelectNumber.types';
 
+import { Button } from '~/components/Button';
 import { cls } from '~/utils';
 
 
