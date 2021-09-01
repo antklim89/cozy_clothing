@@ -10,7 +10,7 @@ import { Pagination } from '~/components/Pagination';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
 import { Title } from '~/components/Title';
-import { IPagination } from '~/types';
+import { IPagination, IProductPreview } from '~/types';
 
 
 interface CategoryPageContext extends IPagination {
@@ -19,17 +19,21 @@ interface CategoryPageContext extends IPagination {
     categories: string[]
 }
 
+interface CategoryPageData {
+    allMarkdownRemark: {
+        nodes: IProductPreview[]
+    }
+}
 
-const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageContext>> = ({
+
+const categoryPage: FC<PageProps<CategoryPageData, CategoryPageContext>> = ({
     pageContext: {
         category, type, categories, ...paginationContext
     },
-    data,
+    data: {
+        allMarkdownRemark: { nodes: products },
+    },
 }) => {
-    const products = productPreviewArraySchema.validateSync(data.amr.nodes.map(({ id, frontmatter }) => {
-        return { id, ...frontmatter };
-    }));
-
     const title = `${capitalize(type)}${category ? ` - ${capitalize(category)}` : ''}`;
 
     return (
@@ -50,7 +54,7 @@ const categoryPage: FC<PageProps<GatsbyTypes.CategoryPageQuery, CategoryPageCont
 export const query = graphql`
 
 query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!) {
-    amr: allMarkdownRemark(
+    allMarkdownRemark(
       filter: {frontmatter: {
             type: {eq: $type},
             category: {eq: $category},

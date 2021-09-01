@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const crypto = require('crypto');
 const path = require('path');
 
 const { paginate } = require('gatsby-awesome-pagination');
+
+const { productSchema } = require('./src/validation');
 
 
 exports.onCreateBabelConfig = ({ actions }) => {
@@ -19,16 +20,31 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     const miniCssExtractPlugin = config.plugins.find(
         (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin',
     );
-    if (miniCssExtractPlugin) {
-        miniCssExtractPlugin.options.ignoreOrder = true;
-    }
+    if (miniCssExtractPlugin) miniCssExtractPlugin.options.ignoreOrder = true;
+
     actions.replaceWebpackConfig(config);
 };
 
 
-exports.onCreateNode = async ({
-    actions, getNodesByType,
-}) => {
+exports.sourceNodes = async (args) => {
+    await createCatalogNodes(args);
+    await validateProducts(args);
+};
+
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+    // await createProductPages(graphql, createPage);
+    // await createCategoriesPage(graphql, createPage);
+};
+
+function validateProducts({ getNodesByType }) {
+    getNodesByType('MarkdownRemark')
+        .filter(({ frontmatter: { layout, hidden } = {} } = {}) => layout === 'product' && hidden === false)
+        .map((product) => productSchema.validateSync(product));
+}
+
+function createCatalogNodes({
+    actions, getNodesByType, createNodeId, createContentDigest,
+}) {
     const catalog = getNodesByType('MarkdownRemark')
         .filter(({ frontmatter: { layout, hidden } = {} } = {}) => layout === 'product' && hidden === false)
         .reduce((acc, { frontmatter: { type, category } }) => {
@@ -44,27 +60,18 @@ exports.onCreateNode = async ({
         }, {});
 
     actions.createNode({
-        catalog,
-        id: 'a-node-id',
+        ...catalog,
+        id: createNodeId('catalog'),
         parent: null,
         internal: {
-            type: 'ProductCatalog',
-            contentDigest: crypto
-                .createHash('md5')
-                .update(JSON.stringify(catalog))
-                .digest('hex'),
+            type: 'Catalog',
+            contentDigest: createContentDigest(catalog),
         },
     });
-};
-
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
-    await createProductPages(graphql, createPage);
-    await createCategoriesPage(graphql, createPage);
-};
-
+}
 
 async function createCategoriesPage(graphql, createPage) {
-    const { data: { productCatalog: { catalog } } } = await graphql(`
+    const { data: { productCatalog: { catalog } } } = await graphql(`#graphql
         {
             productCatalog {
                 catalog {
@@ -80,7 +87,7 @@ async function createCategoriesPage(graphql, createPage) {
     await Promise.all(Object.keys(catalog).map(async (type) => {
         const categories = catalog[type];
 
-        const { data: { allMarkdownRemark: { nodes: productsByTypes } } } = await graphql(`
+        const { data: { allMarkdownRemark: { nodes: productsByTypes } } } = await graphql(`#graphql
             {
                 allMarkdownRemark(
                     filter: {frontmatter: {
@@ -102,7 +109,7 @@ async function createCategoriesPage(graphql, createPage) {
         });
 
         await Promise.all(categories.map(async (category) => {
-            const { data: { allMarkdownRemark: { nodes: productsByCategories } } } = await graphql(`
+            const { data: { allMarkdownRemark: { nodes: productsByCategories } } } = await graphql(`#graphql
                 {
                     allMarkdownRemark(
                         filter: {frontmatter: {
@@ -132,7 +139,7 @@ async function createCategoriesPage(graphql, createPage) {
 }
 
 async function createProductPages(graphql, createPage) {
-    const { data: { amr: { nodes: products } } } = await graphql(`
+    const { data: { amr: { nodes: products } } } = await graphql(`#graphql
         {
             amr: allMarkdownRemark(
                 filter: {frontmatter: {

@@ -11,7 +11,7 @@ export const Seo: FC<SeoProps> = ({
     keywords = [],
     title = 'Page',
 }) => {
-    const { site } = useStaticQuery<GatsbyTypes.SeoQuery>(graphql` 
+    const { site } = useStaticQuery<any>(graphql` 
         query Seo {
             site {
                 siteMetadata {

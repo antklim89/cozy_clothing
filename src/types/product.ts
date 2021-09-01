@@ -1,8 +1,7 @@
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { IGatsbyImage } from '~/types';
 
 
-interface IProductBase {
-    id: string
+export interface BaseProductFrontmatterSchema {
     title: string
     price: number
     type: string
@@ -11,12 +10,18 @@ interface IProductBase {
     discount: number
 }
 
-export interface IProductPreview extends IProductBase {
-    imagePreview: IGatsbyImageData;
+export interface IProductPreview {
+    id: string
+    frontmatter: {
+        imagePreview: IGatsbyImage;
+    } & BaseProductFrontmatterSchema
 }
 
-export interface IProduct extends IProductBase {
+export interface IProduct {
     rawMarkdownBody: string
-    imagesPreview: IGatsbyImageData[]
-    images: IGatsbyImageData[];
+    id: string
+    frontmatter: {
+        images: IGatsbyImage[];
+        imagesPreview: IGatsbyImage[];
+    } & BaseProductFrontmatterSchema
 }

@@ -3,7 +3,7 @@ const autoprefixer = require('autoprefixer');
 const postcss = require('postcss-preset-env');
 
 
-const query = `
+const query = `#graphql
 {
     allMarkdownRemark(
         filter: {frontmatter: {
@@ -75,7 +75,7 @@ module.exports = {
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-typescript-checker',
-        'gatsby-plugin-typegen',
+        // 'gatsby-plugin-typegen',
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {

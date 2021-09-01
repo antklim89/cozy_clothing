@@ -5,33 +5,26 @@ import { Container } from '~/components';
 import { Product } from '~/components/Product';
 import { Seo } from '~/components/Seo';
 import { IProduct } from '~/types';
-import { throwErr } from '~/utils';
-import { productSchema } from '~/validation/productSchema';
 
 
 interface ProductPageContext {
     id: string
 }
 
+interface ProductPageData {
+    markdownRemark: IProduct
+}
 
-const productPage: FC<PageProps<GatsbyTypes.ProductPageQuery, ProductPageContext>> = ({
-    data,
+
+const productPage: FC<PageProps<ProductPageData, ProductPageContext>> = ({
+    data: { markdownRemark: product },
 }) => {
-    const { rawMarkdownBody, id } = data?.amr || throwErr();
-    const frontmatter = data?.amr?.frontmatter || throwErr();
-
-    const product: IProduct = productSchema.validateSync({
-        ...frontmatter,
-        rawMarkdownBody,
-        id,
-    });
-
     return (
         <main>
             <Seo
                 description={product.rawMarkdownBody}
-                keywords={[product.category, product.type]}
-                title={product.title}
+                keywords={[product.frontmatter.category, product.frontmatter.type]}
+                title={product.frontmatter.title}
             />
             <Container component="section" topSpace="md">
                 <Product product={product} />
@@ -43,7 +36,7 @@ const productPage: FC<PageProps<GatsbyTypes.ProductPageQuery, ProductPageContext
 
 export const query = graphql`
     query ProductPage($id: String!) {
-        amr: markdownRemark(id: {eq: $id}) {
+        markdownRemark(id: {eq: $id}) {
             id
             rawMarkdownBody
             frontmatter {
@@ -57,8 +50,8 @@ export const query = graphql`
     fragment ProductImagesFragment on MarkdownRemarkFrontmatter {
         images {
             image {
-                a:childImageSharp {
-                    b:gatsbyImageData(
+                childImageSharp {
+                    gatsbyImageData(
                         layout: CONSTRAINED
                         placeholder: BLURRED
                     )
@@ -67,8 +60,8 @@ export const query = graphql`
         }
         imagesPreview: images {
             image {
-                a:childImageSharp {
-                    b:gatsbyImageData(
+                childImageSharp {
+                    gatsbyImageData(
                         layout: CONSTRAINED
                         placeholder: BLURRED
                         width: 170

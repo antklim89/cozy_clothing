@@ -7,16 +7,22 @@ import { Hero } from '~/components/Hero/Hero';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
 import { Title } from '~/components/Title';
+import { IProductPreview } from '~/types';
 import { productPreviewArraySchema } from '~/validation';
 
 
-const index: FC<PageProps<AnyObject>> = ({ data }) => {
-    const newProducts = productPreviewArraySchema.validateSync(
-        data.newProducts.nodes.map(({ id, frontmatter }: AnyObject) => ({ id, ...frontmatter })),
-    );
-    const promoProducts = productPreviewArraySchema.validateSync(
-        data.promoProducts.nodes.map(({ id, frontmatter }: AnyObject) => ({ id, ...frontmatter })),
-    );
+interface Data {
+    newProducts: {
+        nodes: IProductPreview[]
+    }
+    promoProducts: {
+        nodes: IProductPreview[]
+    }
+}
+
+const index: FC<PageProps<Data>> = ({ data }) => {
+    const newProducts = data.newProducts.nodes;
+    const promoProducts = data.promoProducts.nodes;
 
     return (
         <main>

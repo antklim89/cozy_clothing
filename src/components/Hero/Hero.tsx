@@ -10,7 +10,7 @@ import { heroSchema } from '~/validation';
 
 
 export const Hero: FC = () => {
-    const { json } = useStaticQuery<GatsbyTypes.HeroQuery>(graphql`
+    const { json } = useStaticQuery<any>(graphql`
         query Hero {
             json: heroJson {
                 title

@@ -1,10 +1,10 @@
 import CMS from 'netlify-cms-app';
 
-import { aboutPage } from './about-page';
+import { about } from './about';
 import { features } from './features';
 import { hero } from './hero';
-import { productCategoriesCollection } from './product-categories-collection';
-import { productsCollection } from './products-collection';
+import { productCategories } from './productCategories';
+import { products } from './products';
 
 
 CMS.init({
@@ -23,14 +23,14 @@ CMS.init({
         publish_mode: 'editorial_workflow',
         media_folder: 'content/uploaded/',
         collections: [
-            ...productsCollection,
-            productCategoriesCollection,
+            ...products,
+            productCategories,
             {
                 label: 'Pages',
                 name: 'pages',
                 editor: { preview: false },
                 files: [
-                    aboutPage,
+                    about,
                     hero,
                     features,
                 ],

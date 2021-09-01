@@ -10,20 +10,17 @@ import { throwErr } from '~/utils';
 
 
 export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
-    const { productCatalog } = useStaticQuery<GatsbyTypes.CatalogQuery>(graphql`
+    const { productCatalog } = useStaticQuery<any>(graphql`
             query Catalog {
-                productCatalog {
-                    catalog {
-                        boys
-                        girls
-                        men
-                        women
-                    }
+                catalog {
+                    boys
+                    girls
+                    men
+                    women
                 }
             }
     `);
     const catalog = productCatalog?.catalog || throwErr();
-
     // useEffect(() => {
     //     const { href } = window.location;
     //     window.location.hash = 'catalog';
@@ -85,7 +82,7 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
                             </Button>
                             <ul className={styles.subItemContainer}>
                                 <hr />
-                                {catalog[type as keyof typeof catalog]?.map((category) => (
+                                {catalog[type as keyof typeof catalog]?.map((category: any) => (
                                     <li key={category + type}>
                                         <Button
                                             color="secondary"

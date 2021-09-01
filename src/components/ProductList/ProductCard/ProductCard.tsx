@@ -11,41 +11,41 @@ import { Price } from '~/components/Price';
 
 
 export const ProductCard: FC<ProductCardProps> = ({
-    product,
+    product: { frontmatter, id },
 }) => {
     const { cart } = useCart();
-    const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
-    const isInCart = cart.some((i) => i.id === product.id);
+    const isNew = new Date(frontmatter.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
+    const isInCart = cart.some((i) => i.id === id);
 
     return (
         <Link
             aria-label={`
-                ${product.title}
+                ${frontmatter.title}
                 ${isNew ? 'is new' : ''}
-                ${product.discount > 0 ? `with discount ${product.discount}%` : ''}
+                ${frontmatter.discount > 0 ? `with discount ${frontmatter.discount}%` : ''}
                 ${isInCart ? 'in cart' : ''}
             `}
-            className={styles.link} to={`/product/${product.id}`}
+            className={styles.link} to={`/product/${id}`}
         >
             <section className={styles.cart}>
                 <div className={styles.image}>
                     <GatsbyImage
-                        alt={product.title}
-                        image={product.imagePreview}
+                        alt={frontmatter.title}
+                        image={frontmatter.imagePreview.childImageSharp.gatsbyImageData}
                     />
                 </div>
                 <div className={styles.body}>
-                    <h5>{product.title}</h5>
+                    <h5>{frontmatter.title}</h5>
                     <p>
-                        <small>{product.category}</small>
+                        <small>{frontmatter.category}</small>
                     </p>
-                    <Price discount={product.discount} price={product.price} />
+                    <Price discount={frontmatter.discount} price={frontmatter.price} />
                 </div>
                 <div className={styles.bagdes}>
-                    {product.discount > 0 && (
+                    {frontmatter.discount > 0 && (
                         <p>
                             -
-                            {product.discount}
+                            {frontmatter.discount}
                             %
                         </p>
                     )}

@@ -8,6 +8,4 @@
     "editor.suggest.insertMode": "replace",
     "editor.suggest.maxVisibleSuggestions": 15,
     "editor.quickSuggestionsDelay": 1,
-    "templateGenerator.templatesPath": "./templates",
-    "python.pythonPath": "/usr/bin/python3",
 }

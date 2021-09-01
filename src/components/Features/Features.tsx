@@ -9,7 +9,7 @@ import featuresSchema from './Features.schema';
 
 
 export const Features: FC = () => {
-    const data = useStaticQuery<GatsbyTypes.FeaturesQuery>(graphql`
+    const data = useStaticQuery<any>(graphql`
         query Features {
             featuresJson {
                 features {
