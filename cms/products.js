@@ -53,12 +53,15 @@ export const products = productTypes.map((type) => ({
             label: 'Body',
             name: 'body',
             widget: 'markdown',
+            pattern: ['^[\\w\\d\\s]{5,50}$', 'Invalid field'],
         },
         {
             label: 'Images',
             name: 'images',
             widget: 'list',
             default: [],
+            required: true,
+            min: 1,
             field: {
                 label: 'Image',
                 name: 'image',

@@ -7,15 +7,31 @@ const yup = require('yup');
 
 const productSchema = yup.object({
     id: yup.string().required(),
-    body: yup.string().required(),
-    images: yup.mixed().required(),
-    title: yup.string().required(),
-    category: yup.string().required(),
+    body: yup.string()
+        .trim()
+        .matches(/^[\w\d\s]*$/gi)
+        .min(3)
+        .max(50000)
+        .required(),
+    images: yup.array()
+        .min(1)
+        .max(20)
+        .required(),
+    title: yup.string()
+        .trim()
+        .min(3)
+        .max(500)
+        .required(),
+    category: yup.string()
+        .trim()
+        .min(3)
+        .max(500)
+        .required(),
     hidden: yup.boolean().required(),
     careatedAt: yup.string().required(),
-    discount: yup.number().required(),
+    discount: yup.number().min(0).max(100).required(),
     type: yup.string().required(),
-    price: yup.number().required(),
+    price: yup.number().min(0).max(1000000).required(),
 });
 
 /**
