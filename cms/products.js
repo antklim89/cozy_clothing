@@ -4,10 +4,11 @@ import productTypes from './productTypes';
 export const products = productTypes.map((type) => ({
     name: type,
     label: `Products ${type}`,
-    folder: 'content/products/',
+    folder: `content/products/${type}`,
     create: true,
-    slug: '{{type}}/{{category}}/{{title}}/index',
+    slug: '{{type}}-{{category}}-{{title}}',
     media_folder: 'images',
+    extension: 'json',
     editor: {
         preview: false,
     },
@@ -58,14 +59,12 @@ export const products = productTypes.map((type) => ({
             name: 'images',
             widget: 'list',
             default: [],
-            fields: [
-                {
-                    label: 'Image',
-                    name: 'image',
-                    widget: 'image',
-                    required: true,
-                },
-            ],
+            field: {
+                label: 'Image',
+                name: 'image',
+                widget: 'image',
+                required: true,
+            },
         },
         {
             label: 'Image Preview',

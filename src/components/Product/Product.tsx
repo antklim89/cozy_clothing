@@ -15,7 +15,7 @@ export const Product: FC<ProductPropTypes> = ({ product }) => {
                 <ProductDescription product={product} />
             </div>
             <ReactMarkdown>
-                {product.rawMarkdownBody.replace(/\s/ig, ' ')}
+                {product.body.replace(/\s/ig, ' ')}
             </ReactMarkdown>
         </>
     );

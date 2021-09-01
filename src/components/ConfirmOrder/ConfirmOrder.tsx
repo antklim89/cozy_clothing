@@ -24,10 +24,10 @@ export const ConfirmOrder: FC<ConfirmOrderPropTypes> = () => {
                         <b>Price</b>
                     </h5>
                 </li>
-                {cart.map(({ product: { frontmatter }, id, qty }) => (
+                {cart.map(({ product, id, qty }) => (
                     <li className={styles.orderItem} key={id}>
                         <p>
-                            {frontmatter.title}
+                            {product.title}
                             {' '}
                             ×
                             {' '}
@@ -35,7 +35,7 @@ export const ConfirmOrder: FC<ConfirmOrderPropTypes> = () => {
                         </p>
                         <p>
                             $
-                            {(getPrice(frontmatter.price, frontmatter.discount) * qty).toFixed(2)}
+                            {(getPrice(product.price, product.discount) * qty).toFixed(2)}
                         </p>
                     </li>
                 ))}

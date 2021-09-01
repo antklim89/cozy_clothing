@@ -18,7 +18,7 @@ interface CategoryPageContext extends IPagination {
 }
 
 interface CategoryPageData {
-    allMarkdownRemark: {
+    allProduct: {
         nodes: IProductPreview[]
     }
 }
@@ -29,7 +29,7 @@ const categoryPage: FC<PageProps<CategoryPageData, CategoryPageContext>> = ({
         category, type, categories, ...paginationContext
     },
     data: {
-        allMarkdownRemark: { nodes: products },
+        allProduct: { nodes: products },
     },
 }) => {
     const title = `${capitalize(type)}${category ? ` - ${capitalize(category)}` : ''}`;
@@ -52,16 +52,15 @@ const categoryPage: FC<PageProps<CategoryPageData, CategoryPageContext>> = ({
 export const query = graphql`
 
 query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
-        filter: {frontmatter: {
+    allProduct(
+        filter: {
             type: {eq: $type},
             category: {eq: $category},
             layout: {eq: "product"},
             hidden: {eq: false}
         }
-    }
         sort: {
-            fields: frontmatter___careatedAt,
+            fields: careatedAt,
             order: DESC
         }
         skip: $skip
@@ -69,17 +68,15 @@ query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!)
     ) {
       nodes {
         id
-        frontmatter {
-            ...ProductFrontmatterFragment
-            imagePreview {
-                ...ProductCardImageFragment
-            }
+        ...BaseProductFragment
+        imagePreview {
+            ...ProductCardImageFragment
         }
       }
     }
   }
   
-  fragment ProductFrontmatterFragment on MarkdownRemarkFrontmatter {
+  fragment BaseProductFragment on Product {
         title
         category
         hidden

@@ -11,7 +11,7 @@ import featuresSchema from './Features.schema';
 export const Features: FC = () => {
     const data = useStaticQuery<any>(graphql`
         query Features {
-            featuresJson {
+            features {
                 features {
                     image {
                         a: childImageSharp {
@@ -29,7 +29,7 @@ export const Features: FC = () => {
         }
     `);
 
-    const features = featuresSchema.validateSync(data?.featuresJson?.features);
+    const features = featuresSchema.validateSync(data?.features?.features);
 
     return (
         <Container bottomSpace="sm" component="section">

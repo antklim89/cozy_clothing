@@ -5,6 +5,7 @@ import { Container } from '~/components';
 import { Input } from '~/components/Input';
 import { Search } from '~/components/Search';
 import { Seo } from '~/components/Seo';
+import { IProductPreview } from '~/types';
 
 
 let queryMemo = '';
@@ -20,7 +21,7 @@ export const search: FC = () => {
     `);
 
     const [index, setindex] = useState<string | null>(null);
-    const [store, setStore] = useState<Record<string, unknown> | null>(null);
+    const [store, setStore] = useState<Record<string, IProductPreview> | null>(null);
     const [query, setQuery] = useState(queryMemo);
 
     useEffect(() => {

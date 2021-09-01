@@ -10,42 +10,40 @@ import { useCart } from '~/components/CartProvider';
 import { Price } from '~/components/Price';
 
 
-export const ProductCard: FC<ProductCardProps> = ({
-    product: { frontmatter, id },
-}) => {
+export const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const { cart } = useCart();
-    const isNew = new Date(frontmatter.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
-    const isInCart = cart.some((i) => i.id === id);
+    const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
+    const isInCart = cart.some((i) => i.id === product.id);
 
     return (
         <Link
             aria-label={`
-                ${frontmatter.title}
+                ${product.title}
                 ${isNew ? 'is new' : ''}
-                ${frontmatter.discount > 0 ? `with discount ${frontmatter.discount}%` : ''}
+                ${product.discount > 0 ? `with discount ${product.discount}%` : ''}
                 ${isInCart ? 'in cart' : ''}
             `}
-            className={styles.link} to={`/product/${id}`}
+            className={styles.link} to={`/product/${product.id}`}
         >
             <section className={styles.cart}>
                 <div className={styles.image}>
                     <GatsbyImage
-                        alt={frontmatter.title}
-                        image={frontmatter.imagePreview.childImageSharp.gatsbyImageData}
+                        alt={product.title}
+                        image={product.imagePreview.childImageSharp.gatsbyImageData}
                     />
                 </div>
                 <div className={styles.body}>
-                    <h5>{frontmatter.title}</h5>
+                    <h5>{product.title}</h5>
                     <p>
-                        <small>{frontmatter.category}</small>
+                        <small>{product.category}</small>
                     </p>
-                    <Price discount={frontmatter.discount} price={frontmatter.price} />
+                    <Price discount={product.discount} price={product.price} />
                 </div>
                 <div className={styles.bagdes}>
-                    {frontmatter.discount > 0 && (
+                    {product.discount > 0 && (
                         <p>
                             -
-                            {frontmatter.discount}
+                            {product.discount}
                             %
                         </p>
                     )}

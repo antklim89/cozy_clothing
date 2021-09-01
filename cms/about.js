@@ -2,9 +2,15 @@
 export const about = {
     label: 'About',
     name: 'about',
-    file: 'content/about/index.json',
+    file: 'content/about/about.json',
     media_folder: 'images/',
     fields: [
+        {
+            label: 'Layout',
+            name: 'layout',
+            widget: 'hidden',
+            default: 'about',
+        },
         {
             label: 'Title',
             name: 'title',

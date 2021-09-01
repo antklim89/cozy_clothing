@@ -2,7 +2,7 @@
 export const features = {
     label: 'Features',
     name: 'features',
-    file: 'content/features/index.json',
+    file: 'content/features/features.json',
     media_folder: 'images/',
     fields: [
         {

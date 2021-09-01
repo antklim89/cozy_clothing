@@ -7,17 +7,15 @@ const yup = require('yup');
 
 const productSchema = yup.object({
     id: yup.string().required(),
-    rawMarkdownBody: yup.string().required(),
-    frontmatter: yup.object({
-        images: yup.mixed().required(),
-        title: yup.string().required(),
-        category: yup.string().required(),
-        hidden: yup.boolean().required(),
-        careatedAt: yup.string().required(),
-        discount: yup.number().required(),
-        type: yup.string().required(),
-        price: yup.number().required(),
-    }),
+    body: yup.string().required(),
+    images: yup.mixed().required(),
+    title: yup.string().required(),
+    category: yup.string().required(),
+    hidden: yup.boolean().required(),
+    careatedAt: yup.string().required(),
+    discount: yup.number().required(),
+    type: yup.string().required(),
+    price: yup.number().required(),
 });
 
 /**
@@ -55,28 +53,27 @@ exports.sourceNodes = async (args) => {
     await createCatalogNodes(args);
     await validateProducts(args);
 };
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+    await createProductPages(graphql, createPage);
+    await createCategoriesPage(graphql, createPage);
+};
 
 /**
  * =============================================
  */
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
-    // await createProductPages(graphql, createPage);
-    // await createCategoriesPage(graphql, createPage);
-};
-
 function validateProducts({ getNodesByType }) {
-    getNodesByType('MarkdownRemark')
-        .filter(({ frontmatter: { layout, hidden } = {} } = {}) => layout === 'product' && hidden === false)
+    getNodesByType('Product')
+        .filter(({ layout, hidden = {} } = {}) => layout === 'product' && hidden === false)
         .map((product) => productSchema.validateSync(product));
 }
 
 function createCatalogNodes({
     actions, getNodesByType, createNodeId, createContentDigest,
 }) {
-    const catalog = getNodesByType('MarkdownRemark')
-        .filter(({ frontmatter: { layout, hidden } = {} } = {}) => layout === 'product' && hidden === false)
-        .reduce((acc, { frontmatter: { type, category } }) => {
+    const catalog = getNodesByType('Product')
+        .filter(({ layout, hidden = {} } = {}) => layout === 'product' && hidden === false)
+        .reduce((acc, { type, category }) => {
             if (Array.isArray(acc[type])) {
                 if (!acc[type].includes(category)) {
                     acc[type].push(category);
@@ -104,15 +101,13 @@ function createCatalogNodes({
  */
 
 async function createCategoriesPage(graphql, createPage) {
-    const { data: { productCatalog: { catalog } } } = await graphql(`#graphql
+    const { data: { catalog } } = await graphql(`#graphql
         {
-            productCatalog {
-                catalog {
-                    boys
-                    girls
-                    men
-                    women
-                }
+            catalog {
+                boys
+                girls
+                men
+                women
             }
         }
     `);
@@ -120,15 +115,17 @@ async function createCategoriesPage(graphql, createPage) {
     await Promise.all(Object.keys(catalog).map(async (type) => {
         const categories = catalog[type];
 
-        const { data: { allMarkdownRemark: { nodes: productsByTypes } } } = await graphql(`#graphql
+        const { data: { allProduct: { nodes: productsByTypes } } } = await graphql(`#graphql
             {
-                allMarkdownRemark(
-                    filter: {frontmatter: {
+                allProduct (
+                    filter: {
                         layout: {eq: "product"},
                         hidden: {eq: false},
                         type: {eq: "${type}"}
-                    }}
-                ) { nodes { id } }
+                    }
+                ) {
+                    nodes { id }
+                }
             }
         `);
 
@@ -142,16 +139,18 @@ async function createCategoriesPage(graphql, createPage) {
         });
 
         await Promise.all(categories.map(async (category) => {
-            const { data: { allMarkdownRemark: { nodes: productsByCategories } } } = await graphql(`#graphql
+            const { data: { allProduct: { nodes: productsByCategories } } } = await graphql(`#graphql
                 {
-                    allMarkdownRemark(
-                        filter: {frontmatter: {
+                    allProduct (
+                        filter: {
                             layout: {eq: "product"},
                             hidden: {eq: false},
                             type: {eq: "${type}"}
                             category: {eq: "${category}"}
-                        }}
-                    ) { nodes { id } }
+                        }
+                    ) {
+                        nodes { id }
+                    }
                 }
             `);
 
@@ -176,14 +175,16 @@ async function createCategoriesPage(graphql, createPage) {
  */
 
 async function createProductPages(graphql, createPage) {
-    const { data: { amr: { nodes: products } } } = await graphql(`#graphql
+    const { data: { allProduct: { nodes: products } } } = await graphql(`#graphql
         {
-            amr: allMarkdownRemark(
-                filter: {frontmatter: {
+            allProduct(
+                filter: {
                     layout: {eq: "product"},
-                    hidden: {eq: false}},
+                    hidden: {eq: false},
                 }
-            ) { nodes {id} }
+            ) {
+                nodes {id}
+            }
         }
     `);
 

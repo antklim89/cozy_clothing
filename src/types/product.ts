@@ -1,7 +1,7 @@
 import { IGatsbyImage } from '~/types';
 
 
-export interface BaseProductFrontmatterSchema {
+export interface BaseProduct {
     title: string
     price: number
     type: string
@@ -10,18 +10,14 @@ export interface BaseProductFrontmatterSchema {
     discount: number
 }
 
-export interface IProductPreview {
+export interface IProductPreview extends BaseProduct {
     id: string
-    frontmatter: {
-        imagePreview: IGatsbyImage;
-    } & BaseProductFrontmatterSchema
+    imagePreview: IGatsbyImage;
 }
 
-export interface IProduct {
-    rawMarkdownBody: string
+export interface IProduct extends BaseProduct {
+    body: string
     id: string
-    frontmatter: {
-        images: IGatsbyImage[];
-        imagesPreview: IGatsbyImage[];
-    } & BaseProductFrontmatterSchema
+    images: IGatsbyImage[];
+    imagesPreview: IGatsbyImage[];
 }

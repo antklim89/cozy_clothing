@@ -46,45 +46,49 @@ export default index;
 
 export const query = graphql`
     query IndexPage {
-        newProducts: allMarkdownRemark(
+        newProducts: allProduct(
             filter: {
-                frontmatter: {
-                    layout: {eq: "product"},
-                    hidden: {eq: false},
-                }
+                layout: {eq: "product"},
+                hidden: {eq: false},
             }
             limit: 4
             sort: {
-                fields: frontmatter___careatedAt,
+                fields: careatedAt,
                 order: DESC
             }
         ) {
             nodes {
                 id
-                frontmatter {
-                    ...ProductFrontmatterFragment
-                    imagePreview {
-                    ...ProductCardImageFragment
-                    }
+                ...BaseProductFragment
+                imagePreview {
+                ...ProductCardImageFragment
                 }
             }
         }
 
-        promoProducts: allMarkdownRemark(
-            filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {nin: 0}}}
+        promoProducts: allProduct(
+            filter: {
+                layout: {
+                    eq: "product"
+                },
+                hidden: {
+                    eq: false
+                },
+                discount: {
+                    nin: 0
+                }
+            }
             limit: 4
             sort: {
-                fields: frontmatter___discount,
+                fields: discount,
                 order: DESC
             }
         ) {
             nodes {
                 id
-                frontmatter {
-                    ...ProductFrontmatterFragment
-                    imagePreview {
-                        ...ProductCardImageFragment
-                    }
+                ...BaseProductFragment
+                imagePreview {
+                    ...ProductCardImageFragment
                 }
             }
         }

@@ -24,7 +24,14 @@ CMS.init({
         media_folder: 'content/uploaded/',
         collections: [
             ...products,
-            productCategories,
+            {
+                label: 'Categories',
+                name: 'categories',
+                editor: { preview: false },
+                files: [
+                    productCategories,
+                ],
+            },
             {
                 label: 'Pages',
                 name: 'pages',

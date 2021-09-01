@@ -29,7 +29,7 @@ const about: FC<PageProps<any>> = ({ data }) => {
 
 export const query = graphql`
     query AboutPage {
-        aboutJson {
+        about {
             body
             title
             image {

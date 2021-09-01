@@ -5,7 +5,7 @@ import { getPrice } from '~/utils';
 export function getTotalPrice(cart: CartItem[]): number {
     return cart.reduce(
         (acc, i) => {
-            const price = getPrice(i.product.frontmatter.price, i.product.frontmatter.discount);
+            const price = getPrice(i.product.price, i.product.discount);
             return (acc + price * i.qty);
         }, 0,
     );

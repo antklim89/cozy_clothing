@@ -4,35 +4,35 @@ const postcss = require('postcss-preset-env');
 
 
 const query = `#graphql
-{
-    allMarkdownRemark(
-        filter: {frontmatter: {
-            layout: {eq: "product"},
-            hidden: {eq: false},
-        }}
-    ) { nodes {
-        id
-        rawMarkdownBody
-        frontmatter {
-            title
-            category
-            careatedAt
-            discount
-            type
-            price
-            imagePreview {
-                a:childImageSharp {
-                    b:gatsbyImageData(
-                        layout: CONSTRAINED
-                        placeholder: BLURRED
-                        width: 272
-                        height: 390
-                    )
+    {
+        allProduct (
+            filter: {
+                layout: { eq: "product" },
+                hidden: { eq: false },
+            }
+        ) { 
+            nodes {
+                id
+                body
+                title
+                category
+                careatedAt
+                discount
+                type
+                price
+                imagePreview {
+                    childImageSharp {
+                        gatsbyImageData(
+                            layout: CONSTRAINED
+                            placeholder: BLURRED
+                            width: 272
+                            height: 390
+                        )
+                    }
                 }
             }
         }
-    } }
-}
+    }
 `;
 
 module.exports = {
@@ -60,15 +60,19 @@ module.exports = {
                 ref: 'id',
                 index: ['title', 'body'],
                 store: ['id', 'body', 'title', 'category', 'careatedAt', 'discount', 'type', 'price', 'imagePreview'],
-                normalizer: ({ data }) => data.allMarkdownRemark.nodes.map(({ id, rawMarkdownBody, frontmatter }) => ({
-                    id,
-                    rawMarkdownBody,
-                    ...frontmatter,
-                })),
+                normalizer: ({ data }) => data.allProduct.nodes,
             },
         },
         'gatsby-plugin-zopfli',
-        'gatsby-transformer-json',
+        {
+            resolve: 'gatsby-transformer-json',
+            options: {
+                typeName: ({ node, object }) => {
+                    const name = object.layout || node.name;
+                    return name.replace(/^./, name[0].toLocaleUpperCase());
+                },
+            },
+        },
         'gatsby-plugin-netlify',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',

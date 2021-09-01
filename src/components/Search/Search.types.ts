@@ -1,8 +1,9 @@
+import { IProductPreview } from '~/types';
 
 
 export interface SearchPropTypes {
   index: string
   query: string
-  store: Record<string, unknown>
+  store: Record<string, IProductPreview>
 }
 

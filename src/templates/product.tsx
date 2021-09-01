@@ -12,19 +12,17 @@ interface ProductPageContext {
 }
 
 interface ProductPageData {
-    markdownRemark: IProduct
+    product: IProduct
 }
 
 
-const productPage: FC<PageProps<ProductPageData, ProductPageContext>> = ({
-    data: { markdownRemark: product },
-}) => {
+const productPage: FC<PageProps<ProductPageData, ProductPageContext>> = ({ data: { product } }) => {
     return (
         <main>
             <Seo
-                description={product.rawMarkdownBody}
-                keywords={[product.frontmatter.category, product.frontmatter.type]}
-                title={product.frontmatter.title}
+                description={product.body}
+                keywords={[product.category, product.type]}
+                title={product.title}
             />
             <Container component="section" topSpace="md">
                 <Product product={product} />
@@ -36,20 +34,11 @@ const productPage: FC<PageProps<ProductPageData, ProductPageContext>> = ({
 
 export const query = graphql`
     query ProductPage($id: String!) {
-        markdownRemark(id: {eq: $id}) {
+        product(id: {eq: $id}) {
             id
-            rawMarkdownBody
-            frontmatter {
-                ...ProductFrontmatterFragment
-                ...ProductImagesFragment
-            }
-
-        }
-    }
-
-    fragment ProductImagesFragment on MarkdownRemarkFrontmatter {
-        images {
-            image {
+            body
+            ...BaseProductFragment
+            images {
                 childImageSharp {
                     gatsbyImageData(
                         layout: CONSTRAINED
@@ -57,9 +46,7 @@ export const query = graphql`
                     )
                 }
             }
-        }
-        imagesPreview: images {
-            image {
+            imagesPreview: images {
                 childImageSharp {
                     gatsbyImageData(
                         layout: CONSTRAINED

@@ -6,15 +6,11 @@ import { ProductPropTypes } from '../Product.types';
 import styles from './ProductImages.module.scss';
 
 
-export const ProductImages: FC<ProductPropTypes> = ({
-    product: {
-        frontmatter,
-    },
-}) => {
+export const ProductImages: FC<ProductPropTypes> = ({ product }) => {
     const [imageIndex, setImageIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
-    const hasNext = imageIndex < frontmatter.imagesPreview.length - 1;
+    const hasNext = imageIndex < product.imagesPreview.length - 1;
     const hasPrev = imageIndex > 0;
 
     useEffect(() => {
@@ -37,7 +33,7 @@ export const ProductImages: FC<ProductPropTypes> = ({
 
     const nextImage = () => {
         setImageIndex((currentIndex) => {
-            const lastIndex = frontmatter.imagesPreview.length - 1;
+            const lastIndex = product.imagesPreview.length - 1;
             if (currentIndex >= lastIndex) return lastIndex;
             return currentIndex + 1;
         });
@@ -60,8 +56,8 @@ export const ProductImages: FC<ProductPropTypes> = ({
                         onClick={() => setIsOpen(false)}
                     >
                         <GatsbyImage
-                            alt={frontmatter.title}
-                            image={frontmatter.images[imageIndex].childImageSharp.gatsbyImageData}
+                            alt={product.title}
+                            image={product.images[imageIndex].childImageSharp.gatsbyImageData}
                             objectFit="contain"
                         />
                     </button>
@@ -70,7 +66,7 @@ export const ProductImages: FC<ProductPropTypes> = ({
                 </div>
             ) : null}
             <ul className={styles.imagesPreview}>
-                {frontmatter.imagesPreview.map((image, index) => (
+                {product.imagesPreview.map((image, index) => (
                     <li
                         className={styles.imageItem}
                         key={JSON.stringify(image)}
@@ -81,7 +77,7 @@ export const ProductImages: FC<ProductPropTypes> = ({
                             type="button"
                             onClick={handleOpenModal(index)}
                         >
-                            <GatsbyImage alt={frontmatter.title} image={image.childImageSharp.gatsbyImageData} />
+                            <GatsbyImage alt={product.title} image={image.childImageSharp.gatsbyImageData} />
                         </button>
                     </li>
                 ))}

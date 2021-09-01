@@ -13,17 +13,15 @@ import { Sizes } from '~/types/product-sizes';
 
 
 export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
-    const { frontmatter, id } = product;
-
-    const isNew = new Date(frontmatter.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
+    const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
 
     const {
         cart, addToCart, removeFromCart, updateCartItem,
     } = useCart();
 
     const [cartItem, setCartItem] = useState<CartItem>(() => (
-        cart.find((i) => i.id === id) || {
-            id,
+        cart.find((i) => i.id === product.id) || {
+            id: product.id,
             product,
             qty: 1,
             size: Sizes.M,
@@ -46,27 +44,27 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
         <section className={styles.root}>
             <div className={styles.titleSection}>
                 <h1>
-                    {frontmatter.title}
+                    {product.title}
                 </h1>
                 <p>
-                    {frontmatter.type}
+                    {product.type}
                 </p>
                 <p className={styles.promos}>
                     {isNew && (
                         <span>NEW PRODUCT</span>
                     )}
-                    {frontmatter.discount > 0 && (
+                    {product.discount > 0 && (
                         <span>
                             DISCOUNT
                             {' '}
-                            {frontmatter.discount}
+                            {product.discount}
                             %
                         </span>
                     )}
                 </p>
             </div>
             <div className={styles.priceSection}>
-                <Price discount={frontmatter.discount} price={frontmatter.price} />
+                <Price discount={product.discount} price={product.price} />
             </div>
             <div className={styles.cartSection}>
                 <SelectSize
