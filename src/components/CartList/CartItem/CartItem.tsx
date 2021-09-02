@@ -16,27 +16,29 @@ import { getPrice } from '~/utils';
 export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
     const { removeFromCart, updateCartItem } = useCart();
 
+    const { product: { frontmatter, id } } = cartItem;
+
     return (
         <>
             <li className={styles.root}>
                 <GatsbyImage
-                    alt={cartItem.product.title}
+                    alt={frontmatter.title}
                     className={styles.image}
-                    image={cartItem.product.imagesPreview[0]}
+                    image={frontmatter.imagesPreview[0].childImageSharp.gatsbyImageData}
                 />
                 <section className={styles.title}>
-                    <Link className={styles.title} to={`/product/${cartItem.product.id}`}>
-                        <h4>{cartItem.product.title}</h4>
+                    <Link className={styles.title} to={`/product/${id}`}>
+                        <h4>{frontmatter.title}</h4>
                     </Link>
                     <br />
                     <small>
-                        {cartItem.product.type}
+                        {frontmatter.type}
                     </small>
                 </section>
                 <div className={styles.price}>
                     <p>
                         Price:&nbsp;$
-                        {getPrice(cartItem.product.price, cartItem.product.discount)}
+                        {getPrice(frontmatter.price, frontmatter.discount)}
                     </p>
                     <p>
                         Quantity:&nbsp;
@@ -45,7 +47,7 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                     <p>
                         <b>
                             Total:&nbsp;$
-                            {cartItem.product.price * cartItem.qty}
+                            {frontmatter.price * cartItem.qty}
                         </b>
                     </p>
                 </div>

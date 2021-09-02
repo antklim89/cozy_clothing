@@ -1,3 +1,3 @@
-export function getPrice(price: number, discount: number): string {
-    return (price - ((price / 100) * discount)).toFixed(2);
+export function getPrice(price: number, discount: number): number {
+    return (price - ((price / 100) * discount));
 }

@@ -2,8 +2,6 @@ import { graphql, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
-import { productPreviewArraySchema } from '../validation/productPreviewArraySchema';
-
 import { Container } from '~/components';
 import { CategoriesBar } from '~/components/CategoriesBar';
 import { Pagination } from '~/components/Pagination';
@@ -55,19 +53,19 @@ export const query = graphql`
 
 query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      filter: {frontmatter: {
+        filter: {frontmatter: {
             type: {eq: $type},
             category: {eq: $category},
             layout: {eq: "product"},
             hidden: {eq: false}
         }
     }
-      sort: {
-        fields: frontmatter___careatedAt,
-        order: DESC
-      }
-      skip: $skip
-      limit: $limit
+        sort: {
+            fields: frontmatter___careatedAt,
+            order: DESC
+        }
+        skip: $skip
+        limit: $limit
     ) {
       nodes {
         id
@@ -82,25 +80,25 @@ query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!)
   }
   
   fragment ProductFrontmatterFragment on MarkdownRemarkFrontmatter {
-    title
-    category
-    hidden
-    careatedAt
-    discount
-    type
-    price
+        title
+        category
+        hidden
+        careatedAt
+        discount
+        type
+        price
   }
   
-  fragment ProductCardImageFragment on File {
-    a: childImageSharp {
-      b: gatsbyImageData(
-        layout: CONSTRAINED
-        placeholder: BLURRED
-        width: 272
-        height: 390
-      )
+    fragment ProductCardImageFragment on File {
+        childImageSharp {
+            gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                width: 272
+                height: 390
+            )
+        }
     }
-  }
   
 
 `;

@@ -6,33 +6,23 @@ import { CatalogDrawerPropTypes } from './CatalogDrawer.types';
 
 import { Button } from '~/components/Button';
 import { Shadow } from '~/components/Shadow';
-import { throwErr } from '~/utils';
 
+
+interface CatalogQuery {
+    catalog: Record<'boys'|'girls'|'men'|'women', string[]>
+}
 
 export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
-    const { productCatalog } = useStaticQuery<any>(graphql`
-            query Catalog {
-                catalog {
-                    boys
-                    girls
-                    men
-                    women
-                }
+    const { catalog } = useStaticQuery<CatalogQuery>(graphql`
+        query Catalog {
+            catalog {
+                boys
+                girls
+                men
+                women
             }
+        }
     `);
-    const catalog = productCatalog?.catalog || throwErr();
-    // useEffect(() => {
-    //     const { href } = window.location;
-    //     window.location.hash = 'catalog';
-    //     const listener = () => {
-    //         setIsOpen(false);
-    //     };
-    //     window.addEventListener('popstate', listener);
-    //     return () => {
-    //         window.history.pushState(null, '', href);
-    //         window.removeEventListener('popstate', listener);
-    //     };
-    // }, []);
 
     useEffect(() => {
         const listener = (e: KeyboardEvent) => {

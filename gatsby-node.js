@@ -2,9 +2,27 @@
 const path = require('path');
 
 const { paginate } = require('gatsby-awesome-pagination');
+const yup = require('yup');
 
-const { productSchema } = require('./src/validation');
 
+const productSchema = yup.object({
+    id: yup.string().required(),
+    rawMarkdownBody: yup.string().required(),
+    frontmatter: yup.object({
+        images: yup.mixed().required(),
+        title: yup.string().required(),
+        category: yup.string().required(),
+        hidden: yup.boolean().required(),
+        careatedAt: yup.string().required(),
+        discount: yup.number().required(),
+        type: yup.string().required(),
+        price: yup.number().required(),
+    }),
+});
+
+/**
+ * =============================================
+ */
 
 exports.onCreateBabelConfig = ({ actions }) => {
     actions.setBabelPreset({
@@ -14,6 +32,10 @@ exports.onCreateBabelConfig = ({ actions }) => {
         },
     });
 };
+
+/**
+ * =============================================
+ */
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     const config = getConfig();
@@ -25,11 +47,18 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     actions.replaceWebpackConfig(config);
 };
 
+/**
+ * =============================================
+ */
 
 exports.sourceNodes = async (args) => {
     await createCatalogNodes(args);
     await validateProducts(args);
 };
+
+/**
+ * =============================================
+ */
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     // await createProductPages(graphql, createPage);
@@ -69,6 +98,10 @@ function createCatalogNodes({
         },
     });
 }
+
+/**
+ * =============================================
+ */
 
 async function createCategoriesPage(graphql, createPage) {
     const { data: { productCatalog: { catalog } } } = await graphql(`#graphql
@@ -137,6 +170,10 @@ async function createCategoriesPage(graphql, createPage) {
         }));
     }));
 }
+
+/**
+ * =============================================
+ */
 
 async function createProductPages(graphql, createPage) {
     const { data: { amr: { nodes: products } } } = await graphql(`#graphql

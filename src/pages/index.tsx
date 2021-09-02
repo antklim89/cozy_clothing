@@ -8,10 +8,9 @@ import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
 import { Title } from '~/components/Title';
 import { IProductPreview } from '~/types';
-import { productPreviewArraySchema } from '~/validation';
 
 
-interface Data {
+interface IndexPageData {
     newProducts: {
         nodes: IProductPreview[]
     }
@@ -20,9 +19,10 @@ interface Data {
     }
 }
 
-const index: FC<PageProps<Data>> = ({ data }) => {
+const index: FC<PageProps<IndexPageData>> = ({ data }) => {
     const newProducts = data.newProducts.nodes;
     const promoProducts = data.promoProducts.nodes;
+
 
     return (
         <main>
@@ -45,50 +45,48 @@ export default index;
 
 
 export const query = graphql`
-
-query IndexPage {
-    newProducts: allMarkdownRemark(
-        filter: {
-            frontmatter: {
-                layout: {eq: "product"},
-                hidden: {eq: false},
-            }
-        }
-        limit: 4
-        sort: {
-            fields: frontmatter___careatedAt,
-            order: DESC
-        }
-    ) {
-        nodes {
-            id
-            frontmatter {
-                ...ProductFrontmatterFragment
-                imagePreview {
-                  ...ProductCardImageFragment
+    query IndexPage {
+        newProducts: allMarkdownRemark(
+            filter: {
+                frontmatter: {
+                    layout: {eq: "product"},
+                    hidden: {eq: false},
                 }
             }
-        }
-    }
-
-    promoProducts: allMarkdownRemark(
-        filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {nin: 0}}}
-        limit: 4
-        sort: {
-            fields: frontmatter___discount,
-            order: DESC
-        }
-    ) {
-        nodes {
-            id
-            frontmatter {
-                ...ProductFrontmatterFragment
-                imagePreview {
+            limit: 4
+            sort: {
+                fields: frontmatter___careatedAt,
+                order: DESC
+            }
+        ) {
+            nodes {
+                id
+                frontmatter {
+                    ...ProductFrontmatterFragment
+                    imagePreview {
                     ...ProductCardImageFragment
+                    }
+                }
+            }
+        }
+
+        promoProducts: allMarkdownRemark(
+            filter: {frontmatter: {layout: {eq: "product"}, hidden: {eq: false}, discount: {nin: 0}}}
+            limit: 4
+            sort: {
+                fields: frontmatter___discount,
+                order: DESC
+            }
+        ) {
+            nodes {
+                id
+                frontmatter {
+                    ...ProductFrontmatterFragment
+                    imagePreview {
+                        ...ProductCardImageFragment
+                    }
                 }
             }
         }
     }
-}
-
 `;
