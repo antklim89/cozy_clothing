@@ -42,12 +42,26 @@ module.exports = {
         author: 'Anton',
     },
     plugins: [
+        'gatsby-plugin-zopfli',
+        'gatsby-plugin-netlify',
+        'gatsby-plugin-react-helmet',
+        'gatsby-plugin-image',
+        'gatsby-transformer-sharp',
+        'gatsby-plugin-sharp',
+        'gatsby-plugin-typescript-checker',
+        {
+            resolve: 'gatsby-plugin-typescript',
+            options: {
+                isTSX: true,
+                allExtensions: true,
+            },
+        },
         {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {
                 enableIdentityWidget: false,
                 manualInit: true,
-                modulePath: `${__dirname}/cms/index.js`,
+                modulePath: `${__dirname}/src/cms/index.ts`,
                 publicPath: 'cms',
             },
         },
@@ -63,7 +77,6 @@ module.exports = {
                 normalizer: ({ data }) => data.allProduct.nodes,
             },
         },
-        'gatsby-plugin-zopfli',
         {
             resolve: 'gatsby-transformer-json',
             options: {
@@ -73,13 +86,6 @@ module.exports = {
                 },
             },
         },
-        'gatsby-plugin-netlify',
-        'gatsby-plugin-react-helmet',
-        'gatsby-plugin-image',
-        'gatsby-transformer-sharp',
-        'gatsby-plugin-sharp',
-        'gatsby-plugin-typescript-checker',
-        // 'gatsby-plugin-typegen',
         {
             resolve: 'gatsby-plugin-react-svg',
             options: { rule: { include: /assets/ } },

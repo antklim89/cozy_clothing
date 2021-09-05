@@ -29,7 +29,7 @@ if (!fs.existsSync(featurePath)) {
         const feature = JSON.stringify({
             layout: 'features',
             text: featureText,
-            image: `../images/fake-image-${_.random(1, 6, false)}.jpg`,
+            image: `images/fake-image-${_.random(1, 6, false)}.jpg`,
         }, null, 4);
 
         fs.writeFileSync(path.resolve(featurePath, fileName), feature);
@@ -54,14 +54,14 @@ types.forEach((type) => {
                 discount: _.random(0, 1, true) > 0.5 ? _.random(5, 40, false) : 0,
                 title,
                 careatedAt: faker.date.between(new Date(), new Date(Date.now() - YEAR_MS)).toISOString(),
-                imagePreview: `../../images/fake-image-${_.random(1, 6, false)}.jpg`,
+                imagePreview: `images/fake-image-${_.random(1, 6, false)}.jpg`,
                 images: [
-                    '../../images/fake-image-1.jpg',
-                    '../../images/fake-image-2.jpg',
-                    '../../images/fake-image-3.jpg',
-                    '../../images/fake-image-4.jpg',
-                    '../../images/fake-image-5.jpg',
-                    '../../images/fake-image-6.jpg',
+                    'images/fake-image-1.jpg',
+                    'images/fake-image-2.jpg',
+                    'images/fake-image-3.jpg',
+                    'images/fake-image-4.jpg',
+                    'images/fake-image-5.jpg',
+                    'images/fake-image-6.jpg',
                 ],
                 price: Number(faker.commerce.price(10, 1000, 2)),
                 category,
