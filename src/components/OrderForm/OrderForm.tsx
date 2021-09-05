@@ -6,7 +6,6 @@ import styles from './OrderForm.module.scss';
 import { OrderFormPropTypes } from './OrderForm.types';
 
 import { Input } from '~/components/Input';
-import { orderSchema } from '~/validation';
 
 
 let formData = {};
@@ -16,6 +15,8 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
     const [error, setError] = useState<string | null>(null);
 
     async function validate(data: Record<string, string>) {
+        const { orderSchema } = await import('~/validation');
+
         try {
             const result = await orderSchema.validate(data, { stripUnknown: true });
             onValidation(true);
@@ -57,6 +58,7 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             autoComplete="given-name"
                             label="First Name"
                             name="firstname"
+                            pattern="\\d"
                             type="text"
                         />
                         <Input

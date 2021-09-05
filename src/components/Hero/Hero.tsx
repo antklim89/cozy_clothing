@@ -1,23 +1,22 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
-import * as yup from 'yup';
 
 import styles from './Hero.module.scss';
+import { HeroQuery } from './Hero.types';
 
 import { Title } from '~/components/Title';
-import { heroSchema } from '~/validation';
 
 
 export const Hero: FC = () => {
-    const { json } = useStaticQuery<any>(graphql`
+    const { hero } = useStaticQuery<HeroQuery>(graphql`
         query Hero {
-            json: hero {
+            hero {
                 title
                 body
                 image {
-                    a:childImageSharp {
-                        b:gatsbyImageData(
+                    childImageSharp {
+                        gatsbyImageData(
                             layout: CONSTRAINED
                             placeholder: BLURRED
                             transformOptions: {cropFocus: CENTER}
@@ -31,14 +30,13 @@ export const Hero: FC = () => {
         }
     `);
 
-    const data = yup.object(heroSchema).validateSync(json);
 
     return (
         <section className={styles.root}>
-            <GatsbyImage alt={data.title} className={styles.image} image={data.image} />
+            <GatsbyImage alt={hero.title} className={styles.image} image={hero.image.childImageSharp.gatsbyImageData} />
             <div className={styles.body}>
-                <Title position="left">{data.title}</Title>
-                <p className="hide-sm">{data.body}</p>
+                <Title position="left">{hero.title}</Title>
+                <p className="hide-sm">{hero.body}</p>
             </div>
         </section>
     );
