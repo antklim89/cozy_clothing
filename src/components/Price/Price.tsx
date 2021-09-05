@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import styles from './Price.module.scss';
 import { PricePropTypes } from './Price.types';
@@ -6,7 +6,7 @@ import { PricePropTypes } from './Price.types';
 import { getPrice } from '~/utils';
 
 
-export const Price: FC<PricePropTypes> = ({ price, discount }) => {
+export const Price: FC<PricePropTypes> = memo(({ price, discount }) => {
     return (
         <div className={styles.root}>
             {discount && discount > 0
@@ -29,6 +29,6 @@ export const Price: FC<PricePropTypes> = ({ price, discount }) => {
                 )}
         </div>
     );
-};
+});
 
-
+Price.displayName = 'Price';

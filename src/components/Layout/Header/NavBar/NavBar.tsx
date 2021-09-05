@@ -3,12 +3,11 @@ import { FC } from 'react';
 
 
 import styles from './NavBar.module.scss';
-import { NavBarPropTypes } from './NavBar.types';
 
 import { Button } from '~/components/Button';
 
 
-export const NavBar: FC<NavBarPropTypes> = () => {
+export const NavBar: FC = () => {
     return (
         <nav>
             <ul className={styles.nav}>

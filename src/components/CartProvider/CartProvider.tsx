@@ -1,4 +1,6 @@
-import { FC, createContext, useContext, useState, useEffect } from 'react';
+import {
+    FC, createContext, useContext, useState, useEffect, useCallback, useMemo,
+} from 'react';
 
 import { CartContext, CartItem } from './CartProvider.types';
 
@@ -19,20 +21,26 @@ export const CartProvider: FC = ({ children }) => {
         if (isBrowser) localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
 
-    const addToCart = (newItem: CartItem) => {
+    const addToCart = useCallback((newItem: CartItem) => {
         setCart((prev) => [...prev, newItem]);
-    };
+    }, []);
 
-    const removeFromCart = (itemToRemove: CartItem) => {
-        setCart((prev) => prev.filter((i) => i !== itemToRemove));
-    };
+    const removeFromCart = useCallback((itemToRemove: CartItem) => {
+        setCart((prev) => {
+            return prev.filter((prevCartItem) => prevCartItem !== itemToRemove);
+        });
+    }, []);
 
-    const updateCartItem = (itemToupdate: CartItem) => {
-        setCart((prev) => prev.map((i) => (i.id === itemToupdate.id ? itemToupdate : i)));
-    };
+    const updateCartItem = useCallback((itemToupdate: CartItem) => {
+        setCart((prev) => {
+            return prev.map((prevCartItem) => (prevCartItem.id === itemToupdate.id ? itemToupdate : prevCartItem));
+        });
+    }, []);
+
+    const value = useMemo(() => ({ cart, setCart, addToCart, removeFromCart, updateCartItem }), [cart]);
 
     return (
-        <context.Provider value={{ cart, setCart, addToCart, removeFromCart, updateCartItem }}>
+        <context.Provider value={value}>
             {children}
         </context.Provider>
     );

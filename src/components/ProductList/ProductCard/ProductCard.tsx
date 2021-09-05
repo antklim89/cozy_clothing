@@ -13,7 +13,7 @@ import { Price } from '~/components/Price';
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const { cart } = useCart();
     const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
-    const isInCart = cart.some((i) => i.id === product.id);
+    const isInCart = cart.some((cartItem) => cartItem.id === product.id);
 
     return (
         <Link

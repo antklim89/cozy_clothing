@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 
 import { Container } from '~/components/Container';
 import { Input } from '~/components/Input';
@@ -42,6 +42,10 @@ export const SearchPage: FC = () => {
         queryMemo = query;
     }, [query]);
 
+    const handleSearch = useCallback(() => {
+        return (e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value);
+    }, []);
+
     return (
         <main>
             <Container topSpace="md">
@@ -49,7 +53,7 @@ export const SearchPage: FC = () => {
                 <Input
                     placeholder="Enter search query..."
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={handleSearch()}
                 />
                 {(index && store) && (
                     <Search index={index} query={query} store={store} />

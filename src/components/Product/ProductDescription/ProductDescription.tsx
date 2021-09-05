@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 
 import { ProductPropTypes } from '../Product.types';
 
@@ -18,7 +18,7 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     const { cart, addToCart, removeFromCart, updateCartItem } = useCart();
 
     const [cartItem, setCartItem] = useState<CartItem>(() => (
-        cart.find((i) => i.id === product.id) || {
+        cart.find((storedCartItem) => storedCartItem.id === product.id) || {
             id: product.id,
             product,
             qty: 1,
@@ -26,13 +26,21 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
         }
     ));
 
-    const handleAddToCart = () => {
+    const handleAddToCart = useCallback(() => {
         addToCart(cartItem);
-    };
+    }, [cartItem]);
 
-    const handleRemoveFromCart = () => {
+    const handleRemoveFromCart = useCallback(() => {
         if (cartItem) removeFromCart(cartItem);
-    };
+    }, [cartItem, removeFromCart]);
+
+    const handleChangeSize = useCallback((size: Sizes) => {
+        setCartItem((prev) => ({ ...prev, size }));
+    }, []);
+
+    const handleChangeQty = useCallback((qty: number) => {
+        setCartItem((prev) => ({ ...prev, qty }));
+    }, []);
 
     useEffect(() => {
         updateCartItem(cartItem);
@@ -68,12 +76,12 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                 <SelectSize
                     label="SIZE:"
                     value={cartItem.size}
-                    onChange={(size) => setCartItem((p) => ({ ...p, size }))}
+                    onChange={handleChangeSize}
                 />
                 <SelectNumber
                     label="QTY:"
                     value={cartItem.qty}
-                    onChange={(qty) => setCartItem((p) => ({ ...p, qty }))}
+                    onChange={handleChangeQty}
                 />
                 <div className={styles.cardBtn}>
                     {cart.includes(cartItem)

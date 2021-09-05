@@ -70,6 +70,7 @@ module.exports = {
         'react/destructuring-assignment': 0,
         'react/no-this-in-sfc': 0,
         'react/jsx-one-expression-per-line': 0,
+        'react/display-name': 1,
 
         'react-hooks/exhaustive-deps': 0,
 

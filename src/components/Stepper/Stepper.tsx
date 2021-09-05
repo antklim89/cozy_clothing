@@ -14,11 +14,13 @@ export const Stepper: FC<StepperPropTypes> = ({ children, maxSteps }) => {
     }
 
     function isPrevStepsCompleted(stepIndex: number): boolean {
-        return completedSteps.slice(0, stepIndex).every((i) => i);
+        return completedSteps.slice(0, stepIndex).every((item) => item);
     }
 
     function completeStep(index: number, stepState: boolean): void {
-        setCompletedSteps((p) => p.map((v, i) => (i === index - 1 ? stepState : v)));
+        setCompletedSteps((prevSteps) => {
+            return prevSteps.map((prevStep, prevStepIndex) => (prevStepIndex === index - 1 ? stepState : prevStep));
+        });
     }
 
 

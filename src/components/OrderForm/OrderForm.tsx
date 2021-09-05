@@ -27,6 +27,7 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                 setError(err.message);
                 return { error: err.message, result: err.value };
             }
+            throw err;
         }
     }
 
