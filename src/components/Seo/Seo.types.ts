@@ -10,3 +10,12 @@ export interface SeoProps {
     keywords?: string[]
 }
 
+export interface SeoQuery {
+    site: {
+        siteMetadata: {
+            title: string
+            description: string
+            author: string
+        }
+    }
+}

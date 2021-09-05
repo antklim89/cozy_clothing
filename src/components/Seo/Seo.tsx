@@ -2,7 +2,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { SeoProps } from './Seo.types';
+import { SeoProps, SeoQuery } from './Seo.types';
 
 
 export const Seo: FC<SeoProps> = ({
@@ -11,7 +11,7 @@ export const Seo: FC<SeoProps> = ({
     keywords = [],
     title = 'Page',
 }) => {
-    const { site } = useStaticQuery<any>(graphql` 
+    const { site } = useStaticQuery<SeoQuery>(graphql` 
         query Seo {
             site {
                 siteMetadata {

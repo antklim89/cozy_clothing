@@ -1,6 +1,5 @@
 import { ReactElement, useMemo } from 'react';
 
-
 import styles from './Input.module.scss';
 import { InputPropTypes, SelectPropTypes, TextAreaPropTypes } from './Input.types';
 

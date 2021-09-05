@@ -22,6 +22,7 @@ CMS.init({
         media_folder: 'content/uploaded/',
         collections: [
             ...products,
+            features,
             {
                 label: 'Categories',
                 name: 'categories',
@@ -35,7 +36,6 @@ CMS.init({
                 files: [
                     about,
                     hero,
-                    features,
                 ],
             },
         ],
