@@ -79,7 +79,7 @@ module.exports = {
 
         '@typescript-eslint/no-var-requires': 0,
         '@typescript-eslint/no-shadow': 2,
-        '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '^_' }],
+        '@typescript-eslint/no-unused-vars': [1, { 'argsIgnorePattern': '^_', 'varsIgnorePattern': '^_' }],
 
         'no-underscore-dangle': 0,
         'no-inline-comments': 0,

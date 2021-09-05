@@ -1,41 +1,26 @@
-import {
-    HTMLAttributes,
-    ReactNode,
-    FunctionComponent,
-    ComponentClass,
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
-} from 'react';
+import { HTMLAttributes, FunctionComponent, ComponentClass, ReactElement } from 'react';
 
 
-export type ButtonPropTypesElement = {
-    component: 'span'|'div'
-} & HTMLAttributes<HTMLElement> & ButtonPropTypes
+export interface ButtonFC {
+    <P>(props: ButtonPropTypesWithComponent<P>): ReactElement
+    <P>(props: ButtonPropTypes<P>): ReactElement
+    <P>(props: ButtonAnchorPropTypes<P>): ReactElement
+}
 
-export type ButtonPropTypesAnchor = {
-    component: 'a'
-} & AnchorHTMLAttributes<HTMLAnchorElement> & ButtonPropTypes
-
-
-export type ButtonPropTypesButton = {
-    component: 'button'
-} & ButtonHTMLAttributes<HTMLButtonElement> & ButtonPropTypes
-
-
-export type ButtonPropTypesWithComponent<T> = {
-    component: Comp<T>
-} & HTMLAttributes<T> & T & ButtonPropTypes
-
-
-export type ButtonPropTypes = {
+interface BaseButtonProps {
     variant?: 'outlined' | 'text' | 'contained'
     fontColor?: 'dark' | 'light'
     size?: 'small' | 'large'
     disabled?: boolean
     fullWidth?: boolean
-    children: ReactNode
-} & ButtonHTMLAttributes<HTMLButtonElement>
+}
+type ButtonPropTypes<_> = BaseButtonProps & HTMLAttributes<HTMLButtonElement> & {
+    component?: 'button'
+}
+type ButtonAnchorPropTypes<_> = BaseButtonProps & HTMLAttributes<HTMLAnchorElement> & {
+    component?: 'a'
+}
 
-
-type Comp<P> = FunctionComponent<P> | ComponentClass<P>
-
+type ButtonPropTypesWithComponent<T> = HTMLAttributes<T> & T & BaseButtonProps & {
+    component: FunctionComponent<T> | ComponentClass<T>
+};

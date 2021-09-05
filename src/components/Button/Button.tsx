@@ -1,23 +1,10 @@
-import { ReactElement } from 'react';
-
 import style from './Button.module.scss';
-import {
-    ButtonPropTypes,
-    ButtonPropTypesWithComponent,
-    ButtonPropTypesButton,
-    ButtonPropTypesAnchor,
-    ButtonPropTypesElement,
-} from './Button.types';
+import { ButtonFC } from './Button.types';
 
 import { cls } from '~/utils';
 
 
-export function Button(props: ButtonPropTypesElement): ReactElement
-export function Button(props: ButtonPropTypesAnchor): ReactElement
-export function Button(props: ButtonPropTypesButton): ReactElement
-export function Button<P>(props: ButtonPropTypesWithComponent<P>): ReactElement
-export function Button(props: ButtonPropTypes): ReactElement
-export function Button<P>({
+export const Button: ButtonFC = ({
     children,
     component: Component = 'button',
     variant = 'contained',
@@ -26,10 +13,10 @@ export function Button<P>({
     fullWidth = false,
     disabled = false,
     ...props
-}: ButtonPropTypesWithComponent<P> | ButtonPropTypesButton): ReactElement {
+}) => {
     return (
         <Component
-            {...props as P}
+            {...props as ButtonFC['arguments']}
             className={cls(
                 props.className,
                 style.root,
@@ -44,4 +31,4 @@ export function Button<P>({
             {children}
         </Component>
     );
-}
+};

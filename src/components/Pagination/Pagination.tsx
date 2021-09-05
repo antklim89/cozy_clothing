@@ -19,7 +19,7 @@ export const Pagination: FC<PaginationPropTypes> = ({
         <div className={styles.root}>
             {previousPagePath.length === 0
                 ? (
-                    <Button disabled className={styles.hidden} component="span">
+                    <Button disabled className={styles.hidden} component="a">
                         Previous
                     </Button>
                 )
@@ -36,7 +36,7 @@ export const Pagination: FC<PaginationPropTypes> = ({
             </span>
             {nextPagePath.length === 0
                 ? (
-                    <Button disabled className={styles.hidden} component="span">
+                    <Button disabled className={styles.hidden} component="a">
                         Next
                     </Button>
                 )
