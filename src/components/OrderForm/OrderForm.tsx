@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
+import { ValidationError } from 'yup';
 
 import styles from './OrderForm.module.scss';
 import { OrderFormPropTypes } from './OrderForm.types';
@@ -21,9 +22,11 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
             setError(null);
             return { result };
         } catch (err) {
-            onValidation(false);
-            setError(err.message);
-            return { error: err.message, result: err.value };
+            if (err instanceof ValidationError) {
+                onValidation(false);
+                setError(err.message);
+                return { error: err.message, result: err.value };
+            }
         }
     }
 

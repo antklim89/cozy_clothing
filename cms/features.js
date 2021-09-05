@@ -8,9 +8,7 @@ export const features = {
     create: true,
     slug: '{{text}}',
     extension: 'json',
-    editor: {
-        preview: false,
-    },
+    editor: { preview: false },
     fields: [
         {
             label: 'Layout',

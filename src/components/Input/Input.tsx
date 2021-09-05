@@ -17,7 +17,7 @@ export const Input: Props = ({
     label,
     component = 'input',
     ...props
-}): ReactElement => {
+}) => {
     const id = useMemo(() => (Math.random() * 10000).toString(32), []);
 
     return (

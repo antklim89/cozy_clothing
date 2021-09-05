@@ -7,5 +7,7 @@ export interface IFeature {
 }
 
 export interface FeaturesQuery {
-    features: IFeature[]
+    allFeatures: {
+        nodes: IFeature[]
+    }
 }

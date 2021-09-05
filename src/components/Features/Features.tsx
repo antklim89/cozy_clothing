@@ -9,20 +9,17 @@ import { Container } from '~/components/Container';
 
 
 export const Features: FC = () => {
-    const { features } = useStaticQuery<FeaturesQuery>(graphql`
+    const { allFeatures: { nodes: features } } = useStaticQuery<FeaturesQuery>(graphql`
         query Features {
-            features {
-                image {
-                    childImageSharp {
-                        gatsbyImageData(
-                            placeholder: BLURRED,
-                            width: 60,
-                            height: 70,
-                            layout: FIXED
-                        )
+            allFeatures {
+                nodes {
+                    image {
+                            childImageSharp {
+                            gatsbyImageData(placeholder: BLURRED, width: 60, height: 70, layout: FIXED)
+                        }
                     }
+                    text
                 }
-                text
             }
         }
     `);
