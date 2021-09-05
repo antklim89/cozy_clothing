@@ -14,10 +14,10 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
             <section className="container mb-5 mt-3">
                 <Title>{title}</Title>
                 <article className={styles.aboutContainer}>
-                    <div className={styles.aboutItem}>
-                        <GatsbyImage alt="about" image={image.childImageSharp.gatsbyImageData} />
+                    <div className={styles.aboutImage}>
+                        <GatsbyImage alt="about" image={image.childImageSharp.gatsbyImageData} objectFit="cover" />
                     </div>
-                    <div className={styles.aboutItem}>
+                    <div className={styles.aboutText}>
                         <ReactMarkdown source={body} />
                     </div>
                 </article>
@@ -32,7 +32,7 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
                                 alt={item.title}
                                 image={item.image.childImageSharp.gatsbyImageData}
                             />
-                            <h5>{item.title}</h5>
+                            <h5 className="mb-2">{item.title}</h5>
                             <p>{item.text}</p>
                         </article>
                     ))}
