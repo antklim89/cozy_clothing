@@ -3,7 +3,7 @@
 
 .total-price {
     font-size: $font-size-xl;
-    @extend .pb-1;
+    @extend .pb-1, .mx-4;
     display: flex;
     align-items: flex-end;
     flex-direction: column;

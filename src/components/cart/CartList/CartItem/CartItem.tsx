@@ -14,7 +14,6 @@ import { getPrice } from '~/utils';
 
 export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
     const { removeFromCart, updateCartItem } = useCart();
-
     const { product } = cartItem;
 
     return (
@@ -36,17 +35,14 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                 </section>
                 <div className={styles.price}>
                     <p>
-                        Price:&nbsp;$
-                        {getPrice(product.price, product.discount)}
+                        Price:&nbsp;${getPrice(product.price, product.discount)}
                     </p>
                     <p>
-                        Quantity:&nbsp;
-                        {cartItem.qty}
+                        Quantity:&nbsp;{cartItem.qty}
                     </p>
                     <p>
                         <b>
-                            Total:&nbsp;$
-                            {product.price * cartItem.qty}
+                            Total:&nbsp;${product.price * cartItem.qty}
                         </b>
                     </p>
                 </div>
