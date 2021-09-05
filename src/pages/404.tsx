@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
-import { Seo } from '~/components/Seo';
+import { Seo } from '~/components/layout/Seo';
 
 
 const NotFoundPage: FC = () => (

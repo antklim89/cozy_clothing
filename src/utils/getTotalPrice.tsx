@@ -1,4 +1,4 @@
-import type { CartItem } from '~/components/CartProvider';
+import type { CartItem } from '~/components/cart/CartProvider';
 import { getPrice } from '~/utils';
 
 

@@ -1,8 +1,8 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { About } from '~/components/About';
-import { Seo } from '~/components/Seo';
+import { About } from '~/components/layout/About';
+import { Seo } from '~/components/layout/Seo';
 import { IAbout } from '~/types/about';
 
 
