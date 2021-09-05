@@ -14,7 +14,7 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/700-italic.css';
 import { createElement } from 'react';
 
-import { Layout } from '~/components/Layout';
+import { Layout } from '~/components/layout/Layout';
 
 
 export const wrapPageElement = ({ element, props }) => {
