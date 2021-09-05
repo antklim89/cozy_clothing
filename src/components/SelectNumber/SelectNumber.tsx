@@ -29,11 +29,12 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
     const id = useMemo(() => (Math.random() * 10000).toString(32), []);
 
     return (
-        <div className={cls(styles.root, className)}>
-            {label && <label className={styles.label} htmlFor={id}>{label}</label>}
+        <label className={cls(styles.root, className)} htmlFor={id}>
+            {label ? label : <>{label} <br /></>}
             <div className={styles.select}>
                 <Button aria-label="plus" className={styles.button} onClick={handlePlusQty}>+</Button>
                 <input
+                    aria-label="select quantity"
                     className={styles.input}
                     id={id}
                     type="number"
@@ -43,6 +44,6 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
                 />
                 <Button aria-label="minus" className={styles.button} onClick={handleMinusQty}>-</Button>
             </div>
-        </div>
+        </label>
     );
 };

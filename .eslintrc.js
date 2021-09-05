@@ -72,9 +72,9 @@ module.exports = {
 
         'react-hooks/exhaustive-deps': 0,
 
+        'jsx-a11y/no-onchange': 0,
         'jsx-a11y/label-has-associated-control': 2,
         'jsx-a11y/label-has-for': 0,
-        'jsx-a11y/anchor-is-valid': 0,
 
         '@typescript-eslint/no-var-requires': 0,
         '@typescript-eslint/no-shadow': 2,

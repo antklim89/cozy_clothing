@@ -1,10 +1,12 @@
+import { FC } from 'react';
+
 import style from './Button.module.scss';
 import { ButtonFC } from './Button.types';
 
 import { cls } from '~/utils';
 
 
-export const Button: ButtonFC = ({
+export const Button: FC<any> = ({
     children,
     component: Component = 'button',
     variant = 'contained',

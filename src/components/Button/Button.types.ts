@@ -3,25 +3,24 @@ import { HTMLAttributes, FunctionComponent, ComponentClass, ReactElement } from 
 
 export interface ButtonFC {
     <P>(props: ButtonPropTypesWithComponent<P>): ReactElement
-    <P>(props: ButtonPropTypes<P>): ReactElement
-    <P>(props: ButtonAnchorPropTypes<P>): ReactElement
-    displayName?: 'string'
+    (props: ButtonPropTypes): ReactElement
+    (props: ButtonAnchorPropTypes): ReactElement
 }
 
-interface BaseButtonProps {
+export interface BaseButtonProps extends HTMLAttributes<HTMLElement> {
     variant?: 'outlined' | 'text' | 'contained'
     fontColor?: 'dark' | 'light'
     size?: 'small' | 'large'
     disabled?: boolean
     fullWidth?: boolean
 }
-type ButtonPropTypes<_> = BaseButtonProps & HTMLAttributes<HTMLButtonElement> & {
+export type ButtonPropTypes = BaseButtonProps & HTMLAttributes<HTMLButtonElement> & {
     component?: 'button'
 }
-type ButtonAnchorPropTypes<_> = BaseButtonProps & HTMLAttributes<HTMLAnchorElement> & {
-    component?: 'a'
+export type ButtonAnchorPropTypes = BaseButtonProps & HTMLAttributes<HTMLAnchorElement> & {
+    component: 'a'
 }
 
-type ButtonPropTypesWithComponent<T> = HTMLAttributes<T> & T & BaseButtonProps & {
+export type ButtonPropTypesWithComponent<T> = HTMLAttributes<T> & T & BaseButtonProps & {
     component: FunctionComponent<T> | ComponentClass<T>
 };

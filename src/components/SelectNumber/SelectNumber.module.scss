@@ -1,12 +1,8 @@
-@use '~/styles/variables.scss' as *;
+@use '~/styles/global.scss' as *;
 
 
 .root {
-    @extend .base-input;
-}
-
-.label {
-    margin-right: 0.5rem;
+    @extend .input-group;
 }
 
 .select {       
@@ -25,13 +21,11 @@
 }
 
 .button {
-    width: 40px;
     user-select: none;
     margin: 0 !important;
 }
 
 .input {
-    width: 40px;
     border: none;
     background: none;
     text-align: center;

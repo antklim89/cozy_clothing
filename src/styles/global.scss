@@ -74,3 +74,27 @@ a:focus, button:focus {
 @include media-xs {
     html {font-size: 80%;};
 }
+
+
+.input-group {
+    width: 100%;
+    margin-left: 1rem;
+
+    & > * {
+        margin-left: -1rem;
+        width: calc(100% + 1rem);
+    }
+
+    select, input, textarea {
+        @extend .p-2;
+        transition: $transition-speed;
+
+        outline: 1px solid transparent;
+        outline-offset: 20px;
+        
+        &:hover, &:active, &:focus {
+            outline: 1px solid #9E2B25;
+            outline-offset: -2px;
+        }
+    }
+}

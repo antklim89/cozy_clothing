@@ -2,7 +2,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 
 import { Container } from '~/components/Container';
-import { Input } from '~/components/Input';
 import { Search } from '~/components/Search';
 import { Seo } from '~/components/Seo';
 import { IProductPreview } from '~/types';
@@ -50,11 +49,13 @@ export const SearchPage: FC = () => {
         <main>
             <Container topSpace="md">
                 <Seo title="Search" />
-                <Input
-                    placeholder="Enter search query..."
-                    value={query}
-                    onChange={handleSearch()}
-                />
+                <label className="input-group">
+                    <input
+                        placeholder="Enter search query..."
+                        value={query}
+                        onChange={handleSearch()}
+                    />
+                </label>
                 {(index && store) && (
                     <Search index={index} query={query} store={store} />
                 )}
