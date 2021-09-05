@@ -1,6 +1,4 @@
-import {
-    FC, createContext, useContext, useState, useEffect,
-} from 'react';
+import { FC, createContext, useContext, useState, useEffect } from 'react';
 
 import { CartContext, CartItem } from './CartProvider.types';
 
@@ -34,10 +32,7 @@ export const CartProvider: FC = ({ children }) => {
     };
 
     return (
-        <context.Provider value={{
-            cart, setCart, addToCart, removeFromCart, updateCartItem,
-        }}
-        >
+        <context.Provider value={{ cart, setCart, addToCart, removeFromCart, updateCartItem }}>
             {children}
         </context.Provider>
     );

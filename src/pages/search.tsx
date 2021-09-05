@@ -10,7 +10,7 @@ import { IProductPreview } from '~/types';
 
 let queryMemo = '';
 
-export const search: FC = () => {
+export const SearchPage: FC = () => {
     const { localSearchAllProducts } = useStaticQuery(graphql`
         {
             localSearchAllProducts {
@@ -38,7 +38,9 @@ export const search: FC = () => {
         }
     }, []);
 
-    useEffect(() => { queryMemo = query; }, [query]);
+    useEffect(() => {
+        queryMemo = query;
+    }, [query]);
 
     return (
         <main>
@@ -57,4 +59,4 @@ export const search: FC = () => {
     );
 };
 
-export default search;
+export default SearchPage;

@@ -7,9 +7,7 @@ import { Input } from '~/components/Input';
 import { Sizes } from '~/types';
 
 
-export const SelectSize: FC<SelectSizePropTypes> = ({
-    value, onChange, label,
-}) => {
+export const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) => {
     return (
         <Input
             component="select"

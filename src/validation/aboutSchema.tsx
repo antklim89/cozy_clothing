@@ -7,8 +7,10 @@ export const aboutSchema = yup.object({
     chooseUs: yup.array(yup.object({
         text: yup.string().required(),
         title: yup.string().required(),
-        image: yup.mixed<IGatsbyImageData>().transform((v) => v.childImageSharp.gatsbyImageData).required(),
+        image: yup.mixed<IGatsbyImageData>().transform((v) => v.childImageSharp.gatsbyImageData)
+            .required(),
     })).required(),
-    image: yup.mixed<IGatsbyImageData>().transform((v) => v.childImageSharp.gatsbyImageData).required(),
+    image: yup.mixed<IGatsbyImageData>().transform((v) => v.childImageSharp.gatsbyImageData)
+        .required(),
     title: yup.string().required(),
 }).required();

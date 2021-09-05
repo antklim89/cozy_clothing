@@ -9,9 +9,7 @@ export const products = productTypes.map((type) => ({
     slug: '{{type}}-{{category}}-{{title}}',
     media_folder: 'images',
     extension: 'json',
-    editor: {
-        preview: false,
-    },
+    editor: { preview: false },
     fields: [
         {
             label: 'Layout',

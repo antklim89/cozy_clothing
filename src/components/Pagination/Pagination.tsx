@@ -17,33 +17,37 @@ export const Pagination: FC<PaginationPropTypes> = ({
     if (numberOfPages === 1) return null;
     return (
         <div className={styles.root}>
-            {previousPagePath.length === 0 ? (
-                <Button disabled className={styles.hidden} component="span">
-                    Previous
-                </Button>
-            ) : (
-                <Button
-                    component={Link}
-                    to={previousPagePath}
-                >
-                    Previous
-                </Button>
-            )}
+            {previousPagePath.length === 0
+                ? (
+                    <Button disabled className={styles.hidden} component="span">
+                        Previous
+                    </Button>
+                )
+                : (
+                    <Button
+                        component={Link}
+                        to={previousPagePath}
+                    >
+                        Previous
+                    </Button>
+                )}
             <span className={styles.pageNumber}>
                 {humanPageNumber}
             </span>
-            {nextPagePath.length === 0 ? (
-                <Button disabled className={styles.hidden} component="span">
-                    Next
-                </Button>
-            ) : (
-                <Button
-                    component={Link}
-                    to={nextPagePath}
-                >
-                    Next
-                </Button>
-            )}
+            {nextPagePath.length === 0
+                ? (
+                    <Button disabled className={styles.hidden} component="span">
+                        Next
+                    </Button>
+                )
+                : (
+                    <Button
+                        component={Link}
+                        to={nextPagePath}
+                    >
+                        Next
+                    </Button>
+                )}
         </div>
     );
 };

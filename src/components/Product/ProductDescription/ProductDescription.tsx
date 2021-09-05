@@ -15,9 +15,7 @@ import { Sizes } from '~/types/product-sizes';
 export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
 
-    const {
-        cart, addToCart, removeFromCart, updateCartItem,
-    } = useCart();
+    const { cart, addToCart, removeFromCart, updateCartItem } = useCart();
 
     const [cartItem, setCartItem] = useState<CartItem>(() => (
         cart.find((i) => i.id === product.id) || {
@@ -78,21 +76,23 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                     onChange={(qty) => setCartItem((p) => ({ ...p, qty }))}
                 />
                 <div className={styles.cardBtn}>
-                    {cart.includes(cartItem) ? (
-                        <Button
-                            size="large"
-                            onClick={handleRemoveFromCart}
-                        >
-                            Remove From Cart
-                        </Button>
-                    ) : (
-                        <Button
-                            size="large"
-                            onClick={handleAddToCart}
-                        >
-                            Add To Card
-                        </Button>
-                    )}
+                    {cart.includes(cartItem)
+                        ? (
+                            <Button
+                                size="large"
+                                onClick={handleRemoveFromCart}
+                            >
+                                Remove From Cart
+                            </Button>
+                        )
+                        : (
+                            <Button
+                                size="large"
+                                onClick={handleAddToCart}
+                            >
+                                Add To Card
+                            </Button>
+                        )}
                 </div>
             </div>
         </section>

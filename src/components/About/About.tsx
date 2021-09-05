@@ -9,9 +9,7 @@ import { Title } from '~/components/Title';
 import { IAbout } from '~/types';
 
 
-export const About: FC<IAbout> = ({
-    title, body, image, chooseUs,
-}) => {
+export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
     return (
         <>
             <Container bottomSpace="xl" component="section" topSpace="md">

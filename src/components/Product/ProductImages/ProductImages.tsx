@@ -48,23 +48,25 @@ export const ProductImages: FC<ProductPropTypes> = ({ product }) => {
 
     return (
         <div className={styles.root}>
-            {isOpen ? (
-                <div aria-modal>
-                    <button
-                        className={styles.imageModal}
-                        type="button"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        <GatsbyImage
-                            alt={product.title}
-                            image={product.images[imageIndex].childImageSharp.gatsbyImageData}
-                            objectFit="contain"
-                        />
-                    </button>
-                    {hasNext && <button className={styles.nextBtn} type="button" onClick={nextImage}>next</button>}
-                    {hasPrev && <button className={styles.prevBtn} type="button" onClick={prevImage}>prev</button>}
-                </div>
-            ) : null}
+            {isOpen
+                ? (
+                    <div aria-modal>
+                        <button
+                            className={styles.imageModal}
+                            type="button"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            <GatsbyImage
+                                alt={product.title}
+                                image={product.images[imageIndex].childImageSharp.gatsbyImageData}
+                                objectFit="contain"
+                            />
+                        </button>
+                        {hasNext && <button className={styles.nextBtn} type="button" onClick={nextImage}>next</button>}
+                        {hasPrev && <button className={styles.prevBtn} type="button" onClick={prevImage}>prev</button>}
+                    </div>
+                )
+                : null}
             <ul className={styles.imagesPreview}>
                 {product.imagesPreview.map((image, index) => (
                     <li

@@ -42,9 +42,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
                 <div className={styles.bagdes}>
                     {product.discount > 0 && (
                         <p>
-                            -
-                            {product.discount}
-                            %
+                            -{product.discount.toFixed(2)}%
                         </p>
                     )}
                     {isNew && (

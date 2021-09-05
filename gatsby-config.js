@@ -82,11 +82,7 @@ module.exports = {
         // 'gatsby-plugin-typegen',
         {
             resolve: 'gatsby-plugin-react-svg',
-            options: {
-                rule: {
-                    include: /assets/,
-                },
-            },
+            options: { rule: { include: /assets/ } },
         },
         {
             resolve: 'gatsby-transformer-remark',
@@ -109,9 +105,7 @@ module.exports = {
         },
         {
             resolve: 'gatsby-plugin-postcss',
-            options: {
-                postCssPlugins: [postcss(), autoprefixer],
-            },
+            options: { postCssPlugins: [postcss(), autoprefixer] },
         },
         {
             resolve: 'gatsby-source-filesystem',
@@ -141,11 +135,7 @@ module.exports = {
         },
         {
             resolve: 'gatsby-alias-imports',
-            options: {
-                aliases: {
-                    '~': 'src/',
-                },
-            },
+            options: { aliases: { '~': 'src/' } },
         },
     ],
 };

@@ -1,7 +1,5 @@
 import { IPagination } from '~/types';
 
 
-export interface PaginationPropTypes extends IPagination {
-
-}
+export type PaginationPropTypes = IPagination
 

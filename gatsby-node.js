@@ -2,37 +2,37 @@
 const path = require('path');
 
 const { paginate } = require('gatsby-awesome-pagination');
-const yup = require('yup');
+// const yup = require('yup');
 
 
-const productSchema = yup.object({
-    id: yup.string().required(),
-    body: yup.string()
-        .trim()
-        .matches(/^[\w\d\s]*$/gi)
-        .min(3)
-        .max(50000)
-        .required(),
-    images: yup.array()
-        .min(1)
-        .max(20)
-        .required(),
-    title: yup.string()
-        .trim()
-        .min(3)
-        .max(500)
-        .required(),
-    category: yup.string()
-        .trim()
-        .min(3)
-        .max(500)
-        .required(),
-    hidden: yup.boolean().required(),
-    careatedAt: yup.string().required(),
-    discount: yup.number().min(0).max(100).required(),
-    type: yup.string().required(),
-    price: yup.number().min(0).max(1000000).required(),
-});
+// const productSchema = yup.object({
+//     id: yup.string().required(),
+//     body: yup.string()
+//         .trim()
+//         .matches(/^[\w\d\s]*$/gi)
+//         .min(3)
+//         .max(50000)
+//         .required(),
+//     images: yup.array()
+//         .min(1)
+//         .max(20)
+//         .required(),
+//     title: yup.string()
+//         .trim()
+//         .min(3)
+//         .max(500)
+//         .required(),
+//     category: yup.string()
+//         .trim()
+//         .min(3)
+//         .max(500)
+//         .required(),
+//     hidden: yup.boolean().required(),
+//     careatedAt: yup.string().required(),
+//     discount: yup.number().min(0).max(100).required(),
+//     type: yup.string().required(),
+//     price: yup.number().min(0).max(1000000).required(),
+// });
 
 /**
  * =============================================
@@ -41,9 +41,7 @@ const productSchema = yup.object({
 exports.onCreateBabelConfig = ({ actions }) => {
     actions.setBabelPreset({
         name: '@babel/preset-react',
-        options: {
-            runtime: 'automatic',
-        },
+        options: { runtime: 'automatic' },
     });
 };
 
@@ -53,9 +51,7 @@ exports.onCreateBabelConfig = ({ actions }) => {
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     const config = getConfig();
-    const miniCssExtractPlugin = config.plugins.find(
-        (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin',
-    );
+    const miniCssExtractPlugin = config.plugins.find((plugin) => plugin.constructor.name === 'MiniCssExtractPlugin');
     if (miniCssExtractPlugin) miniCssExtractPlugin.options.ignoreOrder = true;
 
     actions.replaceWebpackConfig(config);
@@ -80,13 +76,11 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
 function validateProducts({ getNodesByType }) {
     getNodesByType('Product')
-        .filter(({ layout, hidden = {} } = {}) => layout === 'product' && hidden === false)
-        .map((product) => productSchema.validateSync(product));
+        .filter(({ layout, hidden = {} } = {}) => layout === 'product' && hidden === false);
+    // .map((product) => productSchema.validateSync(product));
 }
 
-function createCatalogNodes({
-    actions, getNodesByType, createNodeId, createContentDigest,
-}) {
+function createCatalogNodes({ actions, getNodesByType, createNodeId, createContentDigest }) {
     const catalog = getNodesByType('Product')
         .filter(({ layout, hidden = {} } = {}) => layout === 'product' && hidden === false)
         .reduce((acc, { type, category }) => {

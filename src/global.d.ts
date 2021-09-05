@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/// <reference types="node" />
+// / <reference types="node" />
 // <reference types="react" />
 
 declare namespace NodeJS {

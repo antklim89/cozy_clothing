@@ -18,9 +18,7 @@ const cart: FC = () => {
             <Container topSpace="md">
                 <Title>Cart</Title>
                 <Stepper maxSteps={3}>
-                    {({
-                        step, setStep, completeStep, isStepCompleted, isPrevStepsCompleted,
-                    }) => (
+                    {({ step, setStep, completeStep, isStepCompleted, isPrevStepsCompleted }) => (
                         <>
                             <StepperHeader>
                                 <Button onClick={() => setStep(1)}>

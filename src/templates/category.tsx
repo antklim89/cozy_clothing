@@ -25,12 +25,8 @@ interface CategoryPageData {
 
 
 const categoryPage: FC<PageProps<CategoryPageData, CategoryPageContext>> = ({
-    pageContext: {
-        category, type, categories, ...paginationContext
-    },
-    data: {
-        allProduct: { nodes: products },
-    },
+    pageContext: { category, type, categories, ...paginationContext },
+    data: { allProduct: { nodes: products } },
 }) => {
     const title = `${capitalize(type)}${category ? ` - ${capitalize(category)}` : ''}`;
 

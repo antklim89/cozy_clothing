@@ -1,6 +1,4 @@
-import {
-    ChangeEvent, FC, useEffect, useRef, useState,
-} from 'react';
+import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
 
 import styles from './OrderForm.module.scss';
 import { OrderFormPropTypes } from './OrderForm.types';

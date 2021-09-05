@@ -9,25 +9,24 @@ import { getPrice } from '~/utils';
 export const Price: FC<PricePropTypes> = ({ price, discount }) => {
     return (
         <div className={styles.root}>
-            {discount && discount > 0 ? (
-                <p className={styles.priceWithDiscount}>
-                    <span>
-                        $
-                        {price}
-                    </span>
-                    <b>
-                        $
-                        {getPrice(price, discount)}
-                    </b>
-                </p>
-            ) : (
-                <p className={styles.price}>
-                    <b>
-                        $
-                        {price}
-                    </b>
-                </p>
-            )}
+            {discount && discount > 0
+                ? (
+                    <p className={styles.priceWithDiscount}>
+                        <span>
+                            ${price.toFixed(2)}
+                        </span>
+                        <b>
+                            ${getPrice(price, discount).toFixed(2)}
+                        </b>
+                    </p>
+                )
+                : (
+                    <p className={styles.price}>
+                        <b>
+                            ${price.toFixed(2)}
+                        </b>
+                    </p>
+                )}
         </div>
     );
 };

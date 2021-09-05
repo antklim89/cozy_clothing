@@ -7,15 +7,18 @@ import { InputPropTypes, SelectPropTypes, TextAreaPropTypes } from './Input.type
 import { cls } from '~/utils';
 
 
-export function Input(props: SelectPropTypes): ReactElement;
-export function Input(props: InputPropTypes): ReactElement;
-export function Input(props: TextAreaPropTypes): ReactElement;
+interface Props {
+    (props: SelectPropTypes): ReactElement;
+    (props: InputPropTypes): ReactElement;
+    (props: TextAreaPropTypes): ReactElement;
+}
 
-export function Input({
+
+export const Input: Props = ({
     label,
     component = 'input',
     ...props
-}: SelectPropTypes | InputPropTypes | TextAreaPropTypes): ReactElement {
+}): ReactElement => {
     const id = useMemo(() => (Math.random() * 10000).toString(32), []);
 
     return (
@@ -32,4 +35,4 @@ export function Input({
             )}
         </div>
     );
-}
+};
