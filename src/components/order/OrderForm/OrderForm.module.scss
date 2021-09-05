@@ -4,8 +4,9 @@
 .form {
     display: flex;
     flex-wrap: wrap;
+    @extend .px-2;
         
-    span {
+    .errorMessage {
         @extend .p-2;
         display: none;
     }
@@ -14,7 +15,7 @@
 .error {
     color: $error;
 
-    span {
+    .errorMessage  {
         display: inline-block;
     }
 }
@@ -34,7 +35,7 @@
     height: 100%;
     
 
-    @include media-md {
+    @include media-sm {
         flex-basis: 100%;
     }
 }
@@ -49,7 +50,7 @@
 
 .input-columns:first-child,
 .input-columns:last-child {
-    @include media-md {
+    @include media-sm {
         margin: 0;
     }
 }

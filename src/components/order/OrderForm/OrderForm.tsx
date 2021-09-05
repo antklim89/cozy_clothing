@@ -67,7 +67,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={firstname}
                             onChange={(e) => setFirstname(e.target.value)}
                         />
-                        <span>The first name must be between 3 and 200 latin letters long.</span>
+                        <span className={styles.errorMessage}>
+                            The first name must be between 3 and 200 latin letters long.
+                        </span>
                     </label>
                     <label
                         className={cls(
@@ -83,7 +85,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={lastname}
                             onChange={(e) => setLastname(e.target.value)}
                         />
-                        <span>The last name must be between 3 and 200 latin letters long.</span>
+                        <span className={styles.errorMessage}>
+                            The last name must be between 3 and 200 latin letters long.
+                        </span>
                     </label>
                 </div>
                 <div className={styles.inputGroup}>
@@ -101,7 +105,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={organization}
                             onChange={(e) => setOrganization(e.target.value)}
                         />
-                        <span>The organization must be between 3 and 200 latin letters long.</span>
+                        <span className={styles.errorMessage}>
+                            The organization must be between 3 and 200 latin letters long.
+                        </span>
                     </label>
                 </div>
                 <div className={styles.inputGroup}>
@@ -119,7 +125,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <span>The field must be a valid e-mail address.</span>
+                        <span className={styles.errorMessage}>
+                            The field must be a valid e-mail address.
+                        </span>
                     </label>
                     <label
                         className={cls(
@@ -135,7 +143,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
-                        <span>The field must be a valid phone number.</span>
+                        <span className={styles.errorMessage}>
+                            The field must be a valid phone number.
+                        </span>
                     </label>
                 </div>
                 <div className={styles.inputGroup}>
@@ -153,7 +163,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={country}
                             onChange={(e) => setCountry(e.target.value)}
                         />
-                        <span>The country must be between 3 and 200 latin letters long.</span>
+                        <span className={styles.errorMessage}>
+                            The country must be between 3 and 200 latin letters long.
+                        </span>
                     </label>
                 </div>
                 <div className={styles.inputGroup}>
@@ -171,7 +183,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                         />
-                        <span>The address must be between 3 and 2000 latin letters long.</span>
+                        <span className={styles.errorMessage}>
+                            The address must be between 3 and 2000 latin letters long.
+                        </span>
                     </label>
                 </div>
             </div>
@@ -190,7 +204,9 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                             value={details}
                             onChange={(e) => setDetails(e.target.value)}
                         />
-                        <span>The details must be between 3 and 20000 latin letters long.</span>
+                        <span className={styles.errorMessage}>
+                            The details must be between 3 and 20000 latin letters long.
+                        </span>
                     </label>
                 </div>
             </div>

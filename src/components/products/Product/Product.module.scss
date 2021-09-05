@@ -9,7 +9,7 @@
         flex: 1 0;
     }
 
-    @include media-md {
+    @include media-sm {
         flex-direction: column-reverse;
     }
 }

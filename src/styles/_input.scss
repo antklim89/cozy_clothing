@@ -5,11 +5,13 @@
     display: inline-block;
 
     & > * {
-        width: calc(100%);
+        width: 100%;
     }
 
     select, input, textarea {
         @extend .p-2;
+        width: 100%;
+        
         transition: $transition-speed outline-color;
 
         outline: 1px solid transparent;
