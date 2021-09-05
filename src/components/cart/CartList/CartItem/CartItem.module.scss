@@ -1,5 +1,6 @@
 @use '~/styles/variables.scss' as *;
 
+$gap: 1rem;
 
 .root {
     display: flex;
@@ -8,53 +9,45 @@
     @extend .mb-5;
 
     > * {
-        margin: 0 1rem;
+        margin: 0 $gap;
     }
 
     .image {
-        flex: 2;
+        flex: 1;
     }
-
-    
     .title {
-        flex: 5;
-        color: $font-dark;
-        
-        .link {
-            color: $primary;
-            &:hover {
-                color: $primary-dark;
-            }
-        }
+        flex: 3;
     }
-
     .price {
         flex: 1;
     }
-
     .options {
         flex: 2;
         > * {
             margin: 0.2rem 0;
         }
-        
-        button, input, select {
-            width: 100%;
-        }
     }
-
+  
     @include media-xs {
-        .title {
-            flex: 1 1 100%;
-            text-align: center;
-            order: -1;
-        }
         .image {
-            flex: 1 1 100%;
+            flex: 1 1 calc(50% - #{$gap} * 2);
+        }
+        .title {
+            flex: 1 1 calc(50% - #{$gap} * 2);
+        }
+        .price {
+            flex: 1 1 calc(50% - #{$gap} * 2);
         }
         .options {
-            flex: 1;
+            flex: 1 1 calc(50% - #{$gap} * 2);
         }
+    }
+}
+
+.link {
+    color: $primary;
+    &:hover {
+        color: $primary-dark;
     }
 }
 
