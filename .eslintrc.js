@@ -47,12 +47,10 @@ module.exports = {
         ],
         'import/no-extraneous-dependencies': ['error', { devDependencies: ['*.js'] }],
 
-        'capitalized-comments': 0,
-        'multiline-comment-style': 0,
         'react/jsx-no-useless-fragment': 0,
         'react/forbid-component-props': 0,
         'react/jsx-closing-bracket-location': 2,
-        'react/jsx-no-bind': [2, { ignoreDOMComponents: true }],
+        'react/jsx-no-bind': [0, { ignoreDOMComponents: true }],
         'react/jsx-no-literals': 0,
         'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
         'react/jsx-max-depth': [1, { max: 5 }],
@@ -82,6 +80,8 @@ module.exports = {
         '@typescript-eslint/no-shadow': 2,
         '@typescript-eslint/no-unused-vars': [1, { 'argsIgnorePattern': '^_', 'varsIgnorePattern': '^_' }],
 
+        'capitalized-comments': 0,
+        'multiline-comment-style': 0,
         'no-underscore-dangle': 0,
         'no-inline-comments': 0,
         'line-comment-position': 0,

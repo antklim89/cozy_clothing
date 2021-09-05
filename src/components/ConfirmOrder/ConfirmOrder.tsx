@@ -1,14 +1,13 @@
 import { FC } from 'react';
 
 import styles from './ConfirmOrder.module.scss';
-import { ConfirmOrderPropTypes } from './ConfirmOrder.types';
 
 import { Button } from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 import { getPrice, getTotalPrice } from '~/utils';
 
 
-export const ConfirmOrder: FC<ConfirmOrderPropTypes> = () => {
+export const ConfirmOrder: FC = () => {
     const { cart } = useCart();
 
     const totalPrice = getTotalPrice(cart);

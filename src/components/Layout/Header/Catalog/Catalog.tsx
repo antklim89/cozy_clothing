@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 
 import styles from './Catalog.module.scss';
-import CatalogDrawer from './CatalogDrawer/CatalogDrawer';
+import { CatalogDrawer } from './CatalogDrawer/CatalogDrawer';
 
 import Menu from '~/assets/menu.svg';
 import { Button } from '~/components/Button';

@@ -72,7 +72,7 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
                             </Button>
                             <ul className={styles.subItemContainer}>
                                 <hr />
-                                {catalog[type as keyof typeof catalog]?.map((category: any) => (
+                                {catalog[type as keyof typeof catalog]?.map((category) => (
                                     <li key={category + type}>
                                         <Button
                                             color="secondary"
@@ -93,5 +93,3 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
         </>
     );
 };
-
-export default CatalogDrawer;

@@ -5,6 +5,7 @@ export interface ButtonFC {
     <P>(props: ButtonPropTypesWithComponent<P>): ReactElement
     <P>(props: ButtonPropTypes<P>): ReactElement
     <P>(props: ButtonAnchorPropTypes<P>): ReactElement
+    displayName?: 'string'
 }
 
 interface BaseButtonProps {
