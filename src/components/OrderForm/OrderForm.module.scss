@@ -4,52 +4,57 @@
 .form {
     display: flex;
     flex-wrap: wrap;
-
-    .input-group {
-        margin: 0.5rem 0;
-        display: flex;
-
-        @include media-xs {
-            flex-wrap: wrap;
-            flex-basis: 100%;
-        }
-    }
-
-    .input-columns {
-        flex: 1;
-        height: 100%;
-
-        @include media-md {
-            flex-basis: 100%;
-        }
-    }
-
-    .input-columns:first-child {
-        margin-right: 0.5rem;
-    }
-
-    .input-columns:last-child {
-        margin-left: 0.5rem;
-    }
-
-    .input-columns:first-child,
-    .input-columns:last-child {
-        @include media-md {
-            margin: 0;
-        }
-    }
-
-    .textarea {
-        resize: none;
-        min-height: 320px;
+        
+    span {
+        @extend .p-2;
+        display: none;
     }
 }
 
-.errorMessage {
-    width: 100%;
-    text-align: center;
-    border: 1px solid $error;
+.error {
     color: $error;
-    padding: 1rem;
+
+    span {
+        display: inline-block;
+    }
 }
 
+.input-group {
+    margin: 0.5rem 0;
+    display: flex;
+
+    @include media-xs {
+        flex-wrap: wrap;
+        flex-basis: 100%;
+    }
+}
+
+.input-columns {
+    flex: 1;
+    height: 100%;
+    
+
+    @include media-md {
+        flex-basis: 100%;
+    }
+}
+
+.input-columns:first-child {
+    margin-right: 0.5rem;
+}
+
+.input-columns:last-child {
+    margin-left: 0.5rem;
+}
+
+.input-columns:first-child,
+.input-columns:last-child {
+    @include media-md {
+        margin: 0;
+    }
+}
+
+.textarea {
+    resize: none;
+    min-height: 320px;
+}
