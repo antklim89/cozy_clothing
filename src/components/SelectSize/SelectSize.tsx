@@ -12,7 +12,7 @@ export const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) 
 
     return (
         <label className="input-group">
-            {label ? label : <>{label}<br /></>}
+            {label ? <>{label} <br /></> : null }
             <select
                 value={value}
                 onChange={handleChange}

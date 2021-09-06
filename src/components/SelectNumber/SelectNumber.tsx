@@ -30,7 +30,7 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
 
     return (
         <label className={cls(styles.root, className)} htmlFor={id}>
-            {label ? label : <>{label} <br /></>}
+            {label ? <>{label} <br /></> : null }
             <div className={styles.select}>
                 <Button aria-label="plus" className={styles.button} onClick={handlePlusQty}>+</Button>
                 <input
