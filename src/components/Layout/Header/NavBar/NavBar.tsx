@@ -1,10 +1,7 @@
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
-
 import styles from './NavBar.module.scss';
-
-import { Button } from '~/components/Button';
 
 
 export const NavBar: FC = () => {
@@ -13,44 +10,35 @@ export const NavBar: FC = () => {
             <ul className={styles.nav}>
                 {['men', 'women', 'boys', 'girls'].map((type) => (
                     <li className="hide-sm" key={type}>
-                        <Button
+                        <Link
                             partiallyActive
                             activeClassName={styles.active}
                             className={styles.link}
-                            color="secondary"
-                            component={Link}
                             to={`/category/${type}`}
-                            variant="text"
                         >
                             {type}
-                        </Button>
+                        </Link>
                     </li>
                 ))}
                 <li className="hide-sm">
-                    <Button
+                    <Link
                         partiallyActive
                         activeClassName={styles.active}
                         className={styles.link}
-                        color="secondary"
-                        component={Link}
                         to="/about"
-                        variant="text"
                     >
                         about
-                    </Button>
+                    </Link>
                 </li>
                 <li className="hide-sm">
-                    <Button
+                    <Link
                         partiallyActive
                         activeClassName={styles.active}
                         className={styles.link}
-                        color="secondary"
-                        component={Link}
                         to="/search"
-                        variant="text"
                     >
                         search
-                    </Button>
+                    </Link>
                 </li>
             </ul>
         </nav>

@@ -6,7 +6,6 @@ import { FC } from 'react';
 import styles from './CartItem.module.scss';
 import { CartItemPropTypes } from './CartItem.types';
 
-import { Button } from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
@@ -60,7 +59,7 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                         value={cartItem.size}
                         onChange={(size) => updateCartItem({ ...cartItem, size })}
                     />
-                    <Button onClick={() => removeFromCart(cartItem)}>DELETE</Button>
+                    <button className="btn" type="button" onClick={() => removeFromCart(cartItem)}>DELETE</button>
                 </div>
             </li>
             <hr className={styles.line} />

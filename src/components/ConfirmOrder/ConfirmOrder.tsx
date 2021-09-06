@@ -2,7 +2,6 @@ import { FC } from 'react';
 
 import styles from './ConfirmOrder.module.scss';
 
-import { Button } from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 import { getPrice, getTotalPrice } from '~/utils';
 
@@ -43,7 +42,7 @@ export const ConfirmOrder: FC = () => {
                 Total price: $
                 {totalPrice.toFixed(2)}
             </p>
-            <Button fullWidth>Place Order</Button>
+            <button className="btn full-width" type="button" >Place Order</button>
         </section>
     );
 };

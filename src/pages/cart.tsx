@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
 import DoneIcon from '~/assets/done.svg';
-import { Button } from '~/components/Button';
 import { CartList } from '~/components/CartList';
 import { ConfirmOrder } from '~/components/ConfirmOrder';
 import { Container } from '~/components/Container';
@@ -21,17 +20,31 @@ const cart: FC = () => {
                     {({ step, setStep, completeStep, isStepCompleted, isPrevStepsCompleted }) => (
                         <>
                             <StepperHeader>
-                                <Button onClick={() => setStep(1)}>
+                                <button
+                                    className="btn"
+                                    type="button"
+                                    onClick={() => setStep(1)}
+                                >
                                     {isStepCompleted(1) && <DoneIcon />}
                                     Cart
-                                </Button>
-                                <Button disabled={!isPrevStepsCompleted(1)} onClick={() => setStep(2)}>
+                                </button>
+                                <button
+                                    className="btn"
+                                    disabled={!isPrevStepsCompleted(1)}
+                                    type="button"
+                                    onClick={() => setStep(2)}
+                                >
                                     {isStepCompleted(2) && <DoneIcon />}
                                     Form
-                                </Button>
-                                <Button disabled={!isPrevStepsCompleted(2)} onClick={() => setStep(3)}>
+                                </button>
+                                <button
+                                    className="btn"
+                                    disabled={!isPrevStepsCompleted(2)}
+                                    type="button"
+                                    onClick={() => setStep(3)}
+                                >
                                     Confirm
-                                </Button>
+                                </button>
                             </StepperHeader>
 
                             <Step index={1} step={step}>

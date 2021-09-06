@@ -3,7 +3,6 @@ import { ChangeEvent, FC, useMemo } from 'react';
 import styles from './SelectNumber.module.scss';
 import { SelectNumberPropTypes } from './SelectNumber.types';
 
-import { Button } from '~/components/Button';
 import { cls } from '~/utils';
 
 
@@ -26,24 +25,35 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
     const handlePlusQty = () => onChange(Math.min(value + 1, max));
     const handleMinusQty = () => onChange(Math.max(value - 1, min));
 
-    const id = useMemo(() => (Math.random() * 10000).toString(32), []);
-
     return (
-        <label className={cls(styles.root, className)} htmlFor={id}>
+        <div className={cls(styles.root, className)}>
             {label ? <>{label} <br /></> : null }
             <div className={styles.select}>
-                <Button aria-label="plus" className={styles.button} onClick={handlePlusQty}>+</Button>
+                <button
+                    aria-label="plus"
+                    className={styles.button}
+                    type="button"
+                    onClick={handlePlusQty}
+                >
+                    +
+                </button>
                 <input
                     aria-label="select quantity"
                     className={styles.input}
-                    id={id}
                     type="number"
                     value={value}
                     onBlur={handleBlurQty}
                     onChange={handleChangeQty}
                 />
-                <Button aria-label="minus" className={styles.button} onClick={handleMinusQty}>-</Button>
+                <button
+                    aria-label="minus"
+                    className={styles.button}
+                    type="button"
+                    onClick={handleMinusQty}
+                >
+                    -
+                </button>
             </div>
-        </label>
+        </div>
     );
 };

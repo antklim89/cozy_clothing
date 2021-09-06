@@ -1,0 +1,65 @@
+@use './variables.scss' as *;
+
+@mixin base-button($borderColor, $bgColor, $textColor) {
+	border: 1px solid $borderColor;
+	background-color: $bgColor;
+    color: $textColor;
+    fill: $textColor;
+}
+
+.btn {
+    @extend .p-2;
+    @include base-button($borderColor: $secondary-light, $bgColor: $white, $textColor: $font-dark);
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: $transition-speed; 
+
+    &:hover {
+        cursor: pointer;
+        @include base-button($borderColor: $primary, $bgColor: $primary, $textColor: $font-light);
+    }
+
+    &:disabled {
+        cursor: default;
+        @include base-button($borderColor: $secondary-light, $bgColor: $secondary-light, $textColor: $font-dark);
+
+        &:hover {
+            @include base-button($borderColor: $secondary-light, $bgColor: $secondary-light, $textColor: $font-dark);
+        }
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+    
+    &.outlined {
+        &:hover {
+            @include base-button($borderColor: $primary, $bgColor: $white, $textColor: $primary);
+        }
+    }
+    
+    &.text {
+        border: 1px solid $white;
+
+        &:hover {
+            @include base-button($borderColor: $white, $bgColor: $white, $textColor: $primary);
+        }
+        
+    }
+
+    &.light {
+        color: $font-light;
+        fill: $font-light;
+    }
+
+    &.small {
+        @extend .py-1, .px-2;
+    }
+
+    &.large {
+        @extend .py-2, .px-3;
+    }
+}

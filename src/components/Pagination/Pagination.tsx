@@ -1,11 +1,8 @@
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
-
 import styles from './Pagination.module.scss';
 import { PaginationPropTypes } from './Pagination.types';
-
-import { Button } from '~/components/Button';
 
 
 export const Pagination: FC<PaginationPropTypes> = ({
@@ -19,34 +16,34 @@ export const Pagination: FC<PaginationPropTypes> = ({
         <div className={styles.root}>
             {previousPagePath.length === 0
                 ? (
-                    <Button disabled className={styles.hidden} component="a">
+                    <button disabled className={styles.hidden} type="button">
                         Previous
-                    </Button>
+                    </button>
                 )
                 : (
-                    <Button
-                        component={Link}
+                    <Link
+                        className="btn"
                         to={previousPagePath}
                     >
                         Previous
-                    </Button>
+                    </Link>
                 )}
             <span className={styles.pageNumber}>
                 {humanPageNumber}
             </span>
             {nextPagePath.length === 0
                 ? (
-                    <Button disabled className={styles.hidden} component="a">
+                    <button disabled className={styles.hidden} type="button">
                         Next
-                    </Button>
+                    </button>
                 )
                 : (
-                    <Button
-                        component={Link}
+                    <Link
+                        className="btn"
                         to={nextPagePath}
                     >
                         Next
-                    </Button>
+                    </Link>
                 )}
         </div>
     );

@@ -4,7 +4,6 @@ import { ProductPropTypes } from '../Product.types';
 
 import styles from './ProductDescription.module.scss';
 
-import { Button } from '~/components/Button';
 import { CartItem, useCart } from '~/components/CartProvider';
 import { Price } from '~/components/Price';
 import { SelectNumber } from '~/components/SelectNumber';
@@ -86,20 +85,22 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                 <div className={styles.cardBtn}>
                     {cart.includes(cartItem)
                         ? (
-                            <Button
-                                size="large"
+                            <button
+                                className="btn large"
+                                type="button"
                                 onClick={handleRemoveFromCart}
                             >
                                 Remove From Cart
-                            </Button>
+                            </button>
                         )
                         : (
-                            <Button
-                                size="large"
+                            <button
+                                className="btn large"
+                                type="button"
                                 onClick={handleAddToCart}
                             >
                                 Add To Card
-                            </Button>
+                            </button>
                         )}
                 </div>
             </div>

@@ -4,7 +4,6 @@ import styles from './Catalog.module.scss';
 import { CatalogDrawer } from './CatalogDrawer/CatalogDrawer';
 
 import Menu from '~/assets/menu.svg';
-import { Button } from '~/components/Button';
 
 
 export const Catalog: FC = () => {
@@ -12,15 +11,16 @@ export const Catalog: FC = () => {
 
     return (
         <div className={styles.root}>
-            <Button
+            <button
                 aria-expanded={isOpen}
                 aria-label="catalog"
-                variant="text"
+                className="btn text"
+                type="button"
                 onClick={() => setIsOpen(true)}
             >
-                <Menu />
+                <span className="show-md"><Menu /></span>
                 <span className="hide-md">Catalog</span>
-            </Button>
+            </button>
             { isOpen && (
                 <CatalogDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
             )}

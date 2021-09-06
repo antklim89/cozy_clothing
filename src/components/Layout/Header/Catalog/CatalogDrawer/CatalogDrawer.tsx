@@ -4,7 +4,6 @@ import { FC, useEffect } from 'react';
 import styles from './CatalogDrawer.module.scss';
 import { CatalogDrawerPropTypes } from './CatalogDrawer.types';
 
-import { Button } from '~/components/Button';
 import { Shadow } from '~/components/Shadow';
 
 
@@ -38,51 +37,45 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
             <nav className={styles.root}>
                 <ul className={styles.itemContainer}>
                     <li className="show-sm">
-                        <Button
-                            component={Link}
+                        <Link
+                            className="btn text"
                             to="/about"
-                            variant="text"
                             onClick={() => setIsOpen(false)}
                         >
                             about
-                        </Button>
+                        </Link>
                     </li>
                     <li className="show-sm">
-                        <Button
-                            component={Link}
+                        <Link
+                            className="btn text"
                             to="/search"
-                            variant="text"
                             onClick={() => setIsOpen(false)}
                         >
                             search
-                        </Button>
+                        </Link>
                     </li>
                 </ul>
                 <ul className={styles.itemContainer}>
                     {Object.keys(catalog).map((type) => (
                         <li key={type}>
-                            <Button
-                                color="secondary"
-                                component={Link}
+                            <Link
+                                className="btn text"
                                 to={`/category/${type}`}
-                                variant="text"
                                 onClick={() => setIsOpen(false)}
                             >
                                 <b>{type}</b>
-                            </Button>
+                            </Link>
                             <ul className={styles.subItemContainer}>
                                 <hr />
                                 {catalog[type as keyof typeof catalog]?.map((category) => (
                                     <li key={category + type}>
-                                        <Button
-                                            color="secondary"
-                                            component={Link}
+                                        <Link
+                                            className="btn text"
                                             to={`/category/${type}/${category}`}
-                                            variant="text"
                                             onClick={() => setIsOpen(false)}
                                         >
                                             {category}
-                                        </Button>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
