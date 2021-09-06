@@ -8,13 +8,37 @@ import _ from 'lodash';
 const TOTAL_CATEGORIES = 7;
 const PRODUCT_PER_CATEGORY = 6;
 const CATEGORIES_PER_TYPE = 4;
+const FEATURES = 4;
 
 const YEAR_MS = 31557600000;
 
 const types = ['men', 'women', 'boys', 'girls'];
 const categories = _.times(TOTAL_CATEGORIES, () => faker.commerce.product());
+const features = _.times(FEATURES, () => faker.company.catchPhrase());
 
+/**
+ * Features
+ */
+const featurePath = path.resolve('content/features');
+if (!fs.existsSync(featurePath)) {
+    fs.mkdirSync(featurePath, { recursive: true });
 
+    features.forEach((featureText) => {
+        const fileName = `${_.kebabCase(`${featureText}`)}.json`;
+
+        const feature = JSON.stringify({
+            layout: 'features',
+            text: featureText,
+            image: `../images/fake-image-${_.random(1, 6, false)}.jpg`,
+        }, null, 4);
+
+        fs.writeFileSync(path.resolve(featurePath, fileName), feature);
+    });
+}
+
+/**
+ * Products
+ */
 types.forEach((type) => {
     _.sampleSize(categories, CATEGORIES_PER_TYPE).forEach((category) => {
         _.times(PRODUCT_PER_CATEGORY, () => {
@@ -50,8 +74,8 @@ types.forEach((type) => {
 
             if (!fs.existsSync(productTypePath)) {
                 fs.mkdirSync(productTypePath, { recursive: true });
+                fs.writeFileSync(path.resolve(productTypePath, fileName), product);
             }
-            fs.writeFileSync(path.resolve(productTypePath, fileName), product);
         });
     });
 });

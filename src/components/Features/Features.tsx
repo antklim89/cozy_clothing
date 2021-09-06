@@ -25,15 +25,21 @@ export const Features: FC = () => {
     `);
 
     return (
-        <Container bottomSpace="sm" component="section">
-            <div className={styles.features}>
-                {features.map((feature) => (
-                    <section className={styles.feature} key={feature.text}>
-                        <GatsbyImage alt={feature.text} image={feature.image.childImageSharp.gatsbyImageData} />
-                        <h6>{feature.text}</h6>
-                    </section>
-                ))}
+        <div className={styles.bg}>
+            <div className="container">
+                <div className={styles.features}>
+                    {features.map((feature) => (
+                        <section className={styles.feature} key={feature.text}>
+                            <GatsbyImage
+                                alt={feature.text}
+                                className={styles.image}
+                                image={feature.image.childImageSharp.gatsbyImageData}
+                            />
+                            <h6 className={styles.text}>{feature.text}</h6>
+                        </section>
+                    ))}
+                </div>
             </div>
-        </Container>
+        </div>
     );
 };

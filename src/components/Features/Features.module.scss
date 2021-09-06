@@ -3,11 +3,25 @@
 
 $gap: 0.5rem;
 
+.bg {
+    @extend .py-4, .mb-2;
+    background-color: $primary;
+}
+
 .features {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     margin: -$gap;
+}
+
+.text {
+    margin-top: 0.5rem;
+    color: $white;
+}
+
+.image {
+    border-radius: 50%;
 }
 
 .feature {
