@@ -9,7 +9,7 @@
 
 .btn {
     @extend .p-2;
-    @include base-button($borderColor: $secondary-light, $bgColor: $white, $textColor: $font-dark);
+    @include base-button($borderColor: $secondary-light, $bgColor: transparent, $textColor: $font-dark);
 	display: flex;
 	justify-content: center;
     align-items: center;
@@ -37,15 +37,15 @@
     
     &.outlined {
         &:hover {
-            @include base-button($borderColor: $primary, $bgColor: $white, $textColor: $primary);
+            @include base-button($borderColor: $primary, $bgColor: transparent, $textColor: $primary);
         }
     }
     
     &.text {
-        border: 1px solid $white;
+        border: 1px solid transparent;
 
         &:hover {
-            @include base-button($borderColor: $white, $bgColor: $white, $textColor: $primary);
+            @include base-button($borderColor: transparent, $bgColor: transparent, $textColor: $primary);
         }
         
     }
