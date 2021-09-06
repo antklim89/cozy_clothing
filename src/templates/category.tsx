@@ -3,7 +3,6 @@ import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
 import { CategoriesBar } from '~/components/CategoriesBar';
-import { Container } from '~/components/Container';
 import { Pagination } from '~/components/Pagination';
 import { ProductList } from '~/components/ProductList';
 import { Seo } from '~/components/Seo';
@@ -33,13 +32,13 @@ const categoryPage: FC<PageProps<CategoryPageData, CategoryPageContext>> = ({
     return (
         <main>
             <Seo keywords={[...categories, type]} title={title} />
-            <Container component="section" topSpace="md">
+            <section className="container mt-3">
                 <Title>{type}</Title>
                 <CategoriesBar categories={categories} type={type} />
                 <Pagination {...paginationContext} />
                 <ProductList products={products} />
                 <Pagination {...paginationContext} />
-            </Container>
+            </section>
         </main>
     );
 };

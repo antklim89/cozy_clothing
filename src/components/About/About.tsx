@@ -4,7 +4,6 @@ import ReactMarkdown from 'react-markdown';
 
 import styles from './About.module.scss';
 
-import { Container } from '~/components/Container';
 import { Title } from '~/components/Title';
 import { IAbout } from '~/types';
 
@@ -12,7 +11,7 @@ import { IAbout } from '~/types';
 export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
     return (
         <>
-            <Container bottomSpace="xl" component="section" topSpace="md">
+            <section className="container mb-5 mt-3">
                 <Title>{title}</Title>
                 <article className={styles.aboutContainer}>
                     <div className={styles.aboutItem}>
@@ -22,9 +21,9 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
                         <ReactMarkdown source={body} />
                     </div>
                 </article>
-            </Container>
+            </section>
 
-            <Container component="section">
+            <section className="container">
                 <Title>Why Choose Us</Title>
                 <div className={styles.chooseUsContainer}>
                     {chooseUs.map((item) => (
@@ -38,7 +37,7 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
                         </article>
                     ))}
                 </div>
-            </Container>
+            </section>
         </>
     );
 };

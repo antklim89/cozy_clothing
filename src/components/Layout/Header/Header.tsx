@@ -7,14 +7,12 @@ import { Catalog } from './Catalog';
 import styles from './Header.module.scss';
 import { NavBar } from './NavBar';
 
-import { Container } from '~/components/Container';
-
 
 export const Header: FC = () => {
     return (
         <>
             <header className={styles.background}>
-                <Container className={styles.container}>
+                <div className={styles.container}>
                     <Link aria-label="logo" className={styles.logo} to="/">
                         <StaticImage
                             alt="logo"
@@ -28,7 +26,7 @@ export const Header: FC = () => {
                     <div className="grow" />
                     <Catalog />
                     <CartButton />
-                </Container>
+                </div>
             </header>
             <div className={styles.height} />
         </>

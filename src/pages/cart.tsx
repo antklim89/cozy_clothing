@@ -3,7 +3,6 @@ import { FC } from 'react';
 import DoneIcon from '~/assets/done.svg';
 import { CartList } from '~/components/CartList';
 import { ConfirmOrder } from '~/components/ConfirmOrder';
-import { Container } from '~/components/Container';
 import { OrderForm } from '~/components/OrderForm';
 import { Seo } from '~/components/Seo';
 import { Step, Stepper, StepperHeader } from '~/components/Stepper';
@@ -14,7 +13,7 @@ const cart: FC = () => {
     return (
         <main>
             <Seo title="Cart" />
-            <Container topSpace="md">
+            <div className="container mt-3">
                 <Title>Cart</Title>
                 <Stepper maxSteps={3}>
                     {({ step, setStep, completeStep, isStepCompleted, isPrevStepsCompleted }) => (
@@ -59,7 +58,7 @@ const cart: FC = () => {
                         </>
                     )}
                 </Stepper>
-            </Container>
+            </div>
         </main>
     );
 };

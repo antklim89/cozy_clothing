@@ -1,7 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Container } from '~/components/Container';
 import { Product } from '~/components/Product';
 import { Seo } from '~/components/Seo';
 import { IProduct } from '~/types';
@@ -24,9 +23,9 @@ const productPage: FC<PageProps<ProductPageData, ProductPageContext>> = ({ data:
                 keywords={[product.category, product.type]}
                 title={product.title}
             />
-            <Container component="section" topSpace="md">
+            <div className="container mt-3">
                 <Product product={product} />
-            </Container>
+            </div>
         </main>
     );
 };

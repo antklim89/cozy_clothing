@@ -1,7 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Container } from '~/components/Container';
 import { Features } from '~/components/Features';
 import { Hero } from '~/components/Hero/Hero';
 import { ProductList } from '~/components/ProductList';
@@ -28,15 +27,15 @@ const index: FC<PageProps<IndexPageData>> = ({ data }) => {
         <main>
             <Seo title="Home" />
             <Hero />
-            <Container bottomSpace="sm" component="section" topSpace="xl">
+            <section className="container mb-2 mt-5">
                 <Title>New Products</Title>
                 <ProductList products={newProducts} />
-            </Container>
+            </section>
             <Features />
-            <Container bottomSpace="sm" component="section">
+            <section className="container mb-2">
                 <Title>Discount Products</Title>
                 <ProductList products={promoProducts} />
-            </Container>
+            </section>
         </main>
     );
 };

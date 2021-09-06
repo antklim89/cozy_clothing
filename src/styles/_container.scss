@@ -1,0 +1,10 @@
+@use './variables.scss' as *;
+
+
+.container {
+    display: block;
+    max-width: $container-width;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}

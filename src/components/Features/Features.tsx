@@ -5,8 +5,6 @@ import { FC } from 'react';
 import styles from './Features.module.scss';
 import { FeaturesQuery } from './Features.types';
 
-import { Container } from '~/components/Container';
-
 
 export const Features: FC = () => {
     const { allFeatures: { nodes: features } } = useStaticQuery<FeaturesQuery>(graphql`

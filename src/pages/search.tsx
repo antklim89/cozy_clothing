@@ -1,7 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 
-import { Container } from '~/components/Container';
 import { Search } from '~/components/Search';
 import { Seo } from '~/components/Seo';
 import { IProductPreview } from '~/types';
@@ -47,7 +46,7 @@ export const SearchPage: FC = () => {
 
     return (
         <main>
-            <Container topSpace="md">
+            <div className="container mt-3">
                 <Seo title="Search" />
                 <label className="input-group">
                     <input
@@ -59,7 +58,7 @@ export const SearchPage: FC = () => {
                 {(index && store) && (
                     <Search index={index} query={query} store={store} />
                 )}
-            </Container>
+            </div>
         </main>
     );
 };
