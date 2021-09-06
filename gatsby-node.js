@@ -2,41 +2,7 @@
 const path = require('path');
 
 const { paginate } = require('gatsby-awesome-pagination');
-// const yup = require('yup');
 
-
-// const productSchema = yup.object({
-//     id: yup.string().required(),
-//     body: yup.string()
-//         .trim()
-//         .matches(/^[\w\d\s]*$/gi)
-//         .min(3)
-//         .max(50000)
-//         .required(),
-//     images: yup.array()
-//         .min(1)
-//         .max(20)
-//         .required(),
-//     title: yup.string()
-//         .trim()
-//         .min(3)
-//         .max(500)
-//         .required(),
-//     category: yup.string()
-//         .trim()
-//         .min(3)
-//         .max(500)
-//         .required(),
-//     hidden: yup.boolean().required(),
-//     careatedAt: yup.string().required(),
-//     discount: yup.number().min(0).max(100).required(),
-//     type: yup.string().required(),
-//     price: yup.number().min(0).max(1000000).required(),
-// });
-
-/**
- * =============================================
- */
 
 exports.onCreateBabelConfig = ({ actions }) => {
     actions.setBabelPreset({
@@ -63,8 +29,8 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
 
 exports.sourceNodes = async (args) => {
     await createCatalogNodes(args);
-    await validateProducts(args);
 };
+
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     await createProductPages(graphql, createPage);
     await createCategoriesPage(graphql, createPage);
@@ -73,12 +39,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 /**
  * =============================================
  */
-
-function validateProducts({ getNodesByType }) {
-    getNodesByType('Product')
-        .filter(({ layout, hidden = {} } = {}) => layout === 'product' && hidden === false);
-    // .map((product) => productSchema.validateSync(product));
-}
 
 function createCatalogNodes({ actions, getNodesByType, createNodeId, createContentDigest }) {
     const catalog = getNodesByType('Product')
