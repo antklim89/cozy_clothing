@@ -15,6 +15,13 @@
         flex: 3;
     }
 
+    .link {
+        color: $primary;
+        &:hover {
+            color: $primary-dark;
+        }
+    }
+    
     .title {
         flex: 5;
         color: $font-dark;

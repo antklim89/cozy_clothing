@@ -16,7 +16,7 @@ export const CategoriesBar: FC<CategoriesBarPropTypes> = ({
                 <li key={category}>
                     <Link
                         activeClassName={styles.active}
-                        className="btn text"
+                        className="btn underline mx-2"
                         to={`/category/${type}/${category}`}
                     >
                         {category}

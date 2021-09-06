@@ -10,14 +10,13 @@
 
     select, input, textarea {
         @extend .p-2;
-        transition: $transition-speed;
+        transition: $transition-speed outline-color;
 
         outline: 1px solid transparent;
-        outline-offset: 10px;
+        outline-offset: -2px;
         
         &:hover, &:active, &:focus {
             outline: 1px solid #9E2B25;
-            outline-offset: -2px;
         }
     }
 }

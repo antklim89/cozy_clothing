@@ -1,6 +1,6 @@
 @use './variables.scss' as *;
 
-@mixin base-button($borderColor, $bgColor, $textColor) {
+@mixin base-button($borderColor: transparent, $bgColor: transparent, $textColor: $font-dark) {
 	border: 1px solid $borderColor;
 	background-color: $bgColor;
     color: $textColor;
@@ -9,7 +9,7 @@
 
 .btn {
     @extend .p-2;
-    @include base-button($borderColor: $secondary-light, $bgColor: transparent, $textColor: $font-dark);
+    @include base-button($borderColor: $secondary-light);
 	display: flex;
 	justify-content: center;
     align-items: center;
@@ -24,10 +24,10 @@
 
     &:disabled {
         cursor: default;
-        @include base-button($borderColor: $secondary-light, $bgColor: $secondary-light, $textColor: $font-dark);
+        @include base-button($borderColor: $secondary-light, $bgColor: $secondary-light);
 
         &:hover {
-            @include base-button($borderColor: $secondary-light, $bgColor: $secondary-light, $textColor: $font-dark);
+            @include base-button($borderColor: $secondary-light, $bgColor: $secondary-light);
         }
     }
 
@@ -35,9 +35,12 @@
         width: 100%;
     }
     
-    &.outlined {
+    &.underline {
+        text-decoration: underline;
+        @include base-button();
+
         &:hover {
-            @include base-button($borderColor: $primary, $bgColor: transparent, $textColor: $primary);
+            @include base-button($textColor: $primary);
         }
     }
     
@@ -45,7 +48,7 @@
         border: 1px solid transparent;
 
         &:hover {
-            @include base-button($borderColor: transparent, $bgColor: transparent, $textColor: $primary);
+            @include base-button($textColor: $primary);
         }
         
     }

@@ -26,7 +26,7 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                     image={product.imagesPreview[0].childImageSharp.gatsbyImageData}
                 />
                 <section className={styles.title}>
-                    <Link className={styles.title} to={`/product/${product.id}`}>
+                    <Link className={styles.link} to={`/product/${product.id}`}>
                         <h4>{product.title}</h4>
                     </Link>
                     <br />
