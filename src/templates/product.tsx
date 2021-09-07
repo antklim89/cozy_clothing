@@ -23,9 +23,9 @@ const productPage: FC<PageProps<ProductPageData, ProductPageContext>> = ({ data:
                 keywords={[product.category, product.type]}
                 title={product.title}
             />
-            <div className="container mt-3">
+            <section className="container mt-3">
                 <Product product={product} />
-            </div>
+            </section>
         </main>
     );
 };
