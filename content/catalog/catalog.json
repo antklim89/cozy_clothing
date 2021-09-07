@@ -1,0 +1,34 @@
+{
+    "men": [
+        "Salad",
+        "Chicken",
+        "Fish",
+        "Car",
+        "Pizza",
+        "Hat",
+        "Shirt"
+    ],
+    "women": [
+        "Towels",
+        "Pants",
+        "Shirt",
+        "Cheese",
+        "Towels",
+        "Gloves",
+        "Car"
+    ],
+    "boys": [
+        "Cheese",
+        "Sausages",
+        "Gloves",
+        "Pizza"
+    ],
+    "girls": [
+        "Ball",
+        "Sausages",
+        "Gloves",
+        "Car",
+        "Pizza",
+        "Soap"
+    ]
+}

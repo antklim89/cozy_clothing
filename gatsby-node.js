@@ -11,10 +11,6 @@ exports.onCreateBabelConfig = ({ actions }) => {
     });
 };
 
-/**
- * =============================================
- */
-
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     const config = getConfig();
     const miniCssExtractPlugin = config.plugins.find((plugin) => plugin.constructor.name === 'MiniCssExtractPlugin');
@@ -23,52 +19,11 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     actions.replaceWebpackConfig(config);
 };
 
-/**
- * =============================================
- */
-
-exports.sourceNodes = async (args) => {
-    await createCatalogNodes(args);
-};
-
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     await createProductPages(graphql, createPage);
     await createProductsPage(graphql, createPage);
 };
 
-/**
- * =============================================
- */
-
-function createCatalogNodes({ actions, getNodesByType, createNodeId, createContentDigest }) {
-    const catalog = getNodesByType('Product')
-        .filter(({ layout, hidden = {} } = {}) => layout === 'product' && hidden === false)
-        .reduce((acc, { type, category }) => {
-            if (Array.isArray(acc[type])) {
-                if (!acc[type].includes(category)) {
-                    acc[type].push(category);
-                }
-            } else {
-                acc[type] = [category];
-            }
-
-            return acc;
-        }, {});
-
-    actions.createNode({
-        ...catalog,
-        id: createNodeId('catalog'),
-        parent: null,
-        internal: {
-            type: 'Catalog',
-            contentDigest: createContentDigest(catalog),
-        },
-    });
-}
-
-/**
- * =============================================
- */
 
 async function createProductsPage(graphql, createPage) {
     const { data: { catalog } } = await graphql(`#graphql
@@ -82,7 +37,9 @@ async function createProductsPage(graphql, createPage) {
         }
     `);
 
-    await Promise.all(Object.keys(catalog).map(async (type) => {
+    await Promise.all(Object.keys(catalog).map((type) => createPageForAllCategories(type)));
+
+    async function createPageForAllCategories(type) {
         const categories = catalog[type];
 
         const { data: { allProduct: { nodes: productsByTypes } } } = await graphql(`#graphql
@@ -105,44 +62,45 @@ async function createProductsPage(graphql, createPage) {
             itemsPerPage: 12,
             pathPrefix: `/products/${type}`,
             component: path.resolve('src/templates/products.tsx'),
-            context: { type, categories },
+            context: {
+                type,
+                categories,
+            },
         });
+        await Promise.all(categories.map((category) => createPageForOneCategory(category, type, categories)));
+    }
 
-        await Promise.all(categories.map(async (category) => {
-            const { data: { allProduct: { nodes: productsByCategories } } } = await graphql(`#graphql
-                {
-                    allProduct (
-                        filter: {
-                            layout: {eq: "product"},
-                            hidden: {eq: false},
-                            type: {eq: "${type}"}
-                            category: {eq: "${category}"}
-                        }
-                    ) {
-                        nodes { id }
+    async function createPageForOneCategory(category, type, categories) {
+        const { data: { allProduct: { nodes: productsByCategories } } } = await graphql(`#graphql
+            {
+                allProduct (
+                    filter: {
+                        layout: {eq: "product"},
+                        hidden: {eq: false},
+                        type: {eq: "${type}"}
+                        category: {eq: "${category}"}
                     }
+                ) {
+                    nodes { id }
                 }
-            `);
+            }
+        `);
 
-            paginate({
-                createPage,
-                items: productsByCategories,
-                itemsPerPage: 12,
-                pathPrefix: `/products/${type}/${category}`,
-                component: path.resolve('src/templates/products.tsx'),
-                context: {
-                    type,
-                    categories,
-                    category,
-                },
-            });
-        }));
-    }));
+        paginate({
+            createPage,
+            items: productsByCategories,
+            itemsPerPage: 12,
+            pathPrefix: `/products/${type}/${category}`,
+            component: path.resolve('src/templates/products.tsx'),
+            context: {
+                type,
+                categories,
+                category,
+            },
+        });
+    }
 }
 
-/**
- * =============================================
- */
 
 async function createProductPages(graphql, createPage) {
     const { data: { allProduct: { nodes: products } } } = await graphql(`#graphql

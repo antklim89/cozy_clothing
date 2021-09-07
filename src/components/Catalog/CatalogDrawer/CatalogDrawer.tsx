@@ -7,16 +7,18 @@ import { CatalogDrawerPropTypes } from './CatalogDrawer.types';
 import { Shadow } from '~/components/Shadow';
 
 
+type ProductTypes = 'boys'|'girls'|'men'|'women';
+
 interface CatalogQuery {
-    catalog: Record<'boys'|'girls'|'men'|'women', string[]>
+    catalog: Record<ProductTypes, string[]>
 }
 
 export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
     const { catalog } = useStaticQuery<CatalogQuery>(graphql`
         query Catalog {
             catalog {
-                boys
                 girls
+                boys
                 men
                 women
             }
@@ -67,7 +69,7 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
                             </Link>
                             <ul className={styles.subItemContainer}>
                                 <hr />
-                                {catalog[type as keyof typeof catalog]?.map((category) => (
+                                {catalog[type as ProductTypes]?.map((category) => (
                                     <li key={category + type}>
                                         <Link
                                             className="btn text"

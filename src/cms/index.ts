@@ -1,10 +1,10 @@
 import CMS from 'netlify-cms-app';
 
 import { about } from './about';
+import { catalog } from './catalog';
 import { features } from './features';
 import { hero } from './hero';
 import { info } from './info';
-import { productCategories } from './productCategories';
 import { products } from './products';
 
 
@@ -31,7 +31,7 @@ CMS.init({
                 files: [
                     about,
                     hero,
-                    productCategories,
+                    catalog,
                     info,
                 ],
             },
