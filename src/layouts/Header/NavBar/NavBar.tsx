@@ -14,7 +14,7 @@ export const NavBar: FC = () => {
                             partiallyActive
                             activeClassName={styles.active}
                             className={styles.link}
-                            to={`/category/${type}`}
+                            to={`/products/${type}`}
                         >
                             {type}
                         </Link>

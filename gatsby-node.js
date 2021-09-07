@@ -33,7 +33,7 @@ exports.sourceNodes = async (args) => {
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     await createProductPages(graphql, createPage);
-    await createCategoriesPage(graphql, createPage);
+    await createProductsPage(graphql, createPage);
 };
 
 /**
@@ -70,7 +70,7 @@ function createCatalogNodes({ actions, getNodesByType, createNodeId, createConte
  * =============================================
  */
 
-async function createCategoriesPage(graphql, createPage) {
+async function createProductsPage(graphql, createPage) {
     const { data: { catalog } } = await graphql(`#graphql
         {
             catalog {
@@ -103,8 +103,8 @@ async function createCategoriesPage(graphql, createPage) {
             createPage,
             items: productsByTypes,
             itemsPerPage: 12,
-            pathPrefix: `/category/${type}`,
-            component: path.resolve('src/templates/category.tsx'),
+            pathPrefix: `/products/${type}`,
+            component: path.resolve('src/templates/products.tsx'),
             context: { type, categories },
         });
 
@@ -128,8 +128,8 @@ async function createCategoriesPage(graphql, createPage) {
                 createPage,
                 items: productsByCategories,
                 itemsPerPage: 12,
-                pathPrefix: `/category/${type}/${category}`,
-                component: path.resolve('src/templates/category.tsx'),
+                pathPrefix: `/products/${type}/${category}`,
+                component: path.resolve('src/templates/products.tsx'),
                 context: {
                     type,
                     categories,

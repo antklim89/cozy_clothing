@@ -60,7 +60,7 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
                         <li key={type}>
                             <Link
                                 className="btn text"
-                                to={`/category/${type}`}
+                                to={`/products/${type}`}
                                 onClick={() => setIsOpen(false)}
                             >
                                 <b>{type}</b>
@@ -71,7 +71,7 @@ export const CatalogDrawer: FC<CatalogDrawerPropTypes> = ({ setIsOpen }) => {
                                     <li key={category + type}>
                                         <Link
                                             className="btn text"
-                                            to={`/category/${type}/${category}`}
+                                            to={`/products/${type}/${category}`}
                                             onClick={() => setIsOpen(false)}
                                         >
                                             {category}
