@@ -2,11 +2,11 @@ import { graphql, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
-import { Seo } from '~/components/layout/Seo';
-import { ProductList } from '~/components/products/ProductList';
-import { CategoriesBar } from '~/components/ui/CategoriesBar';
-import { Pagination } from '~/components/ui/Pagination';
-import { Title } from '~/components/ui/Title';
+import { CategoriesBar } from '~/components/CategoriesBar';
+import { Pagination } from '~/components/Pagination';
+import { Title } from '~/components/Title';
+import { ProductList } from '~/layouts/ProductList';
+import { Seo } from '~/layouts/Seo';
 import { IPagination, IProductPreview } from '~/types';
 
 

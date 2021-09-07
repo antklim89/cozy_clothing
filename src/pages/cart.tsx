@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
 import DoneIcon from '~/assets/done.svg';
-import { CartList } from '~/components/cart/CartList';
-import { Seo } from '~/components/layout/Seo';
-import { ConfirmOrder } from '~/components/order/ConfirmOrder';
-import { OrderForm } from '~/components/order/OrderForm';
-import { Step, Stepper, StepperHeader } from '~/components/ui/Stepper';
-import { Title } from '~/components/ui/Title';
+import { Step, Stepper, StepperHeader } from '~/components/Stepper';
+import { Title } from '~/components/Title';
+import { CartList } from '~/layouts/CartList';
+import { ConfirmOrder } from '~/layouts/ConfirmOrder';
+import { OrderForm } from '~/layouts/OrderForm';
+import { Seo } from '~/layouts/Seo';
 
 
 const cart: FC = () => {

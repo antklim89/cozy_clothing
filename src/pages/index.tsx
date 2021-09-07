@@ -1,11 +1,11 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Features } from '~/components/layout/Features';
-import { Hero } from '~/components/layout/Hero/Hero';
-import { Seo } from '~/components/layout/Seo';
-import { ProductList } from '~/components/products/ProductList';
-import { Title } from '~/components/ui/Title';
+import { Title } from '~/components/Title';
+import { Features } from '~/layouts/Features';
+import { Hero } from '~/layouts/Hero/Hero';
+import { ProductList } from '~/layouts/ProductList';
+import { Seo } from '~/layouts/Seo';
 import { IProductPreview } from '~/types';
 
 

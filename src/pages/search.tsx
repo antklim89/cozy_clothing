@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 
-import { Search } from '~/components/layout/Search';
-import { Seo } from '~/components/layout/Seo';
+import { Search } from '~/layouts/Search';
+import { Seo } from '~/layouts/Seo';
 import { IProductPreview } from '~/types';
 
 
