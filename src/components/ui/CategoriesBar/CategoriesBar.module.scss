@@ -1,0 +1,16 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    li {
+        list-style: none;
+    }
+    
+    a.active{
+        color: $primary;
+    }
+}

@@ -2,9 +2,9 @@ import { graphql, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
-import { CategoriesBar } from '~/components/layout/CategoriesBar';
 import { Seo } from '~/components/layout/Seo';
 import { ProductList } from '~/components/products/ProductList';
+import { CategoriesBar } from '~/components/ui/CategoriesBar';
 import { Pagination } from '~/components/ui/Pagination';
 import { Title } from '~/components/ui/Title';
 import { IPagination, IProductPreview } from '~/types';
