@@ -8,12 +8,6 @@ export const about: CmsCollectionFile = {
     media_folder: 'images/',
     fields: [
         {
-            label: 'Layout',
-            name: 'layout',
-            widget: 'hidden',
-            default: 'about',
-        },
-        {
             label: 'Title',
             name: 'title',
             widget: 'string',

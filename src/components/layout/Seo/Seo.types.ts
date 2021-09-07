@@ -11,11 +11,9 @@ export interface SeoProps {
 }
 
 export interface SeoQuery {
-    site: {
-        siteMetadata: {
-            title: string
-            description: string
-            author: string
-        }
+    info: {
+        title: string
+        description: string
+        author: string
     }
 }

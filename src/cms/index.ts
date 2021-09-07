@@ -3,6 +3,7 @@ import CMS from 'netlify-cms-app';
 import { about } from './about';
 import { features } from './features';
 import { hero } from './hero';
+import { info } from './info';
 import { productCategories } from './productCategories';
 import { products } from './products';
 
@@ -24,18 +25,14 @@ CMS.init({
             ...products,
             features,
             {
-                label: 'Categories',
-                name: 'categories',
-                editor: { preview: false },
-                files: [productCategories],
-            },
-            {
-                label: 'Pages',
-                name: 'pages',
+                label: 'Site',
+                name: 'site',
                 editor: { preview: false },
                 files: [
                     about,
                     hero,
+                    productCategories,
+                    info,
                 ],
             },
         ],

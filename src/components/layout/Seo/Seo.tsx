@@ -11,20 +11,18 @@ export const Seo: FC<SeoProps> = ({
     keywords = [],
     title = 'Page',
 }) => {
-    const { site } = useStaticQuery<SeoQuery>(graphql` 
-        query Seo {
-            site {
-                siteMetadata {
-                    title
-                    description
-                    author
-                }
+    const { info } = useStaticQuery<SeoQuery>(graphql` 
+        query InfoQuery {
+            info {
+                description
+                author
+                title
             }
         }
     `);
 
-    const metaDescription = `${site?.siteMetadata?.description} ${description || ''}`.trim();
-    const defaultTitle = site?.siteMetadata?.title;
+    const metaDescription = `${info.description} ${description || ''}`.trim();
+    const defaultTitle = info.title;
 
     return (
         <Helmet
@@ -57,7 +55,7 @@ export const Seo: FC<SeoProps> = ({
                 },
                 {
                     name: 'twitter:creator',
-                    content: site?.siteMetadata?.author || '',
+                    content: info.author || '',
                 },
                 {
                     name: 'twitter:title',

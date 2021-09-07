@@ -8,12 +8,6 @@ export const hero: CmsCollectionFile = {
     media_folder: 'images/',
     fields: [
         {
-            label: 'Layout',
-            name: 'layout',
-            widget: 'hidden',
-            default: 'hero',
-        },
-        {
             label: 'Title',
             name: 'title',
             widget: 'string',
