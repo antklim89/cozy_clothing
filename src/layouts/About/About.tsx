@@ -15,7 +15,7 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
                 <Title>{title}</Title>
                 <article className={styles.aboutContainer}>
                     <div className={styles.aboutImage}>
-                        <GatsbyImage alt="about" image={image.childImageSharp.gatsbyImageData} objectFit="cover" />
+                        <GatsbyImage alt="about" image={image.childImageSharp.gatsbyImageData} />
                     </div>
                     <div className={styles.aboutText}>
                         <ReactMarkdown source={body} />
