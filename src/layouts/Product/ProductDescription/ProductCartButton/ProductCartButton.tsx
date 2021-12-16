@@ -1,11 +1,11 @@
-import { FC, useCallback } from 'react';
+import { FC, memo, useCallback } from 'react';
 
 import { ProductCartButtonPropTypes } from './ProductCartButton.types';
 
 import { useCart } from '~/components/CartProvider';
 
 
-export const ProductCartButton: FC<ProductCartButtonPropTypes> = ({ cartItem }) => {
+export const ProductCartButton: FC<ProductCartButtonPropTypes> = memo(({ cartItem }) => {
     const { cart, addToCart, removeFromCart } = useCart();
 
     const handleAddToCart = useCallback(() => {
@@ -14,11 +14,11 @@ export const ProductCartButton: FC<ProductCartButtonPropTypes> = ({ cartItem }) 
 
     const handleRemoveFromCart = useCallback(() => {
         if (cartItem) removeFromCart(cartItem);
-    }, [cartItem, removeFromCart]);
+    }, [cartItem]);
 
     return (
         <div>
-            {cart.includes(cartItem)
+            {cart.find((item) => cartItem.id === item.id)
                 ? (
                     <button
                         className="btn large"
@@ -39,4 +39,6 @@ export const ProductCartButton: FC<ProductCartButtonPropTypes> = ({ cartItem }) 
                 )}
         </div>
     );
-};
+});
+
+ProductCartButton.displayName = 'ProductCartButton';
