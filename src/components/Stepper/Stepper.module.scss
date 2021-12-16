@@ -5,3 +5,14 @@
     display: flex;
     justify-content: space-between;
 }
+
+.next-button {
+    display: flex;
+    justify-content: center;
+    margin: $space-xl;
+
+    button {
+        padding-left: $space-xl * 5;
+        padding-right: $space-xl * 5;
+    }
+}

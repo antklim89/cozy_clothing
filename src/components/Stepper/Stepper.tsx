@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 
+import style from './Stepper.module.scss';
 import { StepperPropTypes } from './Stepper.types';
 
 
@@ -33,6 +34,19 @@ export const Stepper: FC<StepperPropTypes> = ({ children, maxSteps }) => {
                 isStepCompleted,
                 isPrevStepsCompleted,
             })}
+
+
+            <div className={style.nextButton}>
+                {isStepCompleted(step) && (
+                    <button
+                        className="btn"
+                        type="button"
+                        onClick={() => setStep(step + 1)}
+                    >
+                        NEXT
+                    </button>
+                )}
+            </div>
         </>
     );
 };
