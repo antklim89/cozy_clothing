@@ -5,7 +5,7 @@ const CART_STORAGE_NAME = 'cart';
 const isBrowser = typeof window !== 'undefined';
 
 
-export function getCart(): CartItem[] {
+export function getCartFromStorage(): CartItem[] {
     if (!isBrowser) return [];
     const cartString = localStorage.getItem(CART_STORAGE_NAME);
     if (!cartString) return [];
@@ -20,7 +20,7 @@ export function getCart(): CartItem[] {
     }
 }
 
-export function setCart(cart: CartItem[]): void {
+export function setCartToStorage(cart: CartItem[]): void {
     if (!isBrowser) return;
     const cartTransformed = cart.map(({ id, product, qty, size }) => ({ id, product, qty, size }));
     localStorage.setItem(CART_STORAGE_NAME, JSON.stringify(cartTransformed));

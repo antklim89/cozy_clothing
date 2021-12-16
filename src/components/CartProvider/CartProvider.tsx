@@ -4,17 +4,17 @@ import {
 
 import { CartContext, CartItem } from './CartProvider.types';
 
-import { getCart } from '~/utils';
+import { getCartFromStorage, setCartToStorage } from '~/utils';
 
 
 const context = createContext<CartContext>({} as CartContext);
 
 
 export const CartProvider: FC = ({ children }) => {
-    const [cart, setCart] = useState(() => getCart());
+    const [cart, setCart] = useState(() => getCartFromStorage());
 
     useEffect(() => {
-        setCart(cart);
+        setCartToStorage(cart);
     }, [cart]);
 
     const addToCart = useCallback((newItem: CartItem) => {
