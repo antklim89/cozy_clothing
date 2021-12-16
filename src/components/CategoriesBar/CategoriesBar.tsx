@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import uniq from 'lodash/uniq';
 import { FC } from 'react';
 
 
@@ -12,7 +13,7 @@ export const CategoriesBar: FC<CategoriesBarPropTypes> = ({
 }) => {
     return (
         <nav className={styles.root}>
-            {categories.map((category) => (
+            {uniq(categories).map((category) => (
                 <li key={category}>
                     <Link
                         activeClassName={styles.active}
