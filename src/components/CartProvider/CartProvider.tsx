@@ -4,21 +4,17 @@ import {
 
 import { CartContext, CartItem } from './CartProvider.types';
 
+import { getCart } from '~/utils';
+
 
 const context = createContext<CartContext>({} as CartContext);
 
 
-const isBrowser = typeof window !== 'undefined';
-
 export const CartProvider: FC = ({ children }) => {
-    const [cart, setCart] = useState<CartItem[]>(() => {
-        if (!isBrowser) return [];
-        const data = localStorage.getItem('cart');
-        return data ? JSON.parse(data) : [];
-    });
+    const [cart, setCart] = useState(() => getCart());
 
     useEffect(() => {
-        if (isBrowser) localStorage.setItem('cart', JSON.stringify(cart));
+        setCart(cart);
     }, [cart]);
 
     const addToCart = useCallback((newItem: CartItem) => {
