@@ -35,14 +35,14 @@ export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
                 </section>
                 <div className={styles.price}>
                     <p>
-                        Price:&nbsp;${getPrice(product.price, product.discount)}
+                        Price:&nbsp;${getPrice(product.price, product.discount).toFixed(2)}
                     </p>
                     <p>
                         Quantity:&nbsp;{cartItem.qty}
                     </p>
                     <p>
                         <b>
-                            Total:&nbsp;${product.price * cartItem.qty}
+                            Total:&nbsp;${(product.price * cartItem.qty).toFixed()}
                         </b>
                     </p>
                 </div>

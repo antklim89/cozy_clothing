@@ -30,7 +30,7 @@ export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
             ))}
             <p className={styles.totalPrice}>
                 Total price: $
-                {totalPrice}
+                {totalPrice.toFixed(2)}
             </p>
         </ul>
     );
