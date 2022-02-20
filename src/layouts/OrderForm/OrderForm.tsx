@@ -3,7 +3,7 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import styles from './OrderForm.module.scss';
 import { OrderFormPropTypes } from './OrderForm.types';
 
-import { cls } from '~/utils';
+import InputGroup from '~/components/InputGroup';
 
 
 const memoForm = {
@@ -18,7 +18,6 @@ const memoForm = {
 };
 
 export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
-
     const [firstname, setFirstname] = useState(memoForm.firstname);
     const [lastname, setLastname] = useState(memoForm.lastname);
     const [organization, setOrganization] = useState(memoForm.organization);
@@ -53,16 +52,13 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
         <form className={styles.form} >
             <div className={styles.inputColumns}>
                 <div className={styles.inputGroup}>
-                    <label
-                        className={cls(
-                            'input-group',
-                            firstname.length > 3 && !validation.firstname && styles.error,
-                        )}
+                    <InputGroup
+                        className={(firstname.length > 3 && !validation.firstname && styles.error) || ''}
                     >
-                        First Name: <br />
                         <input
                             autoComplete="given-name"
                             name="firstname"
+                            placeholder="First Name"
                             type="text"
                             value={firstname}
                             onChange={(e) => setFirstname(e.target.value)}
@@ -70,17 +66,14 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                         <span className={styles.errorMessage}>
                             The first name must be between 3 and 200 latin letters long.
                         </span>
-                    </label>
-                    <label
-                        className={cls(
-                            'input-group',
-                            lastname.length > 3 && !validation.lastname && styles.error,
-                        )}
+                    </InputGroup>
+                    <InputGroup
+                        className={(lastname.length > 3 && !validation.lastname && styles.error) || ''}
                     >
-                        Last Name: <br />
                         <input
                             autoComplete="family-name"
                             name="lastname"
+                            placeholder="Last Name"
                             type="text"
                             value={lastname}
                             onChange={(e) => setLastname(e.target.value)}
@@ -88,19 +81,16 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                         <span className={styles.errorMessage}>
                             The last name must be between 3 and 200 latin letters long.
                         </span>
-                    </label>
+                    </InputGroup>
                 </div>
                 <div className={styles.inputGroup}>
-                    <label
-                        className={cls(
-                            'input-group',
-                            organization.length > 3 && !validation.organization && styles.error,
-                        )}
+                    <InputGroup
+                        className={(organization.length > 3 && !validation.organization && styles.error) || ''}
                     >
-                        Organization: <br />
                         <input
                             autoComplete="organization"
                             name="organization"
+                            placeholder="Organization"
                             type="text"
                             value={organization}
                             onChange={(e) => setOrganization(e.target.value)}
@@ -108,19 +98,16 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                         <span className={styles.errorMessage}>
                             The organization must be between 3 and 200 latin letters long.
                         </span>
-                    </label>
+                    </InputGroup>
                 </div>
                 <div className={styles.inputGroup}>
-                    <label
-                        className={cls(
-                            'input-group',
-                            email.length > 3 && !validation.email && styles.error,
-                        )}
+                    <InputGroup
+                        className={(email.length > 3 && !validation.email && styles.error) || ''}
                     >
-                        E-mail: <br />
                         <input
                             autoComplete="email"
                             name="email"
+                            placeholder="E-mail"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -128,17 +115,14 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                         <span className={styles.errorMessage}>
                             The field must be a valid e-mail address.
                         </span>
-                    </label>
-                    <label
-                        className={cls(
-                            'input-group',
-                            phone.length > 3 && !validation.phone && styles.error,
-                        )}
+                    </InputGroup>
+                    <InputGroup
+                        className={(phone.length > 3 && !validation.phone && styles.error) || ''}
                     >
-                        Phone number: <br />
                         <input
                             autoComplete="tel"
                             name="phone"
+                            placeholder="Phone number"
                             type="tel"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
@@ -146,19 +130,16 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                         <span className={styles.errorMessage}>
                             The field must be a valid phone number.
                         </span>
-                    </label>
+                    </InputGroup>
                 </div>
                 <div className={styles.inputGroup}>
-                    <label
-                        className={cls(
-                            'input-group',
-                            country.length > 3 && !validation.country && styles.error,
-                        )}
+                    <InputGroup
+                        className={(country.length > 3 && !validation.country && styles.error) || ''}
                     >
-                        Country: <br />
                         <input
                             autoComplete="country-name"
                             name="country"
+                            placeholder="Country"
                             type="text"
                             value={country}
                             onChange={(e) => setCountry(e.target.value)}
@@ -166,19 +147,16 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                         <span className={styles.errorMessage}>
                             The country must be between 3 and 200 latin letters long.
                         </span>
-                    </label>
+                    </InputGroup>
                 </div>
                 <div className={styles.inputGroup}>
-                    <label
-                        className={cls(
-                            'input-group',
-                            address.length > 3 && !validation.address && styles.error,
-                        )}
+                    <InputGroup
+                        className={(address.length > 3 && !validation.address && styles.error) || ''}
                     >
-                        Address: <br />
                         <input
                             autoComplete="address-line1"
                             name="address"
+                            placeholder="Address"
                             type="text"
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
@@ -186,28 +164,25 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
                         <span className={styles.errorMessage}>
                             The address must be between 3 and 2000 latin letters long.
                         </span>
-                    </label>
+                    </InputGroup>
                 </div>
             </div>
             <div className={styles.inputColumns}>
                 <div className={styles.inputGroup}>
-                    <label
-                        className={cls(
-                            'input-group',
-                            !validation.details && styles.error,
-                        )}
+                    <InputGroup
+                        className={(!validation.details && styles.error) || ''}
                     >
-                        Order details: <br />
                         <textarea
                             className={styles.textarea}
                             name="details"
+                            placeholder="Order details"
                             value={details}
                             onChange={(e) => setDetails(e.target.value)}
                         />
                         <span className={styles.errorMessage}>
                             The details must be between 3 and 20000 latin letters long.
                         </span>
-                    </label>
+                    </InputGroup>
                 </div>
             </div>
         </form>

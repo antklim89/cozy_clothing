@@ -47,12 +47,11 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
             </div>
             <div className={styles.cartSection}>
                 <SelectSize
-                    label="SIZE:"
+                    label="SIZE"
                     value={cartItem.size}
                     onChange={handleChangeSize}
                 />
                 <SelectNumber
-                    label="QTY:"
                     value={cartItem.qty}
                     onChange={handleChangeQty}
                 />

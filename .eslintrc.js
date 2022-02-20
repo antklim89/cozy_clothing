@@ -80,6 +80,7 @@ module.exports = {
         '@typescript-eslint/no-shadow': 2,
         '@typescript-eslint/no-unused-vars': [1, { 'argsIgnorePattern': '^_', 'varsIgnorePattern': '^_' }],
 
+        'complexity': [1, 24],
         'capitalized-comments': 0,
         'multiline-comment-style': 0,
         'no-underscore-dangle': 0,

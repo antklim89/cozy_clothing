@@ -1,0 +1,31 @@
+@use '~/styles/variables.scss' as *;
+
+.root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @extend .my-1;
+
+    & > * {
+        width: 100%;
+    }
+
+    select, input, textarea {
+        @extend .p-2;
+        @extend .mt-1;
+        width: 100%;
+        
+        transition: $transition-speed outline-color;
+
+        outline: 1px solid transparent;
+        outline-offset: -2px;
+        
+        &:hover, &:active, &:focus {
+            outline: 1px solid #9E2B25;
+        }
+    }
+}
+
+.label {
+    @extend .pl-2;
+}

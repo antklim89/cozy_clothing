@@ -60,6 +60,10 @@ a:focus, button:focus {
     flex-grow: 1;
 }
 
+select, input, textarea {
+    font-family: 'Roboto', Geneva, Verdana, sans-serif;
+}
+
 .center {
     display: flex;
     flex-direction: column;

@@ -4,6 +4,7 @@ import { SearchList } from '../SearchList';
 
 import { SearchPropTypes } from './Search.types';
 
+import InputGroup from '~/components/InputGroup';
 import { IProductPreview } from '~/types';
 
 
@@ -34,13 +35,13 @@ export const Search: FC<SearchPropTypes> = ({ publicIndexURL, publicStoreURL }) 
 
     return (
         <div className="container mt-3">
-            <label className="input-group">
+            <InputGroup>
                 <input
                     placeholder="Enter search query..."
                     value={query}
                     onChange={handleSearch()}
                 />
-            </label>
+            </InputGroup>
             {(index && store) && (
                 <SearchList index={index} query={query} store={store} />
             )}
