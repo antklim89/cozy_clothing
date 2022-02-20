@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react';
 
-
 import { CartItem } from './CartItem';
 import styles from './CartList.module.scss';
 import { CartListPropTypes } from './CartList.types';
@@ -12,8 +11,6 @@ import { getTotalPrice } from '~/utils';
 export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
     const { cart } = useCart();
 
-    const totalPrice = getTotalPrice(cart);
-
     useEffect(() => {
         if (onChangeEmpty) onChangeEmpty(cart.length === 0);
     }, [cart.length === 0]);
@@ -23,14 +20,14 @@ export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
             <p className={styles.emptyCart}>Cart is empty...</p>
         );
     }
+
     return (
         <ul>
             {cart.map((cartItem) => (
                 <CartItem cartItem={cartItem} key={cartItem.id} />
             ))}
             <p className={styles.totalPrice}>
-                Total price: $
-                {totalPrice.toFixed(2)}
+                Total price: ${getTotalPrice(cart).toFixed(2)}
             </p>
         </ul>
     );

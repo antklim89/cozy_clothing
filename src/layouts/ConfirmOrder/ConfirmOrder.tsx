@@ -9,7 +9,6 @@ import { getPrice, getTotalPrice } from '~/utils';
 export const ConfirmOrder: FC = () => {
     const { cart } = useCart();
 
-    const totalPrice = getTotalPrice(cart);
     return (
         <section className={styles.root}>
             <h2>Your Order</h2>
@@ -25,22 +24,16 @@ export const ConfirmOrder: FC = () => {
                 {cart.map(({ product, id, qty }) => (
                     <li className={styles.orderItem} key={id}>
                         <p>
-                            {product.title}
-                            {' '}
-                            ×
-                            {' '}
-                            {qty}
+                            {product.title} &times; {qty}
                         </p>
                         <p>
-                            $
-                            {(getPrice(product.price, product.discount) * qty).toFixed(2)}
+                            ${(getPrice(product.price, product.discount) * qty).toFixed(2)}
                         </p>
                     </li>
                 ))}
             </ul>
             <p className={styles.totalPrice}>
-                Total price: $
-                {totalPrice.toFixed(2)}
+                Total price: ${getTotalPrice(cart).toFixed(2)}
             </p>
             <button className="btn full-width" type="button" >Place Order</button>
         </section>
