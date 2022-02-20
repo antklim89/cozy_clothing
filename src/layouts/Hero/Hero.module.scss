@@ -1,32 +1,50 @@
 @use '~/styles/variables.scss' as *;
+@use '~/styles/container.scss' as *;
 
 
 .root {
+    @extend .mb-3;
+    display: flex;
+    align-items: flex-end;
     position: relative;
     overflow: hidden;
-    @extend .mb-3;
+    z-index: 100000;
+    height: 440px;
+    @include media-sm {
+        height: 200px;
+    }
+
 }
 
 .body {
-    position: absolute;
-    top: 10%;
-    right: 2%;
-    max-width: 920px;
+    @extend .container;
     color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 1rem;
-    box-shadow: 0px 0px 16px 20px rgba(0, 0, 0, 0.5);
+    padding: $space-lg;
+    padding-right: $space-lg * 2;
+    z-index: 1;
 }
 
 .image {
-    height: 640px;
+    position: absolute;
+    z-index: -1;
+    height: 100%;
     width: 100%;
 
     img {
         object-fit: cover;
         width: 100%;
     }
-    @include media-sm {
-        height: 240px;
-    }
+}
+
+.gradient {
+    position: absolute;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.5)
+    );
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }

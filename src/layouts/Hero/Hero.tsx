@@ -34,6 +34,7 @@ export const Hero: FC = () => {
     return (
         <section className={styles.root}>
             <GatsbyImage alt={hero.title} className={styles.image} image={hero.image.childImageSharp.gatsbyImageData} />
+            <div className={styles.gradient} />
             <div className={styles.body}>
                 <Title position="left">{hero.title}</Title>
                 <p className="hide-sm">{hero.body}</p>
