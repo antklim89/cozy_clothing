@@ -15,7 +15,7 @@ export const Title: FC<TitleProps> = ({
     ...props
 }) => {
     return (
-        <header
+        <div
             className={cls(
                 styles.root,
                 styles[position],
@@ -26,6 +26,6 @@ export const Title: FC<TitleProps> = ({
                 {...props}
                 className={className}
             />
-        </header>
+        </div>
     );
 };

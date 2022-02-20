@@ -28,12 +28,12 @@ const index: FC<PageProps<IndexPageData>> = ({ data }) => {
             <Seo title="Home" />
             <Hero />
             <section className="container mb-2 mt-5">
-                <Title>New Products</Title>
+                <Title component="h2">New Products</Title>
                 <ProductList products={newProducts} />
             </section>
             <Features />
             <section className="container mb-2">
-                <Title>Discount Products</Title>
+                <Title component="h2">Discount Products</Title>
                 <ProductList products={promoProducts} />
             </section>
         </main>

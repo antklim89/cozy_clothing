@@ -24,7 +24,7 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
             </section>
 
             <section className="container">
-                <Title>Why Choose Us</Title>
+                <Title component="h2">Why Choose Us</Title>
                 <div className={styles.chooseUsContainer}>
                     {chooseUs.map((item) => (
                         <article className={styles.chooseUsItem} key={item.title}>
