@@ -7,7 +7,7 @@ export const Footer: FC = () => {
     return (
         <footer className={styles.root}>
             <div className="container">
-                <p>Copyright @ Devitems All right reserved </p>
+                <p>Copyright @ All right reserved </p>
             </div>
         </footer>
     );
