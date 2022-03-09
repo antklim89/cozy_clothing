@@ -13,7 +13,7 @@ export const ProductTitle: FC<ProductTitlePropTypes> = ({ product }) => {
                 {product.title}
             </h1>
             <p>
-                {product.type}
+                for {product.type}
             </p>
             <p className={styles.promos}>
                 {isNew && (
@@ -21,7 +21,7 @@ export const ProductTitle: FC<ProductTitlePropTypes> = ({ product }) => {
                 )}
                 {product.discount > 0 && (
                     <span>
-                        DISCOUNT{' '}{product.discount}%
+                        DISCOUNT {product.discount}%
                     </span>
                 )}
             </p>

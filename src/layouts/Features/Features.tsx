@@ -13,7 +13,12 @@ export const Features: FC = () => {
                 nodes {
                     image {
                             childImageSharp {
-                            gatsbyImageData(placeholder: BLURRED, width: 60, height: 70, layout: FIXED)
+                            gatsbyImageData(
+                                placeholder: BLURRED,
+                                width: 80,
+                                height: 90,
+                                layout: FIXED
+                            )
                         }
                     }
                     text

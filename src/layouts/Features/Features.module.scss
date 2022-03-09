@@ -4,7 +4,7 @@
 $gap: 0.5rem;
 
 .bg {
-    @extend .py-4, .mb-2;
+    @extend .my-4;
     background-color: $primary;
 }
 
