@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
 import styles from './Hero.module.scss';
@@ -16,26 +15,22 @@ export const Hero: FC = () => {
                 body
                 image {
                     childImageSharp {
-                        gatsbyImageData(
-                            layout: CONSTRAINED
-                            placeholder: BLURRED
-                            transformOptions: {cropFocus: CENTER}
-                            breakpoints: [380, 640]
-                            width: 1440
-                            height: 640
-                        )
+                        fluid(fit: CONTAIN) {
+                            srcWebp
+                        }
                     }
                 }
             }
         }
     `);
 
-
     return (
-        <section className={styles.root}>
-            <GatsbyImage alt={hero.title} className={styles.image} image={hero.image.childImageSharp.gatsbyImageData} />
+        <section
+            className={styles.root}
+            style={{ backgroundImage: `URL(${hero.image.childImageSharp.fluid.srcWebp})` }}
+        >
             <div className={styles.gradient} />
-            <div className={styles.body}>
+            <div className={styles.text}>
                 <Title position="left">{hero.title}</Title>
                 <p className="hide-sm">{hero.body}</p>
             </div>

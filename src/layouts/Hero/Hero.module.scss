@@ -3,48 +3,37 @@
 
 
 .root {
-    @extend .mb-3;
     display: flex;
     align-items: flex-end;
     position: relative;
+    @extend .mb-3;
     overflow: hidden;
-    z-index: 100000;
     height: 440px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     @include media-sm {
         height: 200px;
     }
-
 }
 
-.body {
+.text {
     @extend .container;
     color: white;
     padding: $space-lg;
-    padding-right: $space-lg * 2;
+    padding-bottom: $space-lg * 2;
     z-index: 1;
-}
-
-.image {
-    position: absolute !important;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-
-    img {
-        object-fit: cover;
-        width: 100%;
-    }
 }
 
 .gradient {
     position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     background: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.1),
         rgba(0, 0, 0, 0.5)
     );
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
 }
