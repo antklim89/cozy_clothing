@@ -5,7 +5,7 @@
     @extend .input-group;
 }
 
-.select {       
+.select {
     display: flex;
     width: 100%;
 
@@ -22,11 +22,13 @@
 
 .button {
     @extend .btn;
+    flex: 1 1 100%;
     user-select: none;
     margin: 0;
 }
 
 .input {
+    flex: 1 1 100%;
     border: none;
     background: none;
     text-align: center;
