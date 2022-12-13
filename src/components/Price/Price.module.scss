@@ -1,16 +1,11 @@
 @use '~/styles/variables.scss' as *;
 
 
-.root {
-    .price {
-        font-size: $font-size-xl;
-    }
-    .priceWithDiscount {
-        span {
-            text-decoration: line-through;
-        }
-        b {
-            font-size: $font-size-xl;
-        }
-    }
+.price {
+    font-size: $font-size-xl;
+}
+
+.priceWithDiscount {
+    text-decoration: line-through;
+    font-size: $font-size-md;
 }

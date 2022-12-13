@@ -1,34 +1,34 @@
 import { FC, memo } from 'react';
 
-import styles from './Price.module.scss';
+import { cls, getPrice } from '~/utils';
+
+import style from './Price.module.scss';
 import { PricePropTypes } from './Price.types';
 
-import { getPrice } from '~/utils';
 
+const Price: FC<PricePropTypes> = ({
+    price,
+    unit,
+    discount = 0,
+    qty = 1,
+    className,
+}) => {
+    const withDiscount = discount > 0
+        ? (
+            <>
+                <span className={cls(style.price, className)}>{getPrice({ price, qty })}$</span>
+                <span className={cls(style.priceWithDiscount, className)}>{getPrice({ price, discount, qty })}$</span>
+            </>
+        )
+        : (
+            <span className={cls(style.price, className)}>{getPrice({ price, qty })}$</span>
+        );
 
-export const Price: FC<PricePropTypes> = memo(({ price, discount }) => {
     return (
-        <div className={styles.root}>
-            {discount && discount > 0
-                ? (
-                    <p className={styles.priceWithDiscount}>
-                        <span>
-                            ${price.toFixed(2)}
-                        </span>
-                        <b>
-                            ${getPrice(price, discount).toFixed(2)}
-                        </b>
-                    </p>
-                )
-                : (
-                    <p className={styles.price}>
-                        <b>
-                            ${price.toFixed(2)}
-                        </b>
-                    </p>
-                )}
-        </div>
+        <span>
+            {withDiscount}{unit ? ` for ${unit}` : ''}
+        </span>
     );
-});
+};
 
-Price.displayName = 'Price';
+export default memo(Price);

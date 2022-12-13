@@ -37,7 +37,13 @@ export const products: CmsCollection[] = productTypes.map((type) => ({
             widget: 'number',
             min: 0,
             max: 100,
-            default: 0,
+        },
+        {
+            label: 'Price',
+            name: 'price',
+            widget: 'number',
+            value_type: 'float',
+            min: 0,
         },
         {
             label: 'Title',
@@ -74,13 +80,6 @@ export const products: CmsCollection[] = productTypes.map((type) => ({
             name: 'imagePreview',
             widget: 'image',
             required: true,
-        },
-        {
-            label: 'Price',
-            name: 'price',
-            widget: 'number',
-            value_type: 'float',
-            min: 0,
         },
         {
             label: 'Category',

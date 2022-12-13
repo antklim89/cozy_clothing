@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import styles from './ConfirmOrder.module.scss';
-
 import { useCart } from '~/components/CartProvider';
 import { getPrice, getTotalPrice } from '~/utils';
+
+import styles from './ConfirmOrder.module.scss';
 
 
 export const ConfirmOrder: FC = () => {
@@ -21,19 +21,19 @@ export const ConfirmOrder: FC = () => {
                         <b>Price</b>
                     </h5>
                 </li>
-                {cart.map(({ product, id, qty }) => (
+                {cart.map(({ product: { price, discount, title }, id, qty }) => (
                     <li className={styles.orderItem} key={id}>
                         <p>
-                            {product.title} &times; {qty}
+                            {title} &times; {qty}
                         </p>
                         <p>
-                            ${(getPrice(product.price, product.discount) * qty).toFixed(2)}
+                            ${getPrice({ price, discount, qty })}
                         </p>
                     </li>
                 ))}
             </ul>
             <p className={styles.totalPrice}>
-                Total price: ${getTotalPrice(cart).toFixed(2)}
+                Total price: ${getTotalPrice(cart)}
             </p>
             <button className="btn full-width" type="button" >Place Order</button>
         </section>

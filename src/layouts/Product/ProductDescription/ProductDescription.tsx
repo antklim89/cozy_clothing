@@ -1,20 +1,21 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 
-import { ProductPropTypes } from '../Product.types';
-
-import { ProductCartButton } from './ProductCartButton';
-import styles from './ProductDescription.module.scss';
-import { ProductPrice } from './ProductPrice';
-import { ProductTitle } from './ProductTitle';
-
 import { CartItem, useCart } from '~/components/CartProvider';
+import { Price } from '~/components/Price';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
 import { Sizes } from '~/types/product-sizes';
 
+import { ProductPropTypes } from '../Product.types';
+
+import { ProductCartButton } from './ProductCartButton';
+import styles from './ProductDescription.module.scss';
+import { ProductTitle } from './ProductTitle';
+
 
 export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
     const { cart, updateCartItem } = useCart();
+    const { discount, price } = product;
 
     const [cartItem, setCartItem] = useState<CartItem>(() => (
         cart.find((storedCartItem) => storedCartItem.id === product.id) || {
@@ -43,7 +44,10 @@ export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
                 <ProductTitle product={product} />
             </div>
             <div className={styles.priceSection}>
-                <ProductPrice discount={product.discount} price={product.price} qty={cartItem.qty} />
+                <p>Price for one piece:</p>
+                <Price discount={discount} price={price} />
+                <p>Total price:</p>
+                <Price discount={discount} price={price * cartItem.qty} />
             </div>
             <div className={styles.cartSection}>
                 <SelectSize

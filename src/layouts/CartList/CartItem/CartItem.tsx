@@ -2,47 +2,48 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-
-import styles from './CartItem.module.scss';
-import { CartItemPropTypes } from './CartItem.types';
-
 import { useCart } from '~/components/CartProvider';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
 import { getPrice } from '~/utils';
 
+import styles from './CartItem.module.scss';
+import { CartItemPropTypes } from './CartItem.types';
+
 
 export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
     const { removeFromCart, updateCartItem } = useCart();
-    const { product } = cartItem;
+    const {
+        title, imagesPreview, id, price, discount, type,
+    } = cartItem.product;
 
     return (
         <>
             <li className={styles.root}>
                 <GatsbyImage
-                    alt={product.title}
+                    alt={title}
                     className={styles.image}
-                    image={product.imagesPreview[0].childImageSharp.gatsbyImageData}
+                    image={imagesPreview[0].childImageSharp.gatsbyImageData}
                 />
                 <section className={styles.title}>
-                    <Link className={styles.link} to={`/product/${product.id}`}>
-                        <h4>{product.title}</h4>
+                    <Link className={styles.link} to={`/product/${id}`}>
+                        <h4>{title}</h4>
                     </Link>
                     <br />
                     <small>
-                        {product.type}
+                        {type}
                     </small>
                 </section>
                 <div className={styles.price}>
                     <p>
-                        Price:&nbsp;${getPrice(product.price, product.discount).toFixed(2)}
+                        Price:&nbsp;${getPrice({ price, discount })}
                     </p>
                     <p>
                         Quantity:&nbsp;{cartItem.qty}
                     </p>
                     <p>
                         <b>
-                            Total:&nbsp;${(product.price * cartItem.qty).toFixed()}
+                            Total:&nbsp;${(price * cartItem.qty)}
                         </b>
                     </p>
                 </div>
