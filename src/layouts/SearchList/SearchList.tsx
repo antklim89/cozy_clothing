@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useLunr } from 'react-lunr';
 
-import styles from './SearchList.module.scss';
-import { SearchListPropTypes } from './SearchList.types';
-
 import { ProductList } from '~/layouts/ProductList';
 import { IProductPreview } from '~/types';
+
+import styles from './SearchList.module.scss';
+import { SearchListPropTypes } from './SearchList.types';
 
 
 export const SearchList: FC<SearchListPropTypes> = ({ index, store, query }) => {

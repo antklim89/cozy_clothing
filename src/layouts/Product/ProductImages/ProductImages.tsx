@@ -62,8 +62,8 @@ export const ProductImages: FC<ProductPropTypes> = ({ product }) => {
                                 objectFit="contain"
                             />
                         </button>
-                        {hasNext && <button className={styles.nextBtn} type="button" onClick={nextImage}>next</button>}
-                        {hasPrev && <button className={styles.prevBtn} type="button" onClick={prevImage}>prev</button>}
+                        {hasNext ? <button className={styles.nextBtn} type="button" onClick={nextImage}>next</button> : null}
+                        {hasPrev ? <button className={styles.prevBtn} type="button" onClick={prevImage}>prev</button> : null}
                     </div>
                 )
                 : null}

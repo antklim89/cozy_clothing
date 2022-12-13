@@ -1,10 +1,10 @@
 import { ChangeEvent, FC, useCallback } from 'react';
 
+import { Sizes } from '~/types';
+
 import InputGroup from '../InputGroup';
 
 import { SelectSizePropTypes } from './SelectSize.types';
-
-import { Sizes } from '~/types';
 
 
 export const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) => {

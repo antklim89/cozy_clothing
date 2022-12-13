@@ -1,9 +1,9 @@
 import { FC, useEffect, useMemo, useState } from 'react';
 
+import InputGroup from '~/components/InputGroup';
+
 import styles from './OrderForm.module.scss';
 import { OrderFormPropTypes } from './OrderForm.types';
-
-import InputGroup from '~/components/InputGroup';
 
 
 const memoForm = {

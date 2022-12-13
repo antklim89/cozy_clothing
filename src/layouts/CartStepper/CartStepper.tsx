@@ -6,10 +6,8 @@ import { CartList } from '~/layouts/CartList';
 import { ConfirmOrder } from '~/layouts/ConfirmOrder';
 import { OrderForm } from '~/layouts/OrderForm';
 
-import { CartStepperPropTypes } from './CartStepper.types';
 
-
-export const CartStepper: FC<CartStepperPropTypes> = () => {
+export const CartStepper: FC = () => {
     return (
         <Stepper maxSteps={3}>
             {({ step, setStep, completeStep, isStepCompleted, isPrevStepsCompleted }) => (

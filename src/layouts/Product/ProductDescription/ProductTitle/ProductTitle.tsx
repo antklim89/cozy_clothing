@@ -16,9 +16,7 @@ export const ProductTitle: FC<ProductTitlePropTypes> = ({ product }) => {
                 for {product.type}
             </p>
             <p className={styles.promos}>
-                {isNew && (
-                    <span>NEW PRODUCT</span>
-                )}
+                {isNew ? <span>NEW PRODUCT</span> : null}
                 {product.discount > 0 && (
                     <span>
                         DISCOUNT {product.discount}%

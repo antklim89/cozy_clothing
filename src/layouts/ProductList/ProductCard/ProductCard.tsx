@@ -3,11 +3,11 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
 
-import styles from './ProductCard.module.scss';
-import { ProductCardProps } from './ProductCard.types';
-
 import { useCart } from '~/components/CartProvider';
 import { Price } from '~/components/Price';
+
+import styles from './ProductCard.module.scss';
+import { ProductCardProps } from './ProductCard.types';
 
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
@@ -45,12 +45,8 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
                             -{product.discount.toFixed(2)}%
                         </p>
                     )}
-                    {isNew && (
-                        <p>NEW</p>
-                    )}
-                    {isInCart && (
-                        <p>IN CART</p>
-                    )}
+                    {isNew ? <p>NEW</p> : null}
+                    {isInCart ? <p>IN CART</p> : null}
                 </div>
             </section>
         </Link>

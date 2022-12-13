@@ -1,8 +1,8 @@
 import { FC, memo, useCallback } from 'react';
 
-import { ProductCartButtonPropTypes } from './ProductCartButton.types';
-
 import { useCart } from '~/components/CartProvider';
+
+import { ProductCartButtonPropTypes } from './ProductCartButton.types';
 
 
 export const ProductCartButton: FC<ProductCartButtonPropTypes> = memo(({ cartItem }) => {

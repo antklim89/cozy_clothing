@@ -1,24 +1,24 @@
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 
+import InputGroup from '~/components/InputGroup';
+import { IProductPreview } from '~/types';
+
 import { SearchList } from '../SearchList';
 
 import { SearchPropTypes } from './Search.types';
-
-import InputGroup from '~/components/InputGroup';
-import { IProductPreview } from '~/types';
 
 
 let queryMemo = '';
 
 export const Search: FC<SearchPropTypes> = ({ publicIndexURL, publicStoreURL }) => {
-    const [index, setindex] = useState<string | null>(null);
+    const [index, setIndex] = useState<string | null>(null);
     const [store, setStore] = useState<Record<string, IProductPreview> | null>(null);
     const [query, setQuery] = useState(queryMemo);
 
     useEffect(() => {
         fetch(publicIndexURL)
             .then((res) => res.text())
-            .then((data) => setindex(data));
+            .then((data) => setIndex(data));
 
         fetch(publicStoreURL)
             .then((res) => res.json())
@@ -42,9 +42,7 @@ export const Search: FC<SearchPropTypes> = ({ publicIndexURL, publicStoreURL }) 
                     onChange={handleSearch()}
                 />
             </InputGroup>
-            {(index && store) && (
-                <SearchList index={index} query={query} store={store} />
-            )}
+            {(index && store) ? <SearchList index={index} query={query} store={store} /> : null}
         </div>
     );
 };

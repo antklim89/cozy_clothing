@@ -2,10 +2,10 @@ import { Link } from 'gatsby';
 import { FC } from 'react';
 
 
-import styles from './CartButton.module.scss';
-
 import CartIcon from '~/assets/shopping_cart.svg';
 import { useCart } from '~/components/CartProvider';
+
+import styles from './CartButton.module.scss';
 
 
 export const CartButton: FC = () => {

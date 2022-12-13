@@ -1,9 +1,9 @@
 import { ChangeEvent, FC } from 'react';
 
+import { cls } from '~/utils';
+
 import styles from './SelectNumber.module.scss';
 import { SelectNumberPropTypes } from './SelectNumber.types';
-
-import { cls } from '~/utils';
 
 
 export const SelectNumber: FC<SelectNumberPropTypes> = ({
