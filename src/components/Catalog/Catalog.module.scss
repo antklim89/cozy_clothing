@@ -6,7 +6,59 @@
     align-items: center;
 }
 
-.icon {
+
+.drawer {
     position: absolute;
-    margin: -5px;
+    top: $app-bar-height;
+    right: 0;
+    max-width: $md;
+    width: 100%;
+    z-index: $catalog-z-index;
+    box-shadow: 6px 6px 5px;
+    background: $bg-primary;
+    animation: show-drawer $transition-speed;
+}
+
+.item-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    >li {
+        margin-bottom: 1rem;
+        flex: 1 1 25%;
+
+        @include media-xs {
+            flex: 1 1 50%;
+        }
+    }
+
+    a,
+    li {
+        width: 100%;
+    }
+
+    hr {
+        width: 80%;
+    }
+}
+
+.sub-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes show-drawer {
+    from {
+        transform: translateX(150%);
+    }
+
+    ;
+
+    to {
+        transform: translateX(0%);
+    }
+
+    ;
 }
