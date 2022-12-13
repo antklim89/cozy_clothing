@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { CartStepperPropTypes } from './CartStepper.types';
-
 import DoneIcon from '~/assets/done.svg';
 import { Step, Stepper, StepperHeader } from '~/components/Stepper';
 import { CartList } from '~/layouts/CartList';
 import { ConfirmOrder } from '~/layouts/ConfirmOrder';
 import { OrderForm } from '~/layouts/OrderForm';
+
+import { CartStepperPropTypes } from './CartStepper.types';
 
 
 export const CartStepper: FC<CartStepperPropTypes> = () => {

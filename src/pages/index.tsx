@@ -51,10 +51,7 @@ export const query = graphql`
                 hidden: {eq: false},
             }
             limit: 4
-            sort: {
-                fields: careatedAt,
-                order: DESC
-            }
+            sort: { careatedAt: DESC }
         ) {
             nodes {
                 id
@@ -78,10 +75,7 @@ export const query = graphql`
                 }
             }
             limit: 4
-            sort: {
-                fields: discount,
-                order: DESC
-            }
+            sort: { discount: DESC }
         ) {
             nodes {
                 id

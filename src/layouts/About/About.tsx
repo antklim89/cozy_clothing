@@ -2,10 +2,10 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import styles from './About.module.scss';
-
 import { Title } from '~/components/Title';
 import { IAbout } from '~/types';
+
+import styles from './About.module.scss';
 
 
 export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
@@ -18,7 +18,7 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
                         <GatsbyImage alt="about" image={image.childImageSharp.gatsbyImageData} />
                     </div>
                     <div className={styles.aboutText}>
-                        <ReactMarkdown source={body} />
+                        <ReactMarkdown>{body}</ReactMarkdown>
                     </div>
                 </article>
             </section>

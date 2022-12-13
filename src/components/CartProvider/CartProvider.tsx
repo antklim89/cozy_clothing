@@ -1,16 +1,16 @@
 import {
-    FC, createContext, useContext, useState, useEffect, useCallback, useMemo,
+    FC, createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode,
 } from 'react';
 
-import { CartContext, CartItem } from './CartProvider.types';
-
 import { getCartFromStorage, setCartToStorage } from '~/utils';
+
+import { CartContext, CartItem } from './CartProvider.types';
 
 
 const context = createContext<CartContext>({} as CartContext);
 
 
-export const CartProvider: FC = ({ children }) => {
+export const CartProvider: FC<{children: ReactNode}> = ({ children }) => {
     const [cart, setCart] = useState(() => getCartFromStorage());
 
     useEffect(() => {
