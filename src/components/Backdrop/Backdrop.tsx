@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
+import styles from './Backdrop.module.scss';
 import { BackdropPropTypes } from './Backdrop.types';
-import styles from './Shadow.module.scss';
 
 
 export const Backdrop: FC<BackdropPropTypes> = ({ onClick, isShow = true }) => {
