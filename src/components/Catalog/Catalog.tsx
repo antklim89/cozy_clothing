@@ -2,7 +2,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import { FC, useEffect, useState } from 'react';
 
 import Menu from '~/assets/menu.svg';
-import { Shadow } from '~/components/Shadow';
+import { Backdrop } from '~/components/Backdrop';
 import { ICatalog } from '~/types/catalog';
 
 import styles from './Catalog.module.scss';
@@ -42,7 +42,7 @@ export const Catalog: FC = () => {
                 <span className="show-md"><Menu /></span>
                 <span className="hide-md">Catalog</span>
             </button>
-            <Shadow isShow={isOpen} onClick={() => setIsOpen(false)} />
+            <Backdrop isShow={isOpen} onClick={() => setIsOpen(false)} />
             { isOpen
                 ? (
                     <nav className={styles.drawer}>

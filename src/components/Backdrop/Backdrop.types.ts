@@ -1,6 +1,6 @@
 
 
-export interface ShadowPropTypes {
+export interface BackdropPropTypes {
     onClick: () => void
     isShow?: boolean
 }
