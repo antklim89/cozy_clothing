@@ -3,8 +3,8 @@ import ReactMarkdown from 'react-markdown';
 
 import styles from './Product.module.scss';
 import { ProductPropTypes } from './Product.types';
-import { ProductDescription } from './ProductDescription';
 import { ProductImages } from './ProductImages';
+import { ProductInfo } from './ProductInfo';
 
 
 export const Product: FC<ProductPropTypes> = ({ product }) => {
@@ -12,7 +12,7 @@ export const Product: FC<ProductPropTypes> = ({ product }) => {
         <>
             <div className={styles.root}>
                 <ProductImages product={product} />
-                <ProductDescription product={product} />
+                <ProductInfo product={product} />
             </div>
             <ReactMarkdown>
                 {product.body.replace(/\s/ig, ' ')}

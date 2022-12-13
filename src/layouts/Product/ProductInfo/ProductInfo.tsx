@@ -9,11 +9,11 @@ import { Sizes } from '~/types/product-sizes';
 import { ProductPropTypes } from '../Product.types';
 
 import { ProductCartButton } from './ProductCartButton';
-import styles from './ProductDescription.module.scss';
+import styles from './ProductInfo.module.scss';
 import { ProductTitle } from './ProductTitle';
 
 
-export const ProductDescription: FC<ProductPropTypes> = ({ product }) => {
+export const ProductInfo: FC<ProductPropTypes> = ({ product }) => {
     const { cart, updateCartItem } = useCart();
     const { discount, price } = product;
 
