@@ -1,0 +1,36 @@
+@use '~/styles/variables.scss' as *;
+
+.root {
+    width: 100%;
+    display: flex;
+    flex-direction: column
+}
+
+.input {
+    @extend .p-2;
+    width: 100%;
+    transition: $transition-speed outline-color;
+    outline: 1px solid transparent;
+    outline-offset: -2px;
+
+    &:hover,
+    &:active,
+    &:focus {
+        outline: 1px solid $primary;
+    }
+
+    &.error {
+        outline: 1px solid $error;
+        color: $error;
+    }
+}
+
+.label {
+    @extend .pl-2;
+}
+
+.errorText {
+    @extend .p-1;
+    font-size: $font-size-sm;
+    color: $error;
+}
