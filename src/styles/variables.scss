@@ -31,8 +31,8 @@ $space-md: 1rem;
 $space-lg: 1.2rem;
 $space-xl: 1.4rem;
 
-$font-size-xs: 0.5rem;
-$font-size-sm: 0.7rem;
+$font-size-xs: 0.7rem;
+$font-size-sm: 0.8rem;
 $font-size-md: 0.9rem;
 $font-size-lg: 1.4rem;
 $font-size-xl: 1.7rem;
@@ -58,50 +58,72 @@ $spaces: '1' 0.2rem, '2' 0.7rem, '3' 1.5rem, '4' 2rem, '5' 4rem;
 
 
 @mixin media-xs {
-	@media screen and (max-width: $xs) { @content; }
+	@media screen and (max-width: $xs) {
+		@content;
+	}
 }
 
 @mixin media-sm {
-	@media screen and (max-width: $sm) { @content; }
+	@media screen and (max-width: $sm) {
+		@content;
+	}
 }
 
 @mixin media-md {
-	@media screen and (max-width: $md) { @content; }
+	@media screen and (max-width: $md) {
+		@content;
+	}
 }
 
 @mixin media-lg {
-	@media screen and (max-width: $lg) { @content; }
+	@media screen and (max-width: $lg) {
+		@content;
+	}
 }
 
 @mixin media-xl {
-	@media screen and (max-width: $xl) { @content; }
+	@media screen and (max-width: $xl) {
+		@content;
+	}
 }
 
-@each $typekey, $type in $types {
-	@each $dirkey, $dir in $directions-all {
-		@each $key, $space in $spaces {
+@each $typekey,
+$type in $types {
+
+	@each $dirkey,
+	$dir in $directions-all {
+
+		@each $key,
+		$space in $spaces {
 			.#{$typekey}#{$dirkey}-#{$key} {
 				#{$type}-#{$dir}: $space;
 			}
 		}
 	}
 
-	@each $dirkey, $dir1, $dir2 in $directions {
-		@each $spacekey, $space in $spaces {
+	@each $dirkey,
+	$dir1,
+	$dir2 in $directions {
+
+		@each $spacekey,
+		$space in $spaces {
 			.#{$typekey}#{$dirkey}-#{$spacekey} {
 				#{$type}-#{$dir1}: $space;
 				#{$type}-#{$dir2}: $space;
 			}
 		}
 	}
-	@each $spacekey, $space in $spaces {
+
+	@each $spacekey,
+	$space in $spaces {
 		.#{$typekey}-#{$spacekey} {
 			#{$type}: $space;
 		}
 	}
 }
 
-@each $key, $value in ('xl' $xl, 'lg' $lg, 'md' $md, 'sm' $sm, 'xs' $xs) {
+@each $key,
+$value in ('xl'$xl, 'lg'$lg, 'md'$md, 'sm'$sm, 'xs'$xs) {
 	.show-#{$key} {
 		@media screen and (min-width: $value) {
 			display: none;
