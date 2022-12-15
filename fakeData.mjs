@@ -1,21 +1,21 @@
 import fs from 'fs';
 import path from 'path';
 
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
 import _ from 'lodash';
 
 
-const TOTAL_CATEGORIES = 7;
 const PRODUCT_PER_CATEGORY = 6;
 const CATEGORIES_PER_TYPE = 4;
 const FEATURES = 4;
 
 const YEAR_MS = 31557600000;
 
+
 const types = ['men', 'women', 'boys', 'girls'];
 const catalog = types.reduce((acc, type) => ({
     ...acc,
-    [type]: _.sampleSize(_.times(TOTAL_CATEGORIES, () => faker.commerce.product()), TOTAL_CATEGORIES),
+    [type]: ['trousers', 'shirts', 'boots', 'sweatshirt', 'jeans', 'underwear'],
 }), {});
 const features = _.times(FEATURES, () => faker.company.catchPhrase());
 
