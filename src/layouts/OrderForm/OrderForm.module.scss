@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     @extend .px-2;
-        
+
     .errorMessage {
         @extend .p-2;
         display: none;
@@ -15,7 +15,7 @@
 .error {
     color: $error;
 
-    .errorMessage  {
+    .errorMessage {
         display: inline-block;
     }
 }
@@ -23,6 +23,7 @@
 .input-group {
     margin: 0.5rem 0;
     display: flex;
+    height: 100%;
 
     @include media-xs {
         flex-wrap: wrap;
@@ -33,7 +34,7 @@
 .input-columns {
     flex: 1;
     height: 100%;
-    
+
 
     @include media-sm {
         flex-basis: 100%;

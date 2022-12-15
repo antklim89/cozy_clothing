@@ -1,31 +1,20 @@
 import { FC, useEffect, useMemo, useState } from 'react';
 
-import InputGroup from '~/components/InputGroup';
+import Input from '~/components/Input';
 
 import styles from './OrderForm.module.scss';
 import { OrderFormPropTypes } from './OrderForm.types';
 
 
-const memoForm = {
-    firstname: '',
-    lastname: '',
-    organization: '',
-    email: '',
-    phone: '',
-    country: '',
-    address: '',
-    details: '',
-};
-
 export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
-    const [firstname, setFirstname] = useState(memoForm.firstname);
-    const [lastname, setLastname] = useState(memoForm.lastname);
-    const [organization, setOrganization] = useState(memoForm.organization);
-    const [email, setEmail] = useState(memoForm.email);
-    const [phone, setPhone] = useState(memoForm.phone);
-    const [country, setCountry] = useState(memoForm.country);
-    const [address, setAddress] = useState(memoForm.address);
-    const [details, setDetails] = useState(memoForm.details);
+    const [firstname, setFirstname] = useState(() => sessionStorage.getItem('firstname') || '');
+    const [lastname, setLastname] = useState(() => sessionStorage.getItem('lastname') || '');
+    const [organization, setOrganization] = useState(() => sessionStorage.getItem('organization') || '');
+    const [email, setEmail] = useState(() => sessionStorage.getItem('email') || '');
+    const [phone, setPhone] = useState(() => sessionStorage.getItem('phone') || '');
+    const [country, setCountry] = useState(() => sessionStorage.getItem('country') || '');
+    const [address, setAddress] = useState(() => sessionStorage.getItem('address') || '');
+    const [details, setDetails] = useState(() => sessionStorage.getItem('details') || '');
 
     const validation = useMemo(() => ({
         firstname: (/^[\w]{3,200}$/gi).test(firstname),
@@ -40,9 +29,15 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
 
 
     useEffect(() => {
-        Object.assign(memoForm, {
-            firstname, lastname, organization, email, phone, country, address, details,
-        });
+        sessionStorage.setItem('firstname', firstname);
+        sessionStorage.setItem('lastname', lastname);
+        sessionStorage.setItem('organization', organization);
+        sessionStorage.setItem('email', email);
+        sessionStorage.setItem('phone', phone);
+        sessionStorage.setItem('country', country);
+        sessionStorage.setItem('address', address);
+        sessionStorage.setItem('details', details);
+
         const fieldsIsValid = Object.values(validation).every((isValidField) => isValidField);
         onValidation(fieldsIsValid);
     }, [firstname, lastname, organization, email, phone, country, address, details]);
@@ -52,137 +47,98 @@ export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
         <form className={styles.form} >
             <div className={styles.inputColumns}>
                 <div className={styles.inputGroup}>
-                    <InputGroup
-                        className={(firstname.length > 3 && !validation.firstname && styles.error) || ''}
-                    >
-                        <input
-                            autoComplete="given-name"
-                            name="firstname"
-                            placeholder="First Name"
-                            type="text"
-                            value={firstname}
-                            onChange={(e) => setFirstname(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The first name must be between 3 and 200 latin letters long.
-                        </span>
-                    </InputGroup>
-                    <InputGroup
-                        className={(lastname.length > 3 && !validation.lastname && styles.error) || ''}
-                    >
-                        <input
-                            autoComplete="family-name"
-                            name="lastname"
-                            placeholder="Last Name"
-                            type="text"
-                            value={lastname}
-                            onChange={(e) => setLastname(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The last name must be between 3 and 200 latin letters long.
-                        </span>
-                    </InputGroup>
+                    <Input
+                        autoComplete="given-name"
+                        errorText="The first name must be between 3 and 200 latin letters long."
+                        name="firstname"
+                        placeholder="First Name"
+                        showError={firstname.length > 3 && !validation.firstname}
+                        type="text"
+                        value={firstname}
+                        onChange={(e) => setFirstname(e.target.value)}
+                    />
+                    <Input
+                        autoComplete="family-name"
+                        errorText="The last name must be between 3 and 200 latin letters long."
+                        name="lastname"
+                        placeholder="Last Name"
+                        showError={lastname.length > 3 && !validation.lastname}
+                        type="text"
+                        value={lastname}
+                        onChange={(e) => setLastname(e.target.value)}
+                    />
                 </div>
                 <div className={styles.inputGroup}>
-                    <InputGroup
-                        className={(organization.length > 3 && !validation.organization && styles.error) || ''}
-                    >
-                        <input
-                            autoComplete="organization"
-                            name="organization"
-                            placeholder="Organization"
-                            type="text"
-                            value={organization}
-                            onChange={(e) => setOrganization(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The organization must be between 3 and 200 latin letters long.
-                        </span>
-                    </InputGroup>
+                    <Input
+                        autoComplete="organization"
+                        errorText="The organization must be between 3 and 200 latin letters long."
+                        name="organization"
+                        placeholder="Organization"
+                        showError={organization.length > 3 && !validation.organization}
+                        type="text"
+                        value={organization}
+                        onChange={(e) => setOrganization(e.target.value)}
+                    />
                 </div>
                 <div className={styles.inputGroup}>
-                    <InputGroup
-                        className={(email.length > 3 && !validation.email && styles.error) || ''}
-                    >
-                        <input
-                            autoComplete="email"
-                            name="email"
-                            placeholder="E-mail"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The field must be a valid e-mail address.
-                        </span>
-                    </InputGroup>
-                    <InputGroup
-                        className={(phone.length > 3 && !validation.phone && styles.error) || ''}
-                    >
-                        <input
-                            autoComplete="tel"
-                            name="phone"
-                            placeholder="Phone number"
-                            type="tel"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The field must be a valid phone number.
-                        </span>
-                    </InputGroup>
+                    <Input
+                        autoComplete="email"
+                        errorText="The field must be a valid e-mail address."
+                        name="email"
+                        placeholder="E-mail"
+                        showError={email.length > 3 && !validation.email}
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Input
+                        autoComplete="tel"
+                        errorText="The field must be a valid phone number."
+                        name="phone"
+                        placeholder="Phone number"
+                        showError={phone.length > 3 && !validation.phone}
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                    />
                 </div>
                 <div className={styles.inputGroup}>
-                    <InputGroup
-                        className={(country.length > 3 && !validation.country && styles.error) || ''}
-                    >
-                        <input
-                            autoComplete="country-name"
-                            name="country"
-                            placeholder="Country"
-                            type="text"
-                            value={country}
-                            onChange={(e) => setCountry(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The country must be between 3 and 200 latin letters long.
-                        </span>
-                    </InputGroup>
+                    <Input
+                        autoComplete="country-name"
+                        errorText="The country must be between 3 and 200 latin letters long."
+                        name="country"
+                        placeholder="Country"
+                        showError={country.length > 3 && !validation.country}
+                        type="text"
+                        value={country}
+                        onChange={(e) => setCountry(e.target.value)}
+                    />
                 </div>
                 <div className={styles.inputGroup}>
-                    <InputGroup
-                        className={(address.length > 3 && !validation.address && styles.error) || ''}
-                    >
-                        <input
-                            autoComplete="address-line1"
-                            name="address"
-                            placeholder="Address"
-                            type="text"
-                            value={address}
-                            onChange={(e) => setAddress(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The address must be between 3 and 2000 latin letters long.
-                        </span>
-                    </InputGroup>
+                    <Input
+                        autoComplete="address-line1"
+                        errorText="The address must be between 3 and 2000 latin letters long."
+                        name="address"
+                        placeholder="Address"
+                        showError={address.length > 3 && !validation.address}
+                        type="text"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                    />
                 </div>
             </div>
             <div className={styles.inputColumns}>
                 <div className={styles.inputGroup}>
-                    <InputGroup
-                        className={(!validation.details && styles.error) || ''}
-                    >
-                        <textarea
-                            className={styles.textarea}
-                            name="details"
-                            placeholder="Order details"
-                            value={details}
-                            onChange={(e) => setDetails(e.target.value)}
-                        />
-                        <span className={styles.errorMessage}>
-                            The details must be between 3 and 20000 latin letters long.
-                        </span>
-                    </InputGroup>
+                    <Input
+                        as="textarea"
+                        className={styles.textarea}
+                        errorText="The details must be between 3 and 20000 latin letters long."
+                        name="details"
+                        placeholder="Order details"
+                        showError={address.length > 3 && !validation.details}
+                        value={details}
+                        onChange={(e) => setDetails(e.target.value)}
+                    />
                 </div>
             </div>
         </form>
