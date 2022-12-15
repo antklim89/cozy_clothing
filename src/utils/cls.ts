@@ -1,5 +1,3 @@
-export const cls = (...classes: Array<string|undefined|false|null>): string => (
-    classes.reduce<string>((acc, item): string => {
-        return `${acc} ${item || ''}`;
-    }, '')
-);
+export const cls = (...classes: Array<string|undefined|false|null>): string => {
+    return classes.reduce<string>((acc, item) => `${acc} ${item || ''}`.trim(), '');
+};
