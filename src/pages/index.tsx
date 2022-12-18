@@ -51,7 +51,7 @@ export const query = graphql`
                 hidden: {eq: false},
             }
             limit: 4
-            sort: { careatedAt: DESC }
+            sort: { createdAt: DESC }
         ) {
             nodes {
                 id

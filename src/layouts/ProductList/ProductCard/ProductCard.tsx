@@ -12,7 +12,7 @@ import { ProductCardProps } from './ProductCard.types';
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const { cart } = useCart();
-    const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
+    const isNew = new Date(product.createdAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
     const isInCart = cart.some((cartItem) => cartItem.id === product.id);
 
     return (

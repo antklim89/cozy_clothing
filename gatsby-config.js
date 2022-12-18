@@ -16,7 +16,7 @@ const query = `#graphql
                 body
                 title
                 category
-                careatedAt
+                createdAt
                 discount
                 type
                 price
@@ -73,7 +73,7 @@ module.exports = {
                 query,
                 ref: 'id',
                 index: ['title', 'body'],
-                store: ['id', 'body', 'title', 'category', 'careatedAt', 'discount', 'type', 'price', 'imagePreview'],
+                store: ['id', 'body', 'title', 'category', 'createdAt', 'discount', 'type', 'price', 'imagePreview'],
                 normalizer: ({ data }) => data.allProduct.nodes,
             },
         },

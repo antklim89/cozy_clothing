@@ -54,7 +54,7 @@ query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!)
             layout: {eq: "product"},
             hidden: {eq: false}
         }
-        sort: { careatedAt: DESC }
+        sort: { createdAt: DESC }
         skip: $skip
         limit: $limit
     ) {
@@ -72,7 +72,7 @@ query CategoryPage($type: String!, $category: String, $skip: Int!, $limit: Int!)
         title
         category
         hidden
-        careatedAt
+        createdAt
         discount
         type
         price

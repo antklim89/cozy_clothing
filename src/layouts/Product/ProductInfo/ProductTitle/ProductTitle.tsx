@@ -5,7 +5,7 @@ import { ProductTitlePropTypes } from './ProductTitle.types';
 
 
 export const ProductTitle: FC<ProductTitlePropTypes> = ({ product }) => {
-    const isNew = new Date(product.careatedAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
+    const isNew = new Date(product.createdAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
 
     return (
         <>

@@ -52,7 +52,7 @@ export const products: CmsCollection[] = productTypes.map((type) => ({
         },
         {
             label: 'Created Date',
-            name: 'careatedAt',
+            name: 'createdAt',
             widget: 'datetime',
         },
         {

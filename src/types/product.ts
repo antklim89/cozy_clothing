@@ -6,7 +6,7 @@ export interface BaseProduct {
     price: number
     type: string
     category: string
-    careatedAt: string
+    createdAt: string
     discount: number
 }
 
