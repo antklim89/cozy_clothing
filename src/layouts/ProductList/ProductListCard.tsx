@@ -2,15 +2,14 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-
 import { useCart } from '~/components/CartProvider';
 import { Price } from '~/components/Price';
+import { IProductPreview } from '~/types';
 
-import styles from './ProductCard.module.scss';
-import { ProductCardProps } from './ProductCard.types';
+import styles from './ProductListCard.module.scss';
 
 
-export const ProductCard: FC<ProductCardProps> = ({ product }) => {
+export const ProductListCard: FC<IProductPreview> = (product) => {
     const { cart } = useCart();
     const isNew = new Date(product.createdAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
     const isInCart = cart.some((cartItem) => cartItem.id === product.id);
