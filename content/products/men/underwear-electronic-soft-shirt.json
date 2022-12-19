@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 0,
+    "title": "Electronic Soft Shirt",
+    "createdAt": "2019-05-09T01:30:16.709Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 576,
+    "category": "underwear",
+    "body": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Asperiores maiores ducimus vitae doloribus. Dolor beatae ab repellat minus. Similique corrupti maxime minima aliquid dicta modi id.\nMinus in harum dolore provident. Delectus blanditiis atque ab quasi aut culpa officiis saepe iste. Nobis velit illo."
+}

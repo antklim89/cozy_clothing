@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 7,
+    "title": "Fantastic Granite Chicken",
+    "createdAt": "2006-12-31T08:28:16.445Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 266,
+    "category": "underwear",
+    "body": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Sint sapiente veniam. Excepturi dolore optio sint. Explicabo illum animi hic repudiandae similique aperiam vero officia excepturi. Debitis labore labore voluptate sapiente quam.\nSint necessitatibus voluptatum reprehenderit. Quo iure consequuntur eaque autem pariatur corrupti voluptatem magnam. Placeat quasi quod laudantium recusandae officiis eaque amet."
+}

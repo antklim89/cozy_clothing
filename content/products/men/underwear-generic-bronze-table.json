@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 40,
+    "title": "Generic Bronze Table",
+    "createdAt": "2017-07-15T16:06:00.255Z",
+    "imagePreview": "images/fake-image-5.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 243,
+    "category": "underwear",
+    "body": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart\n                Ab vel et atque. Harum inventore nulla minus nam reiciendis. Harum quis cum eos itaque suscipit odio. Exercitationem sed beatae ipsam nihil hic.\nFuga deserunt temporibus numquam quaerat maiores nisi explicabo pariatur maiores. Ut earum voluptatibus sapiente nobis nostrum consectetur a non ex. Eius necessitatibus ad aspernatur labore. Quasi laborum ipsam voluptatum minima temporibus. Ratione fugit tempora tenetur magni beatae similique recusandae temporibus."
+}

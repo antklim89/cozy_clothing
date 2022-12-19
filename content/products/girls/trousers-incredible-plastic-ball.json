@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "girls",
+    "hidden": false,
+    "discount": 16,
+    "title": "Incredible Plastic Ball",
+    "createdAt": "2016-10-31T01:46:20.016Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 230,
+    "category": "trousers",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                Odio voluptatibus eaque. Minima libero dolor iste laborum laudantium. Est in eos enim. Corrupti eligendi dolorum necessitatibus facere vero reprehenderit.\nDelectus voluptate ducimus voluptates eos dolorum error nobis. Quo autem error aliquam aperiam iusto. Ipsam ea deserunt tempore."
+}

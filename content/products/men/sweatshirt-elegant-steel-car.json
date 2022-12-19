@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 0,
+    "title": "Elegant Steel Car",
+    "createdAt": "2005-09-15T13:06:40.351Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 63,
+    "category": "sweatshirt",
+    "body": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016\n                The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                Corrupti officia nemo dignissimos. Odio esse non. Harum dicta tempore illo voluptas ducimus ducimus molestiae quas.\nQuae perferendis aut est quibusdam nesciunt. Sequi perferendis soluta culpa. Repudiandae tempora quasi tenetur placeat. Nulla quaerat autem ipsum est explicabo maxime voluptatibus veniam."
+}

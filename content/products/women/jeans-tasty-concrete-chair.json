@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 10,
+    "title": "Tasty Concrete Chair",
+    "createdAt": "2004-07-24T09:34:01.671Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 595,
+    "category": "jeans",
+    "body": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016\n                Sit magni totam accusantium dolor doloremque aliquid. Voluptate modi rerum. Dignissimos nemo quasi animi hic recusandae. Quas voluptate eius quia.\nAccusamus saepe maiores laborum distinctio minima modi cumque vel totam. Autem tempore laboriosam architecto sunt quaerat recusandae. Nemo molestias numquam magni tenetur iure. Molestiae odit doloribus adipisci ad ipsam. Perferendis sit maxime assumenda."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "girls",
+    "hidden": false,
+    "discount": 0,
+    "title": "Incredible Wooden Cheese",
+    "createdAt": "2020-07-17T22:28:10.105Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 232,
+    "category": "jeans",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Explicabo assumenda rem maiores neque molestias. Temporibus pariatur earum quam fuga. Delectus error unde magnam blanditiis ducimus. Error aut odio dicta sint dolorum iste.\nVero neque consectetur. Itaque rem maiores cupiditate quis a. Molestiae consequatur consectetur natus pariatur eaque. Non similique quidem voluptatem maiores error optio laboriosam magnam. Culpa reiciendis aut qui repudiandae quod possimus doloribus similique esse."
+}

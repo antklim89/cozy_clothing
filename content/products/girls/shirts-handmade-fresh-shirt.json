@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "girls",
+    "hidden": false,
+    "discount": 21,
+    "title": "Handmade Fresh Shirt",
+    "createdAt": "2005-08-13T16:47:13.412Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 29,
+    "category": "shirts",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                Porro nulla ratione quas minima voluptates. Mollitia alias voluptates doloremque at tempora. Necessitatibus aut repudiandae suscipit assumenda qui occaecati. Ea consequatur deleniti aliquid minima ad.\nAutem aliquam debitis ipsa error iusto doloribus. Aliquid magni non voluptatum quod. Ut ad consequuntur dolor. Possimus iste id nobis distinctio qui. Sint accusamus quidem sequi dolores reiciendis recusandae recusandae. Voluptatum natus dolore eum velit quo aut."
+}

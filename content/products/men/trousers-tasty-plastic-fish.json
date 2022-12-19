@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 36,
+    "title": "Tasty Plastic Fish",
+    "createdAt": "2017-01-11T15:07:16.133Z",
+    "imagePreview": "images/fake-image-5.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 292,
+    "category": "trousers",
+    "body": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                Iure at ea quasi. Quisquam maxime deserunt enim blanditiis necessitatibus. Similique consequuntur rem aliquam pariatur nemo. Facilis totam nihil saepe. Laborum quibusdam architecto nostrum non maiores exercitationem nobis. Omnis quibusdam doloribus exercitationem.\nAccusantium pariatur nulla. Fuga fugiat corrupti voluptas mollitia voluptatibus amet. Blanditiis vitae sequi nobis iusto excepturi."
+}

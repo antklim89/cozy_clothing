@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 28,
+    "title": "Elegant Metal Bacon",
+    "createdAt": "2022-10-27T14:14:43.287Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 192,
+    "category": "shirts",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Veritatis quaerat dolorum. Veritatis fuga nam delectus. Quis nulla aliquid veritatis consequuntur ad ex ipsa. Iusto aliquid assumenda quia provident beatae reiciendis praesentium magnam. Voluptates tenetur ipsam velit aliquid dicta dignissimos.\nSapiente perferendis inventore voluptates dolorum iste recusandae. Laboriosam delectus nesciunt reiciendis iste. Molestias perferendis ipsum autem earum quis."
+}

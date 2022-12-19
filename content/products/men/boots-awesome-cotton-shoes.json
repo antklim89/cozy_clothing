@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 0,
+    "title": "Awesome Cotton Shoes",
+    "createdAt": "2016-09-24T13:59:27.194Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 35,
+    "category": "boots",
+    "body": "The Football Is Good For Training And Recreational Purposes\n                The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                Est aspernatur temporibus nulla esse quas tenetur commodi cum laborum. Incidunt hic est veniam nemo sequi. Dolores et odio soluta.\nDeserunt laborum saepe aliquid iusto. Quia ut beatae nihil eveniet dolores. Harum occaecati nisi soluta eum inventore quidem."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 20,
+    "title": "Bespoke Rubber Chicken",
+    "createdAt": "2004-09-25T22:09:49.430Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 884,
+    "category": "jeans",
+    "body": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Ipsam culpa quaerat odit dolor provident veritatis tempora. Temporibus consequuntur eligendi at commodi earum optio illum. Repellendus a nisi asperiores et. Ipsa minus doloribus doloremque quae aspernatur accusantium facilis.\nIllo veritatis aliquam. Veniam tenetur molestias esse velit ducimus necessitatibus ipsam ab sint. Neque earum eaque quasi sit ut harum quasi nemo. Expedita nulla ipsam iure adipisci."
+}

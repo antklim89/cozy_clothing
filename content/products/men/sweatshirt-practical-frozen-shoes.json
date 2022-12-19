@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 8,
+    "title": "Practical Frozen Shoes",
+    "createdAt": "2014-03-22T20:36:55.606Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 931,
+    "category": "sweatshirt",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive\n                In consequatur dolorum corporis at dolor accusamus accusamus voluptas ullam. Impedit nesciunt quisquam saepe repellat vitae. Dicta veniam alias.\nDicta repellat magnam rem laborum repellat assumenda. Quam recusandae eum. Quasi corrupti praesentium doloribus ipsam ipsam. Omnis autem rem tempore quod molestias impedit laborum."
+}

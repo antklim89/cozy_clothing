@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 19,
+    "title": "Tasty Steel Computer",
+    "createdAt": "2006-07-07T06:44:37.729Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 270,
+    "category": "jeans",
+    "body": "The Football Is Good For Training And Recreational Purposes\n                The Football Is Good For Training And Recreational Purposes\n                Aut autem suscipit optio eaque rem dolores quibusdam. Vel dolore sint asperiores. Quisquam veniam facere quisquam. Architecto iure nihil recusandae explicabo magni omnis quis facilis.\nAt perferendis laudantium inventore. Quas autem labore consequuntur officia nam distinctio eum. Laboriosam similique consectetur. Commodi asperiores rerum impedit. Earum commodi impedit consequatur autem. Rem inventore assumenda sint asperiores maxime ipsam."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 7,
+    "title": "Practical Plastic Mouse",
+    "createdAt": "2019-08-02T12:50:41.496Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 923,
+    "category": "boots",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Molestiae tempore corporis aperiam consequatur perspiciatis mollitia. Neque rerum laboriosam ipsa in nihil exercitationem aut adipisci. Minus error commodi aspernatur explicabo ex nobis. Id harum tempora eaque. Quia delectus dolorem eum pariatur facilis quaerat. Deserunt quo odit delectus asperiores doloremque corporis accusamus consequatur.\nMinima id illo id cumque dolor nulla. Facilis possimus earum sunt blanditiis porro vero voluptatem. Iste corrupti architecto rerum. Dolorum ducimus blanditiis hic tempora dolores. Consectetur rerum voluptate deserunt illo laboriosam nemo."
+}

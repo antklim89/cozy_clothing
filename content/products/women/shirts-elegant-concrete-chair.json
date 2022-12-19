@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 13,
+    "title": "Elegant Concrete Chair",
+    "createdAt": "2018-12-14T17:20:10.356Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 906,
+    "category": "shirts",
+    "body": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Commodi enim explicabo enim. In dolores commodi harum neque nihil. Dignissimos perspiciatis nesciunt. Animi aperiam dolores sint repudiandae dignissimos. Enim fugit ipsa reprehenderit id corporis dolorum tenetur quos inventore. Dicta omnis tempore consequuntur beatae saepe.\nNobis dolores quam consequatur. Pariatur asperiores maiores velit esse dicta maxime molestiae. Beatae ipsum a. Minima voluptate accusamus iste consectetur placeat cum illo quos. Repudiandae quae repellendus sunt modi nobis odio molestiae recusandae."
+}

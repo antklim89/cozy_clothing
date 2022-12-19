@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 6,
+    "title": "Handcrafted Concrete Hat",
+    "createdAt": "2019-07-24T17:20:44.699Z",
+    "imagePreview": "images/fake-image-6.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 685,
+    "category": "sweatshirt",
+    "body": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J\n                The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Porro unde veniam assumenda. Natus doloremque eius nobis ullam. Repellat voluptatum placeat porro velit corporis est eos reprehenderit molestiae.\nAperiam beatae soluta maxime enim quo architecto veniam consequuntur quaerat. Fugit itaque deleniti tempore. Officiis voluptatibus neque ullam. Architecto exercitationem distinctio excepturi mollitia."
+}

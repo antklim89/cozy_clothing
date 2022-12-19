@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 0,
+    "title": "Modern Rubber Chicken",
+    "createdAt": "2004-11-11T23:10:41.857Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 285,
+    "category": "trousers",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J\n                Sequi deserunt neque ad. Unde nostrum sed iure. Reiciendis cumque sequi deserunt necessitatibus facere incidunt dolore error totam. Modi nesciunt beatae. Voluptatem iure illum quidem. Harum quasi vero odit fugit quod.\nIure perspiciatis delectus sint consectetur nobis. Ut aut eaque harum soluta ipsam maxime. Quis asperiores voluptas cumque tempora cum molestias impedit recusandae perferendis. Dolore sequi reiciendis."
+}

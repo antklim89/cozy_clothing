@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "girls",
+    "hidden": false,
+    "discount": 23,
+    "title": "Licensed Rubber Fish",
+    "createdAt": "2010-07-14T01:30:14.937Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 897,
+    "category": "dresses",
+    "body": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Assumenda aspernatur culpa autem voluptatum nostrum temporibus. Suscipit officia omnis numquam consectetur eius temporibus dolor. Tempore suscipit cum molestiae laborum. Doloremque delectus pariatur.\nPerspiciatis architecto enim accusantium quam blanditiis omnis sint ex nam. Deleniti aliquid quasi maxime. Laboriosam perspiciatis sapiente repellat neque. Accusamus ipsa impedit optio fugiat."
+}

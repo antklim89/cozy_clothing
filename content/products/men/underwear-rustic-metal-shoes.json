@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 29,
+    "title": "Rustic Metal Shoes",
+    "createdAt": "2019-07-22T23:00:04.591Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 966,
+    "category": "underwear",
+    "body": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\n                Voluptas aliquid fugit dolore maiores placeat nostrum at. Non qui fuga commodi provident sapiente fugiat magnam rerum optio. Omnis ratione aperiam facilis occaecati.\nUnde ut tempora unde unde natus nulla eveniet itaque. Molestias consequatur eaque similique sapiente dolor esse. Similique placeat iusto minima minima tenetur perferendis possimus eaque alias. Nostrum et dolor repellat sed maiores necessitatibus perferendis eaque. Porro beatae culpa sint."
+}

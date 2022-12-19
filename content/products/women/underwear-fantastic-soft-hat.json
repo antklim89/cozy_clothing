@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 36,
+    "title": "Fantastic Soft Hat",
+    "createdAt": "2008-08-24T13:43:41.522Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 30,
+    "category": "underwear",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Consectetur expedita molestiae exercitationem sed saepe optio. Ea laboriosam aut voluptatum doloribus. Voluptatem omnis eligendi magni. Neque repellat autem a nihil itaque. Distinctio explicabo dolores magni harum quaerat et.\nVero quis totam. Unde quod accusantium amet nihil assumenda officiis quae. Reprehenderit molestiae libero quae veritatis. Vero quidem quas nesciunt vel. Autem commodi optio odit iste laboriosam laudantium. Repellat aliquam sapiente eius voluptas odit dignissimos."
+}

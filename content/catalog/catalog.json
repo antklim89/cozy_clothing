@@ -1,33 +1,37 @@
 {
     "men": [
-        "Salad",
-        "Chicken",
-        "Fish",
-        "Car",
-        "Pizza",
-        "Hat",
-        "Shirt"
+        "trousers",
+        "shirts",
+        "boots",
+        "sweatshirt",
+        "jeans",
+        "underwear"
     ],
     "women": [
-        "Towels",
-        "Pants",
-        "Shirt",
-        "Cheese",
-        "Gloves",
-        "Car"
+        "trousers",
+        "shirts",
+        "boots",
+        "sweatshirt",
+        "jeans",
+        "underwear",
+        "blouses",
+        "dresses"
     ],
     "boys": [
-        "Cheese",
-        "Sausages",
-        "Gloves",
-        "Pizza"
+        "trousers",
+        "shirts",
+        "boots",
+        "sweatshirt",
+        "jeans",
+        "underwear"
     ],
     "girls": [
-        "Ball",
-        "Sausages",
-        "Gloves",
-        "Car",
-        "Pizza",
-        "Soap"
+        "trousers",
+        "shirts",
+        "boots",
+        "sweatshirt",
+        "jeans",
+        "underwear",
+        "dresses"
     ]
 }

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 0,
+    "title": "Incredible Frozen Sausages",
+    "createdAt": "2020-08-24T10:59:50.721Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 54,
+    "category": "underwear",
+    "body": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                The Football Is Good For Training And Recreational Purposes\n                Ea vel sit est eos rerum a. Totam iste recusandae voluptates in. Ratione eius nam. Explicabo facilis quo ab atque. Laborum mollitia dignissimos sunt eveniet.\nNatus explicabo omnis similique. Suscipit voluptatum voluptates voluptatibus. Inventore totam veritatis totam."
+}

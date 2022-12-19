@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 23,
+    "title": "Sleek Fresh Cheese",
+    "createdAt": "2019-01-01T16:17:53.036Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 849,
+    "category": "shirts",
+    "body": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Temporibus eaque soluta officia itaque. Eveniet repudiandae accusamus veritatis doloribus doloribus corrupti. Minus quod asperiores harum. Aperiam ratione explicabo officia at earum veritatis sit. Accusantium debitis earum magnam sed repellat voluptatum fuga qui.\nCupiditate unde adipisci beatae explicabo eos cupiditate doloribus. Quos aliquid ex distinctio fuga repudiandae accusantium modi natus. Veritatis deserunt quibusdam illum porro sunt ab quo voluptate. Sed esse officia architecto sequi."
+}

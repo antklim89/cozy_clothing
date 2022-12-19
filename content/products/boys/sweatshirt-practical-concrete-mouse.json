@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 0,
+    "title": "Practical Concrete Mouse",
+    "createdAt": "2008-11-22T14:24:33.636Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 107,
+    "category": "sweatshirt",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Et sunt nisi cumque esse omnis natus voluptates. Aliquam occaecati ullam molestiae officia. Qui dolores provident.\nEt eum temporibus quibusdam blanditiis eaque hic. Omnis quaerat quas ratione nostrum corporis. Velit at quam fugit."
+}

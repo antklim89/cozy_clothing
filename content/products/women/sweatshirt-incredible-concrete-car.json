@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 35,
+    "title": "Incredible Concrete Car",
+    "createdAt": "2013-08-18T16:49:02.974Z",
+    "imagePreview": "images/fake-image-6.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 505,
+    "category": "sweatshirt",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive\n                Aliquam id nostrum vero corrupti provident sed. Veniam consequatur sit nisi molestias debitis tenetur iusto quos. Blanditiis rem maxime.\nEnim aliquid laudantium odit. Omnis dignissimos dolor molestiae consequatur fugit autem atque praesentium. Suscipit cum eaque fugiat incidunt aspernatur sequi perspiciatis. Beatae nisi veniam mollitia nobis laboriosam molestias quaerat nemo necessitatibus. Veniam odit vitae voluptate odio incidunt. Minus qui maxime voluptatem similique nam in officia debitis."
+}

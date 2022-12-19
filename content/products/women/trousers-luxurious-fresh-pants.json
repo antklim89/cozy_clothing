@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 25,
+    "title": "Luxurious Fresh Pants",
+    "createdAt": "2006-05-12T21:42:25.601Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 283,
+    "category": "trousers",
+    "body": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\n                Ut quasi maxime voluptas. Harum labore ut accusamus nam expedita possimus. Ullam iure reprehenderit vero porro deleniti. Autem aspernatur voluptatem veniam mollitia recusandae natus.\nAutem incidunt voluptate quasi quibusdam dicta iste tempore quasi excepturi. Cum velit ad fugit. Enim dicta molestias labore temporibus culpa velit."
+}

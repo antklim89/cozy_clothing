@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 7,
+    "title": "Handmade Wooden Shirt",
+    "createdAt": "2012-10-18T04:09:49.053Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 989,
+    "category": "sweatshirt",
+    "body": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Dolor asperiores nemo quam inventore odio. Impedit dolor adipisci tempore deleniti eligendi voluptate quaerat enim. Odit corrupti itaque error esse quidem et illum natus.\nCulpa distinctio quidem iste ut harum ipsum quos. Laboriosam reiciendis quisquam ipsam ipsam veniam quas. Nesciunt eius a quam libero. Dicta facere adipisci. Labore rerum ullam ex labore. Debitis laboriosam explicabo assumenda ducimus suscipit officia laborum."
+}

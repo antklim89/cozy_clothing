@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "girls",
+    "hidden": false,
+    "discount": 38,
+    "title": "Awesome Plastic Hat",
+    "createdAt": "2013-12-10T22:39:06.996Z",
+    "imagePreview": "images/fake-image-5.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 953,
+    "category": "dresses",
+    "body": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Reiciendis ipsam qui minima odit at quidem eligendi. Nulla eligendi cum magni ratione voluptas natus qui sapiente quas. Modi libero amet est atque officia assumenda repellat. Facilis facilis voluptatibus deleniti deserunt deserunt maiores ad ex. Adipisci dolor sint autem.\nIpsam eum sequi laborum. Nihil velit enim amet esse consectetur similique excepturi. Minima eligendi sit occaecati debitis minus sunt molestias eum."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 23,
+    "title": "Electronic Metal Car",
+    "createdAt": "2012-02-25T05:32:46.202Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 132,
+    "category": "underwear",
+    "body": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Dolores nihil officiis. Necessitatibus eius ullam molestias commodi. Voluptas a placeat consequuntur placeat laudantium earum. Repudiandae nam aliquam facilis magnam tenetur vel.\nVeniam quod id dicta asperiores. Explicabo minima iure laborum aspernatur eligendi ducimus fuga. Ad doloribus nihil quisquam maxime necessitatibus."
+}

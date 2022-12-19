@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 18,
+    "title": "Awesome Frozen Gloves",
+    "createdAt": "2013-01-17T21:08:20.588Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 758,
+    "category": "sweatshirt",
+    "body": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                The Football Is Good For Training And Recreational Purposes\n                Totam fuga quaerat exercitationem recusandae id mollitia quisquam. Minus culpa eveniet impedit perspiciatis. Laudantium perferendis facilis eligendi necessitatibus mollitia asperiores ad aut consequatur. Omnis tempora tempore hic blanditiis illo alias. Non et dolore aperiam commodi maiores voluptatum.\nAutem nulla facere quis. Fuga dignissimos cumque vitae. Inventore quaerat eos quos sint officia reprehenderit officiis cupiditate."
+}

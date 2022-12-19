@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 25,
+    "title": "Sleek Rubber Tuna",
+    "createdAt": "2014-05-30T13:07:38.265Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 804,
+    "category": "blouses",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Odit debitis ratione culpa est corporis repellendus quisquam quasi. Nobis ipsa tempore. Quae atque nesciunt.\nEum optio suscipit. Veritatis officiis explicabo cumque aspernatur est error fuga. Unde recusandae minus laudantium nostrum ullam atque odit aliquid. Labore expedita quos omnis sit sint praesentium illum."
+}

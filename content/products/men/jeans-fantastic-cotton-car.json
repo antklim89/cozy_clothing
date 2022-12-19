@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 21,
+    "title": "Fantastic Cotton Car",
+    "createdAt": "2005-11-02T13:16:30.805Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 36,
+    "category": "jeans",
+    "body": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\n                Eaque tempore eligendi maxime explicabo laudantium perspiciatis totam reiciendis. Veniam eligendi quas nesciunt totam quasi repellat ab. Tempora aspernatur quis facilis nostrum corrupti commodi delectus sint. Placeat sit assumenda.\nNihil tempora delectus sit possimus. Quae facere magnam asperiores dignissimos. In ratione cum alias."
+}

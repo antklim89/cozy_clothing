@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "girls",
+    "hidden": false,
+    "discount": 0,
+    "title": "Incredible Plastic Computer",
+    "createdAt": "2021-12-22T21:13:57.496Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 864,
+    "category": "trousers",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                Suscipit laborum dolor nostrum libero quo vel. Illum suscipit sit fugiat dolor eum reprehenderit corporis rem minus. Quia dolores nemo doloribus reprehenderit.\nNihil ullam tenetur placeat vitae. Dolorum est sit dolorem doloribus vero repudiandae doloremque voluptate officiis. A fugit maxime. Tempore at vero ab non distinctio molestias nostrum corporis suscipit. Molestiae fugiat asperiores."
+}

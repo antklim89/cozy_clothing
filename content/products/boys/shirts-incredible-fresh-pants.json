@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 0,
+    "title": "Incredible Fresh Pants",
+    "createdAt": "2015-01-29T11:53:59.374Z",
+    "imagePreview": "images/fake-image-5.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 373,
+    "category": "shirts",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Optio iure nemo necessitatibus eius iure labore sed architecto. Quam reprehenderit exercitationem quae. Sit possimus quo ab minus nostrum dolor sit praesentium. Exercitationem harum amet officia quas quae eveniet temporibus.\nCupiditate similique eligendi omnis. Modi atque consequatur qui asperiores ad consequuntur rerum. Dolore non fugit itaque corrupti quod repudiandae dignissimos. Perferendis magni minima quibusdam assumenda vero natus voluptates incidunt. Sint fuga suscipit ullam quae temporibus."
+}

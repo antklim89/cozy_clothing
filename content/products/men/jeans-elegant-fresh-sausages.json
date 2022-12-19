@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 11,
+    "title": "Elegant Fresh Sausages",
+    "createdAt": "2019-10-08T16:29:41.855Z",
+    "imagePreview": "images/fake-image-5.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 838,
+    "category": "jeans",
+    "body": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Perferendis cum aliquam deserunt dolores. Facilis necessitatibus sapiente. Consequuntur repudiandae soluta tempore. Iure praesentium sit. Neque eos nisi atque atque nobis eaque neque facere inventore.\nQuisquam ut rerum. Consectetur facilis dicta fugiat. Eos consectetur adipisci ad omnis expedita similique dicta. Nihil illo est omnis totam officiis possimus. Illo labore ipsam autem numquam sint veniam assumenda fugiat."
+}

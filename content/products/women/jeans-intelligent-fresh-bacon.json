@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 24,
+    "title": "Intelligent Fresh Bacon",
+    "createdAt": "2006-12-03T17:11:17.426Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 432,
+    "category": "jeans",
+    "body": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Ut similique tempora. Aliquid voluptate odit magni. Nulla magni saepe recusandae nesciunt ut ullam ducimus velit ut. Architecto sit pariatur eos possimus eum pariatur. Ipsa sint voluptates.\nInventore consectetur perferendis. Itaque aliquid optio ipsum ex alias saepe consequatur. Maiores quis ratione quidem dignissimos."
+}

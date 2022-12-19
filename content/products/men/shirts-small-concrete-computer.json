@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 0,
+    "title": "Small Concrete Computer",
+    "createdAt": "2013-05-19T07:22:21.450Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 520,
+    "category": "shirts",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J\n                Qui veritatis consectetur. Repudiandae doloremque laborum quas numquam libero. Magni doloremque commodi expedita culpa optio.\nOdio voluptatem explicabo repudiandae excepturi dolor odit reprehenderit ipsa ad. Enim illum deserunt alias quis. Itaque dolore delectus consequatur. Nisi at inventore dolor. Aperiam ipsum nam. Eum molestiae at enim."
+}

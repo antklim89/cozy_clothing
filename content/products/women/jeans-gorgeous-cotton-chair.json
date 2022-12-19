@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 35,
+    "title": "Gorgeous Cotton Chair",
+    "createdAt": "2019-03-13T18:52:03.309Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 868,
+    "category": "jeans",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Possimus illo praesentium sunt voluptatem voluptatem veniam deleniti porro. Eveniet debitis eius voluptatibus rerum. Ea occaecati alias dignissimos repellat assumenda aperiam ducimus beatae. Quas facere doloribus in minima ipsum occaecati possimus.\nAdipisci nulla pariatur quasi architecto maxime soluta recusandae ducimus. Quis hic similique cupiditate excepturi vel. Esse animi eaque doloremque laboriosam. Culpa iste nostrum non culpa qui. Adipisci quo sunt iure."
+}

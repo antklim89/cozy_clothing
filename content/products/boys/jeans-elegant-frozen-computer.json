@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 39,
+    "title": "Elegant Frozen Computer",
+    "createdAt": "2004-08-25T10:12:27.285Z",
+    "imagePreview": "images/fake-image-5.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 885,
+    "category": "jeans",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                Nesciunt quas ipsam delectus sequi. Veritatis ipsam alias non. Optio consequuntur culpa.\nNobis harum officia quae illum qui. Ducimus ea laborum voluptate quaerat. Harum ipsa sit vitae dolorem magnam. Unde odio quia vero debitis animi. Omnis suscipit fugit hic nostrum et facilis. Illum sequi consequuntur reprehenderit."
+}

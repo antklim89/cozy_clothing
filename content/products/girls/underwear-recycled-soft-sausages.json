@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "girls",
+    "hidden": false,
+    "discount": 12,
+    "title": "Recycled Soft Sausages",
+    "createdAt": "2015-11-07T02:06:33.486Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 544,
+    "category": "underwear",
+    "body": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Incidunt numquam iusto distinctio sequi velit blanditiis cumque ducimus. Minima molestias illum consectetur repellendus quaerat quidem. Corporis aut quas ducimus necessitatibus.\nLibero impedit alias veniam dignissimos repudiandae nesciunt. Veritatis maxime qui officia. Dolor quas perferendis. Illum quam molestiae possimus architecto corporis."
+}

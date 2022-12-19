@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 6,
+    "title": "Incredible Soft Fish",
+    "createdAt": "2015-03-31T00:08:46.353Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 770,
+    "category": "dresses",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Eligendi ex cupiditate nemo aliquid nam cumque facilis. At voluptatem voluptatibus earum totam ratione. Vero quisquam non temporibus odio debitis minus. Placeat quidem quod doloribus voluptatum harum exercitationem deleniti.\nItaque numquam voluptates quos doloremque. Voluptate voluptatem repudiandae. Consequuntur recusandae rerum magnam quo adipisci. Consectetur sed consequuntur excepturi consectetur itaque. Laboriosam dignissimos temporibus voluptatibus corporis aut quidem. Aperiam rem harum delectus at porro pariatur amet ullam."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 36,
+    "title": "Recycled Frozen Pizza",
+    "createdAt": "2017-03-18T02:35:14.713Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 39,
+    "category": "sweatshirt",
+    "body": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                The Football Is Good For Training And Recreational Purposes\n                Vitae ullam placeat quo harum consequuntur natus consequuntur quasi. Praesentium eius reprehenderit aut animi nulla. Enim iure nesciunt eum perferendis numquam.\nCumque quos soluta. Quasi praesentium error sapiente mollitia in quis. Dolor doloremque architecto aliquam est quos."
+}

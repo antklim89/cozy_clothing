@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 13,
+    "title": "Modern Fresh Bacon",
+    "createdAt": "2015-08-06T16:56:30.864Z",
+    "imagePreview": "images/fake-image-6.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 747,
+    "category": "boots",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Eius distinctio itaque rerum ipsum tenetur assumenda. In deserunt dolorum voluptates soluta. Soluta excepturi eligendi dolorem.\nLaboriosam debitis fuga dolores. Nobis deleniti magni cumque dolore repudiandae delectus. Et quod ut numquam quibusdam fugiat cumque itaque sequi est."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 0,
+    "title": "Awesome Cotton Pizza",
+    "createdAt": "2008-10-14T04:53:44.216Z",
+    "imagePreview": "images/fake-image-5.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 735,
+    "category": "trousers",
+    "body": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016\n                Neque optio beatae tenetur fugit eligendi atque ipsum error. Aliquam culpa recusandae labore perferendis veritatis accusantium. Alias dicta illum.\nBlanditiis dicta molestiae magni adipisci quibusdam eos eaque accusantium. Enim possimus dolores nostrum animi quos. Aspernatur fuga modi. Voluptates hic illum beatae odio voluptate reprehenderit laboriosam."
+}

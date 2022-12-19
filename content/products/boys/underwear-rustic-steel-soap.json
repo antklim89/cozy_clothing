@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 21,
+    "title": "Rustic Steel Soap",
+    "createdAt": "2020-11-04T06:06:17.993Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 688,
+    "category": "underwear",
+    "body": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Qui enim quis saepe ipsum illo. Voluptatem ad amet voluptatum aspernatur quasi nam quasi. Dolor excepturi debitis vitae omnis nulla.\nA iste unde maiores perferendis. Quam facilis harum est occaecati ipsum. Soluta ea labore assumenda."
+}

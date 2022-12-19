@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 24,
+    "title": "Electronic Rubber Cheese",
+    "createdAt": "2021-06-14T07:24:06.592Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 49,
+    "category": "shirts",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Temporibus a id cum consectetur at nesciunt nesciunt. Autem blanditiis vitae cupiditate ullam consectetur alias molestiae earum. Rerum natus molestiae molestias dignissimos alias nemo similique. Quae accusantium accusantium deserunt impedit nisi veniam.\nNatus voluptate fugiat hic asperiores repudiandae omnis quam. Reprehenderit sunt velit. Asperiores odit cumque necessitatibus doloribus libero itaque. Eius ducimus veritatis quos tenetur exercitationem veritatis nemo porro."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 40,
+    "title": "Licensed Granite Pizza",
+    "createdAt": "2004-11-30T05:18:01.294Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 382,
+    "category": "blouses",
+    "body": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Consectetur velit repellat enim et odio officia. Nemo enim expedita totam esse hic accusantium impedit id. Aut eligendi molestiae itaque quisquam temporibus quod accusantium repellendus minima. Numquam tempora fugiat atque. Distinctio impedit cupiditate enim eaque. Doloremque sequi eveniet qui accusamus dicta ipsum.\nIpsam reiciendis repellat vero inventore magni voluptatum totam natus. Laboriosam voluptates blanditiis facilis aliquam dolore voluptas odio animi illum. Accusantium corporis aliquid ducimus animi eligendi. Laboriosam asperiores autem eos aliquid quo. Alias animi molestias quasi minus quaerat. Esse ex ratione nostrum veniam neque doloremque voluptate quod."
+}

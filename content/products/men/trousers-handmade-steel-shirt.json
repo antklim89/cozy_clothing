@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 9,
+    "title": "Handmade Steel Shirt",
+    "createdAt": "2017-03-13T03:55:47.412Z",
+    "imagePreview": "images/fake-image-4.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 943,
+    "category": "trousers",
+    "body": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J\n                Quas laboriosam rem officiis illo. Ullam ab iusto non atque in. Ipsum repellat beatae sint ex occaecati odit. Fuga alias corrupti sequi voluptates aliquam cum. Velit ratione nemo.\nEst modi aut itaque a nihil quidem laborum. Placeat voluptatem maxime aliquid doloribus culpa repellat magnam maxime porro. Recusandae eius quod repellendus. Reprehenderit at rerum consequuntur. Sequi tempore assumenda ea eaque soluta rerum. Magni reprehenderit odit expedita ea eius fuga."
+}

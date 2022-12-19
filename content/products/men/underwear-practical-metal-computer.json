@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 0,
+    "title": "Practical Metal Computer",
+    "createdAt": "2020-06-11T23:23:14.155Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 847,
+    "category": "underwear",
+    "body": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J\n                Porro eaque perferendis consequuntur neque quasi doloribus quisquam dolor officia. Aut quaerat optio labore odit. Sequi veniam totam et voluptatem at eaque. Dolore harum ad. Voluptatum illum ducimus possimus ipsum iusto ipsum fugiat minus ipsum.\nSed adipisci sint debitis debitis accusantium. Corporis iure ad vel nemo molestias. Incidunt tenetur in ipsum."
+}

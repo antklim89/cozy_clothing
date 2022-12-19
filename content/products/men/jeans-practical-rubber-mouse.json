@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 0,
+    "title": "Practical Rubber Mouse",
+    "createdAt": "2019-11-17T05:21:24.385Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 475,
+    "category": "jeans",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles\n                Reprehenderit fugiat ea ad natus. Culpa perspiciatis aperiam. Labore distinctio mollitia repudiandae.\nRatione sequi sit nulla dolorem voluptatibus a. Molestias nobis necessitatibus. Libero sequi placeat doloremque quaerat molestias ex."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 34,
+    "title": "Licensed Soft Computer",
+    "createdAt": "2020-08-15T17:04:55.741Z",
+    "imagePreview": "images/fake-image-1.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 58,
+    "category": "jeans",
+    "body": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                Voluptates impedit neque mollitia recusandae eaque tempore. Laborum dolorem provident maxime odio quis nostrum. Et saepe in minus nesciunt corporis.\nQuos qui inventore recusandae aspernatur mollitia placeat sint eum. Temporibus est vitae nemo ratione. In porro numquam illum tempora voluptatem pariatur. Maiores modi ipsam rerum molestias. Mollitia dignissimos itaque accusantium veniam."
+}

@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "women",
+    "hidden": false,
+    "discount": 19,
+    "title": "Tasty Rubber Pizza",
+    "createdAt": "2012-01-19T23:00:28.404Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 787,
+    "category": "sweatshirt",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality\n                Fugiat ea totam natus sequi facere magnam quam provident. Vel rem architecto ea aliquid reprehenderit alias a nisi. Molestiae temporibus labore possimus.\nIusto libero animi laboriosam. Maxime architecto totam laudantium fugit quis et. Libero eveniet sapiente recusandae aperiam facilis officiis ipsum temporibus voluptate. At illum recusandae facilis quo ad minus. Assumenda eius sunt amet minima. Quae maiores sit explicabo nulla."
+}

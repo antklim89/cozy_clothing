@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 36,
+    "title": "Awesome Concrete Fish",
+    "createdAt": "2005-09-15T18:47:11.267Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 800,
+    "category": "boots",
+    "body": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Magni explicabo necessitatibus nostrum nulla. Fuga expedita quibusdam ab. Beatae sunt ea consectetur eius necessitatibus praesentium dolore ducimus nobis. Iusto voluptate quae nisi temporibus quo minima non sint vero.\nTempora officiis ullam veritatis eaque similique rerum. Odio dolore consequatur suscipit occaecati quo. Nisi modi facilis modi nobis eos sapiente iste sequi. Dolorum asperiores molestias corporis temporibus iure explicabo autem quis."
+}

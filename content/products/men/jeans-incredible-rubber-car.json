@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "men",
+    "hidden": false,
+    "discount": 0,
+    "title": "Incredible Rubber Car",
+    "createdAt": "2014-11-08T00:49:29.933Z",
+    "imagePreview": "images/fake-image-3.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 209,
+    "category": "jeans",
+    "body": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\n                Maxime magni odio excepturi dicta modi minima blanditiis illo corrupti. Tempore laborum adipisci nulla nam doloribus odio vero. Suscipit quia placeat culpa corrupti corporis explicabo earum.\nQuasi expedita totam illum esse quidem magni possimus quas. Error aliquid quae ducimus. Quis reiciendis quam vel sapiente impedit iure repudiandae magnam. Eaque veritatis ratione deleniti soluta vero optio laborum libero blanditiis. Laudantium molestias nihil sed quos maxime nostrum commodi."
+}

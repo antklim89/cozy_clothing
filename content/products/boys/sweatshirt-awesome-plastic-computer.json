@@ -1,0 +1,20 @@
+{
+    "layout": "product",
+    "type": "boys",
+    "hidden": false,
+    "discount": 28,
+    "title": "Awesome Plastic Computer",
+    "createdAt": "2011-10-24T16:27:12.763Z",
+    "imagePreview": "images/fake-image-2.jpg",
+    "images": [
+        "images/fake-image-1.jpg",
+        "images/fake-image-2.jpg",
+        "images/fake-image-3.jpg",
+        "images/fake-image-4.jpg",
+        "images/fake-image-5.jpg",
+        "images/fake-image-6.jpg"
+    ],
+    "price": 999,
+    "category": "sweatshirt",
+    "body": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients\n                The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design\n                Harum est enim quisquam earum sint laborum. Illo enim placeat nemo. Sint debitis repudiandae nemo quaerat suscipit. Dolor corrupti quidem maiores doloribus praesentium eaque atque. Natus quibusdam ab quia iure enim perferendis corrupti. Sint mollitia et est nam consequuntur debitis.\nRem magnam atque consequatur. Ad placeat aliquid ullam autem praesentium sequi tenetur aspernatur. In tempora omnis possimus officiis sunt exercitationem. Sit modi nam incidunt nihil alias. Et omnis aperiam cupiditate quasi iure."
+}
