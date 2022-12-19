@@ -8,7 +8,7 @@ import { useCart } from '~/components/CartProvider';
 import styles from './HeaderCartButton.module.scss';
 
 
-export const HeaderCartButton: FC = () => {
+const HeaderCartButton: FC = () => {
     const { cart } = useCart();
 
     return (
@@ -23,3 +23,5 @@ export const HeaderCartButton: FC = () => {
         </Link>
     );
 };
+
+export default HeaderCartButton;

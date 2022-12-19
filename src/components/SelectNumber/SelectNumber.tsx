@@ -7,7 +7,7 @@ import styles from './SelectNumber.module.scss';
 import { SelectNumberPropTypes } from './SelectNumber.types';
 
 
-export const SelectNumber: FC<SelectNumberPropTypes> = ({
+const SelectNumber: FC<SelectNumberPropTypes> = ({
     value, onChange, max = 50, min = 1, label, className,
 }) => {
     const handleChangeQty = (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,3 +56,5 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
         </div>
     );
 };
+
+export default SelectNumber;

@@ -1,16 +1,16 @@
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { IProduct } from '~/types';
 
+import { IProduct } from '~/types';
 import { cls } from '~/utils';
 
 import styles from './Product.module.scss';
-import { ProductInfo } from './ProductInfo';
-import { ProductImages } from './ProductImages';
-import { ProductTitle } from './ProductTitle';
+import ProductImages from './ProductImages';
+import ProductInfo from './ProductInfo';
+import ProductTitle from './ProductTitle';
 
 
-export const Product: FC<IProduct> = (product) => {
+const Product: FC<IProduct> = (product) => {
     return (
         <section className={cls(styles.root, 'container mt-3')}>
             <div className={styles.top}>
@@ -28,3 +28,5 @@ export const Product: FC<IProduct> = (product) => {
         </section>
     );
 };
+
+export default Product;

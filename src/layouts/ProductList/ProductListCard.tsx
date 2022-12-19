@@ -3,13 +3,13 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
 import { useCart } from '~/components/CartProvider';
-import { Price } from '~/components/Price';
+import Price from '~/components/Price';
 import { IProductPreview } from '~/types';
 
 import styles from './ProductListCard.module.scss';
 
 
-export const ProductListCard: FC<IProductPreview> = (product) => {
+const ProductListCard: FC<IProductPreview> = (product) => {
     const { cart } = useCart();
     const isNew = new Date(product.createdAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
     const isInCart = cart.some((cartItem) => cartItem.id === product.id);
@@ -51,3 +51,5 @@ export const ProductListCard: FC<IProductPreview> = (product) => {
         </Link>
     );
 };
+
+export default ProductListCard;

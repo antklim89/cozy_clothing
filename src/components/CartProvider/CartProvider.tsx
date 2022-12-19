@@ -11,7 +11,7 @@ import { CartContext, ICartItem } from './CartProvider.types';
 const Context = createContext<CartContext>({} as CartContext);
 
 
-export const CartProvider: FC<{children: ReactNode}> = ({ children }) => {
+const CartProvider: FC<{children: ReactNode}> = ({ children }) => {
     const [cart, setCart] = useState(() => getCartFromStorage());
 
     useEffect(() => {
@@ -63,5 +63,7 @@ export const CartProvider: FC<{children: ReactNode}> = ({ children }) => {
         </Context.Provider>
     );
 };
+
+export default CartProvider;
 
 export const useCart = (): CartContext => useContext(Context);

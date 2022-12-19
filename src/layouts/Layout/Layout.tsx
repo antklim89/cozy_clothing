@@ -1,13 +1,13 @@
 import { FC, ReactNode } from 'react';
 
-import { CartProvider } from '~/components/CartProvider';
-import { Footer } from '~/layouts/Footer';
-import { Header } from '~/layouts/Header';
+import CartProvider from '~/components/CartProvider';
+import Footer from '~/layouts/Footer';
+import Header from '~/layouts/Header';
 
 import styles from './Layout.module.scss';
 
 
-export const Layout: FC<{children: ReactNode}> = ({ children }) => {
+const Layout: FC<{children: ReactNode}> = ({ children }) => {
     return (
         <div className={styles.root}>
             <CartProvider>
@@ -18,3 +18,5 @@ export const Layout: FC<{children: ReactNode}> = ({ children }) => {
         </div>
     );
 };
+
+export default Layout;

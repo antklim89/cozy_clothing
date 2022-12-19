@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { Cart } from '~/layouts/Cart';
-import { Seo } from '~/layouts/Seo';
+import Cart from '~/layouts/Cart';
+import Seo from '~/layouts/Seo';
 
 
-const cart: FC = () => {
+const CartPage: FC = () => {
     return (
         <main>
             <Seo title="Cart" />
@@ -13,4 +13,4 @@ const cart: FC = () => {
     );
 };
 
-export default cart;
+export default CartPage;

@@ -3,14 +3,14 @@ import { FC } from 'react';
 import DoneIcon from '~/assets/done.svg';
 import Button from '~/components/Button';
 import { Step, Stepper, StepperHeader } from '~/components/Stepper';
-import { Title } from '~/components/Title';
+import Title from '~/components/Title';
 
-import { CartList } from './CartList';
-import { CartOrderConfirm } from './CartOrderConfirm';
-import { CartOrderForm } from './CartOrderForm';
+import CartList from './CartList';
+import CartOrderConfirm from './CartOrderConfirm';
+import CartOrderForm from './CartOrderForm';
 
 
-export const Cart: FC = () => {
+const Cart: FC = () => {
     return (
         <section className="container mt-3">
             <Title>Cart</Title>
@@ -46,3 +46,5 @@ export const Cart: FC = () => {
         </section>
     );
 };
+
+export default Cart;

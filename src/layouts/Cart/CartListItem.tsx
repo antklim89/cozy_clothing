@@ -4,14 +4,14 @@ import { FC } from 'react';
 
 import Button from '~/components/Button';
 import { ICartItem, useCart } from '~/components/CartProvider';
-import { SelectNumber } from '~/components/SelectNumber';
-import { SelectSize } from '~/components/SelectSize';
+import SelectNumber from '~/components/SelectNumber';
+import SelectSize from '~/components/SelectSize';
 import { getPrice } from '~/utils';
 
 import styles from './CartListItem.module.scss';
 
 
-export const CartListItem: FC<ICartItem> = (cartItem) => {
+const CartListItem: FC<ICartItem> = (cartItem) => {
     const { removeFromCart, updateCartItem } = useCart();
     const {
         title, image, id, price, discount, type,
@@ -63,3 +63,5 @@ export const CartListItem: FC<ICartItem> = (cartItem) => {
         </>
     );
 };
+
+export default CartListItem;

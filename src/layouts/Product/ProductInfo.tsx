@@ -1,17 +1,17 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 
 import { useCart } from '~/components/CartProvider';
-import { Price } from '~/components/Price';
-import { SelectNumber } from '~/components/SelectNumber';
-import { SelectSize } from '~/components/SelectSize';
+import Price from '~/components/Price';
+import SelectNumber from '~/components/SelectNumber';
+import SelectSize from '~/components/SelectSize';
 import { IProduct } from '~/types';
 import { Sizes } from '~/types/product-sizes';
 
-import { ProductCartButton } from './ProductCartButton';
+import ProductCartButton from './ProductCartButton';
 import styles from './ProductInfo.module.scss';
 
 
-export const ProductInfo: FC<IProduct> = (product) => {
+const ProductInfo: FC<IProduct> = (product) => {
     const { updateCartItem, getCartItem } = useCart();
     const [cartItem, setCartItem] = useState(() => getCartItem(product));
     const { discount, price } = product;
@@ -52,3 +52,5 @@ export const ProductInfo: FC<IProduct> = (product) => {
         </>
     );
 };
+
+export default ProductInfo;

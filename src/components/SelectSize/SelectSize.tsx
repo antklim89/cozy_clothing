@@ -6,7 +6,7 @@ import { Sizes } from '~/types';
 import { SelectSizePropTypes } from './SelectSize.types';
 
 
-export const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) => {
+const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) => {
     const handleChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
         onChange(e.target.value as Sizes);
     }, [onChange]);
@@ -24,3 +24,5 @@ export const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) 
         </Input>
     );
 };
+
+export default SelectSize;

@@ -2,14 +2,14 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import { FC, useEffect, useState } from 'react';
 
 import Menu from '~/assets/menu.svg';
-import { Backdrop } from '~/components/Backdrop';
+import Backdrop from '~/components/Backdrop';
 import Button from '~/components/Button';
 import { ICatalog } from '~/types/catalog';
 
 import styles from './Catalog.module.scss';
 
 
-export const Catalog: FC = () => {
+const Catalog: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const { catalog } = useStaticQuery<ICatalog>(graphql`
@@ -99,3 +99,5 @@ export const Catalog: FC = () => {
         </div>
     );
 };
+
+export default Catalog;

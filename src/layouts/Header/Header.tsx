@@ -2,14 +2,14 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import { Catalog } from '~/layouts/Catalog';
+import Catalog from '~/layouts/Catalog';
 
 import styles from './Header.module.scss';
-import { HeaderCartButton } from './HeaderCartButton';
-import { HeaderNavBar } from './HeaderNavBar';
+import HeaderCartButton from './HeaderCartButton';
+import HeaderNavBar from './HeaderNavBar';
 
 
-export const Header: FC = () => {
+const Header: FC = () => {
     return (
         <>
             <header className={styles.background}>
@@ -33,3 +33,5 @@ export const Header: FC = () => {
         </>
     );
 };
+
+export default Header;

@@ -7,7 +7,7 @@ import styles from './Title.module.scss';
 import { TitleProps } from './Title.types';
 
 
-export const Title: FC<TitleProps> = ({
+const Title: FC<TitleProps> = ({
     component: Component = 'h1',
     position = 'center',
     bottomSpace = 'sm',
@@ -29,3 +29,5 @@ export const Title: FC<TitleProps> = ({
         </div>
     );
 };
+
+export default Title;

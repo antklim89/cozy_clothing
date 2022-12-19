@@ -4,12 +4,12 @@ import Input from '~/components/Input';
 import { IProductPreview } from '~/types';
 
 import { SearchPropTypes } from './Search.types';
-import { SearchList } from './SearchList';
+import SearchList from './SearchList';
 
 
 let queryMemo = '';
 
-export const Search: FC<SearchPropTypes> = ({ publicIndexURL, publicStoreURL }) => {
+const Search: FC<SearchPropTypes> = ({ publicIndexURL, publicStoreURL }) => {
     const [index, setIndex] = useState<string | null>(null);
     const [store, setStore] = useState<Record<string, IProductPreview> | null>(null);
     const [query, setQuery] = useState(queryMemo);
@@ -43,3 +43,5 @@ export const Search: FC<SearchPropTypes> = ({ publicIndexURL, publicStoreURL }) 
         </div>
     );
 };
+
+export default Search;

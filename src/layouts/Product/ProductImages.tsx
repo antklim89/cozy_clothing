@@ -6,7 +6,7 @@ import { IProduct } from '~/types';
 import styles from './ProductImages.module.scss';
 
 
-export const ProductImages: FC<IProduct> = ({ imagesPreview, title, images }) => {
+const ProductImages: FC<IProduct> = ({ imagesPreview, title, images }) => {
     const [imageIndex, setImageIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -87,3 +87,5 @@ export const ProductImages: FC<IProduct> = ({ imagesPreview, title, images }) =>
         </div>
     );
 };
+
+export default ProductImages;

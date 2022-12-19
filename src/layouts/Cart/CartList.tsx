@@ -5,10 +5,10 @@ import { getTotalPrice } from '~/utils';
 
 import styles from './CartList.module.scss';
 import { CartListPropTypes } from './CartList.types';
-import { CartListItem } from './CartListItem';
+import CartListItem from './CartListItem';
 
 
-export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
+const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
     const { cart } = useCart();
 
     useEffect(() => {
@@ -32,3 +32,5 @@ export const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {
         </ul>
     );
 };
+
+export default CartList;

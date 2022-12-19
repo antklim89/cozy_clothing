@@ -2,13 +2,13 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { Title } from '~/components/Title';
+import Title from '~/components/Title';
 import { IAbout } from '~/types';
 
 import styles from './About.module.scss';
 
 
-export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
+const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
     return (
         <>
             <section className="container mb-5 mt-3">
@@ -41,3 +41,5 @@ export const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {
         </>
     );
 };
+
+export default About;

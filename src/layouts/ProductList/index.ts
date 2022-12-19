@@ -1,2 +1,1 @@
-export * from './ProductList';
-export * from './ProductList.types';
+export { default } from './ProductList';

@@ -1,2 +1,2 @@
-export * from './CartProvider';
+export { default, useCart } from './CartProvider';
 export * from './CartProvider.types';

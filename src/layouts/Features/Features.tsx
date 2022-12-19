@@ -6,7 +6,7 @@ import styles from './Features.module.scss';
 import { FeaturesQuery } from './Features.types';
 
 
-export const Features: FC = () => {
+const Features: FC = () => {
     const { allFeatures: { nodes: features } } = useStaticQuery<FeaturesQuery>(graphql`
         query Features {
             allFeatures {
@@ -46,3 +46,5 @@ export const Features: FC = () => {
         </div>
     );
 };
+
+export default Features;

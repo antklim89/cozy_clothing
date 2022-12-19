@@ -4,7 +4,7 @@ import { FC } from 'react';
 import styles from './HeaderNavBar.module.scss';
 
 
-export const HeaderNavBar: FC = () => {
+const HeaderNavBar: FC = () => {
     return (
         <nav>
             <ul className={styles.nav}>
@@ -44,3 +44,5 @@ export const HeaderNavBar: FC = () => {
         </nav>
     );
 };
+
+export default HeaderNavBar;

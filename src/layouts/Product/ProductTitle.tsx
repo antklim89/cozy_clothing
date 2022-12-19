@@ -5,7 +5,7 @@ import { IProduct } from '~/types';
 import styles from './ProductTitle.module.scss';
 
 
-export const ProductTitle: FC<IProduct> = ({ createdAt, title, type, discount }) => {
+const ProductTitle: FC<IProduct> = ({ createdAt, title, type, discount }) => {
     const isNew = new Date(createdAt).getTime() > new Date().setMonth(new Date().getMonth() - 1);
 
     return (
@@ -23,3 +23,6 @@ export const ProductTitle: FC<IProduct> = ({ createdAt, title, type, discount })
         </div>
     );
 };
+
+export default ProductTitle;
+

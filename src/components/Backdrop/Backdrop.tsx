@@ -4,7 +4,7 @@ import styles from './Backdrop.module.scss';
 import { BackdropPropTypes } from './Backdrop.types';
 
 
-export const Backdrop: FC<BackdropPropTypes> = ({ onClick, isShow = true }) => {
+const Backdrop: FC<BackdropPropTypes> = ({ onClick, isShow = true }) => {
     if (!isShow) return null;
     return (
         <div
@@ -16,3 +16,5 @@ export const Backdrop: FC<BackdropPropTypes> = ({ onClick, isShow = true }) => {
         />
     );
 };
+
+export default Backdrop;

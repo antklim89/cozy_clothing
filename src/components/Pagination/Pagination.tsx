@@ -7,7 +7,7 @@ import styles from './Pagination.module.scss';
 import { PaginationPropTypes } from './Pagination.types';
 
 
-export const Pagination: FC<PaginationPropTypes> = ({
+const Pagination: FC<PaginationPropTypes> = ({
     previousPagePath,
     nextPagePath,
     humanPageNumber,
@@ -54,3 +54,5 @@ export const Pagination: FC<PaginationPropTypes> = ({
         </div>
     );
 };
+
+export default Pagination;

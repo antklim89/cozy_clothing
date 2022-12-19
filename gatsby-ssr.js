@@ -1,15 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
-
-// You can delete this file if you're not using it
-
 import { createElement } from 'react';
 
-import { Layout } from '~/layouts/Layout';
+import Layout from '~/layouts/Layout';
 
 
 export const wrapPageElement = ({ element, props }) => {

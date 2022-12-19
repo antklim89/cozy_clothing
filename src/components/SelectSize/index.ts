@@ -1,1 +1,1 @@
-export * from './SelectSize';
+export { default } from './SelectSize';

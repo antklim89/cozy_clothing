@@ -1,8 +1,8 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Search } from '~/layouts/Search';
-import { Seo } from '~/layouts/Seo';
+import Search from '~/layouts/Search';
+import Seo from '~/layouts/Seo';
 
 
 interface SearchPageData {

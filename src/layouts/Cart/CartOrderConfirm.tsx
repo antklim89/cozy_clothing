@@ -7,7 +7,7 @@ import { getPrice, getTotalPrice } from '~/utils';
 import styles from './CartOrderConfirm.module.scss';
 
 
-export const CartOrderConfirm: FC = () => {
+const CartOrderConfirm: FC = () => {
     const { cart } = useCart();
 
     return (
@@ -41,3 +41,4 @@ export const CartOrderConfirm: FC = () => {
     );
 };
 
+export default CartOrderConfirm;

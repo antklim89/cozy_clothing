@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { SeoProps, SeoQuery } from './Seo.types';
 
 
-export const Seo: FC<SeoProps> = ({
+const Seo: FC<SeoProps> = ({
     description,
     meta = [],
     keywords = [],
@@ -71,3 +71,5 @@ export const Seo: FC<SeoProps> = ({
         />
     );
 };
+
+export default Seo;

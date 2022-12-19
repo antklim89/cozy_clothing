@@ -7,7 +7,7 @@ import styles from './CategoriesBar.module.scss';
 import { CategoriesBarPropTypes } from './CategoriesBar.types';
 
 
-export const CategoriesBar: FC<CategoriesBarPropTypes> = ({
+const CategoriesBar: FC<CategoriesBarPropTypes> = ({
     type,
     categories,
 }) => {
@@ -27,3 +27,5 @@ export const CategoriesBar: FC<CategoriesBarPropTypes> = ({
         </nav>
     );
 };
+
+export default CategoriesBar;

@@ -4,7 +4,7 @@ import Button from '~/components/Button';
 import { ICartItem, useCart } from '~/components/CartProvider';
 
 
-export const ProductCartButton: FC<{cartItem: ICartItem}> = memo(({ cartItem }) => {
+const ProductCartButton: FC<{cartItem: ICartItem}> = memo(({ cartItem }) => {
     const { cart, addToCart, removeFromCart } = useCart();
 
     const handleAddToCart = useCallback(() => {
@@ -32,5 +32,8 @@ export const ProductCartButton: FC<{cartItem: ICartItem}> = memo(({ cartItem }) 
         </div>
     );
 });
+
+
+export default ProductCartButton;
 
 ProductCartButton.displayName = 'ProductCartButton';

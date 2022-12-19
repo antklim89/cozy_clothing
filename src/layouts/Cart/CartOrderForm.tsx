@@ -6,7 +6,7 @@ import styles from './CartOrderForm.module.scss';
 import { CartOrderFormProps } from './CartOrderForm.types';
 
 
-export const CartOrderForm: FC<CartOrderFormProps> = ({ onValidation }) => {
+const CartOrderForm: FC<CartOrderFormProps> = ({ onValidation }) => {
     const [firstname, setFirstname] = useState(() => sessionStorage.getItem('firstname') || '');
     const [lastname, setLastname] = useState(() => sessionStorage.getItem('lastname') || '');
     const [organization, setOrganization] = useState(() => sessionStorage.getItem('organization') || '');
@@ -144,3 +144,5 @@ export const CartOrderForm: FC<CartOrderFormProps> = ({ onValidation }) => {
         </form>
     );
 };
+
+export default CartOrderForm;

@@ -3,7 +3,7 @@ import { FC } from 'react';
 import styles from './Footer.module.scss';
 
 
-export const Footer: FC = () => {
+const Footer: FC = () => {
     return (
         <footer className={styles.root}>
             <div className="container">
@@ -12,3 +12,5 @@ export const Footer: FC = () => {
         </footer>
     );
 };
+
+export default Footer;
