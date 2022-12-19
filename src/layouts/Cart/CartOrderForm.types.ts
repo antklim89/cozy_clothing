@@ -1,6 +1,6 @@
 
 
-export interface OrderFormPropTypes {
+export interface CartOrderFormProps {
     onValidation: (isValid: boolean) => void
 }
 

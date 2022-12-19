@@ -3,10 +3,10 @@ import { FC } from 'react';
 import { useCart } from '~/components/CartProvider';
 import { getPrice, getTotalPrice } from '~/utils';
 
-import styles from './ConfirmOrder.module.scss';
+import styles from './CartOrderConfirm.module.scss';
 
 
-export const ConfirmOrder: FC = () => {
+export const CartOrderConfirm: FC = () => {
     const { cart } = useCart();
 
     return (

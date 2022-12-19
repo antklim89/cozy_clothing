@@ -2,16 +2,15 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import { useCart } from '~/components/CartProvider';
+import { ICartItem, useCart } from '~/components/CartProvider';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
 import { getPrice } from '~/utils';
 
-import styles from './CartItem.module.scss';
-import { CartItemPropTypes } from './CartItem.types';
+import styles from './CartListItem.module.scss';
 
 
-export const CartItem: FC<CartItemPropTypes> = ({ cartItem }) => {
+export const CartListItem: FC<ICartItem> = (cartItem) => {
     const { removeFromCart, updateCartItem } = useCart();
     const {
         title, imagesPreview, id, price, discount, type,

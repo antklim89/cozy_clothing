@@ -2,11 +2,11 @@ import { FC, useEffect, useMemo, useState } from 'react';
 
 import Input from '~/components/Input';
 
-import styles from './OrderForm.module.scss';
-import { OrderFormPropTypes } from './OrderForm.types';
+import styles from './CartOrderForm.module.scss';
+import { CartOrderFormProps } from './CartOrderForm.types';
 
 
-export const OrderForm: FC<OrderFormPropTypes> = ({ onValidation }) => {
+export const CartOrderForm: FC<CartOrderFormProps> = ({ onValidation }) => {
     const [firstname, setFirstname] = useState(() => sessionStorage.getItem('firstname') || '');
     const [lastname, setLastname] = useState(() => sessionStorage.getItem('lastname') || '');
     const [organization, setOrganization] = useState(() => sessionStorage.getItem('organization') || '');
