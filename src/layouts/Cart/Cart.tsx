@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import DoneIcon from '~/assets/done.svg';
 import Button from '~/components/Button';
-import { Step, Stepper, StepperHeader } from '~/components/Stepper';
+import { Stepper, StepperHeader, Step } from '~/components/Stepper';
 import Title from '~/components/Title';
 
 import CartList from './CartList';

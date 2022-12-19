@@ -6,7 +6,7 @@ import style from './Stepper.module.scss';
 import { StepperPropTypes } from './Stepper.types';
 
 
-export const Stepper: FC<StepperPropTypes> = ({ children, maxSteps }) => {
+const Stepper: FC<StepperPropTypes> = ({ children, maxSteps }) => {
     const [step, setStep] = useState(1);
     const [completedSteps, setCompletedSteps] = useState<boolean[]>(() => (
         Array.from({ length: maxSteps }).map(() => false)
@@ -48,3 +48,5 @@ export const Stepper: FC<StepperPropTypes> = ({ children, maxSteps }) => {
         </>
     );
 };
+
+export default Stepper;

@@ -1,3 +1,3 @@
-export * from './Stepper';
-export * from './Step';
-export * from './StepperHeader';
+export { default as Stepper } from './Stepper';
+export { default as Step } from './Step';
+export { default as StepperHeader } from './StepperHeader';
