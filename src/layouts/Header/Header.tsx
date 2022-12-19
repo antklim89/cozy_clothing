@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import { Catalog } from '~/components/Catalog';
+import { Catalog } from '~/layouts/Catalog';
 
 import { CartButton } from './CartButton';
 import styles from './Header.module.scss';
