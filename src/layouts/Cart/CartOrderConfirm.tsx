@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import Button from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 import { getPrice, getTotalPrice } from '~/utils';
 
@@ -35,7 +36,7 @@ export const CartOrderConfirm: FC = () => {
             <p className={styles.totalPrice}>
                 Total price: ${getTotalPrice(cart)}
             </p>
-            <button className="btn full-width" type="button" >Place Order</button>
+            <Button className="full-width">Place Order</Button>
         </section>
     );
 };

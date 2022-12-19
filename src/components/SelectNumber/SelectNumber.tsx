@@ -1,5 +1,6 @@
 import { ChangeEvent, FC } from 'react';
 
+import Button from '~/components/Button';
 import Input from '~/components/Input';
 
 import styles from './SelectNumber.module.scss';
@@ -29,14 +30,13 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
         <div className={className}>
             {label ? <>{label} <br /></> : null }
             <div className={styles.select}>
-                <button
+                <Button
                     aria-label="plus"
                     className={styles.button}
-                    type="button"
                     onClick={handlePlusQty}
                 >
                     +
-                </button>
+                </Button>
                 <Input
                     aria-label="select quantity"
                     className={styles.input}
@@ -45,14 +45,13 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
                     onBlur={handleBlurQty}
                     onChange={handleChangeQty}
                 />
-                <button
+                <Button
                     aria-label="minus"
                     className={styles.button}
-                    type="button"
                     onClick={handleMinusQty}
                 >
                     -
-                </button>
+                </Button>
             </div>
         </div>
     );

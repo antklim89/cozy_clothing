@@ -1,5 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 
+import Button from '~/components/Button';
 import { ICartItem, useCart } from '~/components/CartProvider';
 
 
@@ -14,26 +15,19 @@ export const ProductCartButton: FC<{cartItem: ICartItem}> = memo(({ cartItem }) 
         if (cartItem) removeFromCart(cartItem);
     }, [cartItem]);
 
+
     return (
         <div>
             {cart.find((item) => cartItem.id === item.id)
                 ? (
-                    <button
-                        className="btn large"
-                        type="button"
-                        onClick={handleRemoveFromCart}
-                    >
+                    <Button onClick={handleRemoveFromCart}>
                         Remove From Cart
-                    </button>
+                    </Button>
                 )
                 : (
-                    <button
-                        className="btn large"
-                        type="button"
-                        onClick={handleAddToCart}
-                    >
+                    <Button onClick={handleAddToCart}>
                         Add To Card
-                    </button>
+                    </Button>
                 )}
         </div>
     );

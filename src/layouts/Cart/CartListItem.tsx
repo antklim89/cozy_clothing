@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
+import Button from '~/components/Button';
 import { ICartItem, useCart } from '~/components/CartProvider';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
@@ -55,7 +56,7 @@ export const CartListItem: FC<ICartItem> = (cartItem) => {
                         value={cartItem.size}
                         onChange={(size) => updateCartItem({ ...cartItem, size })}
                     />
-                    <button className="btn" type="button" onClick={() => removeFromCart(cartItem)}>DELETE</button>
+                    <Button onClick={() => removeFromCart(cartItem)}>DELETE</Button>
                 </div>
             </li>
             <hr className={styles.line} />

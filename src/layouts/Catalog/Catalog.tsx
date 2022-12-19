@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from 'react';
 
 import Menu from '~/assets/menu.svg';
 import { Backdrop } from '~/components/Backdrop';
+import Button from '~/components/Button';
 import { ICatalog } from '~/types/catalog';
 
 import styles from './Catalog.module.scss';
@@ -32,16 +33,15 @@ export const Catalog: FC = () => {
 
     return (
         <div className={styles.root}>
-            <button
+            <Button
                 aria-expanded={isOpen}
                 aria-label="catalog"
-                className="btn text"
-                type="button"
+                className="text"
                 onClick={() => setIsOpen(true)}
             >
                 <span className="show-md"><Menu /></span>
                 <span className="hide-md">Catalog</span>
-            </button>
+            </Button>
             <Backdrop isShow={isOpen} onClick={() => setIsOpen(false)} />
             { isOpen
                 ? (

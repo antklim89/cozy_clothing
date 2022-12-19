@@ -8,10 +8,8 @@
 
 .hidden {
 	visibility: hidden;
-	@extend .btn;
 }
 
 .pageNumber {
 	@extend .p-2;
-	@include button.base-button($borderColor: $secondary, $bgColor: $white, $textColor: $font-dark);
 }

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import DoneIcon from '~/assets/done.svg';
+import Button from '~/components/Button';
 import { Step, Stepper, StepperHeader } from '~/components/Stepper';
 import { Title } from '~/components/Title';
 
@@ -17,31 +18,17 @@ export const Cart: FC = () => {
                 {({ step, setStep, completeStep, isStepCompleted, isPrevStepsCompleted }) => (
                     <>
                         <StepperHeader>
-                            <button
-                                className="btn"
-                                type="button"
-                                onClick={() => setStep(1)}
-                            >
+                            <Button onClick={() => setStep(1)}>
                                 {isStepCompleted(1) && <DoneIcon />}
                                 Cart
-                            </button>
-                            <button
-                                className="btn"
-                                disabled={!isPrevStepsCompleted(1)}
-                                type="button"
-                                onClick={() => setStep(2)}
-                            >
+                            </Button>
+                            <Button disabled={!isPrevStepsCompleted(1)} onClick={() => setStep(2)}>
                                 {isStepCompleted(2) && <DoneIcon />}
                                 Form
-                            </button>
-                            <button
-                                className="btn"
-                                disabled={!isPrevStepsCompleted(2)}
-                                type="button"
-                                onClick={() => setStep(3)}
-                            >
+                            </Button>
+                            <Button disabled={!isPrevStepsCompleted(2)} onClick={() => setStep(3)}>
                                 Confirm
-                            </button>
+                            </Button>
                         </StepperHeader>
 
                         <Step index={1} step={step}>
