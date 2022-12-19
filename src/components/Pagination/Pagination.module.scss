@@ -13,3 +13,8 @@
 .pageNumber {
 	@extend .p-2;
 }
+
+.link {
+	text-decoration: none;
+	color: inherit;
+}

@@ -24,14 +24,16 @@ export const Pagination: FC<PaginationPropTypes> = ({
                 )
                 : (
                     <Link
-                        className="btn"
+                        className={styles.link}
                         to={previousPagePath}
                     >
-                        Previous
+                        <Button>
+                            Previous
+                        </Button>
                     </Link>
                 )}
             <span className={styles.pageNumber}>
-                {humanPageNumber}
+                PAGE: {humanPageNumber}/{numberOfPages}
             </span>
             {nextPagePath.length === 0
                 ? (
@@ -41,10 +43,12 @@ export const Pagination: FC<PaginationPropTypes> = ({
                 )
                 : (
                     <Link
-                        className="btn"
+                        className={styles.link}
                         to={nextPagePath}
                     >
-                        Next
+                        <Button>
+                            Next
+                        </Button>
                     </Link>
                 )}
         </div>
