@@ -3,9 +3,8 @@ import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 import Input from '~/components/Input';
 import { IProductPreview } from '~/types';
 
-import { SearchList } from '../SearchList';
-
 import { SearchPropTypes } from './Search.types';
+import { SearchList } from './SearchList';
 
 
 let queryMemo = '';
