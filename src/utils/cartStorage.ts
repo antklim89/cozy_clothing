@@ -1,11 +1,11 @@
-import { CartItem } from '~/components/CartProvider';
+import { ICartItem } from '~/components/CartProvider';
 
 
 const CART_STORAGE_NAME = 'cart';
 const isBrowser = typeof window !== 'undefined';
 
 
-export function getCartFromStorage(): CartItem[] {
+export function getCartFromStorage(): ICartItem[] {
     if (!isBrowser) return [];
     const cartString = localStorage.getItem(CART_STORAGE_NAME);
     if (!cartString) return [];
@@ -20,12 +20,12 @@ export function getCartFromStorage(): CartItem[] {
     }
 }
 
-export function setCartToStorage(cart: CartItem[]): void {
+export function setCartToStorage(cart: ICartItem[]): void {
     if (!isBrowser) return;
     const cartTransformed = cart.map(({ id, product, qty, size }) => ({ id, product, qty, size }));
     localStorage.setItem(CART_STORAGE_NAME, JSON.stringify(cartTransformed));
 }
 
-function validateCart(cart: CartItem[]): boolean {
+function validateCart(cart: ICartItem[]): boolean {
     return cart.map(({ id, product, qty, size }) => id && product && qty && size).every((item) => item);
 }

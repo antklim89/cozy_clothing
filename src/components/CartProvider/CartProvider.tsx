@@ -4,7 +4,7 @@ import {
 
 import { getCartFromStorage, setCartToStorage } from '~/utils';
 
-import { CartContext, CartItem } from './CartProvider.types';
+import { CartContext, ICartItem } from './CartProvider.types';
 
 
 const context = createContext<CartContext>({} as CartContext);
@@ -17,17 +17,17 @@ export const CartProvider: FC<{children: ReactNode}> = ({ children }) => {
         setCartToStorage(cart);
     }, [cart]);
 
-    const addToCart = useCallback((newItem: CartItem) => {
+    const addToCart = useCallback((newItem: ICartItem) => {
         setCart((prev) => [...prev, newItem]);
     }, []);
 
-    const removeFromCart = useCallback((itemToRemove: CartItem) => {
+    const removeFromCart = useCallback((itemToRemove: ICartItem) => {
         setCart((prev) => {
             return prev.filter((prevCartItem) => prevCartItem !== itemToRemove);
         });
     }, []);
 
-    const updateCartItem = useCallback((itemToupdate: CartItem) => {
+    const updateCartItem = useCallback((itemToupdate: ICartItem) => {
         setCart((prev) => {
             return prev.map((prevCartItem) => (prevCartItem.id === itemToupdate.id ? itemToupdate : prevCartItem));
         });

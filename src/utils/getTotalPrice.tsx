@@ -1,8 +1,8 @@
-import type { CartItem } from '~/components/CartProvider';
+import type { ICartItem } from '~/components/CartProvider';
 import { getPrice } from '~/utils';
 
 
-export function getTotalPrice(cart: CartItem[]): string {
+export function getTotalPrice(cart: ICartItem[]): string {
     const totalPrice = cart.reduce((acc, { qty, product }) => {
         return (acc + (product.price * qty));
     }, 0);

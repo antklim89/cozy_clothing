@@ -1,9 +1,9 @@
 import { FC, memo, useCallback } from 'react';
 
-import { CartItem, useCart } from '~/components/CartProvider';
+import { ICartItem, useCart } from '~/components/CartProvider';
 
 
-export const ProductCartButton: FC<{cartItem: CartItem}> = memo(({ cartItem }) => {
+export const ProductCartButton: FC<{cartItem: ICartItem}> = memo(({ cartItem }) => {
     const { cart, addToCart, removeFromCart } = useCart();
 
     const handleAddToCart = useCallback(() => {

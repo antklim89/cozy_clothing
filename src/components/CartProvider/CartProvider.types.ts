@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { IProduct, Sizes } from '~/types';
 
 
-export interface CartItem {
+export interface ICartItem {
     id: string
     qty: number
     size: Sizes
@@ -11,10 +11,10 @@ export interface CartItem {
 }
 
 export interface CartContext {
-    cart: CartItem[]
-    setCart: Dispatch<SetStateAction<CartItem[]>>
-    addToCart: (arg: CartItem) => void
-    removeFromCart: (arg: CartItem) => void
-    updateCartItem: (arg: CartItem) => void
+    cart: ICartItem[]
+    setCart: Dispatch<SetStateAction<ICartItem[]>>
+    addToCart: (arg: ICartItem) => void
+    removeFromCart: (arg: ICartItem) => void
+    updateCartItem: (arg: ICartItem) => void
 }
 

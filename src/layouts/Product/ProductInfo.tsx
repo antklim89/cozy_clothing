@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 
-import { CartItem, useCart } from '~/components/CartProvider';
+import { ICartItem, useCart } from '~/components/CartProvider';
 import { Price } from '~/components/Price';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
@@ -15,7 +15,7 @@ export const ProductInfo: FC<IProduct> = (product) => {
     const { cart, updateCartItem } = useCart();
     const { discount, price } = product;
 
-    const [cartItem, setCartItem] = useState<CartItem>(() => (
+    const [cartItem, setCartItem] = useState<ICartItem>(() => (
         cart.find((storedCartItem) => storedCartItem.id === product.id) || {
             id: product.id,
             product,
