@@ -1,0 +1,23 @@
+@use '~/styles/variables.scss' as *;
+
+
+.root {
+    border-bottom: 1px solid $bg-primary;
+    @extend .p-2;
+
+    p {
+        margin-bottom: 0.2rem;
+    }
+}
+
+.promos {
+    span {
+        display: inline-flex;
+        @extend .px-2, .py-1, .mb-2, .mr-2;
+        background: $primary;
+        color: white;
+        text-align: center;
+        font-size: $font-size-lg;
+        border-radius: 0.2rem;
+    }
+}

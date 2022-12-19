@@ -3,17 +3,21 @@
 
 .root {
     display: flex;
-    @extend .mb-5;
-    
-    > * {
-        flex: 1 0;
-    }
+    flex-direction: column;
+}
 
-    @include media-sm {
-        flex-direction: column-reverse;
+.top {
+    display: flex;
+
+    .images,
+    .info {
+        flex: 1 1 100%;
     }
 }
 
-
-
-
+.info {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $bg-primary;
+    background: $bg-primary;
+}
