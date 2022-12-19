@@ -1,5 +1,4 @@
 @use './variables.scss' as *;
-@use './input.scss';
 @use './button.scss';
 @use './container.scss';
 
@@ -15,25 +14,35 @@ body {
     background: $bg-primary;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
 }
 
 h1 {
     font-size: 2em;
 }
+
 h2 {
     font-size: 1.8em;
 }
+
 h3 {
     font-size: 1.5em;
 }
+
 h4 {
     font-size: 1.4em;
 }
+
 h5 {
     font-size: 1.3em;
 }
+
 h6 {
     font-size: 1.2em;
 }
@@ -47,7 +56,8 @@ svg {
     width: 2rem;
 }
 
-a:focus, button:focus {
+a:focus,
+button:focus {
     outline: 0;
     box-shadow: $shadow $primary;
 }
@@ -60,7 +70,9 @@ a:focus, button:focus {
     flex-grow: 1;
 }
 
-select, input, textarea {
+select,
+input,
+textarea {
     font-family: 'Roboto', Geneva, Verdana, sans-serif;
 }
 
@@ -72,11 +84,25 @@ select, input, textarea {
 }
 
 @include media-md {
-    html {font-size: 90%;};
+    html {
+        font-size: 90%;
+    }
+
+    ;
 }
+
 @include media-sm {
-    html {font-size: 85%;};
+    html {
+        font-size: 85%;
+    }
+
+    ;
 }
+
 @include media-xs {
-    html {font-size: 80%;};
+    html {
+        font-size: 80%;
+    }
+
+    ;
 }

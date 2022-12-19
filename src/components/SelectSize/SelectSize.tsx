@@ -1,8 +1,7 @@
 import { ChangeEvent, FC, useCallback } from 'react';
 
+import Input from '~/components/Input';
 import { Sizes } from '~/types';
-
-import InputGroup from '../InputGroup';
 
 import { SelectSizePropTypes } from './SelectSize.types';
 
@@ -13,15 +12,15 @@ export const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) 
     }, [onChange]);
 
     return (
-        <InputGroup label={label}>
-            <select
-                value={value}
-                onChange={handleChange}
-            >
-                {Object.keys(Sizes).map((sizeItem) => (
-                    <option key={sizeItem} value={sizeItem}>{sizeItem}</option>
-                ))}
-            </select>
-        </InputGroup>
+        <Input
+            as="select"
+            label={label}
+            value={value}
+            onChange={handleChange}
+        >
+            {Object.keys(Sizes).map((sizeItem) => (
+                <option key={sizeItem} value={sizeItem}>{sizeItem}</option>
+            ))}
+        </Input>
     );
 };

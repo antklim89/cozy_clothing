@@ -1,6 +1,6 @@
 import { ChangeEvent, FC } from 'react';
 
-import { cls } from '~/utils';
+import Input from '~/components/Input';
 
 import styles from './SelectNumber.module.scss';
 import { SelectNumberPropTypes } from './SelectNumber.types';
@@ -26,7 +26,7 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
     const handleMinusQty = () => onChange(Math.max(value - 1, min));
 
     return (
-        <div className={cls(styles.root, className)}>
+        <div className={className}>
             {label ? <>{label} <br /></> : null }
             <div className={styles.select}>
                 <button
@@ -37,7 +37,7 @@ export const SelectNumber: FC<SelectNumberPropTypes> = ({
                 >
                     +
                 </button>
-                <input
+                <Input
                     aria-label="select quantity"
                     className={styles.input}
                     type="number"

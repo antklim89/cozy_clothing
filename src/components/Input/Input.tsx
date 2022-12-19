@@ -6,7 +6,7 @@ import style from './Input.module.scss';
 import { InputProps, SelectProps, TextAreaProps } from './Input.types';
 
 
-const InputGroup: FC<InputProps|SelectProps|TextAreaProps> = ({
+const Input: FC<InputProps|SelectProps|TextAreaProps> = ({
     label, as = 'input', errorText, showError, className, ...props
 }) => {
     const id = useId();
@@ -30,5 +30,5 @@ const InputGroup: FC<InputProps|SelectProps|TextAreaProps> = ({
     );
 };
 
-export default InputGroup;
+export default Input;
 

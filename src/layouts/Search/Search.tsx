@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 
-import InputGroup from '~/components/InputGroup';
+import Input from '~/components/Input';
 import { IProductPreview } from '~/types';
 
 import { SearchList } from '../SearchList';
@@ -35,13 +35,11 @@ export const Search: FC<SearchPropTypes> = ({ publicIndexURL, publicStoreURL }) 
 
     return (
         <div className="container mt-3">
-            <InputGroup>
-                <input
-                    placeholder="Enter search query..."
-                    value={query}
-                    onChange={handleSearch()}
-                />
-            </InputGroup>
+            <Input
+                placeholder="Enter search query..."
+                value={query}
+                onChange={handleSearch()}
+            />
             {(index && store) ? <SearchList index={index} query={query} store={store} /> : null}
         </div>
     );
