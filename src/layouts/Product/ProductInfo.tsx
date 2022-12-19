@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 
-import { ICartItem, useCart } from '~/components/CartProvider';
+import { useCart } from '~/components/CartProvider';
 import { Price } from '~/components/Price';
 import { SelectNumber } from '~/components/SelectNumber';
 import { SelectSize } from '~/components/SelectSize';
@@ -12,29 +12,22 @@ import styles from './ProductInfo.module.scss';
 
 
 export const ProductInfo: FC<IProduct> = (product) => {
-    const { cart, updateCartItem } = useCart();
+    const { updateCartItem, getCartItem } = useCart();
+    const [cartItem, setCartItem] = useState(() => getCartItem(product));
     const { discount, price } = product;
 
-    const [cartItem, setCartItem] = useState<ICartItem>(() => (
-        cart.find((storedCartItem) => storedCartItem.id === product.id) || {
-            id: product.id,
-            product,
-            qty: 1,
-            size: Sizes.M,
-        }
-    ));
-
     const handleChangeSize = useCallback((size: Sizes) => {
-        setCartItem((prev) => ({ ...prev, size }));
+        setCartItem((prevCartItem) => ({ ...prevCartItem, size }));
     }, []);
 
     const handleChangeQty = useCallback((qty: number) => {
-        setCartItem((prev) => ({ ...prev, qty }));
+        setCartItem((prevCartItem) => ({ ...prevCartItem, qty }));
     }, []);
 
     useEffect(() => {
-        updateCartItem(cartItem);
-    }, [cartItem.qty, cartItem.size]);
+        updateCartItem(product.id, cartItem);
+    }, [cartItem]);
+
 
     return (
         <>

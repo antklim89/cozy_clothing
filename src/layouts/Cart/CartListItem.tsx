@@ -14,8 +14,8 @@ import styles from './CartListItem.module.scss';
 export const CartListItem: FC<ICartItem> = (cartItem) => {
     const { removeFromCart, updateCartItem } = useCart();
     const {
-        title, imagesPreview, id, price, discount, type,
-    } = cartItem.product;
+        title, image, id, price, discount, type,
+    } = cartItem;
 
     return (
         <>
@@ -23,7 +23,7 @@ export const CartListItem: FC<ICartItem> = (cartItem) => {
                 <GatsbyImage
                     alt={title}
                     className={styles.image}
-                    image={imagesPreview[0].childImageSharp.gatsbyImageData}
+                    image={image.childImageSharp.gatsbyImageData}
                 />
                 <section className={styles.title}>
                     <Link className={styles.link} to={`/product/${id}`}>
@@ -50,11 +50,11 @@ export const CartListItem: FC<ICartItem> = (cartItem) => {
                 <div className={styles.options}>
                     <SelectNumber
                         value={cartItem.qty}
-                        onChange={(qty) => updateCartItem({ ...cartItem, qty })}
+                        onChange={(qty) => updateCartItem(cartItem.id, { qty })}
                     />
                     <SelectSize
                         value={cartItem.size}
-                        onChange={(size) => updateCartItem({ ...cartItem, size })}
+                        onChange={(size) => updateCartItem(cartItem.id, { size })}
                     />
                     <Button onClick={() => removeFromCart(cartItem)}>DELETE</Button>
                 </div>

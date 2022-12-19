@@ -22,7 +22,7 @@ export const CartOrderConfirm: FC = () => {
                         <b>Price</b>
                     </h5>
                 </li>
-                {cart.map(({ product: { price, discount, title }, id, qty }) => (
+                {cart.map(({ price, discount, title, id, qty }) => (
                     <li className={styles.orderItem} key={id}>
                         <p>
                             {title} &times; {qty}
