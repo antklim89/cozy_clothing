@@ -4,9 +4,9 @@ import { FC } from 'react';
 
 import { Catalog } from '~/layouts/Catalog';
 
-import { CartButton } from './CartButton';
 import styles from './Header.module.scss';
-import { NavBar } from './NavBar';
+import { HeaderCartButton } from './HeaderCartButton';
+import { HeaderNavBar } from './HeaderNavBar';
 
 
 export const Header: FC = () => {
@@ -20,13 +20,13 @@ export const Header: FC = () => {
                             formats={['webp']}
                             layout="fixed"
                             placeholder="blurred"
-                            src="./logo.png"
+                            src="./Header.logo.png"
                         />
                     </Link>
-                    <NavBar />
+                    <HeaderNavBar />
                     <div className="grow" />
                     <Catalog />
-                    <CartButton />
+                    <HeaderCartButton />
                 </div>
             </header>
             <div className={styles.height} />

@@ -5,10 +5,10 @@ import { FC } from 'react';
 import CartIcon from '~/assets/shopping_cart.svg';
 import { useCart } from '~/components/CartProvider';
 
-import styles from './CartButton.module.scss';
+import styles from './HeaderCartButton.module.scss';
 
 
-export const CartButton: FC = () => {
+export const HeaderCartButton: FC = () => {
     const { cart } = useCart();
 
     return (

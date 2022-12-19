@@ -1,10 +1,10 @@
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
-import styles from './NavBar.module.scss';
+import styles from './HeaderNavBar.module.scss';
 
 
-export const NavBar: FC = () => {
+export const HeaderNavBar: FC = () => {
     return (
         <nav>
             <ul className={styles.nav}>
