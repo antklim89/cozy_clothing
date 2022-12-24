@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadFC, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
 
@@ -24,14 +24,11 @@ interface CategoryPageData {
 
 
 const categoryPage: FC<PageProps<CategoryPageData, CategoryPageContext>> = ({
-    pageContext: { category, type, categories, ...paginationContext },
+    pageContext: { type, categories, ...paginationContext },
     data: { allProduct: { nodes: products } },
 }) => {
-    const title = `${capitalize(type)}${category ? ` - ${capitalize(category)}` : ''}`;
-
     return (
         <main>
-            <Seo keywords={[...categories, type]} title={title} />
             <section className="container mt-3">
                 <Title>{type}</Title>
                 <CategoriesBar categories={categories} type={type} />
@@ -43,6 +40,12 @@ const categoryPage: FC<PageProps<CategoryPageData, CategoryPageContext>> = ({
     );
 };
 
+export const Head: HeadFC<CategoryPageData, CategoryPageContext> = ({ pageContext }) => (
+    <Seo
+        keywords={[...pageContext.categories, pageContext.type]}
+        title={`${capitalize(pageContext.type)}${pageContext.category ? ` - ${capitalize(pageContext.category)}` : ''}`}
+    />
+);
 
 export const query = graphql`
 

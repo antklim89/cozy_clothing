@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import Product from '~/layouts/Product';
@@ -18,15 +18,18 @@ interface ProductPageData {
 const productPage: FC<PageProps<ProductPageData, ProductPageContext>> = ({ data: { product } }) => {
     return (
         <main>
-            <Seo
-                description={product.body}
-                keywords={[product.category, product.type]}
-                title={product.title}
-            />
             <Product {...product} />
         </main>
     );
 };
+
+export const Head: HeadFC<ProductPageData, ProductPageContext> = ({ data: { product } }) => (
+    <Seo
+        description={product.body}
+        keywords={[product.category, product.type]}
+        title={product.title}
+    />
+);
 
 
 export const query = graphql`

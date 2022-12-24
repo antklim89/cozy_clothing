@@ -25,7 +25,6 @@ const HomePage: FC<PageProps<IndexPageData>> = ({ data }) => {
 
     return (
         <main>
-            <Seo title="Home" />
             <Hero />
             <section className="container mb-2 mt-5">
                 <Title component="h2">New Products</Title>
@@ -42,6 +41,10 @@ const HomePage: FC<PageProps<IndexPageData>> = ({ data }) => {
 
 export default HomePage;
 
+
+export const Head = () => (
+    <Seo title="Home" />
+);
 
 export const query = graphql`
     query IndexPage {

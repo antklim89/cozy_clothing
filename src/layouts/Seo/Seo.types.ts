@@ -1,6 +1,8 @@
+import { ReactNode } from 'react';
 
 
 export interface SeoProps {
+    children?: ReactNode
     description?: string;
     meta?: {
         name: string;

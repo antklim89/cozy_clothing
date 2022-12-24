@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import About from '~/layouts/About';
@@ -6,21 +6,24 @@ import Seo from '~/layouts/Seo';
 import { IAbout } from '~/types/about';
 
 
-interface AboutPageQuery {
+interface AboutPageData {
     about: IAbout
 }
 
-const AboutPage: FC<PageProps<AboutPageQuery>> = ({ data: { about } }) => {
+const AboutPage: FC<PageProps<AboutPageData>> = ({ data: { about } }) => {
     return (
         <main>
-            <Seo
-                description={about.body}
-                title="About Shop"
-            />
             <About {...about} />
         </main>
     );
 };
+
+export const Head: HeadFC<AboutPageData> = ({ data: { about } }) => (
+    <Seo
+        description={about.body}
+        title="About Shop"
+    />
+);
 
 export const query = graphql`
     query AboutPage {

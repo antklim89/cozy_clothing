@@ -44,7 +44,6 @@ module.exports = {
     plugins: [
         'gatsby-plugin-zopfli',
         'gatsby-plugin-netlify',
-        'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',

@@ -47,6 +47,7 @@ module.exports = {
         ],
         'import/no-extraneous-dependencies': ['error', { devDependencies: ['*.js'] }],
 
+        'react/no-multi-comp': [1, { 'ignoreStateless': true }],
         'react/jsx-no-useless-fragment': 0,
         'react/forbid-component-props': 0,
         'react/jsx-closing-bracket-location': 2,

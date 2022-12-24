@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import Search from '~/layouts/Search';
@@ -16,7 +16,6 @@ interface SearchPageData {
 export const SearchPage: FC<PageProps<SearchPageData>> = ({ data: { localSearchAllProducts } }) => {
     return (
         <main>
-            <Seo title="Search" />
             <div className="container mt-3">
                 <Search {...localSearchAllProducts} />
             </div>
@@ -25,6 +24,10 @@ export const SearchPage: FC<PageProps<SearchPageData>> = ({ data: { localSearchA
 };
 
 export default SearchPage;
+
+export const Head: HeadFC = () => (
+    <Seo title="Search" />
+);
 
 
 export const query = graphql`
