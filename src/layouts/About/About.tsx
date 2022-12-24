@@ -1,11 +1,9 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
-
+import styles from './About.module.scss';
 import Title from '~/components/Title';
 import { IAbout } from '~/types';
-
-import styles from './About.module.scss';
 
 
 const About: FC<IAbout> = ({ title, body, image, chooseUs }) => {

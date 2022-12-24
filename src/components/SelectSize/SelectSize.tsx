@@ -1,9 +1,7 @@
 import { ChangeEvent, FC, useCallback } from 'react';
-
+import { SelectSizePropTypes } from './SelectSize.types';
 import Input from '~/components/Input';
 import { Sizes } from '~/types';
-
-import { SelectSizePropTypes } from './SelectSize.types';
 
 
 const SelectSize: FC<SelectSizePropTypes> = ({ value, onChange, label }) => {

@@ -1,8 +1,6 @@
 import { FC } from 'react';
-
-import { IProduct } from '~/types';
-
 import styles from './ProductTitle.module.scss';
+import { IProduct } from '~/types';
 
 
 const ProductTitle: FC<IProduct> = ({ createdAt, title, type, discount }) => {

@@ -1,11 +1,9 @@
 import { FC, useEffect } from 'react';
-
-import { useCart } from '~/components/CartProvider';
-import { getTotalPrice } from '~/utils';
-
 import styles from './CartList.module.scss';
 import { CartListPropTypes } from './CartList.types';
 import CartListItem from './CartListItem';
+import { useCart } from '~/components/CartProvider';
+import { getTotalPrice } from '~/utils';
 
 
 const CartList: FC<CartListPropTypes> = ({ onChangeEmpty }) => {

@@ -1,9 +1,7 @@
 import { createElement, FC, useId } from 'react';
-
-import { cls } from '~/utils';
-
 import style from './Input.module.scss';
 import { InputProps, SelectProps, TextAreaProps } from './Input.types';
+import { cls } from '~/utils';
 
 
 const Input: FC<InputProps|SelectProps|TextAreaProps> = ({

@@ -1,6 +1,5 @@
 import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
-
 import About from '~/layouts/About';
 import Seo from '~/layouts/Seo';
 import { IAbout } from '~/types/about';

@@ -1,9 +1,7 @@
 import { FC, memo } from 'react';
-
-import { cls, getPrice } from '~/utils';
-
 import style from './Price.module.scss';
 import { PricePropTypes } from './Price.types';
+import { cls, getPrice } from '~/utils';
 
 
 const Price: FC<PricePropTypes> = ({

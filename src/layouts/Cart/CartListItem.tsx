@@ -1,14 +1,12 @@
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
-
+import styles from './CartListItem.module.scss';
 import Button from '~/components/Button';
 import { ICartItem, useCart } from '~/components/CartProvider';
 import SelectNumber from '~/components/SelectNumber';
 import SelectSize from '~/components/SelectSize';
 import { getPrice } from '~/utils';
-
-import styles from './CartListItem.module.scss';
 
 
 const CartListItem: FC<ICartItem> = (cartItem) => {

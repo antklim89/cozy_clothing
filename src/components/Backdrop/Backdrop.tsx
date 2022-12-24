@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import styles from './Backdrop.module.scss';
 import { BackdropPropTypes } from './Backdrop.types';
 
@@ -12,7 +11,7 @@ const Backdrop: FC<BackdropPropTypes> = ({ onClick, isShow = true }) => {
             role="menu"
             tabIndex={-1}
             onClick={onClick}
-            onKeyPress={() => null}
+            onKeyDown={() => null}
         />
     );
 };

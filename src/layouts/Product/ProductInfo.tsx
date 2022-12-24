@@ -1,14 +1,12 @@
 import { FC, useCallback, useEffect, useState } from 'react';
-
+import ProductCartButton from './ProductCartButton';
+import styles from './ProductInfo.module.scss';
 import { useCart } from '~/components/CartProvider';
 import Price from '~/components/Price';
 import SelectNumber from '~/components/SelectNumber';
 import SelectSize from '~/components/SelectSize';
 import { IProduct } from '~/types';
 import { Sizes } from '~/types/product-sizes';
-
-import ProductCartButton from './ProductCartButton';
-import styles from './ProductInfo.module.scss';
 
 
 const ProductInfo: FC<IProduct> = (product) => {

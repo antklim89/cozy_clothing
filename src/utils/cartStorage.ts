@@ -1,6 +1,5 @@
 import has from 'lodash/has';
 import pick from 'lodash/pick';
-
 import { ICartItem } from '~/components/CartProvider';
 
 

@@ -1,6 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import { FC } from 'react';
-
 import { SeoProps, SeoQuery } from './Seo.types';
 
 

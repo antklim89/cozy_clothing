@@ -1,10 +1,8 @@
 import { FC, ReactNode } from 'react';
-
+import styles from './Layout.module.scss';
 import CartProvider from '~/components/CartProvider';
 import Footer from '~/layouts/Footer';
 import Header from '~/layouts/Header';
-
-import styles from './Layout.module.scss';
 
 
 const Layout: FC<{children: ReactNode}> = ({ children }) => {

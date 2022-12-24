@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
 import { FC } from 'react';
-
 import styles from './HeaderNavBar.module.scss';
 
 

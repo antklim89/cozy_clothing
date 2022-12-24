@@ -1,6 +1,5 @@
 import { HeadFC } from 'gatsby';
 import { FC } from 'react';
-
 import Cart from '~/layouts/Cart';
 import Seo from '~/layouts/Seo';
 

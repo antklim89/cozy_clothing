@@ -1,9 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC, useEffect, useState } from 'react';
-
-import { IProduct } from '~/types';
-
 import styles from './ProductImages.module.scss';
+import { IProduct } from '~/types';
 
 
 const ProductImages: FC<IProduct> = ({ imagesPreview, title, images }) => {
@@ -12,6 +10,22 @@ const ProductImages: FC<IProduct> = ({ imagesPreview, title, images }) => {
 
     const hasNext = imageIndex < imagesPreview.length - 1;
     const hasPrev = imageIndex > 0;
+
+
+    const nextImage = () => {
+        setImageIndex((currentIndex) => {
+            const lastIndex = imagesPreview.length - 1;
+            if (currentIndex >= lastIndex) return lastIndex;
+            return currentIndex + 1;
+        });
+    };
+
+    const prevImage = () => {
+        setImageIndex((currentIndex) => {
+            if (currentIndex <= 0) return 0;
+            return currentIndex - 1;
+        });
+    };
 
     useEffect(() => {
         const listener = (e: globalThis.KeyboardEvent) => {
@@ -29,21 +43,6 @@ const ProductImages: FC<IProduct> = ({ imagesPreview, title, images }) => {
     const handleOpenModal = (index: number) => () => {
         setImageIndex(index);
         setIsOpen(true);
-    };
-
-    const nextImage = () => {
-        setImageIndex((currentIndex) => {
-            const lastIndex = imagesPreview.length - 1;
-            if (currentIndex >= lastIndex) return lastIndex;
-            return currentIndex + 1;
-        });
-    };
-
-    const prevImage = () => {
-        setImageIndex((currentIndex) => {
-            if (currentIndex <= 0) return 0;
-            return currentIndex - 1;
-        });
     };
 
     return (

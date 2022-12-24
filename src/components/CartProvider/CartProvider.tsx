@@ -1,11 +1,9 @@
 import {
     FC, createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode,
 } from 'react';
-
+import { CartContext, ICartItem } from './CartProvider.types';
 import { IProduct, IProductPreview, Sizes } from '~/types';
 import { getCartFromStorage, setCartToStorage } from '~/utils';
-
-import { CartContext, ICartItem } from './CartProvider.types';
 
 
 const Context = createContext<CartContext>({} as CartContext);

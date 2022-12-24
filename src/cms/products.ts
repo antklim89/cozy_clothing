@@ -1,5 +1,4 @@
 import type { CmsCollection } from 'netlify-cms-core';
-
 import productTypes from './productTypes';
 
 

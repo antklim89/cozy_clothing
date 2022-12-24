@@ -1,7 +1,6 @@
 import { graphql, HeadFC, PageProps } from 'gatsby';
 import capitalize from 'lodash/capitalize';
 import { FC } from 'react';
-
 import CategoriesBar from '~/components/CategoriesBar';
 import Pagination from '~/components/Pagination';
 import Title from '~/components/Title';

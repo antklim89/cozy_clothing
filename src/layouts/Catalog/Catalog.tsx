@@ -1,12 +1,10 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { FC, useEffect, useState } from 'react';
-
+import styles from './Catalog.module.scss';
 import Menu from '~/assets/menu.svg';
 import Backdrop from '~/components/Backdrop';
 import Button from '~/components/Button';
 import { ICatalog } from '~/types/catalog';
-
-import styles from './Catalog.module.scss';
 
 
 const Catalog: FC = () => {

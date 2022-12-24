@@ -1,10 +1,8 @@
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
-
-import Input from '~/components/Input';
-import { IProductPreview } from '~/types';
-
 import { SearchPropTypes } from './Search.types';
 import SearchList from './SearchList';
+import Input from '~/components/Input';
+import { IProductPreview } from '~/types';
 
 
 let queryMemo = '';

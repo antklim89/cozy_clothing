@@ -1,7 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
-
 import styles from './Features.module.scss';
 import { FeaturesQuery } from './Features.types';
 

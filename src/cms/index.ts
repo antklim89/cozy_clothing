@@ -1,5 +1,4 @@
 import CMS from 'netlify-cms-app';
-
 import { about } from './about';
 import { catalog } from './catalog';
 import { features } from './features';

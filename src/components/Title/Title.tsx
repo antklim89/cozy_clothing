@@ -1,10 +1,7 @@
 import { FC } from 'react';
-
-
-import { cls } from '~/utils';
-
 import styles from './Title.module.scss';
 import { TitleProps } from './Title.types';
+import { cls } from '~/utils';
 
 
 const Title: FC<TitleProps> = ({

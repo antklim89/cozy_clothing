@@ -1,5 +1,4 @@
 import { FC, memo, useCallback } from 'react';
-
 import Button from '~/components/Button';
 import { ICartItem, useCart } from '~/components/CartProvider';
 

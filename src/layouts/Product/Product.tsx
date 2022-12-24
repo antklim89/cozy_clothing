@@ -1,13 +1,11 @@
 import { FC } from 'react';
 import ReactMarkdown from 'react-markdown';
-
-import { IProduct } from '~/types';
-import { cls } from '~/utils';
-
 import styles from './Product.module.scss';
 import ProductImages from './ProductImages';
 import ProductInfo from './ProductInfo';
 import ProductTitle from './ProductTitle';
+import { IProduct } from '~/types';
+import { cls } from '~/utils';
 
 
 const Product: FC<IProduct> = (product) => {

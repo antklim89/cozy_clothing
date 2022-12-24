@@ -1,7 +1,5 @@
 import { FC, useState } from 'react';
-
 import Button from '../Button';
-
 import style from './Stepper.module.scss';
 import { StepperPropTypes } from './Stepper.types';
 

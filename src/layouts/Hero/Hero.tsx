@@ -1,10 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { FC } from 'react';
-
-import Title from '~/components/Title';
-
 import styles from './Hero.module.scss';
 import { HeroQuery } from './Hero.types';
+import Title from '~/components/Title';
 
 
 const Hero: FC = () => {

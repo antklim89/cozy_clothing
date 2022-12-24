@@ -1,9 +1,7 @@
 import { FC, useEffect, useMemo, useState } from 'react';
-
-import Input from '~/components/Input';
-
 import styles from './CartOrderForm.module.scss';
 import { CartOrderFormProps } from './CartOrderForm.types';
+import Input from '~/components/Input';
 
 
 const CartOrderForm: FC<CartOrderFormProps> = ({ onValidation }) => {

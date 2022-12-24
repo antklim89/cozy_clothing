@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import styles from './ProductList.module.scss';
 import { ProductListPropTypes } from './ProductList.types';
 import ProductListCard from './ProductListCard';

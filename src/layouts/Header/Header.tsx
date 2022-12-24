@@ -1,12 +1,10 @@
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
-
-import Catalog from '~/layouts/Catalog';
-
 import styles from './Header.module.scss';
 import HeaderCartButton from './HeaderCartButton';
 import HeaderNavBar from './HeaderNavBar';
+import Catalog from '~/layouts/Catalog';
 
 
 const Header: FC = () => {

@@ -1,12 +1,10 @@
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
-
+import styles from './ProductListCard.module.scss';
 import { useCart } from '~/components/CartProvider';
 import Price from '~/components/Price';
 import { IProductPreview } from '~/types';
-
-import styles from './ProductListCard.module.scss';
 
 
 const ProductListCard: FC<IProductPreview> = (product) => {

@@ -1,6 +1,5 @@
 import { HeadFC, Link } from 'gatsby';
 import { FC } from 'react';
-
 import Seo from '~/layouts/Seo';
 
 

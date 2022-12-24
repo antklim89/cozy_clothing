@@ -1,8 +1,6 @@
 import { Link } from 'gatsby';
 import uniq from 'lodash/uniq';
 import { FC } from 'react';
-
-
 import styles from './CategoriesBar.module.scss';
 import { CategoriesBarPropTypes } from './CategoriesBar.types';
 

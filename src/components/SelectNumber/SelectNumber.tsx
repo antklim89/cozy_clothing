@@ -1,10 +1,8 @@
 import { ChangeEvent, FC } from 'react';
-
-import Button from '~/components/Button';
-import Input from '~/components/Input';
-
 import styles from './SelectNumber.module.scss';
 import { SelectNumberPropTypes } from './SelectNumber.types';
+import Button from '~/components/Button';
+import Input from '~/components/Input';
 
 
 const SelectNumber: FC<SelectNumberPropTypes> = ({

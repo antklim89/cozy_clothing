@@ -1,6 +1,5 @@
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
-
 import Title from '~/components/Title';
 import Features from '~/layouts/Features';
 import Hero from '~/layouts/Hero/Hero';

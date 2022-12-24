@@ -1,10 +1,8 @@
 import { FC } from 'react';
-
+import styles from './CartOrderConfirm.module.scss';
 import Button from '~/components/Button';
 import { useCart } from '~/components/CartProvider';
 import { getPrice, getTotalPrice } from '~/utils';
-
-import styles from './CartOrderConfirm.module.scss';
 
 
 const CartOrderConfirm: FC = () => {

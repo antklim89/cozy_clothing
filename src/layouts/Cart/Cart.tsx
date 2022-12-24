@@ -1,13 +1,11 @@
 import { FC } from 'react';
-
+import CartList from './CartList';
+import CartOrderConfirm from './CartOrderConfirm';
+import CartOrderForm from './CartOrderForm';
 import DoneIcon from '~/assets/done.svg';
 import Button from '~/components/Button';
 import { Stepper, StepperHeader, Step } from '~/components/Stepper';
 import Title from '~/components/Title';
-
-import CartList from './CartList';
-import CartOrderConfirm from './CartOrderConfirm';
-import CartOrderForm from './CartOrderForm';
 
 
 const Cart: FC = () => {

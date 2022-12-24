@@ -1,9 +1,7 @@
 import { forwardRef, ForwardRefRenderFunction } from 'react';
-
-import { cls } from '~/utils';
-
 import styles from './Button.module.scss';
 import { ButtonProps } from './Button.types';
+import { cls } from '~/utils';
 
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = ({ size, variant, ...props }, ref) => {
