@@ -4,6 +4,17 @@
   "description": "A small online clothing store created for training web development.",
   "version": "0.1.0",
   "author": "me",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "run-p dev:**",
+    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
+    "dev:cms-proxy": "netlify-cms-proxy-server",
+    "serve": "gatsby serve -p 3000 -H 0.0.0.0",
+    "clean": "gatsby clean",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "@fontsource/roboto": "^4.5.8",
@@ -45,15 +56,6 @@
     "shop"
   ],
   "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "dev": "run-p dev:**",
-    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
-    "dev:cms-proxy": "netlify-cms-proxy-server",
-    "serve": "gatsby serve -p 3000 -H 0.0.0.0",
-    "clean": "gatsby clean",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" --fix"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
@@ -68,6 +70,7 @@
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
     "autoprefixer": "^10.4.13",
+    "cypress": "^12.2.0",
     "eslint": "^8.29.0",
     "eslint-config-next": "^13.0.6",
     "eslint-import-resolver-alias": "^1.1.2",

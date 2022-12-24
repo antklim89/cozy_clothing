@@ -45,7 +45,7 @@ module.exports = {
                 'alphabetize': { order: 'asc', caseInsensitive: true },
             },
         ],
-        'import/no-extraneous-dependencies': ['error', { devDependencies: ['*.js'] }],
+        'import/no-extraneous-dependencies': ['error', { devDependencies: ['*.js', 'cypress.config.*'] }],
 
         'react/no-multi-comp': [1, { 'ignoreStateless': true }],
         'react/jsx-no-useless-fragment': 0,
