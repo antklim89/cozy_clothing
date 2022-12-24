@@ -2,7 +2,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { FC } from 'react';
 import styles from './Hero.module.scss';
 import { HeroQuery } from './Hero.types';
-import Title from '~/components/Title';
 
 
 const Hero: FC = () => {
@@ -29,7 +28,7 @@ const Hero: FC = () => {
         >
             <div className={styles.gradient} />
             <div className={styles.text}>
-                <Title position="left">{hero.title}</Title>
+                <h1>{hero.title}</h1>
                 <p className="hide-sm">{hero.body}</p>
             </div>
         </section>

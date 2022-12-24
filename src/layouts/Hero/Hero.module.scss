@@ -19,6 +19,7 @@
 
 .text {
     @extend .container;
+    font-size: $font-size-xl;
     color: white;
     padding: $space-lg;
     padding-bottom: $space-lg * 2;
