@@ -11,7 +11,17 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('getLocalstorage', (itemName) => {
+    return cy.getAllLocalStorage().then((allStorages) => {
+        const storage = Object.values(allStorages).shift();
+        if (!storage) return null;
+        try {
+            return JSON.parse(storage[itemName] as string || '');
+        } catch (error) {
+            return null;
+        }
+    });
+});
 //
 //
 // -- This is a child command --
@@ -21,17 +31,3 @@
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 //
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }

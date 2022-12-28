@@ -25,7 +25,7 @@ const ProductCartButton: FC<{cartItem: ICartItem}> = memo(({ cartItem }) => {
                 )
                 : (
                     <Button onClick={handleAddToCart}>
-                        Add To Card
+                        Add To Cart
                     </Button>
                 )}
         </div>

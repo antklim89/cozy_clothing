@@ -20,7 +20,8 @@ const ProductListCard: FC<IProductPreview> = (product) => {
                 ${product.discount > 0 ? `with discount ${product.discount}%` : ''}
                 ${isInCart ? 'in cart' : ''}
             `}
-            className={styles.link} to={`/product/${product.id}`}
+            className={styles.link}
+            data-cy="product-list-item" to={`/product/${product.id}`}
         >
             <section className={styles.cart}>
                 <div className={styles.image}>
