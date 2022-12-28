@@ -8,6 +8,7 @@ const Backdrop: FC<BackdropPropTypes> = ({ onClick, isShow = true }) => {
     return (
         <div
             className={styles.backdrop}
+            data-cy="backdrop"
             role="menu"
             tabIndex={-1}
             onClick={onClick}

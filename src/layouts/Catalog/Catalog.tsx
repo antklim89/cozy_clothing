@@ -35,6 +35,7 @@ const Catalog: FC = () => {
                 aria-expanded={isOpen}
                 aria-label="catalog"
                 className="text"
+                data-cy="catalog-button"
                 onClick={() => setIsOpen(true)}
             >
                 <span className="show-md"><Menu /></span>
@@ -43,11 +44,12 @@ const Catalog: FC = () => {
             <Backdrop isShow={isOpen} onClick={() => setIsOpen(false)} />
             { isOpen
                 ? (
-                    <nav className={styles.drawer}>
+                    <nav className={styles.drawer} data-cy="catalog-window">
                         <ul className={styles.itemContainer}>
                             <li className="show-sm">
                                 <Link
                                     className="btn text"
+                                    data-cy="catalog-about-link"
                                     to="/about"
                                     onClick={() => setIsOpen(false)}
                                 >
@@ -57,6 +59,7 @@ const Catalog: FC = () => {
                             <li className="show-sm">
                                 <Link
                                     className="btn text"
+                                    data-cy="catalog-search-link"
                                     to="/search"
                                     onClick={() => setIsOpen(false)}
                                 >
@@ -69,6 +72,7 @@ const Catalog: FC = () => {
                                 <li key={type}>
                                     <Link
                                         className="btn text"
+                                        data-cy="catalog-type-link"
                                         to={`/products/${type}`}
                                         onClick={() => setIsOpen(false)}
                                     >
@@ -80,6 +84,7 @@ const Catalog: FC = () => {
                                             <li key={category + type}>
                                                 <Link
                                                     className="btn text"
+                                                    data-cy="catalog-category-link"
                                                     to={`/products/${type}/${category}`}
                                                     onClick={() => setIsOpen(false)}
                                                 >
