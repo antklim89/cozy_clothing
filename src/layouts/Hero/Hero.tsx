@@ -28,7 +28,11 @@ const Hero: FC = () => {
 
     return (
         <section className={styles.root}>
-            <GatsbyImage alt="hero" className={styles.image} image={hero.image.childImageSharp.gatsbyImageData} />
+            <div className={styles.image} >
+                <GatsbyImage
+                    alt="hero" image={hero.image.childImageSharp.gatsbyImageData}
+                />
+            </div>
             <div className={styles.gradient} />
             <div className={styles.text}>
                 <h1>{hero.title}</h1>
