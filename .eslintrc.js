@@ -86,7 +86,7 @@ module.exports = {
         'react/require-default-props': 0,
         'react/destructuring-assignment': 0,
         'react/jsx-closing-bracket-location': 2,
-        'react/jsx-no-bind': [2, { ignoreDOMComponents: true, allowArrowFunctions: false }],
+        'react/jsx-no-bind': [2, { ignoreDOMComponents: true, allowArrowFunctions: true }],
         'react/function-component-definition': [2, { 'namedComponents': 'arrow-function' }],
         'react/jsx-max-depth': [1, { 'max': 5 }],
         'react/jsx-sort-props': [1, { callbacksLast: true, shorthandFirst: true }],
