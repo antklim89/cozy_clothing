@@ -3,56 +3,26 @@
 
 .form {
     display: flex;
-    flex-wrap: wrap;
-    @extend .px-2;
 
-    .errorMessage {
-        @extend .p-2;
-        display: none;
+    @include media-sm {
+        flex-direction: column;
     }
-}
 
-.error {
-    color: $error;
-
-    .errorMessage {
-        display: inline-block;
-    }
-}
-
-.input-group {
-    margin: 0.5rem 0;
-    display: flex;
-    height: 100%;
-
-    @include media-xs {
-        flex-wrap: wrap;
-        flex-basis: 100%;
+    input, select, textarea {
+        @extend .mb-2;
     }
 }
 
 .input-columns {
-    flex: 1;
-    height: 100%;
-
-
-    @include media-sm {
-        flex-basis: 100%;
-    }
+    flex: 1 1 100%;
+    margin: 0 0.5rem;
 }
 
-.input-columns:first-child {
-    margin-right: 0.5rem;
-}
+.input-group {
+    display: flex;
 
-.input-columns:last-child {
-    margin-left: 0.5rem;
-}
-
-.input-columns:first-child,
-.input-columns:last-child {
-    @include media-sm {
-        margin: 0;
+    @include media-xs {
+        flex-direction: column;
     }
 }
 
